@@ -29,7 +29,6 @@ const useApiFetch = (
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<any>({});
     const [data, setData] = useState<any>(null);
-    const [headers, setHeaders] = useState<any>(null);
     const [requestConfig] = useState(requestConfigParam);
 
     const fetchData = useCallback(async (request?: any) => {
@@ -42,7 +41,6 @@ const useApiFetch = (
                 ...request
             });
             setData(response.data || []);
-            setHeaders(response.headers || []);
         } catch (error: any) {
             if (error?.response?.status === 400) {
                 setErrors({
@@ -51,12 +49,6 @@ const useApiFetch = (
                     details: error
                 });
             } else if (error?.response?.status === 401) {
-                const fullPath = searchParams.toString()
-                    ? `${pathname}?${searchParams.toString()}`
-                    : pathname;
-                router.replace(
-                    `/signin${fullPath ? "?returnTo=" + encodeURIComponent(fullPath) : ""}`
-                );
                 setErrors({
                     isError: true,
                     message: "Unauthorized",
@@ -126,7 +118,7 @@ const useApiFetch = (
         intialFetch && fetchData(requestConfig);
     }, [requestConfig, fetchData, intialFetch]);
 
-    return { isLoading, errors, data, headers, fetchData, setErrors };
+    return { isLoading, errors, data, fetchData, setErrors };
 };
 
 export default useApiFetch;

@@ -1,0 +1,1969 @@
+{
+  "ReturnKey": "SINGLE CURRENCYOP001",
+  "InstCode": "0000001",
+  "FinYear": 2026,
+  "StartDate": "2026-08-16T00:00:00.000Z",
+  "EndDate": "2026-08-16T00:00:00.000Z",
+  "ReturnItemsList": [
+    {
+      "Code": "164_00001",
+      "Value": "1201762.76",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00002",
+      "Value": "36019.84",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00003",
+      "Value": "2377.4",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00004",
+      "Value": "4288.2",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00005",
+      "Value": "58840.82",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00006",
+      "Value": "4712427.99",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00007",
+      "Value": "170.8",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00008",
+      "Value": "73991.47",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00009",
+      "Value": "1891.05",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00010",
+      "Value": "12966.6",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00011",
+      "Value": "21107.17",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00012",
+      "Value": "4019",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00013",
+      "Value": "30922.09",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00014",
+      "Value": "207",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00015",
+      "Value": "1760.08",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00016",
+      "Value": "8650.81",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00017",
+      "Value": "77.46",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00018",
+      "Value": "33506409.48",
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00019",
+      "Value": 0,
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00020",
+      "Value": 0,
+      "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00021",
+      "Value": "144831.26",
+      "_description": "Currency on hand_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00022",
+      "Value": "1139.02",
+      "_description": "Currency on hand_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00023",
+      "Value": "892.46",
+      "_description": "Currency on hand_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00024",
+      "Value": "304.63",
+      "_description": "Currency on hand_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00025",
+      "Value": "1018",
+      "_description": "Currency on hand_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00026",
+      "Value": "97901.52",
+      "_description": "Currency on hand_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00027",
+      "Value": "0",
+      "_description": "Currency on hand_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00028",
+      "Value": "0",
+      "_description": "Currency on hand_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00029",
+      "Value": "1.95",
+      "_description": "Currency on hand_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00030",
+      "Value": "1737.31",
+      "_description": "Currency on hand_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00031",
+      "Value": "18594.47",
+      "_description": "Currency on hand_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00032",
+      "Value": "573.33",
+      "_description": "Currency on hand_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00033",
+      "Value": "29319.39",
+      "_description": "Currency on hand_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00034",
+      "Value": "207",
+      "_description": "Currency on hand_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00035",
+      "Value": "2.1",
+      "_description": "Currency on hand_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00036",
+      "Value": "2317.37",
+      "_description": "Currency on hand_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00037",
+      "Value": "77.46",
+      "_description": "Currency on hand_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00038",
+      "Value": "758626.21",
+      "_description": "Currency on hand_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00039",
+      "Value": 0,
+      "_description": "Currency on hand_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00040",
+      "Value": 0,
+      "_description": "Currency on hand_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00041",
+      "Value": "934839.21",
+      "_description": "Due from banks_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00042",
+      "Value": "34824.43",
+      "_description": "Due from banks_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00043",
+      "Value": "1484.94",
+      "_description": "Due from banks_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00044",
+      "Value": "3983.57",
+      "_description": "Due from banks_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00045",
+      "Value": "57822.82",
+      "_description": "Due from banks_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00046",
+      "Value": "4604783.99",
+      "_description": "Due from banks_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00047",
+      "Value": "170.8",
+      "_description": "Due from banks_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00048",
+      "Value": "73991.47",
+      "_description": "Due from banks_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00049",
+      "Value": "1889.1",
+      "_description": "Due from banks_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00050",
+      "Value": "11229.29",
+      "_description": "Due from banks_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00051",
+      "Value": "2512.67",
+      "_description": "Due from banks_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00052",
+      "Value": "3444.4",
+      "_description": "Due from banks_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00053",
+      "Value": "1602.7",
+      "_description": "Due from banks_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00054",
+      "Value": "0",
+      "_description": "Due from banks_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00055",
+      "Value": "1757.96",
+      "_description": "Due from banks_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00056",
+      "Value": "6333.44",
+      "_description": "Due from banks_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00057",
+      "Value": "0",
+      "_description": "Due from banks_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00058",
+      "Value": "32286459.46",
+      "_description": "Due from banks_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00059",
+      "Value": 0,
+      "_description": "Due from banks_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00060",
+      "Value": 0,
+      "_description": "Due from banks_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00061",
+      "Value": "15306.65",
+      "_description": "Cheques and items in transit_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00062",
+      "Value": "0",
+      "_description": "Cheques and items in transit_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00063",
+      "Value": "0",
+      "_description": "Cheques and items in transit_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00064",
+      "Value": "0",
+      "_description": "Cheques and items in transit_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00065",
+      "Value": "0",
+      "_description": "Cheques and items in transit_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00066",
+      "Value": "0",
+      "_description": "Cheques and items in transit_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00067",
+      "Value": "0",
+      "_description": "Cheques and items in transit_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00068",
+      "Value": "0",
+      "_description": "Cheques and items in transit_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00069",
+      "Value": "0",
+      "_description": "Cheques and items in transit_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00070",
+      "Value": "0",
+      "_description": "Cheques and items in transit_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00071",
+      "Value": "0.04",
+      "_description": "Cheques and items in transit_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00072",
+      "Value": "0.87",
+      "_description": "Cheques and items in transit_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00073",
+      "Value": "0",
+      "_description": "Cheques and items in transit_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00074",
+      "Value": "0",
+      "_description": "Cheques and items in transit_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00075",
+      "Value": "0",
+      "_description": "Cheques and items in transit_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00076",
+      "Value": "0",
+      "_description": "Cheques and items in transit_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00077",
+      "Value": "0",
+      "_description": "Cheques and items in transit_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00078",
+      "Value": "0",
+      "_description": "Cheques and items in transit_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00079",
+      "Value": 0,
+      "_description": "Cheques and items in transit_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00080",
+      "Value": 0,
+      "_description": "Cheques and items in transit_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00081",
+      "Value": "914.38",
+      "_description": "Loans and Advances_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00082",
+      "Value": "0",
+      "_description": "Loans and Advances_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00083",
+      "Value": "0",
+      "_description": "Loans and Advances_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00084",
+      "Value": "0",
+      "_description": "Loans and Advances_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00085",
+      "Value": "0",
+      "_description": "Loans and Advances_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00086",
+      "Value": "0",
+      "_description": "Loans and Advances_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00087",
+      "Value": "0",
+      "_description": "Loans and Advances_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00088",
+      "Value": "0",
+      "_description": "Loans and Advances_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00089",
+      "Value": "0",
+      "_description": "Loans and Advances_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00090",
+      "Value": "0",
+      "_description": "Loans and Advances_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00091",
+      "Value": "0",
+      "_description": "Loans and Advances_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00092",
+      "Value": "0",
+      "_description": "Loans and Advances_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00093",
+      "Value": "0",
+      "_description": "Loans and Advances_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00094",
+      "Value": "0",
+      "_description": "Loans and Advances_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00095",
+      "Value": "0",
+      "_description": "Loans and Advances_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00096",
+      "Value": "0",
+      "_description": "Loans and Advances_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00097",
+      "Value": "0",
+      "_description": "Loans and Advances_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00098",
+      "Value": "331068.87",
+      "_description": "Loans and Advances_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00099",
+      "Value": 0,
+      "_description": "Loans and Advances_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00100",
+      "Value": 0,
+      "_description": "Loans and Advances_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00101",
+      "Value": "0",
+      "_description": "Accrued interest receivables_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00102",
+      "Value": "0",
+      "_description": "Accrued interest receivables_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00103",
+      "Value": "0",
+      "_description": "Accrued interest receivables_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00104",
+      "Value": "0",
+      "_description": "Accrued interest receivables_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00105",
+      "Value": "0",
+      "_description": "Accrued interest receivables_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00106",
+      "Value": "0",
+      "_description": "Accrued interest receivables_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00107",
+      "Value": "0",
+      "_description": "Accrued interest receivables_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00108",
+      "Value": "0",
+      "_description": "Accrued interest receivables_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00109",
+      "Value": "0",
+      "_description": "Accrued interest receivables_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00110",
+      "Value": "0",
+      "_description": "Accrued interest receivables_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00111",
+      "Value": "0",
+      "_description": "Accrued interest receivables_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00112",
+      "Value": "0",
+      "_description": "Accrued interest receivables_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00113",
+      "Value": "0",
+      "_description": "Accrued interest receivables_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00114",
+      "Value": "0",
+      "_description": "Accrued interest receivables_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00115",
+      "Value": "0",
+      "_description": "Accrued interest receivables_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00116",
+      "Value": "0",
+      "_description": "Accrued interest receivables_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00117",
+      "Value": "0",
+      "_description": "Accrued interest receivables_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00118",
+      "Value": "0",
+      "_description": "Accrued interest receivables_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00119",
+      "Value": 0,
+      "_description": "Accrued interest receivables_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00120",
+      "Value": 0,
+      "_description": "Accrued interest receivables_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00121",
+      "Value": "105871.25",
+      "_description": "Other assets_USD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00122",
+      "Value": "56.38",
+      "_description": "Other assets_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00123",
+      "Value": "0",
+      "_description": "Other assets_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00124",
+      "Value": "0",
+      "_description": "Other assets_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00125",
+      "Value": "0",
+      "_description": "Other assets_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00126",
+      "Value": "9742.48",
+      "_description": "Other assets_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00127",
+      "Value": "0",
+      "_description": "Other assets_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00128",
+      "Value": "0",
+      "_description": "Other assets_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00129",
+      "Value": "0",
+      "_description": "Other assets_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00130",
+      "Value": "0",
+      "_description": "Other assets_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00131",
+      "Value": "0",
+      "_description": "Other assets_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00132",
+      "Value": "0.39",
+      "_description": "Other assets_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00133",
+      "Value": "0",
+      "_description": "Other assets_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00134",
+      "Value": "0",
+      "_description": "Other assets_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00135",
+      "Value": "0.02",
+      "_description": "Other assets_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00136",
+      "Value": "0",
+      "_description": "Other assets_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00137",
+      "Value": "0",
+      "_description": "Other assets_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00138",
+      "Value": "130254.95",
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00139",
+      "Value": 0,
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00140",
+      "Value": 0,
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00141",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00142",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00143",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00144",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00145",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00146",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00147",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00148",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00149",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00150",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00151",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00152",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00153",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00154",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00155",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00156",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00157",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00158",
+      "Value": "0",
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00159",
+      "Value": 0,
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00160",
+      "Value": 0,
+      "_description": "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00161",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00162",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00163",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00164",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00165",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00166",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00167",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00168",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00169",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00170",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00171",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00172",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00173",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00174",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00175",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00176",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00177",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00178",
+      "Value": "0",
+      "_description": "Undelivered spot purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00179",
+      "Value": 0,
+      "_description": "Undelivered spot purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00180",
+      "Value": 0,
+      "_description": "Undelivered spot purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00181",
+      "Value": "0",
+      "_description": "Forward purchase_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00182",
+      "Value": "0",
+      "_description": "Forward purchase_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00183",
+      "Value": "0",
+      "_description": "Forward purchase_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00184",
+      "Value": "0",
+      "_description": "Forward purchase_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00185",
+      "Value": "0",
+      "_description": "Forward purchase_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00186",
+      "Value": "0",
+      "_description": "Forward purchase_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00187",
+      "Value": "0",
+      "_description": "Forward purchase_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00188",
+      "Value": "0",
+      "_description": "Forward purchase_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00189",
+      "Value": "0",
+      "_description": "Forward purchase_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00190",
+      "Value": "0",
+      "_description": "Forward purchase_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00191",
+      "Value": "0",
+      "_description": "Forward purchase_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00192",
+      "Value": "0",
+      "_description": "Forward purchase_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00193",
+      "Value": "0",
+      "_description": "Forward purchase_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00194",
+      "Value": "0",
+      "_description": "Forward purchase_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00195",
+      "Value": "0",
+      "_description": "Forward purchase_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00196",
+      "Value": "0",
+      "_description": "Forward purchase_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00197",
+      "Value": "0",
+      "_description": "Forward purchase_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00198",
+      "Value": "0",
+      "_description": "Forward purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00199",
+      "Value": 0,
+      "_description": "Forward purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00200",
+      "Value": 0,
+      "_description": "Forward purchase_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00201",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00202",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00203",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00204",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00205",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00206",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00207",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00208",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00209",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00210",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00211",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00212",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00213",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00214",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00215",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00216",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00217",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00218",
+      "Value": "0",
+      "_description": "Option, Swaps, Derivatives_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00219",
+      "Value": 0,
+      "_description": "Option, Swaps, Derivatives_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00220",
+      "Value": 0,
+      "_description": "Option, Swaps, Derivatives_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00221",
+      "Value": "0",
+      "_description": "Other assets_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00222",
+      "Value": "0",
+      "_description": "Other assets_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00223",
+      "Value": "0",
+      "_description": "Other assets_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00224",
+      "Value": "0",
+      "_description": "Other assets_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00225",
+      "Value": "0",
+      "_description": "Other assets_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00226",
+      "Value": "0",
+      "_description": "Other assets_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00227",
+      "Value": "0",
+      "_description": "Other assets_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00228",
+      "Value": "0",
+      "_description": "Other assets_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00229",
+      "Value": "0",
+      "_description": "Other assets_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00230",
+      "Value": "0",
+      "_description": "Otherassets_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00231",
+      "Value": "0",
+      "_description": "Other assets_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00232",
+      "Value": "0",
+      "_description": "Other assets_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00233",
+      "Value": "0",
+      "_description": "Other assets_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00234",
+      "Value": "0",
+      "_description": "Other assets_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00235",
+      "Value": "0",
+      "_description": "Other assets_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00236",
+      "Value": "0",
+      "_description": "Other assets_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00237",
+      "Value": "0",
+      "_description": "Other assets_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00238",
+      "Value": "0",
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00239",
+      "Value": 0,
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00240",
+      "Value": 0,
+      "_description": "Other assets_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00241",
+      "Value": "1201762.76",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00242",
+      "Value": "36019.84",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00243",
+      "Value": "2377.4",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00244",
+      "Value": "4288.2",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00245",
+      "Value": "58840.82",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00246",
+      "Value": "4712427.99",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00247",
+      "Value": "170.8",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00248",
+      "Value": "73991.47",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00249",
+      "Value": "1891.05",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00250",
+      "Value": "12966.6",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00251",
+      "Value": "21107.17",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00252",
+      "Value": "4019",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00253",
+      "Value": "30922.09",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00254",
+      "Value": "207",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00255",
+      "Value": "1760.08",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00256",
+      "Value": "8650.81",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00257",
+      "Value": "77.46",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00258",
+      "Value": "33506409.48",
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00259",
+      "Value": 0,
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00260",
+      "Value": 0,
+      "_description": "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00261",
+      "Value": "1286253.37",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_USD ",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00262",
+      "Value": "89938.08",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_EUR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00263",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CHF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00264",
+      "Value": "4012.91",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_GBP",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00265",
+      "Value": "759.9",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_JPY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00266",
+      "Value": "2246499.67",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_DJF",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00267",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_KES",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00268",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_INR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00269",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_DKK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00270",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_SEK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00271",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_SAR",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00272",
+      "Value": "0.07",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CAD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00273",
+      "Value": "20.43",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_AED",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00274",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_AUD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00275",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CNY",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00276",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_NOK",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00277",
+      "Value": "0",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_KWD",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00278",
+      "Value": "32532343.12",
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00279",
+      "Value": 0,
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    },
+    {
+      "Code": "164_00280",
+      "Value": 0,
+      "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
+      "_dataType": "NUMERIC",
+      "_required": false
+    }
+  ]
+}

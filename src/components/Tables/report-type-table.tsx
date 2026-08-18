@@ -21,6 +21,7 @@ import { ReportFormValues, reportSchema } from "@/yup/reportType";
 import InputGroup from "../FormElements/InputGroup";
 import { toast } from "sonner";
 import { Select } from "../FormElements/select";
+import { FrequncyTypes, ServiceTypes } from "@/types/types";
 
 export function ReportTypeTable() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -52,8 +53,8 @@ export function ReportTypeTable() {
         defaultValues: {
             reportId: "",
             description: "",
-            frequency: "Monthly",
-            service: "Manual"
+            frequency: FrequncyTypes.Monthly,
+            service: ServiceTypes.Manual
         }
     });
 
@@ -190,11 +191,12 @@ export function ReportTypeTable() {
                     <div>
                         <Select
                             label="Service"
-                            items={[
-                                { label: "Manual", value: "Manual" },
-                                { label: "Auto", value: "Auto" },
-                                { label: "None", value: "None" }
-                            ]}
+                            items={Object.values(ServiceTypes).map(
+                                (service) => ({
+                                    label: service,
+                                    value: service
+                                })
+                            )}
                             defaultValue="Manual"
                             {...register("service")}
                         />
@@ -208,13 +210,12 @@ export function ReportTypeTable() {
                     <div>
                         <Select
                             label="Frequency"
-                            items={[
-                                { label: "Daily", value: "Daily" },
-                                { label: "Weekly", value: "Weekly" },
-                                { label: "Monthly", value: "Monthly" },
-                                { label: "Quarterly", value: "Quarterly" },
-                                { label: "Yearly", value: "Yearly" }
-                            ]}
+                            items={Object.values(FrequncyTypes).map(
+                                (frequency) => ({
+                                    label: frequency,
+                                    value: frequency
+                                })
+                            )}
                             defaultValue="Monthly"
                             {...register("frequency")}
                         />

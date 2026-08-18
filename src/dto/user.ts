@@ -1,5 +1,5 @@
 export interface UserDto {
-    id?: string;
+    _id?: string;
     email?: string;
     role?: string;
     allowedReports?: string[];

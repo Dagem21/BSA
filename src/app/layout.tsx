@@ -12,11 +12,10 @@ import { Providers } from "./providers";
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | BSA Dashboard",
-        default: "BSA - Dashboard"
+        template: "%s | CBE BSA Dashboard",
+        default: "CBE BSA - Dashboard"
     },
-    description:
-        "Next.js admin dashboard toolkit with 200+ templates, UI components, and integrations for fast dashboard development."
+    description: "CBE National Bank of Ethiopia | BSA Reporting."
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

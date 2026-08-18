@@ -23,12 +23,6 @@ export const NAV_DATA = [
                 items: []
             },
             {
-                title: "Notification",
-                url: "/notification",
-                icon: Icons.NotificationICon,
-                items: []
-            },
-            {
                 title: "Profile",
                 url: "/profile",
                 icon: Icons.User,

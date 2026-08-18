@@ -1,6 +1,7 @@
+require("@/models/userSchema");
+
 import { UserDto } from "@/dto/user";
 
-require("@/models/userSchema");
 const mongoose = require("mongoose");
 const userSchema = mongoose.model("users");
 

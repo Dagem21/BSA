@@ -1,12 +1,13 @@
-import { ReportTypeDto } from "@/dto/reportType";
-
+require("@/models/userSchema");
 require("@/models/reportTypeSchema");
+
+import { ReportTypeDto } from "@/dto/reportType";
 const mongoose = require("mongoose");
 const reportTypeSchema = mongoose.model("reporttypes");
 
-export const findReportType = async () => {
+export const findReportType = async (filter?: ReportTypeDto) => {
     try {
-        const reportType = await reportTypeSchema.find();
+        const reportType = await reportTypeSchema.find(filter);
         return reportType;
     } catch (e) {
         return null;

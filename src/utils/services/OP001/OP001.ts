@@ -1,8 +1,11 @@
+"use server";
+
 import { OpenPosition } from "@/generated/prisma";
 import * as ExcelJS from "exceljs";
 import * as path from "path";
 import * as fs from "fs";
 import { OP001Format } from "./jsonFormat";
+import { generateFileName } from "@/utils/generateFileName";
 
 const CURRENCY_MAP: Record<string, string> = {
     USD: "C",
@@ -32,13 +35,15 @@ const FORMULA_ROWS: ReadonlySet<number> = new Set([
 ]);
 
 export async function populateOpenPositionReport(
-    rowsData: OpenPosition[]
+    rowsData: OpenPosition[],
+    startDate: Date,
+    endDate: Date
 ): Promise<any> {
     try {
-        const currDate = new Date();
-        const dateString = currDate.toISOString().split("T")[0];
-        const fileNameExcel = `OP001 ${dateString}.xlsx`;
-        const fileNameJson = `OP001 ${dateString}.json`;
+        const fileName = generateFileName();
+
+        const fileNameExcel = `${fileName}.xlsx`;
+        const fileNameJson = `${fileName}.json`;
 
         const rootDir = process.cwd();
         const templatePath = path.join(rootDir, "templates", "OP001.xlsx");
@@ -59,9 +64,9 @@ export async function populateOpenPositionReport(
 
         await generateSingleCurrencyExcel(
             "0000001",
-            2026,
-            "2026-08-13T00:00:00",
-            "2026-08-13T00:00:00",
+            startDate.getFullYear(),
+            startDate.toISOString(),
+            endDate.toISOString(),
             rowsData,
             templatePath,
             outputPathExcel
@@ -69,9 +74,9 @@ export async function populateOpenPositionReport(
 
         generateSingleCurrencyJson(
             "0000001",
-            2026,
-            "2026-08-13T00:00:00",
-            "2026-08-13T00:00:00",
+            startDate.getFullYear(),
+            startDate.toISOString(),
+            endDate.toISOString(),
             rowsData,
             outputPathJson
         );
@@ -85,9 +90,9 @@ export async function populateOpenPositionReport(
 
 async function generateSingleCurrencyExcel(
     instCode: string = "0000001",
-    finYear: number = 2026,
-    startDate: string = "2026-08-15T00:00:00",
-    endDate: string = "2026-08-15T00:00:00",
+    finYear: number,
+    startDate: string,
+    endDate: string,
     rowsData: OpenPosition[],
     templatePath: string,
     outputPathExcel: string
@@ -136,8 +141,8 @@ async function generateSingleCurrencyExcel(
 function generateSingleCurrencyJson(
     instCode: string = "0000001",
     finYear: number = 2026,
-    startDate: string = "2026-08-15T00:00:00",
-    endDate: string = "2026-08-15T00:00:00",
+    startDate: string,
+    endDate: string,
     rowsData: OpenPosition[],
     outputPathJson: string
 ): boolean {

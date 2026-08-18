@@ -1,5 +1,5 @@
 export interface ReportDto {
-    id?: string;
+    _id?: string;
     reportType?: any;
     file?: string;
     json?: string;
@@ -7,7 +7,10 @@ export interface ReportDto {
     startDate?: string;
     endDate?: string;
     createdBy?: string;
+    updatedBy?: string;
     approvedBy?: string;
     status?: string;
     response?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

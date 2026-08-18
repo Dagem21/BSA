@@ -11,11 +11,16 @@ export const findOpenPositions = async (query?: Object) => {
     }
 };
 
-// export const createOpenPositions = async (openPosition: []) => {
-//     try {
-//         const reportCreated = await prisma.openPosition.createMany(openPosition);
-//         return { created: true };
-//     } catch (e) {
-//         return { created: false };
-//     }
-// };
+export const createOpenPositions = async (openPositions: any) => {
+    try {
+        const result = await prisma.$transaction(async (tx) => {
+            await tx.openPosition.createMany({
+                data: openPositions,
+                skipDuplicates: true
+            });
+        });
+        return { created: result };
+    } catch (e) {
+        return { created: false };
+    }
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { PlusIcon, TrashIcon } from "@/assets/icons";
+import { CheckIcon, PlusIcon, TrashIcon } from "@/assets/icons";
 import {
     Table,
     TableBody,
@@ -22,24 +22,28 @@ import InputGroup from "../FormElements/InputGroup";
 import { toast } from "sonner";
 import { Select } from "../FormElements/select";
 import { ReportDto } from "@/dto/report";
+import { cn } from "@/lib/utils";
 
 export function ReportTable() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isPopupOpenUpdate, setIsPopupOpenUpdate] = useState(false);
+    const [selectedReport, setSelectedReport] = useState<ReportDto | null>(
+        null
+    );
     const { data, fetchData, isLoading } = useApiFetch({
         url: "/api/report",
         method: "GET"
     });
 
     const {
-        data: dataFile,
-        headers: headersFile,
-        fetchData: fetchDataFile,
-        isLoading: isLoadingFile,
-        errors: errorsFile
+        data: dataUpdate,
+        fetchData: fetchDataUpdate,
+        isLoading: isLoadingUpdate,
+        errors: errorsUpdate
     } = useApiFetch(
         {
-            url: "/api/report/download",
-            method: "GET"
+            url: "/api/report",
+            method: "PUT"
         },
         false
     );
@@ -75,13 +79,24 @@ export function ReportTable() {
     useEffect(() => {
         if (!isLoadingCreate && dataCreate) {
             setIsPopupOpen(false);
-            toast.success("Sign in successful");
+            toast.success("Report created.");
             fetchData();
             reset();
-        } else if (!isLoading && errorCreate?.details) {
+        } else if (!isLoadingCreate && errorCreate?.details) {
             toast.error(errorCreate.details?.response?.data?.error);
         }
     }, [dataCreate, isLoadingCreate, errorCreate]);
+
+    useEffect(() => {
+        if (!isLoadingUpdate && dataUpdate) {
+            setIsPopupOpenUpdate(false);
+            toast.success("Report updated.");
+            fetchData();
+            setSelectedReport(null);
+        } else if (!isLoadingUpdate && errorsUpdate?.details) {
+            toast.error(errorsUpdate.details?.response?.data?.error);
+        }
+    }, [dataUpdate, isLoadingUpdate, errorsUpdate]);
 
     const onSubmit = (data: ReportFormValues) => {
         const cleanData = Object.fromEntries(
@@ -151,6 +166,7 @@ export function ReportTable() {
                         <TableHead>Start Date</TableHead>
                         <TableHead>End Date</TableHead>
                         <TableHead>Status</TableHead>
+                        <TableHead>Last Update</TableHead>
                         <TableHead className="text-right xl:pr-7.5">
                             Actions
                         </TableHead>
@@ -188,26 +204,56 @@ export function ReportTable() {
                             </TableCell>
 
                             <TableCell>
+                                <div
+                                    className={cn(
+                                        "max-w-fit rounded-full px-3.5 py-1 text-sm font-medium",
+                                        {
+                                            "bg-[#219653]/8 text-[#219653]":
+                                                item.status === "Submitted",
+                                            "bg-[#D34053]/8 text-[#4056d3]":
+                                                item.status === "Approved",
+                                            "bg-[#FFA70B]/8 text-[#FFA70B]":
+                                                item.status === "Pending"
+                                        }
+                                    )}
+                                >
+                                    {item.status}
+                                </div>
+                            </TableCell>
+
+                            <TableCell>
                                 <p className="text-dark dark:text-white">
-                                    {item?.status}
+                                    {item?.updatedAt
+                                        ? new Date(
+                                              item.updatedAt
+                                          ).toDateString()
+                                        : "N/A"}
                                 </p>
                             </TableCell>
 
                             <TableCell className="xl:pr-7.5">
-                                <div className="flex items-center justify-end gap-x-3.5">
+                                <div className="flex items-center justify-end gap-x-4.5">
                                     <button className="hover:text-primary">
                                         <span className="sr-only">
-                                            View Invoice
+                                            View Report
                                         </span>
                                         <PreviewIcon />
                                     </button>
 
-                                    <button className="hover:text-primary">
-                                        <span className="sr-only">
-                                            Delete Invoice
-                                        </span>
-                                        <TrashIcon />
-                                    </button>
+                                    {item.status === "Pending" && (
+                                        <button
+                                            className="hover:text-primary"
+                                            onClick={() => {
+                                                setSelectedReport(item);
+                                                setIsPopupOpenUpdate(true);
+                                            }}
+                                        >
+                                            <span className="sr-only">
+                                                Approve Report
+                                            </span>
+                                            <CheckIcon />
+                                        </button>
+                                    )}
 
                                     <button
                                         className="hover:text-primary"
@@ -216,7 +262,7 @@ export function ReportTable() {
                                         }}
                                     >
                                         <span className="sr-only">
-                                            Download Invoice
+                                            Download Report
                                         </span>
                                         <DownloadIcon />
                                     </button>
@@ -319,6 +365,38 @@ export function ReportTable() {
                         </button>
                     </div>
                 </form>
+            </Modal>
+            <Modal
+                isOpen={isPopupOpenUpdate}
+                onClose={() => setIsPopupOpenUpdate(false)}
+                title="Update Report"
+            >
+                <p>Are you sure you want to approve this report?</p>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <Button
+                        className="w-full transition sm:flex-1"
+                        label={isLoadingUpdate ? "Updating..." : "Approve"}
+                        variant="primary"
+                        shape="rounded"
+                        size="small"
+                        onClick={() => {
+                            fetchDataUpdate({
+                                data: {
+                                    reportId: selectedReport?._id,
+                                    status: "Approved"
+                                }
+                            });
+                        }}
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() => setIsPopupOpenUpdate(false)}
+                        className="dark:border-strokedark dark:hover:bg-meta-4 w-full rounded border border-stroke px-4 py-2 font-medium text-black transition hover:bg-gray-100 sm:flex-1 dark:text-white"
+                    >
+                        Cancel
+                    </button>
+                </div>
             </Modal>
         </div>
     );

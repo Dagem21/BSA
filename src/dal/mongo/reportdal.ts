@@ -1,8 +1,20 @@
-import { ReportDto } from "@/dto/report";
-
+require("@/models/reportTypeSchema");
 require("@/models/reportSchema");
+
+import { ReportDto } from "@/dto/report";
+import { Types } from "mongoose";
+
 const mongoose = require("mongoose");
 const reportSchema = mongoose.model("reports");
+
+export const findReport = async (id: string) => {
+    try {
+        const report = await reportSchema.findById(id);
+        return report;
+    } catch (e) {
+        return null;
+    }
+};
 
 export const findReports = async (filter?: ReportDto) => {
     try {
@@ -11,6 +23,7 @@ export const findReports = async (filter?: ReportDto) => {
         });
         return report;
     } catch (e) {
+        console.log(e);
         return null;
     }
 };
@@ -24,10 +37,10 @@ export const createReport = async (report: ReportDto) => {
     }
 };
 
-export const updateReport = async (id: string, update: ReportDto) => {
+export const updateReport = async (id: Types.ObjectId, update: ReportDto) => {
     try {
         const reportUpdated = await reportSchema.updateOne(
-            { id },
+            { _id: id },
             { $set: update }
         );
         return {

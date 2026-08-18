@@ -27,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         <div className="fixed inset-0 z-[99999] flex h-screen w-screen items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
             {/* 2. Add 'mx-auto' and explicit 'w-full' to force the max-width boundary */}
             <div
-                className="dark:bg-boxdark relative rounded-lg bg-white p-6 shadow-xl"
+                className="relative rounded-lg bg-white p-6 text-dark shadow-xl dark:bg-[#020d1a] dark:text-white"
                 style={{ width: "100%", maxWidth: "512px" }}
             >
                 {/* Header */}

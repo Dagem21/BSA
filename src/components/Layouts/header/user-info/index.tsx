@@ -6,15 +6,14 @@ import {
     DropdownContent,
     DropdownTrigger
 } from "@/components/ui/dropdown";
-// import { signOut, useSession } from "@/lib/auth/auth-client";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { LogOutIcon, SettingsIcon, UserIcon } from "./icons";
 import { useSession, useSessionHydrated } from "@/hooks/useSession";
+import { deleteCookie } from "@/app/action";
 
 export function UserInfo() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +25,9 @@ export function UserInfo() {
     async function handleLogout() {
         setIsOpen(false);
         const loadingId = toast.loading("Logging out...");
-
         try {
-            //   await signOut();
+            await deleteCookie("session_token");
+            session.logout();
             router.push("/auth/sign-in");
             toast.success("Logged out successfully");
         } catch {
@@ -114,18 +113,6 @@ export function UserInfo() {
 
                         <span className="mr-auto text-base font-medium">
                             View profile
-                        </span>
-                    </Link>
-
-                    <Link
-                        href={"/pages/settings"}
-                        onClick={() => setIsOpen(false)}
-                        className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2.25 ring-primary outline-0 hover:bg-gray-2 hover:text-dark focus-visible:ring-1 dark:hover:bg-dark-3 dark:hover:text-white"
-                    >
-                        <SettingsIcon />
-
-                        <span className="mr-auto text-base font-medium">
-                            Account Settings
                         </span>
                     </Link>
                 </div>

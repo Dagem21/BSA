@@ -22,7 +22,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_USD ",
                 _dataType: "NUMERIC",
@@ -35,7 +35,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_EUR",
                 _dataType: "NUMERIC",
@@ -48,7 +48,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CHF",
                 _dataType: "NUMERIC",
@@ -61,7 +61,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_GBP",
                 _dataType: "NUMERIC",
@@ -74,7 +74,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_JPY",
                 _dataType: "NUMERIC",
@@ -87,7 +87,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_DJF",
                 _dataType: "NUMERIC",
@@ -100,7 +100,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_KES",
                 _dataType: "NUMERIC",
@@ -113,7 +113,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_INR",
                 _dataType: "NUMERIC",
@@ -126,7 +126,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_DKK",
                 _dataType: "NUMERIC",
@@ -139,7 +139,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_SEK",
                 _dataType: "NUMERIC",
@@ -152,7 +152,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_SAR",
                 _dataType: "NUMERIC",
@@ -165,7 +165,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CAD",
                 _dataType: "NUMERIC",
@@ -178,7 +178,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_AED",
                 _dataType: "NUMERIC",
@@ -191,7 +191,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_AUD",
                 _dataType: "NUMERIC",
@@ -204,7 +204,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_CNY",
                 _dataType: "NUMERIC",
@@ -217,7 +217,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_NOK",
                 _dataType: "NUMERIC",
@@ -230,7 +230,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_KWD",
                 _dataType: "NUMERIC",
@@ -243,7 +243,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -251,7 +251,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00019",
-                Value: 0,
+                Value: "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -259,7 +259,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00020",
-                Value: 0,
+                Value: "0",
                 _description:
                     "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -271,7 +271,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Currency on hand_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -282,7 +282,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Currency on hand_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -293,7 +293,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Currency on hand_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -304,7 +304,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Currency on hand_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -315,7 +315,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Currency on hand_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -326,7 +326,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Currency on hand_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -337,7 +337,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Currency on hand_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -348,7 +348,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Currency on hand_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -359,7 +359,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Currency on hand_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -370,7 +370,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Currency on hand_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -381,7 +381,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Currency on hand_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -392,7 +392,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Currency on hand_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -403,7 +403,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Currency on hand_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -414,7 +414,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Currency on hand_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -425,7 +425,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Currency on hand_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -436,7 +436,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Currency on hand_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -447,7 +447,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Currency on hand_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -458,21 +458,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Currency on Hand"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Currency on hand_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00039",
-                Value: 0,
+                Value: "0",
                 _description: "Currency on hand_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00040",
-                Value: 0,
+                Value: "0",
                 _description: "Currency on hand_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -483,7 +483,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Due from banks_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -494,7 +494,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Due from banks_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -505,7 +505,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Due from banks_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -516,7 +516,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Due from banks_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -527,7 +527,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Due from banks_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -538,7 +538,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Due from banks_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -549,7 +549,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Due from banks_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -560,7 +560,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Due from banks_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -571,7 +571,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Due from banks_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -582,7 +582,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Due from banks_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -593,7 +593,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Due from banks_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -604,7 +604,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Due from banks_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -615,7 +615,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Due from banks_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -626,7 +626,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Due from banks_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -637,7 +637,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Due from banks_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -648,7 +648,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Due from banks_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -659,7 +659,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Due from banks_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -670,21 +670,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Due from Banks"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Due from banks_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00059",
-                Value: 0,
+                Value: "0",
                 _description: "Due from banks_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00060",
-                Value: 0,
+                Value: "0",
                 _description: "Due from banks_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -696,7 +696,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Cheques and items in transit_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -708,7 +708,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Cheques and items in transit_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -720,7 +720,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Cheques and items in transit_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -732,7 +732,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Cheques and items in transit_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -744,7 +744,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Cheques and items in transit_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -756,7 +756,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Cheques and items in transit_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -768,7 +768,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Cheques and items in transit_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -780,7 +780,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Cheques and items in transit_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -792,7 +792,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Cheques and items in transit_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -804,7 +804,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Cheques and items in transit_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -816,7 +816,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Cheques and items in transit_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -828,7 +828,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Cheques and items in transit_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -840,7 +840,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Cheques and items in transit_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -852,7 +852,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Cheques and items in transit_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -864,7 +864,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Cheques and items in transit_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -876,7 +876,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Cheques and items in transit_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -888,7 +888,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Cheques and items in transit_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -900,7 +900,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Cheques and items in transit"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Cheques and items in transit_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -908,7 +908,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00079",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Cheques and items in transit_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -916,7 +916,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00080",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Cheques and items in transit_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -928,7 +928,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Loans and Advances_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -939,7 +939,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Loans and Advances_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -950,7 +950,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Loans and Advances_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -961,7 +961,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Loans and Advances_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -972,7 +972,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Loans and Advances_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -983,7 +983,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Loans and Advances_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -994,7 +994,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Loans and Advances_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1005,7 +1005,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Loans and Advances_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1016,7 +1016,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Loans and Advances_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1027,7 +1027,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Loans and Advances_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1038,7 +1038,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Loans and Advances_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1049,7 +1049,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Loans and Advances_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1060,7 +1060,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Loans and Advances_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1071,7 +1071,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Loans and Advances_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1082,7 +1082,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Loans and Advances_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1093,7 +1093,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Loans and Advances_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1104,7 +1104,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Loans and Advances_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1115,21 +1115,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Loan and Advance"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Loans and Advances_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00099",
-                Value: 0,
+                Value: "0",
                 _description: "Loans and Advances_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00100",
-                Value: 0,
+                Value: "0",
                 _description: "Loans and Advances_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1140,7 +1140,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Accrued interest receivables_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1151,7 +1151,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Accrued interest receivables_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1162,7 +1162,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Accrued interest receivables_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1173,7 +1173,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Accrued interest receivables_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1184,7 +1184,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Accrued interest receivables_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1195,7 +1195,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Accrued interest receivables_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1206,7 +1206,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Accrued interest receivables_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1217,7 +1217,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Accrued interest receivables_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1228,7 +1228,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Accrued interest receivables_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1239,7 +1239,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Accrued interest receivables_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1250,7 +1250,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Accrued interest receivables_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1261,7 +1261,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Accrued interest receivables_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1272,7 +1272,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Accrued interest receivables_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1283,7 +1283,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Accrued interest receivables_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1294,7 +1294,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Accrued interest receivables_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1305,7 +1305,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Accrued interest receivables_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1316,7 +1316,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Accrued interest receivables_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1327,7 +1327,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Accurued interest recivable"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Accrued interest receivables_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1335,7 +1335,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00119",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Accrued interest receivables_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1343,7 +1343,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00120",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Accrued interest receivables_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1355,7 +1355,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Other assets_USD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1366,7 +1366,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Other assets_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1377,7 +1377,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Other assets_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1388,7 +1388,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Other assets_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1399,7 +1399,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Other assets_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1410,7 +1410,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Other assets_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1421,7 +1421,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Other assets_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1432,7 +1432,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Other assets_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1443,7 +1443,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Other assets_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1454,7 +1454,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Other assets_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1465,7 +1465,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Other assets_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1476,7 +1476,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Other assets_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1487,7 +1487,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Other assets_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1498,7 +1498,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Other assets_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1509,7 +1509,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Other assets_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1520,7 +1520,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Other assets_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1531,7 +1531,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Other assets_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1542,21 +1542,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other Assets"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00139",
-                Value: 0,
+                Value: "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00140",
-                Value: 0,
+                Value: "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1568,7 +1568,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_USD ",
                 _dataType: "NUMERIC",
@@ -1581,7 +1581,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_EUR",
                 _dataType: "NUMERIC",
@@ -1594,7 +1594,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CHF",
                 _dataType: "NUMERIC",
@@ -1607,7 +1607,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_GBP",
                 _dataType: "NUMERIC",
@@ -1620,7 +1620,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_JPY",
                 _dataType: "NUMERIC",
@@ -1633,7 +1633,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_DJF",
                 _dataType: "NUMERIC",
@@ -1646,7 +1646,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_KES",
                 _dataType: "NUMERIC",
@@ -1659,7 +1659,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_INR",
                 _dataType: "NUMERIC",
@@ -1672,7 +1672,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_DKK",
                 _dataType: "NUMERIC",
@@ -1685,7 +1685,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_SEK",
                 _dataType: "NUMERIC",
@@ -1698,7 +1698,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_SAR",
                 _dataType: "NUMERIC",
@@ -1711,7 +1711,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CAD",
                 _dataType: "NUMERIC",
@@ -1724,7 +1724,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_AED",
                 _dataType: "NUMERIC",
@@ -1737,7 +1737,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_AUD",
                 _dataType: "NUMERIC",
@@ -1750,7 +1750,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_CNY",
                 _dataType: "NUMERIC",
@@ -1763,7 +1763,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_NOK",
                 _dataType: "NUMERIC",
@@ -1776,7 +1776,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_KWD",
                 _dataType: "NUMERIC",
@@ -1789,7 +1789,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Off-balance sheet Items (Sum of 1.2.1 to 1.2.4)"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1797,7 +1797,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00159",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1805,7 +1805,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00160",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Off-balance Sheet Items (Sum of 1.2.1 to 1.2.4)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -1817,7 +1817,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Undelivered spot purchase_USD ",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1828,7 +1828,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Undelivered spot purchase_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1839,7 +1839,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Undelivered spot purchase_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1850,7 +1850,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Undelivered spot purchase_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1861,7 +1861,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Undelivered spot purchase_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1872,7 +1872,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Undelivered spot purchase_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1883,7 +1883,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Undelivered spot purchase_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1894,7 +1894,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Undelivered spot purchase_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1905,7 +1905,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Undelivered spot purchase_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1916,7 +1916,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Undelivered spot purchase_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1927,7 +1927,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Undelivered spot purchase_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1938,7 +1938,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Undelivered spot purchase_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1949,7 +1949,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Undelivered spot purchase_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1960,7 +1960,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Undelivered spot purchase_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1971,7 +1971,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Undelivered spot purchase_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1982,7 +1982,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Undelivered spot purchase_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -1993,7 +1993,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Undelivered spot purchase_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2004,7 +2004,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Undeliverd spot purchase"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Undelivered spot purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2012,7 +2012,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00179",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Undelivered spot purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2020,7 +2020,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00180",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Undelivered spot purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2032,7 +2032,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Forward purchase_USD ",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2043,7 +2043,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Forward purchase_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2054,7 +2054,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Forward purchase_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2065,7 +2065,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Forward purchase_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2076,7 +2076,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Forward purchase_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2087,7 +2087,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Forward purchase_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2098,7 +2098,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Forward purchase_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2109,7 +2109,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Forward purchase_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2120,7 +2120,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Forward purchase_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2131,7 +2131,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Forward purchase_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2142,7 +2142,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Forward purchase_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2153,7 +2153,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Forward purchase_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2164,7 +2164,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Forward purchase_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2175,7 +2175,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Forward purchase_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2186,7 +2186,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Forward purchase_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2197,7 +2197,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Forward purchase_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2208,7 +2208,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Forward purchase_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2219,21 +2219,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Forward purchase"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Forward purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00199",
-                Value: 0,
+                Value: "0",
                 _description: "Forward purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00200",
-                Value: 0,
+                Value: "0",
                 _description: "Forward purchase_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2244,7 +2244,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Option, Swaps, Derivatives_USD ",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2255,7 +2255,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Option, Swaps, Derivatives_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2266,7 +2266,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Option, Swaps, Derivatives_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2277,7 +2277,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Option, Swaps, Derivatives_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2288,7 +2288,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Option, Swaps, Derivatives_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2299,7 +2299,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Option, Swaps, Derivatives_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2310,7 +2310,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Option, Swaps, Derivatives_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2321,7 +2321,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Option, Swaps, Derivatives_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2332,7 +2332,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Option, Swaps, Derivatives_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2343,7 +2343,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Option, Swaps, Derivatives_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2354,7 +2354,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Option, Swaps, Derivatives_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2365,7 +2365,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Option, Swaps, Derivatives_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2376,7 +2376,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Option, Swaps, Derivatives_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2387,7 +2387,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Option, Swaps, Derivatives_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2398,7 +2398,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Option, Swaps, Derivatives_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2409,7 +2409,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Option, Swaps, Derivatives_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2420,7 +2420,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Option, Swaps, Derivatives_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2431,7 +2431,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Option, Swaps, Derivatives"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Option, Swaps, Derivatives_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2439,7 +2439,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00219",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Option, Swaps, Derivatives_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2447,7 +2447,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00220",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Option, Swaps, Derivatives_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2459,7 +2459,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Other assets_USD ",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2470,7 +2470,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Other assets_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2481,7 +2481,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Other assets_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2492,7 +2492,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Other assets_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2503,7 +2503,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Other assets_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2514,7 +2514,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Other assets_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2525,7 +2525,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Other assets_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2536,7 +2536,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Other assets_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2547,7 +2547,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Other assets_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2558,7 +2558,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Otherassets_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2569,7 +2569,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Other assets_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2580,7 +2580,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Other assets_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2591,7 +2591,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Other assets_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2602,7 +2602,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Other assets_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2613,7 +2613,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Other assets_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2624,7 +2624,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Other assets_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2635,7 +2635,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Other assets_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2646,21 +2646,21 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.newDetailGroup === "Other assets"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00239",
-                Value: 0,
+                Value: "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
             },
             {
                 Code: "164_00240",
-                Value: 0,
+                Value: "0",
                 _description: "Other assets_Others in Single Currency",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2672,7 +2672,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_USD ",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2684,7 +2684,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_EUR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2696,7 +2696,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_CHF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2708,7 +2708,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_GBP",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2720,7 +2720,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_JPY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2732,7 +2732,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_DJF",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2744,7 +2744,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_KES",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2756,7 +2756,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_INR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2768,7 +2768,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_DKK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2780,7 +2780,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_SEK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2792,7 +2792,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_SAR",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2804,7 +2804,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_CAD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2816,7 +2816,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_AED",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2828,7 +2828,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_AUD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2840,7 +2840,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_CNY",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2852,7 +2852,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_NOK",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2864,7 +2864,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description: "Total Foreign Assets (Sum 1.1 and 1.2)_KWD",
                 _dataType: "NUMERIC",
                 _required: false
@@ -2876,7 +2876,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "Total Foreign Assets (Sum of 1.1 and 1.2)"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2884,7 +2884,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00259",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2892,7 +2892,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00260",
-                Value: 0,
+                Value: "0",
                 _description:
                     "Total Foreign Assets (Sum 1.1 and 1.2)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -2905,7 +2905,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.usd || 0,
+                    )?.[0]?.usd || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_USD ",
                 _dataType: "NUMERIC",
@@ -2918,7 +2918,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.eur || 0,
+                    )?.[0]?.eur || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_EUR",
                 _dataType: "NUMERIC",
@@ -2931,7 +2931,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.chf || 0,
+                    )?.[0]?.chf || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CHF",
                 _dataType: "NUMERIC",
@@ -2944,7 +2944,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.gbp || 0,
+                    )?.[0]?.gbp || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_GBP",
                 _dataType: "NUMERIC",
@@ -2957,7 +2957,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.jpy || 0,
+                    )?.[0]?.jpy || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_JPY",
                 _dataType: "NUMERIC",
@@ -2970,7 +2970,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.djf || 0,
+                    )?.[0]?.djf || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_DJF",
                 _dataType: "NUMERIC",
@@ -2983,7 +2983,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.kes || 0,
+                    )?.[0]?.kes || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_KES",
                 _dataType: "NUMERIC",
@@ -2996,7 +2996,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.inr || 0,
+                    )?.[0]?.inr || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_INR",
                 _dataType: "NUMERIC",
@@ -3009,7 +3009,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.dkk || 0,
+                    )?.[0]?.dkk || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_DKK",
                 _dataType: "NUMERIC",
@@ -3022,7 +3022,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.sek || 0,
+                    )?.[0]?.sek || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_SEK",
                 _dataType: "NUMERIC",
@@ -3035,7 +3035,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.sar || 0,
+                    )?.[0]?.sar || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_SAR",
                 _dataType: "NUMERIC",
@@ -3048,7 +3048,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.cad || 0,
+                    )?.[0]?.cad || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CAD",
                 _dataType: "NUMERIC",
@@ -3061,7 +3061,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.aed || 0,
+                    )?.[0]?.aed || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_AED",
                 _dataType: "NUMERIC",
@@ -3074,7 +3074,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.aud || 0,
+                    )?.[0]?.aud || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_AUD",
                 _dataType: "NUMERIC",
@@ -3087,7 +3087,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.cny || 0,
+                    )?.[0]?.cny || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_CNY",
                 _dataType: "NUMERIC",
@@ -3100,7 +3100,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.nok || 0,
+                    )?.[0]?.nok || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_NOK",
                 _dataType: "NUMERIC",
@@ -3113,7 +3113,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.kwd || 0,
+                    )?.[0]?.kwd || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_KWD",
                 _dataType: "NUMERIC",
@@ -3126,7 +3126,7 @@ export const OP001Format = (
                         (row: OpenPosition) =>
                             row.newDetailGroup ===
                             "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)"
-                    )?.[0]?.ssp || 0,
+                    )?.[0]?.ssp || "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -3134,7 +3134,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00279",
-                Value: 0,
+                Value: "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
                 _dataType: "NUMERIC",
@@ -3142,7 +3142,7 @@ export const OP001Format = (
             },
             {
                 Code: "164_00280",
-                Value: 0,
+                Value: "0",
                 _description:
                     "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others in Single Currency",
                 _dataType: "NUMERIC",

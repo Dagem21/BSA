@@ -32,6 +32,10 @@ const reportSchema = new mongoose.Schema(
             required: true,
             ref: "users"
         },
+        updatedBy: {
+            type: String,
+            ref: "users"
+        },
         approvedBy: {
             type: String,
             ref: "users"

@@ -13,7 +13,7 @@ export function Header() {
     const { toggleSidebar, isMobile } = useSidebarContext();
 
     return (
-        <header className="sticky top-0 z-30 flex items-center justify-between border-b border-stroke bg-white px-4 py-5 shadow-1 md:px-5 2xl:px-10 dark:border-stroke-dark dark:bg-gray-dark">
+        <header className="sticky top-0 flex items-center justify-between border-b border-stroke bg-white px-4 py-5 shadow-1 md:px-5 2xl:px-10 dark:border-stroke-dark dark:bg-gray-dark">
             <button
                 onClick={toggleSidebar}
                 className="rounded-lg border px-1.5 py-1 lg:hidden dark:border-stroke-dark dark:bg-[#020D1A] hover:dark:bg-[#FFFFFF1A]"
@@ -40,8 +40,6 @@ export function Header() {
 
             <div className="flex flex-1 items-center justify-end gap-2 2xsm:gap-4">
                 <ThemeToggleSwitch />
-
-                <Notification />
 
                 <div className="shrink-0">
                     <UserInfo />
