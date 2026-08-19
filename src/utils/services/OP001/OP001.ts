@@ -35,6 +35,7 @@ const FORMULA_ROWS: ReadonlySet<number> = new Set([
 ]);
 
 export async function populateOpenPositionReport(
+    intCode: string,
     rowsData: OpenPosition[],
     startDate: Date,
     endDate: Date
@@ -63,7 +64,7 @@ export async function populateOpenPositionReport(
         }
 
         await generateSingleCurrencyExcel(
-            "0000001",
+            intCode,
             startDate.getFullYear(),
             startDate.toISOString(),
             endDate.toISOString(),
@@ -73,7 +74,7 @@ export async function populateOpenPositionReport(
         );
 
         generateSingleCurrencyJson(
-            "0000001",
+            intCode,
             startDate.getFullYear(),
             startDate.toISOString(),
             endDate.toISOString(),
@@ -89,7 +90,7 @@ export async function populateOpenPositionReport(
 }
 
 async function generateSingleCurrencyExcel(
-    instCode: string = "0000001",
+    instCode: string,
     finYear: number,
     startDate: string,
     endDate: string,
@@ -97,49 +98,67 @@ async function generateSingleCurrencyExcel(
     templatePath: string,
     outputPathExcel: string
 ): Promise<boolean> {
-    const workbook = new ExcelJS.Workbook();
-    await workbook.xlsx.readFile(templatePath);
+    try {
+        const workbook = new ExcelJS.Workbook();
+        await workbook.xlsx.readFile(templatePath);
 
-    const worksheet = workbook.getWorksheet("Open Position");
-    if (!worksheet) {
-        throw new Error("Sheet 'Open Position' not found in the template.");
-    }
-
-    rowsData.forEach((row, index) => {
-        const excelRowNumber = 16 + index;
-
-        if (FORMULA_ROWS.has(excelRowNumber)) {
-            return;
+        const worksheet = workbook.getWorksheet("Open Position");
+        if (!worksheet) {
+            throw new Error("Sheet 'Open Position' not found in the template.");
         }
 
-        const normalizedRow: Record<string, unknown> = {};
-        Object.keys(row).forEach((key) => {
-            normalizedRow[key.toUpperCase().trim()] = (
-                row as Record<string, unknown>
-            )[key];
-        });
+        // 1. Pre-index rowsData by normalized ORDER_NUM for O(1) lookups
+        const dataMap = new Map<string, OpenPosition>();
+        for (const row of rowsData ?? []) {
+            if (row.ORDER_NUM != null) {
+                const key = row.ORDER_NUM.toString().replaceAll(".", "");
+                dataMap.set(key, row);
+            }
+        }
 
-        Object.entries(CURRENCY_MAP).forEach(([currencyCode, colLetter]) => {
-            const val = normalizedRow[currencyCode];
+        // 2. Iterate row range directly (17 to 58)
+        for (let excelRowNumber = 17; excelRowNumber < 59; excelRowNumber++) {
+            if (FORMULA_ROWS.has(excelRowNumber)) {
+                continue;
+            }
 
-            if (val !== undefined && val !== null && val !== "") {
-                const numValue = Number(val);
-                if (!isNaN(numValue)) {
-                    worksheet.getCell(`${colLetter}${excelRowNumber}`).value =
-                        numValue;
+            const cellVal = worksheet.getCell(`A${excelRowNumber}`).value;
+            if (!cellVal) continue;
+
+            const wsIndex = cellVal.toString().replaceAll(".", "");
+            const record = dataMap.get(wsIndex);
+
+            if (record) {
+                for (const [field, val] of Object.entries(record)) {
+                    const column = CURRENCY_MAP[field.toUpperCase()];
+                    if (!column) continue;
+
+                    const cell = worksheet.getCell(
+                        `${column}${excelRowNumber}`
+                    );
+                    cell.value = parseFloat(val?.toString() || "0") ?? null;
                 }
             }
-        });
-    });
+        }
 
-    workbook.calcProperties.fullCalcOnLoad = true;
-    await workbook.xlsx.writeFile(outputPathExcel);
+        // 3. Populate metadata cells
+        worksheet.getCell("C8").value = instCode;
+        worksheet.getCell("C9").value = finYear.toString();
+        worksheet.getCell("C10").value = startDate;
+        worksheet.getCell("C11").value = endDate;
 
-    return true;
+        workbook.calcProperties.fullCalcOnLoad = true;
+        await workbook.xlsx.writeFile(outputPathExcel);
+
+        return true;
+    } catch (error) {
+        console.error("Error generating single currency Excel:", error);
+        return false;
+    }
 }
 
 function generateSingleCurrencyJson(
-    instCode: string = "0000001",
+    instCode: string,
     finYear: number = 2026,
     startDate: string,
     endDate: string,

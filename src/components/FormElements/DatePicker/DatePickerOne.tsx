@@ -4,7 +4,15 @@ import { Calendar } from "@/components/Layouts/sidebar/icons";
 import flatpickr from "flatpickr";
 import { useEffect } from "react";
 
-const DatePickerOne = ({ label }: { label?: string }) => {
+const DatePickerOne = ({
+    label,
+    value,
+    onChange
+}: {
+    label?: string;
+    value?: string;
+    onChange?: (e: any) => void;
+}) => {
     useEffect(() => {
         // Init flatpickr
         flatpickr(".form-datepicker", {
@@ -25,6 +33,8 @@ const DatePickerOne = ({ label }: { label?: string }) => {
                     className="form-datepicker w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal transition outline-none focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary"
                     placeholder="mm/dd/yyyy"
                     data-class="flatpickr-right"
+                    value={value}
+                    onChange={onChange}
                 />
 
                 <div className="pointer-events-none absolute inset-0 right-5 left-auto flex items-center">

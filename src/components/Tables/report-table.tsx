@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/table";
 import { DownloadIcon, PreviewIcon } from "./icons";
 import useApiFetch from "@/hooks/useAPIFetch";
-import { ReportTypeDto } from "@/dto/reportType";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/modal";
 import { Button } from "../ui-elements/button";

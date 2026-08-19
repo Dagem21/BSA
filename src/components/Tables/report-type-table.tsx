@@ -61,7 +61,7 @@ export function ReportTypeTable() {
     useEffect(() => {
         if (!isLoadingCreate && dataCreate) {
             setIsPopupOpen(false);
-            toast.success("Sign in successful");
+            toast.success("Report type created.");
             fetchData();
             reset();
         } else if (!isLoading && errorCreate?.details) {

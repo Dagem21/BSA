@@ -32,10 +32,10 @@ const startService = async () => {
     });
 };
 
-export const cronService = () => {
-    cron.schedule("* * * * *", async () => {
-        console.log("Cron started running at : ", new Date().toString());
-        await startService();
-        console.log("Cron finished at : ", new Date().toString());
-    });
+export const cronService = async () => {
+    // cron.schedule("* * * * *", async () => {
+    console.log("Cron started running at : ", new Date().toString());
+    await startService();
+    console.log("Cron finished at : ", new Date().toString());
+    // });
 };

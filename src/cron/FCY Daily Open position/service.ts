@@ -13,38 +13,45 @@ import { populateOpenPositionReport } from "@/utils/services/OP001/OP001";
 export const service = async (reportTypeID: string) => {
     try {
         const yesterday = new Date();
-        yesterday.setUTCDate(yesterday.getUTCDate() - 2);
+        yesterday.setUTCDate(yesterday.getUTCDate() - 3);
         yesterday.setUTCHours(0, 0, 0, 0);
 
-        const filter: any = { businessDate: yesterday.toISOString() };
+        const filter: any = { BUSINESS_DATE: yesterday.toISOString() };
 
-        // const openPositionsDW = await findOpenPositionsDW(filter);
-        // let batch = [];
+        const openPositionsDW = await findOpenPositionsDW(filter);
+        let batch: any[] = [];
 
-        // const resultSet = openPositionsDW?.resultSet;
+        const resultSet = openPositionsDW?.rows;
 
-        // if (!resultSet) {
-        //     return false;
-        // }
+        if (!resultSet) {
+            return false;
+        }
 
-        // let row;
-        // while ((row = await resultSet.getRow())) {
-        //     const opData: any = row;
-        //     delete opData.id;
-        //     batch.push(opData);
-        // }
+        resultSet.forEach((row) => {
+            const opData: any = row;
+            const date = new Date(opData.BUSINESS_DATE);
+            const businessDate = new Date(
+                Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+            );
+            opData.BUSINESS_DATE = businessDate;
+            batch.push(opData);
+        });
 
-        // if (batch.length > 0) {
-        //     await createOpenPositions(batch);
-        // }
-
-        // await resultSet.close();
+        if (batch.length > 0) {
+            await createOpenPositions(batch);
+        }
 
         const openPositions: OpenPosition[] =
             (await findOpenPositions(filter)) || [];
 
+        if (openPositions?.length === 0) {
+            console.log("no record");
+            return false;
+        }
+
         const { created, fileNameExcel, fileNameJson } =
             await populateOpenPositionReport(
+                "0000001",
                 openPositions,
                 yesterday,
                 yesterday

@@ -7,12 +7,12 @@ export const findOpenPositions = async (query?: any) => {
         const pool = await getOraclePool();
         connection = await pool.getConnection();
 
-        let baseQuery = `SELECT * FROM beneficiaries WHERE 1=1`;
+        let baseQuery = `SELECT * FROM whuser.w_nbe_open_position_cbe_f WHERE 1=1`;
         const queryParams: any = {};
 
-        if (query?.businessDate) {
-            baseQuery += ` AND businessDate = :businessDate`;
-            queryParams.businessDate = query?.businessDate;
+        if (query?.BUSINESS_DATE) {
+            baseQuery += ` AND business_date = TO_DATE(:BUSINESS_DATE, 'YYYY-MM-DD')`;
+            queryParams.BUSINESS_DATE = query.BUSINESS_DATE?.substring(0, 10);
         }
 
         const positions = await connection.execute(baseQuery, queryParams, {

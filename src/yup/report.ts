@@ -12,6 +12,7 @@ const extractFile = (value: unknown): File | null => {
 };
 
 export const reportSchema = yup.object().shape({
+    reportType: yup.string().required("Choose a report type."),
     startDate: yup.string().required("Enter a valid starting date."),
     endDate: yup
         .string()

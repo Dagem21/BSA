@@ -20,7 +20,8 @@ export const createOpenPositions = async (openPositions: any) => {
             });
         });
         return { created: result };
-    } catch (e) {
+    } catch (e: any) {
+        console.log(e.message);
         return { created: false };
     }
 };

@@ -60,7 +60,7 @@ export function Select({
                         </option>
                     )}
 
-                    {items.map((item) => (
+                    {items?.map((item) => (
                         <option key={item.value} value={item.value}>
                             {item.label}
                         </option>

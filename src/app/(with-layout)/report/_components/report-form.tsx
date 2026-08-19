@@ -2,24 +2,41 @@
 
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import InputGroup from "@/components/FormElements/InputGroup";
-import { TextAreaGroup } from "@/components/FormElements/InputGroup/text-area";
-import { Select } from "@/components/FormElements/select";
 import { ShowcaseSection } from "@/components/Layouts/showcase-section";
 
-import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ReportFormValues, reportSchema } from "@/yup/report";
+import useApiFetch from "@/hooks/useAPIFetch";
+import { Select } from "@/components/FormElements/select";
+import { ReportTypeDto } from "@/dto/reportType";
+import { useEffect, useState } from "react";
 
 export function ReportForm() {
+    const [frequency, setFrequency] = useState("");
+    const { data } = useApiFetch({
+        url: "/api/reporttype",
+        method: "GET"
+    });
+
     const {
         register,
         handleSubmit,
         control,
+        watch,
         formState: { errors, isSubmitting }
     } = useForm<ReportFormValues>({
         resolver: yupResolver(reportSchema)
     });
+
+    const reportType = watch("reportType");
+    useEffect(() => {
+        setFrequency(
+            data?.reportTypes?.find(
+                (item: ReportTypeDto) => item._id === reportType
+            )?.frequency
+        );
+    }, [reportType]);
 
     const onSubmit = async (data: ReportFormValues): Promise<void> => {
         // Standard File extraction
@@ -56,7 +73,27 @@ export function ReportForm() {
                 noValidate
                 className="flex flex-col gap-4.5"
             >
-                <InputGroup label="Report Period" type="text" disabled={true} />
+                <div>
+                    <Select
+                        label="Frequency"
+                        items={data?.reportTypes?.map(
+                            (item: ReportTypeDto) => ({
+                                label: item.reportId,
+                                value: item._id
+                            })
+                        )}
+                        placeholder="Choose report type"
+                        {...register("reportType")}
+                    />
+                </div>
+                <div>
+                    <InputGroup
+                        label="Frequency"
+                        type="text"
+                        value={frequency}
+                        readOnly={true}
+                    />
+                </div>
                 <div className="flex flex-col gap-4.5 xl:flex-row">
                     {/* Start Date */}
                     <div className="w-full xl:w-1/2">
@@ -67,8 +104,10 @@ export function ReportForm() {
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="Start Date"
-                                    // value={field.value}
-                                    // onChange={(dateStr: string) => field.onChange(dateStr)}
+                                    value={field.value}
+                                    onChange={(dateStr: string) =>
+                                        field.onChange(dateStr)
+                                    }
                                 />
                             )}
                         />
@@ -88,8 +127,10 @@ export function ReportForm() {
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="End Date"
-                                    // value={field.value}
-                                    // onChange={(dateStr: string) => field.onChange(dateStr)}
+                                    value={field.value}
+                                    onChange={(dateStr: string) =>
+                                        field.onChange(dateStr)
+                                    }
                                 />
                             )}
                         />

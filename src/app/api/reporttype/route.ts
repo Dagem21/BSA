@@ -12,9 +12,14 @@ import { NextRequest } from "next/server";
 
 export async function GET() {
     try {
-        await verifyUserAuth();
+        const decodedToken = await verifyUserAuth();
 
-        const reportTypes = await findReportType();
+        const filter: any = {};
+        if (decodedToken?.allowedReports?.length > 0) {
+            filter._id = { $in: decodedToken?.allowedReports };
+        }
+
+        const reportTypes = await findReportType(filter);
         if (reportTypes) {
             return new Response(
                 JSON.stringify({
