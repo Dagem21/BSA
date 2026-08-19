@@ -17,7 +17,7 @@ import Modal from "../Modal/modal";
 import { Button } from "../ui-elements/button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ReportFormValues, reportSchema } from "@/yup/reportType";
+import { ReportTypeFormValues, reportTypeSchema } from "@/yup/reportType";
 import InputGroup from "../FormElements/InputGroup";
 import { toast } from "sonner";
 import { Select } from "../FormElements/select";
@@ -48,8 +48,8 @@ export function ReportTypeTable() {
         handleSubmit,
         formState: { errors },
         reset
-    } = useForm<ReportFormValues>({
-        resolver: yupResolver(reportSchema),
+    } = useForm<ReportTypeFormValues>({
+        resolver: yupResolver(reportTypeSchema),
         defaultValues: {
             reportId: "",
             description: "",
@@ -64,12 +64,12 @@ export function ReportTypeTable() {
             toast.success("Report type created.");
             fetchData();
             reset();
-        } else if (!isLoading && errorCreate?.details) {
+        } else if (!isLoadingCreate && errorCreate?.details) {
             toast.error(errorCreate.details?.response?.data?.error);
         }
     }, [dataCreate, isLoadingCreate, errorCreate]);
 
-    const onSubmit = (data: ReportFormValues) => {
+    const onSubmit = (data: ReportTypeFormValues) => {
         const cleanData = Object.fromEntries(
             Object.entries(data).filter(
                 ([_, val]) => val !== "" && val !== null

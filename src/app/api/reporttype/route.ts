@@ -7,7 +7,7 @@ import {
 import { ReportTypeDto } from "@/dto/reportType";
 import { verifyUserAuth } from "@/utils/authHelper";
 import { writeToLog } from "@/utils/log";
-import { reportSchema, reportUpdateSchema } from "@/yup/reportType";
+import { reportTypeSchema, reportTypeUpdateSchema } from "@/yup/reportType";
 import { NextRequest } from "next/server";
 
 export async function GET() {
@@ -76,9 +76,12 @@ export async function POST(request: NextRequest) {
         }
         let reportType = body;
 
-        const validatedReportType = await reportSchema.validate(reportType, {
-            abortEarly: false
-        });
+        const validatedReportType = await reportTypeSchema.validate(
+            reportType,
+            {
+                abortEarly: false
+            }
+        );
         const reportTypeFormatted: ReportTypeDto = {
             reportId: validatedReportType.reportId,
             description: validatedReportType.description,
@@ -155,7 +158,7 @@ export async function PUT(request: NextRequest) {
         }
         let reportType = body;
 
-        const validatedReportType = await reportUpdateSchema.validate(
+        const validatedReportType = await reportTypeUpdateSchema.validate(
             reportType,
             {
                 abortEarly: false

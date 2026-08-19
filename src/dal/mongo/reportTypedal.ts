@@ -19,6 +19,7 @@ export const createReportType = async (reportType: ReportTypeDto) => {
         const reportTypeCreated = await reportTypeSchema.create(reportType);
         return { created: reportTypeCreated };
     } catch (e) {
+        console.log(e);
         return { created: false };
     }
 };

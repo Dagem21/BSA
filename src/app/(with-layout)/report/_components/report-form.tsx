@@ -11,6 +11,8 @@ import useApiFetch from "@/hooks/useAPIFetch";
 import { Select } from "@/components/FormElements/select";
 import { ReportTypeDto } from "@/dto/reportType";
 import { useEffect, useState } from "react";
+import { FrequncyTypes, ServiceTypes } from "@/types/types";
+import { toast } from "sonner";
 
 export function ReportForm() {
     const [frequency, setFrequency] = useState("");
@@ -20,16 +22,33 @@ export function ReportForm() {
     });
 
     const {
+        data: dataCreate,
+        fetchData: fetchDataCreate,
+        isLoading: isLoadingCreate,
+        errors: errorsCreate
+    } = useApiFetch(
+        {
+            url: "/api/report",
+            method: "POST"
+        },
+        false
+    );
+
+    const {
         register,
         handleSubmit,
         control,
+        setValue,
         watch,
-        formState: { errors, isSubmitting }
+        reset,
+        formState: { errors }
     } = useForm<ReportFormValues>({
         resolver: yupResolver(reportSchema)
     });
 
     const reportType = watch("reportType");
+    const startDate = watch("startDate");
+
     useEffect(() => {
         setFrequency(
             data?.reportTypes?.find(
@@ -38,34 +57,63 @@ export function ReportForm() {
         );
     }, [reportType]);
 
+    useEffect(() => {
+        if (frequency && startDate) {
+            const endDate = new Date(startDate);
+            switch (frequency) {
+                case FrequncyTypes.Daily:
+                    endDate.setDate(endDate.getDate() + 1);
+                    break;
+                case FrequncyTypes.Weekly:
+                    endDate.setDate(endDate.getDate() + 7);
+                    break;
+                case FrequncyTypes.Monthly:
+                    endDate.setMonth(endDate.getMonth() + 1);
+                    break;
+                case FrequncyTypes.Quarterly:
+                    endDate.setMonth(endDate.getMonth() + 3);
+                    break;
+                case FrequncyTypes.Yearly:
+                    endDate.setFullYear(endDate.getFullYear() + 1);
+                    break;
+                default:
+                    break;
+            }
+            setValue("endDate", endDate);
+        }
+    }, [frequency, startDate]);
+
+    useEffect(() => {
+        if (!isLoadingCreate && dataCreate) {
+            toast.success("Report type created.");
+            reset();
+        } else if (!isLoadingCreate && errorsCreate?.details) {
+            toast.error(errorsCreate.details?.response?.data?.error);
+        }
+    }, [dataCreate, isLoadingCreate, errorsCreate]);
+
     const onSubmit = async (data: ReportFormValues): Promise<void> => {
         // Standard File extraction
         const rawFile = data.file;
         let fileToUpload: File | null = null;
 
-        if (rawFile instanceof FileList) {
-            fileToUpload = rawFile[0];
-        } else if (Array.isArray(rawFile)) {
-            fileToUpload = rawFile[0];
-        } else if (rawFile instanceof File) {
-            fileToUpload = rawFile;
-        }
+        if (rawFile instanceof FileList) fileToUpload = rawFile[0];
+        else if (Array.isArray(rawFile)) fileToUpload = rawFile[0];
+        else if (rawFile instanceof File) fileToUpload = rawFile;
 
         const formData = new FormData();
-        formData.append("startDate", data.startDate);
-        formData.append("endDate", data.endDate);
+        formData.append("reportType", data.reportType);
+        formData.append("startDate", data.startDate.toISOString());
+        formData.append("endDate", data.endDate.toISOString());
         if (fileToUpload) {
             formData.append("file", fileToUpload);
         }
 
-        console.log("Submitting Validated Report:", {
-            startDate: data.startDate,
-            endDate: data.endDate,
-            file: fileToUpload?.name
+        fetchDataCreate({
+            data: formData
         });
-
-        // Call your Next.js Server Action or API Route here
     };
+
     return (
         <ShowcaseSection title="Report" className="p-6.5!">
             <form
@@ -75,22 +123,29 @@ export function ReportForm() {
             >
                 <div>
                     <Select
-                        label="Frequency"
+                        label="Report Type"
                         items={data?.reportTypes?.map(
                             (item: ReportTypeDto) => ({
-                                label: item.reportId,
-                                value: item._id
+                                label: `${item.reportId} (${item.service})`,
+                                value: item._id,
+                                disabled: item.service !== ServiceTypes.Manual
                             })
                         )}
                         placeholder="Choose report type"
                         {...register("reportType")}
                     />
+                    {errors.reportType && (
+                        <span className="mt-1 block text-sm font-medium text-red-500">
+                            {errors.reportType.message}
+                        </span>
+                    )}
                 </div>
                 <div>
                     <InputGroup
                         label="Frequency"
                         type="text"
-                        value={frequency}
+                        value={frequency ?? ""}
+                        placeholder="Report frequency"
                         readOnly={true}
                     />
                 </div>
@@ -100,16 +155,29 @@ export function ReportForm() {
                         <Controller
                             name="startDate"
                             control={control}
-                            defaultValue=""
-                            render={({ field }) => (
-                                <DatePickerOne
-                                    label="Start Date"
-                                    value={field.value}
-                                    onChange={(dateStr: string) =>
-                                        field.onChange(dateStr)
-                                    }
-                                />
-                            )}
+                            render={({ field }) => {
+                                // Helper function to format any date string or Date object to YYYY-MM-DD
+                                const formatDate = (val: any) => {
+                                    if (!val) return "";
+                                    const date = new Date(val);
+                                    if (isNaN(date.getTime())) return ""; // Handle invalid date strings
+                                    return date.toISOString().split("T")[0]; // Converts "Jul 27, 2026" -> "2026-07-27"
+                                };
+
+                                return (
+                                    <DatePickerOne
+                                        label="Start Date"
+                                        value={formatDate(field.value)}
+                                        onChange={(e) => {
+                                            const val = e.target.value;
+                                            console.log(val);
+                                            field.onChange(
+                                                val ? new Date(val) : null
+                                            );
+                                        }}
+                                    />
+                                );
+                            }}
                         />
                         {errors.startDate && (
                             <span className="mt-1 block text-sm font-medium text-red-500">
@@ -123,14 +191,18 @@ export function ReportForm() {
                         <Controller
                             name="endDate"
                             control={control}
-                            defaultValue=""
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="End Date"
-                                    value={field.value}
-                                    onChange={(dateStr: string) =>
+                                    value={
+                                        field?.value
+                                            ?.toISOString()
+                                            .split("T")[0]
+                                    }
+                                    onChange={(dateStr: any) =>
                                         field.onChange(dateStr)
                                     }
+                                    disabled={true}
                                 />
                             )}
                         />
@@ -161,10 +233,10 @@ export function ReportForm() {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isLoadingCreate}
                     className="hover:bg-opacity-90 mt-6 flex w-full justify-center rounded-lg bg-primary p-[13px] font-medium text-white disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                    {isSubmitting
+                    {isLoadingCreate
                         ? "Validating & Uploading..."
                         : "Submit Report"}
                 </button>

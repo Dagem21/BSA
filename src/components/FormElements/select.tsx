@@ -6,7 +6,7 @@ import { useId, useState } from "react";
 
 type PropsType = {
     label: string;
-    items: { value: string; label: string }[];
+    items: { value: string; label: string; disabled?: boolean }[];
     prefixIcon?: React.ReactNode;
     className?: string;
 } & (
@@ -61,7 +61,11 @@ export function Select({
                     )}
 
                     {items?.map((item) => (
-                        <option key={item.value} value={item.value}>
+                        <option
+                            key={item.value}
+                            value={item.value}
+                            disabled={item.disabled}
+                        >
                             {item.label}
                         </option>
                     ))}

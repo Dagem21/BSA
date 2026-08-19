@@ -1,4 +1,9 @@
-import { findReport, findReports, updateReport } from "@/dal/mongo/reportdal";
+import {
+    createReport,
+    findReport,
+    findReports,
+    updateReport
+} from "@/dal/mongo/reportdal";
 import { ReportDto } from "@/dto/report";
 import { verifyUserAuth } from "@/utils/authHelper";
 import { writeToLog } from "@/utils/log";
@@ -9,8 +14,10 @@ import mongoose from "mongoose";
 import { postReport } from "@/iib/submission";
 import { ResponseLogDto } from "@/dto/responseLog";
 import { createResponseLog } from "@/dal/mongo/responseLogdal";
-import { findOpenPositions } from "@/dal/sql/fcyOpenPositions";
-import { service } from "@/cron/FCY Daily Open position/service";
+import { ReportFormValues, reportSchema } from "@/yup/report";
+import { generateFileName } from "@/utils/generateFileName";
+import * as fs from "fs";
+import { writeFile } from "fs/promises";
 
 export async function GET() {
     try {
@@ -61,14 +68,68 @@ export async function GET() {
     }
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
     try {
-        await service();
-        const positions = await findOpenPositions();
+        const decodedToken = await verifyUserAuth();
+        const formData = await request.formData();
+
+        const reportType = formData.get("reportType") as string;
+        const startDate = formData.get("startDate") as string;
+        const endDate = formData.get("endDate") as string;
+        const file = formData.get("file") as File;
+
+        const reportRecieved: ReportFormValues = {
+            reportType: reportType,
+            startDate: new Date(startDate),
+            endDate: new Date(endDate),
+            file: file
+        };
+
+        const validatedReport = await reportSchema.validate(reportRecieved);
+        const fileName = generateFileName();
+
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+
+        const uploadDir = path.join(process.cwd(), "reports", "excel");
+
+        if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir, { recursive: true });
+        }
+
+        const ext = path.extname(file.name).toLowerCase();
+        const excelFile = `${fileName}${ext}`;
+        const jsonFile = `${fileName}.json`;
+        const filePath = path.join(uploadDir, excelFile);
+        await writeFile(filePath, buffer);
+
+        const newReport: ReportDto = {
+            file: excelFile,
+            json: jsonFile,
+            reportingDate: new Date().toISOString(),
+            status: "Pending",
+            reportType: validatedReport.reportType,
+            startDate: validatedReport.startDate.toISOString(),
+            endDate: validatedReport.endDate.toISOString(),
+            createdBy: decodedToken.id
+        };
+
+        const result = await createReport(newReport);
+
+        if (result.created) {
+            return new Response(
+                JSON.stringify({
+                    message: "Report created."
+                }),
+                {
+                    status: 200,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
         return new Response(
             JSON.stringify({
-                message: "Fetched.",
-                positions
+                error: "Report not created."
             }),
             {
                 status: 400,
@@ -76,6 +137,17 @@ export async function POST() {
             }
         );
     } catch (error: any) {
+        if (error.message === "Unauthorized") {
+            return new Response(
+                JSON.stringify({
+                    error: "Session expired. Please login again!"
+                }),
+                {
+                    status: 401,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
         console.log(error.message);
         return new Response(JSON.stringify({ error: "Server error." }), {
             status: 500,

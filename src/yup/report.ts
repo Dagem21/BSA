@@ -1,4 +1,4 @@
-import { validateLC001Template } from "@/utils/fileValidation";
+import { validateTemplate } from "@/utils/fileValidation";
 import * as yup from "yup";
 
 // Helper to reliably extract the File object from File, FileList, or File[]
@@ -13,9 +13,17 @@ const extractFile = (value: unknown): File | null => {
 
 export const reportSchema = yup.object().shape({
     reportType: yup.string().required("Choose a report type."),
-    startDate: yup.string().required("Enter a valid starting date."),
+    startDate: yup
+        .date()
+        .transform((value, originalValue) => {
+            return originalValue ? new Date(originalValue) : null;
+        })
+        .required("Enter a valid starting date."),
     endDate: yup
-        .string()
+        .date()
+        .transform((value, originalValue) => {
+            return originalValue ? new Date(originalValue) : null;
+        })
         .required("Enter a valid ending date.")
         .test(
             "is-after-start",
@@ -50,7 +58,7 @@ export const reportSchema = yup.object().shape({
                 const file = extractFile(value);
                 if (!file) return false;
 
-                const validation = await validateLC001Template(file);
+                const validation = await validateTemplate(file);
 
                 if (!validation.isValid) {
                     return context.createError({

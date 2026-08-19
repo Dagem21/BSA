@@ -16,7 +16,7 @@ import Modal from "../Modal/modal";
 import { Button } from "../ui-elements/button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ReportFormValues, reportSchema } from "@/yup/reportType";
+import { ReportTypeFormValues, reportTypeSchema } from "@/yup/reportType";
 import InputGroup from "../FormElements/InputGroup";
 import { toast } from "sonner";
 import { Select } from "../FormElements/select";
@@ -65,8 +65,8 @@ export function ReportTable() {
         handleSubmit,
         formState: { errors },
         reset
-    } = useForm<ReportFormValues>({
-        resolver: yupResolver(reportSchema),
+    } = useForm<ReportTypeFormValues>({
+        resolver: yupResolver(reportTypeSchema),
         defaultValues: {
             reportId: "",
             description: "",
@@ -97,7 +97,7 @@ export function ReportTable() {
         }
     }, [dataUpdate, isLoadingUpdate, errorsUpdate]);
 
-    const onSubmit = (data: ReportFormValues) => {
+    const onSubmit = (data: ReportTypeFormValues) => {
         const cleanData = Object.fromEntries(
             Object.entries(data).filter(
                 ([_, val]) => val !== "" && val !== null
