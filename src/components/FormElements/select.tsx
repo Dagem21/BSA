@@ -24,8 +24,14 @@ export function Select({
     ...props
 }: PropsType) {
     const id = useId();
-
     const [isOptionSelected, setIsOptionSelected] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setIsOptionSelected(e.target.value !== "");
+        if ((props as any).onChange) {
+            (props as any).onChange(e);
+        }
+    };
 
     return (
         <div className={cn("space-y-1", className)}>
@@ -46,7 +52,7 @@ export function Select({
                 <select
                     id={id}
                     defaultValue={defaultValue || ""}
-                    // onChange={() => setIsOptionSelected(true)}
+                    onChange={handleChange}
                     className={cn(
                         "w-full appearance-none rounded-lg border border-stroke bg-transparent px-5.5 py-3 transition outline-none focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary [&>option]:text-dark-5 dark:[&>option]:text-dark-6",
                         isOptionSelected && "text-dark dark:text-white",

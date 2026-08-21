@@ -55,7 +55,7 @@ export function ReportForm() {
                 (item: ReportTypeDto) => item._id === reportType
             )?.frequency
         );
-    }, [reportType]);
+    }, [reportType, data]);
 
     useEffect(() => {
         if (frequency && startDate) {
@@ -85,7 +85,7 @@ export function ReportForm() {
 
     useEffect(() => {
         if (!isLoadingCreate && dataCreate) {
-            toast.success("Report type created.");
+            toast.success("Report submitted successfully.");
             reset();
         } else if (!isLoadingCreate && errorsCreate?.details) {
             toast.error(errorsCreate.details?.response?.data?.error);
@@ -128,7 +128,7 @@ export function ReportForm() {
                             (item: ReportTypeDto) => ({
                                 label: `${item.reportId} (${item.service})`,
                                 value: item._id,
-                                disabled: item.service !== ServiceTypes.None
+                                disabled: item.service === ServiceTypes.Auto
                             })
                         )}
                         placeholder="Choose report type"

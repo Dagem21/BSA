@@ -103,6 +103,43 @@ export async function POST(request: NextRequest) {
         const filePath = path.join(uploadDir, excelFile);
         await writeFile(filePath, buffer);
 
+        // Trigger processing for ZS001 report format
+        try {
+            require("@/models/reportTypeSchema");
+            const ReportTypeModel =
+                mongoose.models.reporttypes ||
+                mongoose.model("reporttypes");
+            const reportTypeDoc = await ReportTypeModel.findById(
+                validatedReport.reportType
+            );
+
+            const reportIdStr = reportTypeDoc?.reportId || "";
+            if (
+                reportIdStr.toUpperCase().includes("ZS001") ||
+                reportIdStr.toUpperCase().includes("LSR")
+            ) {
+                const { processZS001Report } = await import(
+                    "@/utils/services/ZS001/ZS001"
+                );
+                const jsonFilePath = path.join(
+                    process.cwd(),
+                    "reports",
+                    "json",
+                    jsonFile
+                );
+                await processZS001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    validatedReport.startDate,
+                    validatedReport.endDate,
+                    filePath,
+                    jsonFilePath
+                );
+            }
+        } catch (procErr) {
+            console.error("Error processing ZS001 report format:", procErr);
+        }
+
         const newReport: ReportDto = {
             file: excelFile,
             json: jsonFile,
