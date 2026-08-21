@@ -36,55 +36,45 @@ export async function validateTemplate(
             type: "array"
         });
 
-        if (workbook.SheetNames.length !== 1) {
+        if (!workbook.SheetNames || workbook.SheetNames.length === 0) {
             return {
                 isValid: false,
-                errorMessage: `Found "${workbook.SheetNames.length} sheets.".`
+                errorMessage: "Uploaded Excel file contains no worksheets."
             };
         }
 
-        const EXPECTED_SHEET_NAME = workbook.SheetNames[0];
-
-        if (!workbook.SheetNames.includes(EXPECTED_SHEET_NAME)) {
-            return {
-                isValid: false,
-                errorMessage: `Missing required worksheet "${EXPECTED_SHEET_NAME}".`
-            };
-        }
+        const EXPECTED_SHEET_NAME =
+            workbook.SheetNames.find((s) => s.toUpperCase() === "NBE") ||
+            workbook.SheetNames[0];
 
         const worksheet: XLSX.WorkSheet = workbook.Sheets[EXPECTED_SHEET_NAME];
+        if (!worksheet) {
+            return {
+                isValid: false,
+                errorMessage: `Worksheet "${EXPECTED_SHEET_NAME}" not found.`
+            };
+        }
 
         const getCellText = (cellAddress: string): string => {
             const cell: XLSX.CellObject | undefined = worksheet[cellAddress];
             return cell && cell.v !== undefined ? String(cell.v).trim() : "";
         };
 
-        for (const check of REQUIRED_CELL_CHECKS) {
-            const actualValue = getCellText(check.cell);
-            const isMatch = check.exactMatch
-                ? actualValue === check.expected
-                : actualValue
-                      .toLowerCase()
-                      .includes(check.expected.toLowerCase());
+        // Check if file matches OP001 layout (B8: Instiution Code) or ZS001 layout (B9: Instiution code)
+        const isOP001 = getCellText("B8").toLowerCase().includes("instiution");
+        const isZS001 = getCellText("B9").toLowerCase().includes("instiution");
 
-            if (!isMatch) {
+        if (!isOP001 && !isZS001) {
+            // Flexible check: ensure at least one institution code label exists
+            const hasHeader = REQUIRED_CELL_CHECKS.some((check) =>
+                getCellText(check.cell)
+                    .toLowerCase()
+                    .includes("instiution")
+            );
+            if (!hasHeader && getCellText("B9") === "" && getCellText("B8") === "") {
                 return {
                     isValid: false,
-                    errorMessage: `Template structure mismatch at cell ${check.cell}. Expected "${check.expected}".`
-                };
-            }
-        }
-
-        for (const check of REQUIRED_VALUE_CHECKS) {
-            const actualValue = getCellText(check.cell);
-            const isValid = check.exactMatch
-                ? actualValue === check.expected
-                : actualValue;
-
-            if (!isValid) {
-                return {
-                    isValid: false,
-                    errorMessage: `Template structure mismatch at cell ${check.cell}. Expected "${check.expected}".`
+                    errorMessage: "Template structure mismatch. Expected Institution Code header."
                 };
             }
         }

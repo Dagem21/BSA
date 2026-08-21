@@ -37,3 +37,126 @@ model OpenPosition {
 
   @@map("OPEN_POSITION")
 }
+
+model StatutoryLiquidity {
+  id               String   @id @default(uuid()) @db.VarChar(36)
+  START_DATE       DateTime @map("START_DATE") @db.Date
+  END_DATE         DateTime @map("END_DATE") @db.Date
+  ORDER_NUM        Decimal? @default(0.00) @map("ORDER_NUM") @db.Decimal(5, 2)
+  NEW_DETAIL_GROUP String   @map("NEW_DETAIL_GROUP") @db.VarChar(150)
+
+  THU              Decimal? @default(0.00) @map("THU") @db.Decimal(20, 2)
+  FRI              Decimal? @default(0.00) @map("FRI") @db.Decimal(20, 2)
+  SAT              Decimal? @default(0.00) @map("SAT") @db.Decimal(20, 2)
+  SUN              Decimal? @default(0.00) @map("SUN") @db.Decimal(20, 2)
+  MON              Decimal? @default(0.00) @map("MON") @db.Decimal(20, 2)
+  TUE              Decimal? @default(0.00) @map("TUE") @db.Decimal(20, 2)
+  WED              Decimal? @default(0.00) @map("WED") @db.Decimal(20, 2)
+  WEEKLY_AVG       Decimal? @default(0.00) @map("WEEKLY_AVG") @db.Decimal(20, 2)
+
+  @@map("STATUTORY_LIQUIDITY")
+}
+
+model ZS001 {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  RETURN_KEY  String   @default("LSR-Statutory ZS001") @map("RETURN_KEY") @db.VarChar(100)
+  INST_CODE   String   @default("0000001") @map("INST_CODE") @db.VarChar(50)
+  FIN_YEAR    Int      @default(2026) @map("FIN_YEAR")
+  START_DATE  DateTime @map("START_DATE") @db.Date
+  END_DATE    DateTime @map("END_DATE") @db.Date
+
+  // 1. Net current liabilities (109_00001 - 109_00008)
+  NET_LIAB_THU     Decimal? @default(0.00) @map("NET_LIAB_THU") @db.Decimal(20, 2)
+  NET_LIAB_FRI     Decimal? @default(0.00) @map("NET_LIAB_FRI") @db.Decimal(20, 2)
+  NET_LIAB_SAT     Decimal? @default(0.00) @map("NET_LIAB_SAT") @db.Decimal(20, 2)
+  NET_LIAB_SUN     Decimal? @default(0.00) @map("NET_LIAB_SUN") @db.Decimal(20, 2)
+  NET_LIAB_MON     Decimal? @default(0.00) @map("NET_LIAB_MON") @db.Decimal(20, 2)
+  NET_LIAB_TUE     Decimal? @default(0.00) @map("NET_LIAB_TUE") @db.Decimal(20, 2)
+  NET_LIAB_WED     Decimal? @default(0.00) @map("NET_LIAB_WED") @db.Decimal(20, 2)
+  NET_LIAB_AVG     Decimal? @default(0.00) @map("NET_LIAB_AVG") @db.Decimal(20, 2)
+
+  // 2. Cash - local and foreign currency (109_00009 - 109_00016)
+  CASH_CURR_THU    Decimal? @default(0.00) @map("CASH_CURR_THU") @db.Decimal(20, 2)
+  CASH_CURR_FRI    Decimal? @default(0.00) @map("CASH_CURR_FRI") @db.Decimal(20, 2)
+  CASH_CURR_SAT    Decimal? @default(0.00) @map("CASH_CURR_SAT") @db.Decimal(20, 2)
+  CASH_CURR_SUN    Decimal? @default(0.00) @map("CASH_CURR_SUN") @db.Decimal(20, 2)
+  CASH_CURR_MON    Decimal? @default(0.00) @map("CASH_CURR_MON") @db.Decimal(20, 2)
+  CASH_CURR_TUE    Decimal? @default(0.00) @map("CASH_CURR_TUE") @db.Decimal(20, 2)
+  CASH_CURR_WED    Decimal? @default(0.00) @map("CASH_CURR_WED") @db.Decimal(20, 2)
+  CASH_CURR_AVG    Decimal? @default(0.00) @map("CASH_CURR_AVG") @db.Decimal(20, 2)
+
+  // 3. Deposits with NBE (109_00017 - 109_00024)
+  DEP_NBE_THU      Decimal? @default(0.00) @map("DEP_NBE_THU") @db.Decimal(20, 2)
+  DEP_NBE_FRI      Decimal? @default(0.00) @map("DEP_NBE_FRI") @db.Decimal(20, 2)
+  DEP_NBE_SAT      Decimal? @default(0.00) @map("DEP_NBE_SAT") @db.Decimal(20, 2)
+  DEP_NBE_SUN      Decimal? @default(0.00) @map("DEP_NBE_SUN") @db.Decimal(20, 2)
+  DEP_NBE_MON      Decimal? @default(0.00) @map("DEP_NBE_MON") @db.Decimal(20, 2)
+  DEP_NBE_TUE      Decimal? @default(0.00) @map("DEP_NBE_TUE") @db.Decimal(20, 2)
+  DEP_NBE_WED      Decimal? @default(0.00) @map("DEP_NBE_WED") @db.Decimal(20, 2)
+  DEP_NBE_AVG      Decimal? @default(0.00) @map("DEP_NBE_AVG") @db.Decimal(20, 2)
+
+  // 4. Deposits with other local & foreign banks (109_00025 - 109_00032)
+  DEP_BANKS_THU    Decimal? @default(0.00) @map("DEP_BANKS_THU") @db.Decimal(20, 2)
+  DEP_BANKS_FRI    Decimal? @default(0.00) @map("DEP_BANKS_FRI") @db.Decimal(20, 2)
+  DEP_BANKS_SAT    Decimal? @default(0.00) @map("DEP_BANKS_SAT") @db.Decimal(20, 2)
+  DEP_BANKS_SUN    Decimal? @default(0.00) @map("DEP_BANKS_SUN") @db.Decimal(20, 2)
+  DEP_BANKS_MON    Decimal? @default(0.00) @map("DEP_BANKS_MON") @db.Decimal(20, 2)
+  DEP_BANKS_TUE    Decimal? @default(0.00) @map("DEP_BANKS_TUE") @db.Decimal(20, 2)
+  DEP_BANKS_WED    Decimal? @default(0.00) @map("DEP_BANKS_WED") @db.Decimal(20, 2)
+  DEP_BANKS_AVG    Decimal? @default(0.00) @map("DEP_BANKS_AVG") @db.Decimal(20, 2)
+
+  // 5. Treasury bills (109_00033 - 109_00040)
+  T_BILLS_THU      Decimal? @default(0.00) @map("T_BILLS_THU") @db.Decimal(20, 2)
+  T_BILLS_FRI      Decimal? @default(0.00) @map("T_BILLS_FRI") @db.Decimal(20, 2)
+  T_BILLS_SAT      Decimal? @default(0.00) @map("T_BILLS_SAT") @db.Decimal(20, 2)
+  T_BILLS_SUN      Decimal? @default(0.00) @map("T_BILLS_SUN") @db.Decimal(20, 2)
+  T_BILLS_MON      Decimal? @default(0.00) @map("T_BILLS_MON") @db.Decimal(20, 2)
+  T_BILLS_TUE      Decimal? @default(0.00) @map("T_BILLS_TUE") @db.Decimal(20, 2)
+  T_BILLS_WED      Decimal? @default(0.00) @map("T_BILLS_WED") @db.Decimal(20, 2)
+  T_BILLS_AVG      Decimal? @default(0.00) @map("T_BILLS_AVG") @db.Decimal(20, 2)
+
+  // 6. Net due from Domestic banks* (109_00041 - 109_00048)
+  DUE_DOM_THU      Decimal? @default(0.00) @map("DUE_DOM_THU") @db.Decimal(20, 2)
+  DUE_DOM_FRI      Decimal? @default(0.00) @map("DUE_DOM_FRI") @db.Decimal(20, 2)
+  DUE_DOM_SAT      Decimal? @default(0.00) @map("DUE_DOM_SAT") @db.Decimal(20, 2)
+  DUE_DOM_SUN      Decimal? @default(0.00) @map("DUE_DOM_SUN") @db.Decimal(20, 2)
+  DUE_DOM_MON      Decimal? @default(0.00) @map("DUE_DOM_MON") @db.Decimal(20, 2)
+  DUE_DOM_TUE      Decimal? @default(0.00) @map("DUE_DOM_TUE") @db.Decimal(20, 2)
+  DUE_DOM_WED      Decimal? @default(0.00) @map("DUE_DOM_WED") @db.Decimal(20, 2)
+  DUE_DOM_AVG      Decimal? @default(0.00) @map("DUE_DOM_AVG") @db.Decimal(20, 2)
+
+  // 7. Net due from Foreign banks* (109_00049 - 109_00056)
+  DUE_FOR_THU      Decimal? @default(0.00) @map("DUE_FOR_THU") @db.Decimal(20, 2)
+  DUE_FOR_FRI      Decimal? @default(0.00) @map("DUE_FOR_FRI") @db.Decimal(20, 2)
+  DUE_FOR_SAT      Decimal? @default(0.00) @map("DUE_FOR_SAT") @db.Decimal(20, 2)
+  DUE_FOR_SUN      Decimal? @default(0.00) @map("DUE_FOR_SUN") @db.Decimal(20, 2)
+  DUE_FOR_MON      Decimal? @default(0.00) @map("DUE_FOR_MON") @db.Decimal(20, 2)
+  DUE_FOR_TUE      Decimal? @default(0.00) @map("DUE_FOR_TUE") @db.Decimal(20, 2)
+  DUE_FOR_WED      Decimal? @default(0.00) @map("DUE_FOR_WED") @db.Decimal(20, 2)
+  DUE_FOR_AVG      Decimal? @default(0.00) @map("DUE_FOR_AVG") @db.Decimal(20, 2)
+
+  // 8. Total liquid assets (109_00057 - 109_00064)
+  LIQ_ASSETS_THU   Decimal? @default(0.00) @map("LIQ_ASSETS_THU") @db.Decimal(20, 2)
+  LIQ_ASSETS_FRI   Decimal? @default(0.00) @map("LIQ_ASSETS_FRI") @db.Decimal(20, 2)
+  LIQ_ASSETS_SAT   Decimal? @default(0.00) @map("LIQ_ASSETS_SAT") @db.Decimal(20, 2)
+  LIQ_ASSETS_SUN   Decimal? @default(0.00) @map("LIQ_ASSETS_SUN") @db.Decimal(20, 2)
+  LIQ_ASSETS_MON   Decimal? @default(0.00) @map("LIQ_ASSETS_MON") @db.Decimal(20, 2)
+  LIQ_ASSETS_TUE   Decimal? @default(0.00) @map("LIQ_ASSETS_TUE") @db.Decimal(20, 2)
+  LIQ_ASSETS_WED   Decimal? @default(0.00) @map("LIQ_ASSETS_WED") @db.Decimal(20, 2)
+  LIQ_ASSETS_AVG   Decimal? @default(0.00) @map("LIQ_ASSETS_AVG") @db.Decimal(20, 2)
+
+  // 9. Excess/deficit (109_00065 - 109_00072)
+  EXCESS_DEF_THU   Decimal? @default(0.00) @map("EXCESS_DEF_THU") @db.Decimal(20, 2)
+  EXCESS_DEF_FRI   Decimal? @default(0.00) @map("EXCESS_DEF_FRI") @db.Decimal(20, 2)
+  EXCESS_DEF_SAT   Decimal? @default(0.00) @map("EXCESS_DEF_SAT") @db.Decimal(20, 2)
+  EXCESS_DEF_SUN   Decimal? @default(0.00) @map("EXCESS_DEF_SUN") @db.Decimal(20, 2)
+  EXCESS_DEF_MON   Decimal? @default(0.00) @map("EXCESS_DEF_MON") @db.Decimal(20, 2)
+  EXCESS_DEF_TUE   Decimal? @default(0.00) @map("EXCESS_DEF_TUE") @db.Decimal(20, 2)
+  EXCESS_DEF_WED   Decimal? @default(0.00) @map("EXCESS_DEF_WED") @db.Decimal(20, 2)
+  EXCESS_DEF_AVG   Decimal? @default(0.00) @map("EXCESS_DEF_AVG") @db.Decimal(20, 2)
+
+  createdAt        DateTime @default(now()) @map("CREATED_AT")
+  updatedAt        DateTime @updatedAt @map("UPDATED_AT")
+
+  @@map("ZS001")
+}
