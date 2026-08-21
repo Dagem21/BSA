@@ -1,7 +1,9 @@
-import { cronService } from "@/cron/cronService";
 import dbConnect from "@/utils/mongoConnect";
 
 export async function register() {
     dbConnect();
-    // cronService();
+    if (process.env.NEXT_RUNTIME === "nodejs") {
+        const { cronService } = await import("./src/cron/cronService");
+        cronService();
+    }
 }

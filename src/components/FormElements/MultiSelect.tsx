@@ -17,8 +17,8 @@ interface MultiSelectProps {
 }
 
 export const MultiSelect: React.FC<MultiSelectProps> = ({
-    options,
-    value,
+    options = [],
+    value = [],
     onChange,
     placeholder = "Select options...",
     label,
@@ -30,7 +30,6 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
     const inputRef = useRef<HTMLInputElement>(null);
     const instanceId = useId();
 
-    // Close dropdown on outside click
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (
@@ -45,14 +44,13 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
             document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // Filter options based on search query
-    const filteredOptions = options?.filter((option) =>
-        option?.label?.toLowerCase().includes(search?.toLowerCase())
+    const filteredOptions = options.filter((option) =>
+        option.label.toLowerCase().includes(search.toLowerCase())
     );
 
     const handleSelect = (val: string) => {
         if (value.includes(val)) {
-            onChange(value?.filter((item) => item !== val));
+            onChange(value.filter((item) => item !== val));
         } else {
             onChange([...value, val]);
         }
@@ -61,30 +59,39 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 
     const handleRemove = (val: string, e: React.MouseEvent) => {
         e.stopPropagation();
-        onChange(value?.filter((item) => item !== val));
+        onChange(value.filter((item) => item !== val));
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Backspace" && search === "" && value.length > 0) {
-            onChange(value?.slice(0, -1));
+            onChange(value.slice(0, -1));
         }
     };
 
     const handleSelectAll = () => {
-        if (value?.length === options?.length) {
-            onChange([]);
+        const targetOptions = search ? filteredOptions : options;
+        const targetValues = targetOptions.map((opt) => opt.value);
+        const allSelected = targetValues.every((val) => value.includes(val));
+
+        if (allSelected) {
+            onChange(value.filter((val) => !targetValues.includes(val)));
         } else {
-            onChange(options.map((opt) => opt.value));
+            onChange(Array.from(new Set([...value, ...targetValues])));
         }
     };
 
     return (
         <div className="w-full" ref={containerRef}>
-            <label className="block text-body-sm font-medium text-dark dark:text-white">
-                {label}
-            </label>
+            {label && (
+                <label
+                    htmlFor={instanceId}
+                    className="mb-1 block text-body-sm font-medium text-dark dark:text-white"
+                >
+                    {label}
+                </label>
+            )}
 
-            <div className="relative mt-1">
+            <div className="relative">
                 {/* Input Wrapper */}
                 <div
                     onClick={() => {
@@ -93,15 +100,11 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                             inputRef.current?.focus();
                         }
                     }}
-                    className={`dark:bg-boxdark flex min-h-[50px] w-full flex-wrap items-center gap-2 rounded-lg border bg-white px-4 py-2.5 transition ${
+                    className={`flex min-h-[50px] w-full flex-wrap items-center gap-2 rounded-lg border bg-transparent px-4 py-2.5 transition outline-none focus-within:border-primary dark:bg-dark-2 ${
                         disabled
-                            ? "cursor-not-allowed opacity-60"
+                            ? "cursor-not-allowed border-stroke opacity-60 dark:border-dark-3"
                             : "cursor-text"
-                    } ${
-                        isOpen
-                            ? "border-primary shadow-sm"
-                            : "dark:border-strokedark border-stroke"
-                    }`}
+                    } ${isOpen ? "border-primary shadow-sm" : "border-stroke dark:border-dark-3"}`}
                 >
                     {/* Selected Pills */}
                     {value.map((val) => {
@@ -111,13 +114,13 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                         return (
                             <span
                                 key={val}
-                                className="dark:bg-meta-4 flex items-center gap-1.5 rounded-md bg-gray-100 px-2.5 py-1 text-sm font-medium text-black dark:text-white"
+                                className="flex items-center gap-1.5 rounded-md bg-gray-100 px-2.5 py-1 text-sm font-medium dark:bg-dark-3"
                             >
                                 {selectedOpt?.label || val}
                                 <button
                                     type="button"
                                     onClick={(e) => handleRemove(val, e)}
-                                    className="hover:text-danger dark:hover:text-danger text-gray-400"
+                                    className="hover:text-danger text-gray-500"
                                 >
                                     ✕
                                 </button>
@@ -136,7 +139,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                         onFocus={() => setIsOpen(true)}
                         onKeyDown={handleKeyDown}
                         placeholder={value.length === 0 ? placeholder : ""}
-                        className="flex-1 bg-transparent text-sm text-black outline-none dark:text-white"
+                        className="flex-1 bg-transparent text-sm text-black outline-none placeholder:text-gray-400 dark:text-white"
                     />
 
                     {/* Dropdown Indicator */}
@@ -148,15 +151,19 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                                     e.stopPropagation();
                                     onChange([]);
                                 }}
-                                className="hover:text-danger text-xs text-gray-400"
+                                className="hover:text-danger text-xs text-gray-500"
                             >
                                 Clear
                             </button>
                         )}
                         <span
-                            className={`text-gray-400 transition-transform duration-200 ${
+                            className={`cursor-pointer text-xs text-gray-500 transition-transform duration-200 ${
                                 isOpen ? "rotate-180" : ""
                             }`}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsOpen((prev) => !prev);
+                            }}
                         >
                             ▼
                         </span>
@@ -165,36 +172,35 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 
                 {/* Dropdown Menu */}
                 {isOpen && (
-                    <div className="dark:border-strokedark dark:bg-boxdark absolute top-full left-0 z-50 mt-2 max-h-60 w-full overflow-y-auto rounded-lg border border-stroke bg-white shadow-lg">
+                    <div className="absolute top-full left-0 z-50 mt-2 max-h-60 w-full overflow-y-auto rounded-lg border border-stroke bg-white shadow-lg dark:border-dark-3 dark:bg-dark-2">
                         {/* Header Toolbar */}
-                        <div className="dark:border-strokedark flex items-center justify-between border-b border-stroke px-4 py-2">
+                        <div className="flex items-center justify-between border-b border-stroke px-4 py-2 dark:border-dark-3">
                             <span className="text-xs text-gray-500 dark:text-gray-400">
-                                {value?.length} of {options?.length} selected
+                                {value.length} of {options.length} selected
                             </span>
                             <button
                                 type="button"
                                 onClick={handleSelectAll}
                                 className="text-xs font-medium text-primary hover:underline"
                             >
-                                {value?.length === options?.length
+                                {options.length > 0 &&
+                                value.length === options.length
                                     ? "Deselect All"
                                     : "Select All"}
                             </button>
                         </div>
 
                         {/* Options List */}
-                        {filteredOptions?.length > 0 ? (
+                        {filteredOptions.length > 0 ? (
                             filteredOptions.map((option) => {
-                                const isSelected = value?.includes(
-                                    option.value
-                                );
+                                const isSelected = value.includes(option.value);
                                 return (
                                     <div
                                         key={option.value}
                                         onClick={() =>
                                             handleSelect(option.value)
                                         }
-                                        className={`dark:hover:bg-meta-4 flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition hover:bg-gray-100 ${
+                                        className={`flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition hover:bg-gray-100 dark:hover:bg-dark-3 ${
                                             isSelected
                                                 ? "bg-primary/5 font-medium text-primary"
                                                 : "text-black dark:text-white"
@@ -204,8 +210,8 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                                         <input
                                             type="checkbox"
                                             checked={isSelected}
-                                            readOnly
-                                            className="dark:border-strokedark h-4 w-4 rounded border-stroke text-primary focus:ring-primary"
+                                            onChange={() => {}} // Controlled by parent div click
+                                            className="h-4 w-4 rounded border-stroke text-primary focus:ring-primary dark:border-dark-3"
                                         />
                                     </div>
                                 );

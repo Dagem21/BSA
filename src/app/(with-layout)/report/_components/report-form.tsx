@@ -128,7 +128,7 @@ export function ReportForm() {
                             (item: ReportTypeDto) => ({
                                 label: `${item.reportId} (${item.service})`,
                                 value: item._id,
-                                disabled: item.service !== ServiceTypes.Manual
+                                disabled: item.service !== ServiceTypes.None
                             })
                         )}
                         placeholder="Choose report type"

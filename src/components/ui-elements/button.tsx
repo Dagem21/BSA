@@ -9,6 +9,7 @@ const buttonVariants = cva(
                 primary: "bg-primary text-white",
                 green: "bg-green text-white",
                 dark: "bg-dark text-white dark:bg-white/10",
+                danger: "bg-red-700 text-white",
                 outlinePrimary:
                     "border border-primary text-primary hover:bg-primary/10",
                 outlineGreen:

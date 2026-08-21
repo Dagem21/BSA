@@ -223,6 +223,7 @@ export async function PUT(request: NextRequest) {
                             response: response
                         };
                         if (submitted) updateSubmitQuery.status = "Submitted";
+                        else updateSubmitQuery.status = "Failed";
 
                         const responseLog: ResponseLogDto = {
                             reportID: reportId,

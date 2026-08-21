@@ -696,7 +696,7 @@ export const OP001Format = (
                     rawData.filter(
                         (row: OpenPosition) =>
                             row.NEW_DETAIL_GROUP?.trim() ===
-                            "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)"
+                            "Cheques and items in transit"
                     )?.[0]?.USD || "0",
                 _description: "Cheques and items in transit_USD",
                 _dataType: "NUMERIC",

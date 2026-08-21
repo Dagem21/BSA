@@ -27,9 +27,6 @@ export interface StructuralValidationResult {
     errorMessage?: string;
 }
 
-/**
- * Validates whether an uploaded File matches the LC001 template structure.
- */
 export async function validateTemplate(
     file: File
 ): Promise<StructuralValidationResult> {

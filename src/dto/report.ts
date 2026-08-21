@@ -9,7 +9,7 @@ export interface ReportDto {
     createdBy?: string;
     updatedBy?: string;
     approvedBy?: string;
-    status?: string;
+    status?: string | any;
     response?: string;
     createdAt?: Date;
     updatedAt?: Date;

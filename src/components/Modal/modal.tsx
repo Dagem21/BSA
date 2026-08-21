@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
                     </h3>
                     <button
                         onClick={onClose}
-                        className="text-lg font-bold text-gray-400 hover:text-gray-600 dark:hover:text-white"
+                        className="cursor-pointer text-lg font-bold text-gray-400 hover:text-gray-600 dark:hover:text-white"
                     >
                         ✕
                     </button>

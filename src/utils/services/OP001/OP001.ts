@@ -1,5 +1,3 @@
-"use server";
-
 import { OpenPosition } from "@/generated/prisma";
 import * as ExcelJS from "exceljs";
 import * as path from "path";
@@ -151,8 +149,8 @@ async function generateSingleCurrencyExcel(
         await workbook.xlsx.writeFile(outputPathExcel);
 
         return true;
-    } catch (error) {
-        console.error("Error generating single currency Excel:", error);
+    } catch (error: any) {
+        console.error("Error generating single currency Excel:", error.message);
         return false;
     }
 }

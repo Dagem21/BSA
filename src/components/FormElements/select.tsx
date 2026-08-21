@@ -31,7 +31,7 @@ export function Select({
         <div className={cn("space-y-1", className)}>
             <label
                 htmlFor={id}
-                className="block text-body-sm font-medium text-dark dark:text-white"
+                className="mb-1 block text-body-sm font-medium text-dark dark:text-white"
             >
                 {label}
             </label>
