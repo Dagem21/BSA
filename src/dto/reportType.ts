@@ -1,5 +1,5 @@
 export interface ReportTypeDto {
-    _id?: string;
+    _id?: string | any;
     reportId?: string;
     description?: string;
     frequency?: string | any;

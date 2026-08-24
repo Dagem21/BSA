@@ -32,7 +32,7 @@ export const service = async (reportTypeID: string) => {
             status: { $in: ["Pending", "Approved", "Submitted"] }
         });
 
-        if (pendingReport?.length > 0) {
+        if (pendingReport?.total > 0) {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
             log.description = "Report already generated for today.";
@@ -100,12 +100,15 @@ export const service = async (reportTypeID: string) => {
             return;
         }
 
+        const reportingDate = new Date();
+        reportingDate.setUTCHours(0, 0, 0, 0);
+
         const newReport: ReportDto = {
             file: fileNameExcel,
             json: fileNameJson,
             startDate: yesterday.toISOString(),
             endDate: yesterday.toISOString(),
-            reportingDate: new Date().toISOString(),
+            reportingDate: reportingDate.toISOString(),
             reportType: reportTypeID,
             status: "Pending",
             createdBy: "system"

@@ -16,14 +16,23 @@ export const findReport = async (id: string) => {
     }
 };
 
-export const findReports = async (filter?: ReportDto) => {
+export const findReports = async (
+    filter?: ReportDto,
+    page: number = 1,
+    limit: number = 10
+) => {
     try {
-        const report = await reportSchema.find(filter).populate({
-            path: "reportType"
-        });
-        return report;
+        const reports = await reportSchema
+            .find(filter)
+            .sort({ updatedAt: -1 })
+            .skip((page - 1) * limit)
+            .limit(limit)
+            .populate({
+                path: "reportType"
+            });
+        const total = await reportSchema.countDocuments(filter);
+        return { reports, page, limit, total };
     } catch (e) {
-        console.log(e);
         return null;
     }
 };

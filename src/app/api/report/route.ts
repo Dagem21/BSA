@@ -18,20 +18,57 @@ import { ReportFormValues, reportSchema } from "@/yup/report";
 import { generateFileName } from "@/utils/generateFileName";
 import * as fs from "fs";
 import { writeFile } from "fs/promises";
+import { authorizeUser } from "@/utils/chechAuthorization";
+import { RoleTypes } from "@/types/types";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
+
+        const searchParams = request?.nextUrl?.searchParams;
+        const page = searchParams.get("page");
+        const limit = searchParams.get("limit");
+        const reportType = searchParams.get("reportType");
+        const reportingDate = searchParams.get("reportingDate");
+        const startDate = searchParams.get("startDate");
+        const endDate = searchParams.get("endDate");
 
         const query: ReportDto = {
             reportType: { $in: decodedToken.allowedReports || [] }
         };
-        const reports = await findReports(query);
+
+        if (reportType && decodedToken?.allowedReports?.includes(reportType))
+            query.reportType = reportType;
+
+        if (reportingDate) {
+            const start = new Date(reportingDate);
+            start.setUTCHours(0, 0, 0, 0);
+
+            const end = new Date(reportingDate);
+            end.setUTCHours(23, 59, 59, 999);
+
+            query.reportingDate = { $gte: start, $lte: end };
+        }
+        if (startDate && endDate)
+            query.startDate = {
+                $gte: new Date(startDate),
+                $lt: new Date(endDate)
+            };
+        else if (startDate) query.startDate = { $gte: new Date(startDate) };
+        if (endDate) query.startDate = { $lt: new Date(endDate) };
+
+        const reports = await findReports(
+            query,
+            parseInt(page || "1"),
+            parseInt(limit || "10")
+        );
+
         if (reports) {
             return new Response(
                 JSON.stringify({
                     message: "Reports fetched.",
-                    reports
+                    contents: reports
                 }),
                 {
                     status: 200,
@@ -71,6 +108,8 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker]);
+
         const formData = await request.formData();
 
         const reportType = formData.get("reportType") as string;
@@ -159,6 +198,8 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker]);
+
         const body = await request.json();
         if (!body) {
             return new Response(
@@ -169,8 +210,12 @@ export async function PUT(request: NextRequest) {
                 }
             );
         }
-        let { reportId, status } = body;
-        if (!reportId || !status) {
+        let { reportId, status, rejectionReason } = body;
+        if (
+            !reportId ||
+            !status ||
+            (status === "Rejected" && !rejectionReason)
+        ) {
             return new Response(
                 JSON.stringify({ error: "Missing required inputs." }),
                 {
@@ -184,9 +229,10 @@ export async function PUT(request: NextRequest) {
             status,
             updatedBy: decodedToken.id
         };
-        if (status === "Approved") {
-            updateQuery.approvedBy = decodedToken.id;
-        }
+
+        if (status === "Approved") updateQuery.approvedBy = decodedToken.id;
+        else if (status === "Rejected") updateQuery.response = rejectionReason;
+
         const report = await findReport(reportId);
         if (!report) {
             return new Response(

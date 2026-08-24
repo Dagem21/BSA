@@ -13,6 +13,7 @@ export default function Signin() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const session = useSession();
+    const [viewPassword, setViewPassword] = useState(false);
 
     const [data, setData] = useState({
         email: "",
@@ -65,7 +66,7 @@ export default function Signin() {
             <div>
                 <form onSubmit={handleSubmit}>
                     <InputGroup
-                        type="email"
+                        type="text"
                         label="Email"
                         className="mb-4 [&_input]:py-3.75"
                         placeholder="Enter your email"
@@ -76,14 +77,19 @@ export default function Signin() {
                     />
 
                     <InputGroup
-                        type="password"
+                        type={viewPassword ? "text" : "password"}
                         label="Password"
                         className="mb-5 [&_input]:py-3.75"
                         placeholder="Enter your password"
                         name="password"
                         onChange={handleChange}
                         value={data.password}
-                        icon={<PasswordIcon />}
+                        icon={
+                            <PasswordIcon
+                                className="cursor-pointer"
+                                onClick={() => setViewPassword((prev) => !prev)}
+                            />
+                        }
                     />
 
                     <div className="mb-4.5">

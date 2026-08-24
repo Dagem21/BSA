@@ -3,9 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { verifyUserAuth } from "@/utils/authHelper";
+import { authorizeUser } from "@/utils/chechAuthorization";
+import { RoleTypes } from "@/types/types";
 
 export async function GET(request: NextRequest) {
     await verifyUserAuth();
+    authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
 
     const searchParams = request.nextUrl.searchParams;
     const fileName = searchParams.get("filename");

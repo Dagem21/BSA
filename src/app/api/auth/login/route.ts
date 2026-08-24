@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
                 );
             } else {
                 const { displayName, employeeID, userPrincipalName } = user;
-                const userDB = await findUserDB(userPrincipalName);
+                const userDB = await findUserDB({ email: userPrincipalName });
 
                 if (userDB) {
                     const key = {

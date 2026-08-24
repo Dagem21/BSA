@@ -65,16 +65,19 @@ export function ReportForm() {
                     endDate.setDate(endDate.getDate() + 1);
                     break;
                 case FrequncyTypes.Weekly:
-                    endDate.setDate(endDate.getDate() + 7);
+                    endDate.setDate(endDate.getDate() + 6);
                     break;
                 case FrequncyTypes.Monthly:
                     endDate.setMonth(endDate.getMonth() + 1);
+                    endDate.setDate(endDate.getDate() - 1);
                     break;
                 case FrequncyTypes.Quarterly:
                     endDate.setMonth(endDate.getMonth() + 3);
+                    endDate.setDate(endDate.getDate() - 1);
                     break;
                 case FrequncyTypes.Yearly:
                     endDate.setFullYear(endDate.getFullYear() + 1);
+                    endDate.setDate(endDate.getDate() - 1);
                     break;
                 default:
                     break;
@@ -156,24 +159,13 @@ export function ReportForm() {
                             name="startDate"
                             control={control}
                             render={({ field }) => {
-                                // Helper function to format any date string or Date object to YYYY-MM-DD
-                                const formatDate = (val: any) => {
-                                    if (!val) return "";
-                                    const date = new Date(val);
-                                    if (isNaN(date.getTime())) return ""; // Handle invalid date strings
-                                    return date.toISOString().split("T")[0]; // Converts "Jul 27, 2026" -> "2026-07-27"
-                                };
-
                                 return (
                                     <DatePickerOne
                                         label="Start Date"
-                                        value={formatDate(field.value)}
+                                        value={field.value}
                                         onChange={(e) => {
                                             const val = e.target.value;
-                                            console.log(val);
-                                            field.onChange(
-                                                val ? new Date(val) : null
-                                            );
+                                            field.onChange(val);
                                         }}
                                     />
                                 );
@@ -194,14 +186,11 @@ export function ReportForm() {
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="End Date"
-                                    value={
-                                        field?.value
-                                            ?.toISOString()
-                                            .split("T")[0]
-                                    }
-                                    onChange={(dateStr: any) =>
-                                        field.onChange(dateStr)
-                                    }
+                                    value={field?.value}
+                                    onChange={(e) => {
+                                        const val = e.target.value;
+                                        field.onChange(val);
+                                    }}
                                     disabled={true}
                                 />
                             )}

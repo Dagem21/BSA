@@ -11,3 +11,9 @@ export enum ServiceTypes {
     Auto = "Auto",
     None = "None"
 }
+
+export enum RoleTypes {
+    Maker = "Maker",
+    Checker = "Checker",
+    Admin = "Admin"
+}

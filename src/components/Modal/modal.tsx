@@ -24,9 +24,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[99999] flex h-screen w-screen items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
-            {/* 2. Add 'mx-auto' and explicit 'w-full' to force the max-width boundary */}
+        /* Outer Backdrop: Add onClick={onClose} to detect clicks outside the modal */
+        <div
+            onClick={onClose}
+            className="fixed inset-0 z-[99999] flex h-screen w-screen items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
+        >
+            {/* Modal Card: Add onClick={(e) => e.stopPropagation()} to prevent inner clicks from triggering onClose */}
             <div
+                onClick={(e) => e.stopPropagation()}
                 className="relative rounded-lg bg-white p-6 text-dark shadow-xl dark:bg-[#020d1a] dark:text-white"
                 style={{ width: "100%", maxWidth: "512px" }}
             >

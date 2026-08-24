@@ -9,10 +9,13 @@ import { verifyUserAuth } from "@/utils/authHelper";
 import { writeToLog } from "@/utils/log";
 import { reportTypeSchema, reportTypeUpdateSchema } from "@/yup/reportType";
 import { NextRequest } from "next/server";
+import { authorizeUser } from "@/utils/chechAuthorization";
+import { RoleTypes } from "@/types/types";
 
 export async function GET() {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
 
         const filter: any = {};
         if (decodedToken?.allowedReports?.length > 0) {
@@ -64,6 +67,8 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Admin]);
+
         const body = await request.json();
         if (!body) {
             return new Response(
@@ -146,6 +151,8 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
     try {
         await verifyUserAuth();
+        authorizeUser([RoleTypes.Admin]);
+
         const body = await request.json();
         if (!body) {
             return new Response(

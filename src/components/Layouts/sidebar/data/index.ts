@@ -23,6 +23,12 @@ export const NAV_DATA = [
                 items: []
             },
             {
+                title: "Services",
+                url: "/service",
+                icon: Icons.ServiceIcon,
+                items: []
+            },
+            {
                 title: "Profile",
                 url: "/profile",
                 icon: Icons.User,
@@ -52,6 +58,12 @@ export const NAV_DATA_ADMIN = [
                 title: "Report Types",
                 url: "/report-types",
                 icon: Icons.ReportIcon,
+                items: []
+            },
+            {
+                title: "Services",
+                url: "/service",
+                icon: Icons.ServiceIcon,
                 items: []
             },
             {

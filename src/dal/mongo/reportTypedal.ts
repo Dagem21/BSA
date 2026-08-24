@@ -30,7 +30,7 @@ export const updateReportType = async (
 ) => {
     try {
         const reportTypeUpdated = await reportTypeSchema.updateOne(
-            { id },
+            { _id: id },
             { $set: update }
         );
         return {

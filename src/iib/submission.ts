@@ -29,15 +29,26 @@ export const postReport = async (payload: JSON) => {
             body: JSON.stringify(payload)
         });
 
-        const data = await response.json();
+        const data: any = await response.json();
         if (response.ok && Object.keys(data ?? {}).length) {
             if (data?.filename) {
                 return { submitted: true, response: data };
             } else {
-                return { submitted: false, response: data };
+                let message =
+                    data?.[""]?.errors?.[0]?.errorMessage ||
+                    data?.message ||
+                    data?.httpMessage ||
+                    data;
+                return { submitted: false, response: message };
             }
         }
-        return { submitted: false, response: data };
+
+        let message =
+            data?.[""]?.errors?.[0]?.errorMessage ||
+            data?.message ||
+            data?.httpMessage ||
+            data;
+        return { submitted: false, response: message };
     } catch (e: any) {
         console.log(e);
         return { submitted: false, response: e.message };

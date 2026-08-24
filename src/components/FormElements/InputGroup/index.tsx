@@ -34,15 +34,17 @@ const InputGroup: React.FC<InputGroupProps> = ({
 
     return (
         <div className={className}>
-            <label
-                htmlFor={id}
-                className="mb-1 block text-body-sm font-medium text-dark dark:text-white"
-            >
-                {label}
-                {required && (
-                    <span className="ml-1 text-red select-none">*</span>
-                )}
-            </label>
+            {label && (
+                <label
+                    htmlFor={id}
+                    className="mb-1 block text-body-sm font-medium text-dark dark:text-white"
+                >
+                    {label}
+                    {required && (
+                        <span className="ml-1 text-red select-none">*</span>
+                    )}
+                </label>
+            )}
 
             <div
                 className={cn(

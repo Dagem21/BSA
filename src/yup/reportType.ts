@@ -16,3 +16,6 @@ export const reportTypeUpdateSchema = yup.object().shape({
 });
 
 export type ReportTypeFormValues = yup.InferType<typeof reportTypeSchema>;
+export type ReportTypeUpdateFormValues = yup.InferType<
+    typeof reportTypeUpdateSchema
+>;

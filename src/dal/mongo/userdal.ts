@@ -5,9 +5,9 @@ import { UserDto } from "@/dto/user";
 const mongoose = require("mongoose");
 const userSchema = mongoose.model("users");
 
-export const findUser = async (email: string) => {
+export const findUser = async (filter: UserDto) => {
     try {
-        const user = await userSchema.findOne({ email });
+        const user = await userSchema.findOne(filter);
         return user;
     } catch (e) {
         return null;
@@ -16,7 +16,7 @@ export const findUser = async (email: string) => {
 
 export const findUsers = async (filter: UserDto) => {
     try {
-        const user = await userSchema.find(filter);
+        const user = await userSchema.find(filter).populate("allowedReports");
         return user;
     } catch (e) {
         return null;
@@ -32,9 +32,12 @@ export const createUser = async (user: UserDto) => {
     }
 };
 
-export const updateUser = async (email: string, update: UserDto) => {
+export const updateUser = async (id: string, update: UserDto) => {
     try {
-        const userUp = await userSchema.updateOne({ email }, { $set: update });
+        const userUp = await userSchema.updateOne(
+            { _id: id },
+            { $set: update }
+        );
         return {
             found: userUp.matchedCount === 1,
             updated: userUp.matchedCount === 1

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { ReportTypeTable } from "@/components/Tables/report-type-table";
+import { ReportTypeServiceTable } from "@/components/Tables/report-type-service";
 
 export const metadata: Metadata = {
     title: "Report"
@@ -13,7 +13,7 @@ export default function FormElementsPage() {
             <Breadcrumb pageName="Report Types" />
 
             <div className="space-y-10">
-                <ReportTypeTable />
+                <ReportTypeServiceTable />
             </div>
         </>
     );
