@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
         const filePath = path.join(uploadDir, excelFile);
         await writeFile(filePath, buffer);
 
-        // Trigger processing for ZS001 report format
+        // Trigger template validation and report processing based on report type
         try {
             require("@/models/reportTypeSchema");
             const ReportTypeModel =
@@ -114,18 +114,64 @@ export async function POST(request: NextRequest) {
             );
 
             const reportIdStr = reportTypeDoc?.reportId || "";
+
+            // 1. Strict Template Verification
+            const { validateTemplate } = await import("@/utils/fileValidation");
+            const validationResult = await validateTemplate(file, reportIdStr);
+            if (!validationResult.isValid) {
+                return new Response(
+                    JSON.stringify({
+                        error: validationResult.errorMessage || "This is not the exact template file."
+                    }),
+                    {
+                        status: 400,
+                        headers: { "Content-Type": "application/json" }
+                    }
+                );
+            }
+
+            const jsonFilePath = path.join(
+                process.cwd(),
+                "reports",
+                "json",
+                jsonFile
+            );
+
+            // 2. Process NN001 Report Format
             if (
+                reportIdStr.toUpperCase().includes("NN001") ||
+                reportIdStr.toUpperCase().includes("NACNN001")
+            ) {
+                const { processNN001Report } = await import(
+                    "@/utils/services/NN001/NN001"
+                );
+                const procRes = await processNN001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    validatedReport.startDate,
+                    validatedReport.endDate,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process NN001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // 3. Process ZS001 Report Format
+            else if (
                 reportIdStr.toUpperCase().includes("ZS001") ||
                 reportIdStr.toUpperCase().includes("LSR")
             ) {
                 const { processZS001Report } = await import(
                     "@/utils/services/ZS001/ZS001"
-                );
-                const jsonFilePath = path.join(
-                    process.cwd(),
-                    "reports",
-                    "json",
-                    jsonFile
                 );
                 await processZS001Report(
                     decodedToken?.instCode || "0000001",
@@ -136,8 +182,17 @@ export async function POST(request: NextRequest) {
                     jsonFilePath
                 );
             }
-        } catch (procErr) {
-            console.error("Error processing ZS001 report format:", procErr);
+        } catch (procErr: any) {
+            console.error("Error processing report template format:", procErr);
+            return new Response(
+                JSON.stringify({
+                    error: procErr.message || "Failed to process uploaded Excel template."
+                }),
+                {
+                    status: 400,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
         }
 
         const newReport: ReportDto = {

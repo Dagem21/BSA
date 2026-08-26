@@ -15,7 +15,7 @@ export async function GET() {
         const decodedToken = await verifyUserAuth();
 
         const filter: any = {};
-        if (decodedToken?.allowedReports?.length > 0) {
+        if (decodedToken?.role !== "Admin" && decodedToken?.allowedReports?.length > 0) {
             filter._id = { $in: decodedToken?.allowedReports };
         }
 
