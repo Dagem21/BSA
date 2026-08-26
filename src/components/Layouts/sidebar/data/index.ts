@@ -38,6 +38,38 @@ export const NAV_DATA = [
     }
 ];
 
+export const NAV_DATA_CHECKER = [
+    {
+        label: "MAIN MENU",
+        items: [
+            {
+                title: "Dashboard",
+                url: "/",
+                icon: Icons.HomeIcon,
+                items: []
+            },
+            {
+                title: "History",
+                url: "/history",
+                icon: Icons.HistoryIcon,
+                items: []
+            },
+            {
+                title: "Services",
+                url: "/service",
+                icon: Icons.ServiceIcon,
+                items: []
+            },
+            {
+                title: "Profile",
+                url: "/profile",
+                icon: Icons.User,
+                items: []
+            }
+        ]
+    }
+];
+
 export const NAV_DATA_ADMIN = [
     {
         label: "MAIN MENU",
@@ -83,7 +115,7 @@ export const getSideBarItems = (role: string) => {
         case "Maker":
             return NAV_DATA;
         case "Checker":
-            return NAV_DATA;
+            return NAV_DATA_CHECKER;
         default:
             return [];
     }

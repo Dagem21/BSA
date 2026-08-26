@@ -1,13 +1,7 @@
-// import { auth } from "@/lib/auth";
-// import type { AppRole } from "@/lib/auth/modules/authorization/permissions";
 import { NextRequest, NextResponse } from "next/server";
 
 const AUTH_ONLY_PATHS = ["/auth/sign-in"];
 const SESSION_COOKIE_NAME = "session_token";
-// const ROLE_PROTECTED: { prefix: string; requiredRole: AppRole }[] = [
-//   { prefix: "/dashboard/settings", requiredRole: "admin" },
-//   { prefix: "/dashboard/users", requiredRole: "admin" },
-// ];
 
 export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;

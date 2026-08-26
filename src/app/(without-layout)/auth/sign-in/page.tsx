@@ -18,17 +18,10 @@ export default function SignIn() {
 
             <div className="hidden w-full p-6 xl:block xl:w-1/2">
                 <div className="custom-gradient-1 overflow-hidden rounded-2xl px-15 pt-12.5 dark:bg-dark-2! dark:bg-none">
-                    <Link className="mb-10 inline-block" href="/">
+                    <Link className="mb-10" href="/">
                         <Image
-                            className="hidden dark:block"
-                            src={"/images/logo/logo.svg"}
-                            alt="Logo"
-                            width={176}
-                            height={32}
-                        />
-                        <Image
-                            className="dark:hidden"
-                            src={"/images/logo/logo-dark.svg"}
+                            className="block"
+                            src={"/images/logo/CBELogo.svg"}
                             alt="Logo"
                             width={176}
                             height={32}
@@ -39,12 +32,18 @@ export default function SignIn() {
                     </p>
 
                     <h1 className="mb-4 text-2xl font-bold text-dark sm:text-heading-3 dark:text-white">
-                        Welcome Back!
+                        <span
+                            className="text-primary"
+                            title="Bank Supervision Application"
+                        >
+                            BSA
+                        </span>
+                        , Welcome Back!
                     </h1>
 
                     <p className="w-full max-w-[375px] font-medium text-dark-4 dark:text-dark-6">
-                        Please sign in to your account by completing the
-                        necessary fields below
+                        Please sign in to your account by using your CBE AD
+                        credentials
                     </p>
 
                     <div className="mt-31">

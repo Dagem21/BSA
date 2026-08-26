@@ -34,7 +34,7 @@ const startService = async () => {
 
     const reportTypesToRun = await findReportType(filter);
 
-    reportTypesToRun.forEach(async (reportType: ReportTypeDto) => {
+    reportTypesToRun?.forEach(async (reportType: ReportTypeDto) => {
         if (!reportType._id) return;
         const service = getService(reportType._id?.toString());
         if (service) await service(reportType._id?.toString());

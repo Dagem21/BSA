@@ -25,8 +25,14 @@ export function Select({
     ...props
 }: PropsType) {
     const id = useId();
-
     const [isOptionSelected, setIsOptionSelected] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setIsOptionSelected(e.target.value !== "");
+        if ((props as any).onChange) {
+            (props as any).onChange(e);
+        }
+    };
 
     return (
         <div className={cn("space-y-1", className)}>

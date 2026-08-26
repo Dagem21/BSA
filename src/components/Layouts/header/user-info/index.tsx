@@ -8,16 +8,14 @@ import {
 } from "@/components/ui/dropdown";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
-import { LogOutIcon, SettingsIcon, UserIcon } from "./icons";
+import { LogOutIcon, UserIcon } from "./icons";
 import { useSession, useSessionHydrated } from "@/hooks/useSession";
 import { deleteCookie } from "@/app/action";
 
 export function UserInfo() {
     const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
 
     const session = useSession();
     const sessionHydrated = useSessionHydrated();
@@ -25,14 +23,12 @@ export function UserInfo() {
     async function handleLogout() {
         setIsOpen(false);
         const loadingId = toast.loading("Logging out...");
+
         try {
-            await deleteCookie("session_token");
             session.logout();
-            router.push("/auth/sign-in");
-            toast.success("Logged out successfully");
-        } catch {
-            toast.error("Failed to log out");
-        } finally {
+            toast.dismiss(loadingId);
+            await deleteCookie();
+        } catch (e: any) {
             toast.dismiss(loadingId);
         }
     }

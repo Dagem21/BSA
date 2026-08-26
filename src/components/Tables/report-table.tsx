@@ -22,8 +22,12 @@ import { Pager } from "../pager";
 import { Select } from "../FormElements/select";
 import { ReportTypeDto } from "@/dto/reportType";
 import DatePickerOne from "../FormElements/DatePicker/DatePickerOne";
+import { useSession } from "@/hooks/useSession";
+import { RoleTypes } from "@/types/types";
 
 export function ReportTable() {
+    const session = useSession();
+
     const [isPopupOpenUpdate, setIsPopupOpenUpdate] = useState(false);
     const [isPopupOpenView, setIsPopupOpenView] = useState(false);
     const [isPopupOpenStatus, setIsPopupOpenStatus] = useState(false);
@@ -318,27 +322,31 @@ export function ReportTable() {
                                             <PreviewIcon />
                                         </button>
 
-                                        {item.status === "Pending" && (
-                                            <button
-                                                className="hover:text-primary"
-                                                onClick={() => {
-                                                    setSelectedReport(item);
-                                                    setIsPopupOpenUpdate(true);
-                                                    setRejectionReason({
-                                                        message: "",
-                                                        error: ""
-                                                    });
-                                                }}
-                                            >
-                                                <span className="sr-only">
-                                                    Approve Report
-                                                </span>
-                                                <div className="flex items-center justify-center">
-                                                    <CheckIcon />/
-                                                    <XIcon />
-                                                </div>
-                                            </button>
-                                        )}
+                                        {item.status === "Pending" &&
+                                            session?.user?.role ===
+                                                RoleTypes.Checker && (
+                                                <button
+                                                    className="hover:text-primary"
+                                                    onClick={() => {
+                                                        setSelectedReport(item);
+                                                        setIsPopupOpenUpdate(
+                                                            true
+                                                        );
+                                                        setRejectionReason({
+                                                            message: "",
+                                                            error: ""
+                                                        });
+                                                    }}
+                                                >
+                                                    <span className="sr-only">
+                                                        Approve Report
+                                                    </span>
+                                                    <div className="flex items-center justify-center">
+                                                        <CheckIcon />/
+                                                        <XIcon />
+                                                    </div>
+                                                </button>
+                                            )}
 
                                         <button
                                             className="hover:text-primary"

@@ -67,7 +67,7 @@ export default function Signin() {
                 <form onSubmit={handleSubmit}>
                     <InputGroup
                         type="text"
-                        label="Email"
+                        label="CBE Email"
                         className="mb-4 [&_input]:py-3.75"
                         placeholder="Enter your email"
                         name="email"
