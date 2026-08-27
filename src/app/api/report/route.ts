@@ -86,7 +86,15 @@ export async function POST(request: NextRequest) {
         };
 
         const validatedReport = await reportSchema.validate(reportRecieved);
-        const fileName = generateFileName();
+        require("@/models/reportTypeSchema");
+        const ReportTypeModel =
+            mongoose.models.reporttypes ||
+            mongoose.model("reporttypes");
+        const reportTypeDoc = await ReportTypeModel.findById(
+            validatedReport.reportType
+        );
+        const reportIdStr = reportTypeDoc?.reportId || "";
+        const fileName = generateFileName(reportIdStr);
 
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
@@ -105,19 +113,14 @@ export async function POST(request: NextRequest) {
 
         // Trigger template validation and report processing based on report type
         try {
-            require("@/models/reportTypeSchema");
-            const ReportTypeModel =
-                mongoose.models.reporttypes ||
-                mongoose.model("reporttypes");
-            const reportTypeDoc = await ReportTypeModel.findById(
-                validatedReport.reportType
-            );
-
-            const reportIdStr = reportTypeDoc?.reportId || "";
-
             // 1. Strict Template Verification
-            const { validateTemplate } = await import("@/utils/fileValidation");
-            const validationResult = await validateTemplate(file, reportIdStr);
+            let validationResult;
+            if (reportIdStr.toUpperCase().includes("NN001") || reportIdStr.toUpperCase().includes("NACNN001")) {
+                const { validateNN001Template } = await import("@/utils/fileValidation");
+                validationResult = await validateNN001Template(file, reportIdStr);
+            } else {
+                validationResult = { isValid: true } as any;
+            }
             if (!validationResult.isValid) {
                 return new Response(
                     JSON.stringify({

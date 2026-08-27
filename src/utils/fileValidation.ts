@@ -8,7 +8,8 @@ const REQUIRED_CELL_CHECKS: Array<{
     { cell: "B8", expected: "Instiution Code" },
     { cell: "B9", expected: "Financial Year" },
     { cell: "B10", expected: "Start Date" },
-    { cell: "B11", expected: "End Date" }
+    { cell: "B11", expected: "End Date" },
+    { cell: "A8", expected: "Instiution Code", exactMatch: true }
 ];
 
 const REQUIRED_VALUE_CHECKS: Array<{
@@ -27,7 +28,7 @@ export interface StructuralValidationResult {
     errorMessage?: string;
 }
 
-export async function validateTemplate(
+export async function validateNN001Template(
     file: File,
     expectedReportId?: string
 ): Promise<StructuralValidationResult> {

@@ -39,7 +39,7 @@ export async function populateOpenPositionReport(
     endDate: Date
 ): Promise<any> {
     try {
-        const fileName = generateFileName();
+        const fileName = generateFileName("OP001");
 
         const fileNameExcel = `${fileName}.xlsx`;
         const fileNameJson = `${fileName}.json`;
