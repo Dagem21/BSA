@@ -1,4 +1,4 @@
-import { validateTemplate } from "@/utils/fileValidation";
+import { validateNN001Template } from "@/utils/fileValidation";
 import * as yup from "yup";
 
 // Helper to reliably extract the File object from File, FileList, or File[]
@@ -57,13 +57,19 @@ export const reportSchema = yup.object().shape({
             async (value, context) => {
                 const file = extractFile(value);
                 if (!file) return false;
+                const reportIdStr = context.parent.reportType || "";
 
-                const validation = await validateTemplate(file);
+                let validationResult;
+                if (reportIdStr.toUpperCase().includes("NN001") || reportIdStr.toUpperCase().includes("NACNN001")) {
+                    validationResult = await validateNN001Template(file, reportIdStr);
+                } else {
+                    validationResult = { isValid: true } as any;
+                }
 
-                if (!validation.isValid) {
+                if (!validationResult.isValid) {
                     return context.createError({
                         message:
-                            validation.errorMessage ||
+                            validationResult.errorMessage ||
                             "Please use the correct template."
                     });
                 }

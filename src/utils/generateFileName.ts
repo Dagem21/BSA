@@ -1,12 +1,11 @@
-import crypto from "crypto";
-
-export const generateFileName = () => {
-    const uniqueId = crypto.randomBytes(4).toString("hex");
-    const currTime = Date.now().toString(36);
-
-    const fileName = crypto
-        .createHash("sha256")
-        .update(currTime + uniqueId + "a")
-        .digest("hex");
-    return fileName;
+export const generateFileName = (reportType?: string) => {
+    const uploadTime = new Date();
+    const timestamp = uploadTime
+        .toISOString()
+        .slice(0, 13)
+        .replace(/-/g, "")
+        .replace("T", "_");
+    const prefix = reportType?.trim().replace(/[^a-zA-Z0-9_-]/g, "");
+    const fileName = timestamp;
+    return prefix ? `${prefix}_${fileName}` : fileName;
 };
