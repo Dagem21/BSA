@@ -1,28 +1,18 @@
-export const ZS001_ROW_DESCRIPTIONS = [
-    "Net current liabilities",
-    "Cash - local and foreign currency",
-    "Deposits with NBE",
-    "Deposits with other local & foreign banks",
-    "Treasury bills",
-    "Net due from Domestic banks*",
-    "Net due from Foreign banks*",
-    "Total liquid assets (=sum 2.1 to 2.4 less 2.5 & 2.6)",
-    "Excess/deficit (2.7-1.2)"
+export const SRRYY001_ROW_DESCRIPTIONS = [
+    "Net Average Reserve Base (Previous Calendar Month)",
+    "Daily Reserve Requirement in Maintenance Period (5% of 1)",
+    "Payment and Settlement Account Balance with NBE in Maintenance Period",
+    "Excess/Deficiency in Reserve (3 minus 2)",
+    "Reserve Ratio (3/1*100)"
 ];
 
-export const ZS001_COL_SUFFIXES = [
-    "Thu",
-    "Fri",
-    "Sat",
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Weekly Average"
+export const SRRYY001_COL_SUFFIXES = [
+    ...Array.from({ length: 35 }, (_, i) => `Day ${i + 1}`),
+    "Monthly Average"
 ];
 
-export const ZS001Format = (
-    returnKey: string = "LSR-Statutory ZS001",
+export const SRRYY001Format = (
+    returnKey: string = "SRRYY001",
     instCode: string = "0000001",
     finYear: number = 2026,
     startDate: string,
@@ -41,9 +31,9 @@ export const ZS001Format = (
     }> = [];
 
     let codeCounter = 1;
-    ZS001_ROW_DESCRIPTIONS.forEach((rowDesc) => {
-        ZS001_COL_SUFFIXES.forEach((colSuffix) => {
-            const codeStr = `109_${codeCounter.toString().padStart(5, "0")}`;
+    SRRYY001_ROW_DESCRIPTIONS.forEach((rowDesc) => {
+        SRRYY001_COL_SUFFIXES.forEach((colSuffix) => {
+            const codeStr = `165_${codeCounter.toString().padStart(5, "0")}`;
             codeCounter++;
 
             returnItems.push({

@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 import * as fs from "fs";
 import * as path from "path";
-import { ZS001Format } from "./jsonFormat";
+import { REGRL002Format } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -23,11 +23,20 @@ function formatIsoString(dateVal: any): string {
     return str;
 }
 
-function getCellValue(cell: ExcelJS.Cell): string {
+function getDirectCellValue(cell: ExcelJS.Cell): string {
     if (!cell || cell.value === null || cell.value === undefined) return "";
     const val = cell.value;
+    if (typeof val === "number") {
+        return String(val);
+    }
+    if (typeof val === "string") {
+        return val.trim();
+    }
     if (typeof val === "object") {
         if ("result" in val && val.result !== undefined && val.result !== null) {
+            if (typeof val.result === "object" && "error" in val.result) {
+                return "";
+            }
             return String(val.result).trim();
         }
         if ("richText" in val && Array.isArray(val.richText)) {
@@ -36,12 +45,17 @@ function getCellValue(cell: ExcelJS.Cell): string {
         if ("text" in val && val.text) {
             return String(val.text).trim();
         }
-        return "";
     }
-    return String(val).trim();
+    if (cell.result !== undefined && cell.result !== null) {
+        return String(cell.result).trim();
+    }
+    if (cell.text !== undefined && cell.text !== null) {
+        return String(cell.text).trim();
+    }
+    return "";
 }
 
-export async function processZS001Report(
+export async function processREGRL002Report(
     instCode: string,
     inputFilePath: string,
     startDate: string,
@@ -53,9 +67,9 @@ export async function processZS001Report(
     await workbook.xlsx.readFile(inputFilePath);
 
     const worksheet =
+        workbook.getWorksheet("Loan by range and region") ||
         workbook.getWorksheet("NBE") ||
-        workbook.getWorksheet("ZS001 ") ||
-        workbook.getWorksheet("ZS001") ||
+        workbook.getWorksheet("Sheet1") ||
         workbook.worksheets[0];
 
     const finYear = new Date(startDate).getFullYear();
@@ -63,40 +77,39 @@ export async function processZS001Report(
     const formattedEndDate = formatIsoString(endDate);
 
     // Update Header Metadata cells
-    worksheet.getCell("D9").value = instCode;
-    worksheet.getCell("D10").value = finYear;
-    worksheet.getCell("D11").value = formattedStartDate;
-    worksheet.getCell("D12").value = formattedEndDate;
-
-    // Excel Rows for the 9 categories:
-    // 1. Row 17: Net current liabilities
-    // 2. Row 20: Cash - local and foreign currency
-    // 3. Row 21: Deposits with NBE
-    // 4. Row 22: Deposits with other local & foreign banks
-    // 5. Row 23: Treasury bills
-    // 6. Row 24: Net due from Domestic banks*
-    // 7. Row 25: Net due from Foreign banks*
-    // 8. Row 26: Total liquid assets (=sum 2.1 to 2.4 less 2.5 & 2.6)
-    // 9. Row 27: Excess/deficit (2.7-1.2)
-    const targetRows = [17, 20, 21, 22, 23, 24, 25, 26, 27];
+    worksheet.getCell("C8").value = instCode;
+    worksheet.getCell("C9").value = finYear;
+    worksheet.getCell("C10").value = formattedStartDate;
+    worksheet.getCell("C11").value = formattedEndDate;
 
     const valuesMap: Record<string, string> = {};
-    let codeCounter = 1;
+    let codeCounter = 48782;
 
-    for (const excelRow of targetRows) {
-        for (let colIndex = 0; colIndex < 8; colIndex++) {
-            const excelCol = 4 + colIndex; // Col D is 4
-            const cell = worksheet.getRow(excelRow).getCell(excelCol);
-            const valStr = getCellValue(cell);
+    // 14 Regions x 6 sub-rows = 84 rows starting from Row 17 to 100
+    for (let regIndex = 0; regIndex < 14; regIndex++) {
+        const startRow = 17 + regIndex * 6;
+        for (let subRowIndex = 0; subRowIndex < 6; subRowIndex++) {
+            const excelRowIndex = startRow + subRowIndex;
+            const row = worksheet.getRow(excelRowIndex);
 
-            const codeStr = `109_${codeCounter.toString().padStart(5, "0")}`;
-            valuesMap[codeStr] = valStr;
-            codeCounter++;
+            for (let colIndex = 0; colIndex < 24; colIndex++) {
+                const excelColIndex = 3 + colIndex; // Col C is 3
+                const cell = row.getCell(excelColIndex);
+                const cellVal = getDirectCellValue(cell);
+
+                const codeStr = `RL002_${codeCounter}`;
+                valuesMap[codeStr] = cellVal;
+                codeCounter++;
+
+                if (cellVal && typeof cell.value === "object") {
+                    cell.value = parseFloat(cellVal) || cellVal;
+                }
+            }
         }
     }
 
-    const jsonOutput = ZS001Format(
-        "LSR-Statutory ZS001",
+    const jsonOutput = REGRL002Format(
+        "LOAN_RAN & REGRL002",
         instCode,
         finYear,
         formattedStartDate,
@@ -120,6 +133,6 @@ export async function processZS001Report(
         success: true,
         jsonPath: outputJsonPath,
         excelPath: outputExcelPath,
-        itemCount: 72
+        itemCount: 2016
     };
 }
