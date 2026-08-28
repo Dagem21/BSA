@@ -82,6 +82,126 @@ export async function validateNN001Template(
                             "This is not the exact NN001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("OL001") || cleanId.includes("COL_ACQ_18M_OL001")) {
+                const isOL001 =
+                    codeA1.includes("COL_ACQ_18M_OL001") ||
+                    codeA1.includes("OL001") ||
+                    headerRow4.includes("collateralized properties") ||
+                    headerRow14.includes("name of borrower");
+                if (!isOL001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact OL001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("MA001") || cleanId.includes("NBE_MAT_ANL_MA001")) {
+                const isMA001 =
+                    codeA1.includes("NBE_MAT_ANL_MA001") ||
+                    codeA1.includes("MA001") ||
+                    headerRow4.includes("maturity of assets");
+                if (!isMA001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact MA001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("MK001") || cleanId.includes("KEY BALANCE SHEET")) {
+                const isMK001 =
+                    codeA1.includes("MK001") ||
+                    codeA1.includes("KEY BALANCE SHEET") ||
+                    headerRow4.includes("key balance sheet");
+                if (!isMK001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact MK001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("KK001") || cleanId.includes("M_CC")) {
+                const isKK001 =
+                    codeA1.includes("KK001") ||
+                    codeA1.includes("M_CC") ||
+                    headerRow4.includes("capital adequacy");
+                if (!isKK001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact KK001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("RL002") || cleanId.includes("REGRL002") || cleanId.includes("LOAN_RAN")) {
+                const isRL002 =
+                    codeA1.includes("RL002") ||
+                    codeA1.includes("REGRL002") ||
+                    codeA1.includes("LOAN_RAN") ||
+                    headerRow4.includes("range and region");
+                if (!isRL002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact REGRL002 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("MD002") || cleanId.includes("CDBY") || cleanId.includes("SECTOR AND REG")) {
+                const isMD002 =
+                    codeA1.includes("MD002") ||
+                    codeA1.includes("CDBY") ||
+                    headerRow4.includes("deposits by sector and region");
+                if (!isMD002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact MD002 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("DPWADP001") || cleanId.includes("DPW")) {
+                const isDPWADP001 =
+                    codeA1.includes("DPWADP001") ||
+                    headerRow4.includes("interest-free banks") ||
+                    headerRow4.includes("deposit profit rates");
+                if (!isDPWADP001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact DPWADP001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("MB001") || cleanId.includes("MB001MB001")) {
+                const isMB001 =
+                    codeA1.includes("MB001") ||
+                    headerRow4.includes("monthly balance sheet");
+                if (!isMB001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact MB001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("SRR")) {
+                const isSRR =
+                    codeA1.includes("SRR") ||
+                    headerRow4.includes("statutory reserve");
+                if (!isSRR) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact SRRYY001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("RB001") || cleanId.includes("RESERVE BASE")) {
+                const isRB001 =
+                    codeA1.includes("RB001") ||
+                    codeA1.includes("RESERVE BASE") ||
+                    headerRow4.includes("reserve base");
+                if (!isRB001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact RB001 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("ZS001")) {
                 const isZS001 =
                     codeA1.includes("ZS001") ||

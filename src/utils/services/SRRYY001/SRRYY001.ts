@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 import * as fs from "fs";
 import * as path from "path";
-import { ZS001Format } from "./jsonFormat";
+import { SRRYY001Format } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -41,7 +41,7 @@ function getCellValue(cell: ExcelJS.Cell): string {
     return String(val).trim();
 }
 
-export async function processZS001Report(
+export async function processSRRYY001Report(
     instCode: string,
     inputFilePath: string,
     startDate: string,
@@ -54,8 +54,8 @@ export async function processZS001Report(
 
     const worksheet =
         workbook.getWorksheet("NBE") ||
-        workbook.getWorksheet("ZS001 ") ||
-        workbook.getWorksheet("ZS001") ||
+        workbook.getWorksheet("SRR") ||
+        workbook.getWorksheet("Sheet1") ||
         workbook.worksheets[0];
 
     const finYear = new Date(startDate).getFullYear();
@@ -63,40 +63,30 @@ export async function processZS001Report(
     const formattedEndDate = formatIsoString(endDate);
 
     // Update Header Metadata cells
-    worksheet.getCell("D9").value = instCode;
-    worksheet.getCell("D10").value = finYear;
-    worksheet.getCell("D11").value = formattedStartDate;
-    worksheet.getCell("D12").value = formattedEndDate;
+    worksheet.getCell("B7").value = instCode;
+    worksheet.getCell("B8").value = finYear;
+    worksheet.getCell("B9").value = formattedStartDate;
+    worksheet.getCell("B10").value = formattedEndDate;
 
-    // Excel Rows for the 9 categories:
-    // 1. Row 17: Net current liabilities
-    // 2. Row 20: Cash - local and foreign currency
-    // 3. Row 21: Deposits with NBE
-    // 4. Row 22: Deposits with other local & foreign banks
-    // 5. Row 23: Treasury bills
-    // 6. Row 24: Net due from Domestic banks*
-    // 7. Row 25: Net due from Foreign banks*
-    // 8. Row 26: Total liquid assets (=sum 2.1 to 2.4 less 2.5 & 2.6)
-    // 9. Row 27: Excess/deficit (2.7-1.2)
-    const targetRows = [17, 20, 21, 22, 23, 24, 25, 26, 27];
-
+    // Read Rows 13 to 17, Cols 3 to 38 (180 items)
     const valuesMap: Record<string, string> = {};
     let codeCounter = 1;
 
-    for (const excelRow of targetRows) {
-        for (let colIndex = 0; colIndex < 8; colIndex++) {
-            const excelCol = 4 + colIndex; // Col D is 4
+    for (let rowIndex = 0; rowIndex < 5; rowIndex++) {
+        const excelRow = 13 + rowIndex;
+        for (let colIndex = 0; colIndex < 36; colIndex++) {
+            const excelCol = 3 + colIndex; // Col C is 3
             const cell = worksheet.getRow(excelRow).getCell(excelCol);
             const valStr = getCellValue(cell);
 
-            const codeStr = `109_${codeCounter.toString().padStart(5, "0")}`;
+            const codeStr = `165_${codeCounter.toString().padStart(5, "0")}`;
             valuesMap[codeStr] = valStr;
             codeCounter++;
         }
     }
 
-    const jsonOutput = ZS001Format(
-        "LSR-Statutory ZS001",
+    const jsonOutput = SRRYY001Format(
+        "SRRYY001",
         instCode,
         finYear,
         formattedStartDate,
@@ -120,6 +110,6 @@ export async function processZS001Report(
         success: true,
         jsonPath: outputJsonPath,
         excelPath: outputExcelPath,
-        itemCount: 72
+        itemCount: 180
     };
 }
