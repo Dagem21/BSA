@@ -94,6 +94,35 @@ export const REGRL002Format = (
         });
     });
 
+    // 15. Total Amount Row (Row 101 in Excel, Codes RL002_50798 to RL002_50821)
+    REGRL002_RANGES.forEach((rangeStr) => {
+        REGRL002_METRICS.forEach((metricStr) => {
+            const codeStr = `RL002_${codeCounter}`;
+            codeCounter++;
+
+            let spacingStr = metricStr;
+            if (metricStr.includes("Borrowers")) {
+                if (rangeStr === "<= 100,000" || rangeStr === ">100,000 - 1million" || rangeStr === ">5million - 10 million" || rangeStr === ">100 million") {
+                    spacingStr = " " + metricStr.trim();
+                } else if (rangeStr === ">10million - 50 million" || rangeStr === "Total") {
+                    spacingStr = "  " + metricStr.trim();
+                } else if (rangeStr === ">1 million - 5 million" || rangeStr === ">50million -100million") {
+                    spacingStr = "  " + metricStr.trim();
+                }
+            }
+
+            const desc = `Total Amount_${rangeStr}_${spacingStr}`;
+
+            returnItemsList.push({
+                Code: codeStr,
+                Value: fmt(valuesMap[codeStr]),
+                _description: desc,
+                _dataType: "NUMERIC",
+                _required: false
+            });
+        });
+    });
+
     return {
         ReturnKey: returnKey,
         InstCode: instCode,

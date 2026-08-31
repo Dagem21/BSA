@@ -6,7 +6,10 @@ export const RB001_ROW_DESCRIPTIONS = [
     "Deductions (2.1+2.2)",
     "Un-cleared checks paid-local",
     "Un-cleared effects- foreign",
-    "Net Reserve Base  (1 minus 2)"
+    "Net Reserve Base  (1 minus 2)",
+    "Payment and Settlement Account Balance with NBE",
+    "Currency Issue Account Balance",
+    "Deposit Balance with NBE (4+5)"
 ];
 
 export const RB001_COL_SUFFIXES = [

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MB001_DESCRIPTIONS } from "@/utils/services/MB001/jsonFormat";
+import { MB001_DESCRIPTIONS, MB001_EXCEL_LAYOUT } from "@/utils/services/MB001/jsonFormat";
 import { cn } from "@/lib/utils";
 
 interface ReturnItem {
@@ -91,8 +91,8 @@ export function MB001ExcelView({ initialData, activeFileName }: MB001ExcelViewPr
     const totalDeposits = getItemValue("110_00084");
     const totalAssets = getItemValue("110_00081");
 
-    const gridRows = MB001_DESCRIPTIONS.map((item, idx) => {
-        const rowNum = 17 + idx;
+    const gridRows = MB001_EXCEL_LAYOUT.map((item) => {
+        const rowNum = item.rowNum;
         const val = getItemValue(item.code);
         const cellRef = `C${rowNum}`;
         const isHeader = item.desc.toUpperCase() === item.desc && item.desc.length > 5;

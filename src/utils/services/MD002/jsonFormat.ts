@@ -108,6 +108,49 @@ export const MD002Format = (
         });
     });
 
+    // 15. Total Deposits Row (Row 100 in Excel, Codes MD002_48764 to MD002_48781)
+    MD002_SECTORS.forEach((sec) => {
+        MD002_METRICS.forEach((metric) => {
+            const codeStr = `MD002_${codeCounter}`;
+            codeCounter++;
+
+            let secSpacing = sec;
+            let metricSpacing = metric;
+
+            if (sec === "Private & Coop." && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                secSpacing = " Private & Coop.";
+            }
+            if (sec === "Regional Gov." && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                secSpacing = " Regional Gov.";
+            }
+            if (sec === "Banks" && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                secSpacing = " Banks";
+            }
+
+            if (sec === "Pub.  Enterprise" && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                metricSpacing = " " + metric + " ";
+            } else if (metric.includes("Depositors") || metric.includes("Accounts")) {
+                metricSpacing = metric + " ";
+            }
+            if (sec === "Others" && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                metricSpacing = " " + metric + " ";
+            }
+            if (sec === "Total " && (metric.includes("Depositors") || metric.includes("Accounts"))) {
+                metricSpacing = " " + metric + " ";
+            }
+
+            const desc = `Total Deposits_${secSpacing}_${metricSpacing}`;
+
+            returnItemsList.push({
+                Code: codeStr,
+                Value: fmt(valuesMap[codeStr]),
+                _description: desc,
+                _dataType: "NUMERIC",
+                _required: false
+            });
+        });
+    });
+
     return {
         ReturnKey: returnKey,
         InstCode: instCode,
