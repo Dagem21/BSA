@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 import * as fs from "fs";
 import * as path from "path";
-import { MB001Format, MB001_DESCRIPTIONS } from "./jsonFormat";
+import { MB001Format, MB001_DESCRIPTIONS, MB001_ROW_CODE_MAP } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -82,18 +82,34 @@ export async function processMB001Report(
     worksheet.getCell("B10").value = formattedStartDate;
     worksheet.getCell("B11").value = formattedEndDate;
 
-    // Read Column C cells from Row 17 to 167 (151 items)
+    // Explicit section code overrides in Excel Column A
+    const EXCEL_CODE_OVERRIDE_MAP: Record<string, string> = {
+        "4.2": "110_00149",      // Long-term Investments (4.2.1 + 4.2.2)
+        "14.1.4": "110_00150",   // Domestic banks under Demand deposits
+        "21.2": "110_00151",     // Shares premium under Capital
+    };
+
     const valuesMap: Record<string, string> = {};
 
-    MB001_DESCRIPTIONS.forEach((item, idx) => {
-        const rowNum = 17 + idx;
-        const cell = worksheet.getCell(`C${rowNum}`);
-        const cellVal = getDirectCellValue(cell);
-        valuesMap[item.code] = cellVal;
+    worksheet.eachRow((row, rowNumber) => {
+        if (rowNumber < 17) return;
 
-        // If cell is a formula object, preserve evaluated result into cell value
-        if (cellVal && typeof cell.value === "object") {
-            cell.value = parseFloat(cellVal) || cellVal;
+        const colA = getDirectCellValue(row.getCell(1));
+        const cellC = row.getCell(3);
+        const cellVal = getDirectCellValue(cellC);
+
+        let targetCode: string | null = null;
+        if (colA && EXCEL_CODE_OVERRIDE_MAP[colA]) {
+            targetCode = EXCEL_CODE_OVERRIDE_MAP[colA];
+        } else if (rowNumber >= 17 && rowNumber <= 167) {
+            targetCode = MB001_ROW_CODE_MAP[rowNumber - 17];
+        }
+
+        if (targetCode) {
+            valuesMap[targetCode] = cellVal;
+            if (cellVal && typeof cellC.value === "object") {
+                cellC.value = parseFloat(cellVal) || cellVal;
+            }
         }
     });
 

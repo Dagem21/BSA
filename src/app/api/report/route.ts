@@ -99,6 +99,18 @@ export async function POST(request: NextRequest) {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
 
+        if (!buffer || buffer.length === 0) {
+            return new Response(
+                JSON.stringify({
+                    error: "The uploaded file is empty (0 bytes). Please upload a valid Excel file."
+                }),
+                {
+                    status: 400,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
+
         const uploadDir = path.join(process.cwd(), "reports", "excel");
 
         if (!fs.existsSync(uploadDir)) {
