@@ -159,6 +159,9 @@ export async function POST(request: NextRequest) {
                 jsonFile
             );
 
+            const startDateStr = validatedReport.startDate.toISOString();
+            const endDateStr = validatedReport.endDate.toISOString();
+
             // 2. Process NN001 Report Format
             if (
                 reportIdStr.toUpperCase().includes("NN001") ||
@@ -170,8 +173,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processNN001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -179,6 +182,109 @@ export async function POST(request: NextRequest) {
                     return new Response(
                         JSON.stringify({
                             error: procRes.error || "Failed to process NN001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // Process FB001 Report Format
+            else if (reportIdStr.toUpperCase().includes("FB001")) {
+                const { processFB001Report } = await import(
+                    "@/utils/services/FB001/FB001"
+                );
+                const procRes: any = await processFB001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process FB001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // Process BP001 Report Format
+            else if (reportIdStr.toUpperCase().includes("BP001")) {
+                const { processBP001Report } = await import(
+                    "@/utils/services/BP001/BP001"
+                );
+                const procRes: any = await processBP001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process BP001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // Process MWAL001 Report Format
+            else if (reportIdStr.toUpperCase().includes("MWAL001")) {
+                const { processMWAL001Report } = await import(
+                    "@/utils/services/MWAL001/MWAL001"
+                );
+                const procRes: any = await processMWAL001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process MWAL001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // Process LB002 Report Format
+            else if (
+                reportIdStr.toUpperCase().includes("LB002") ||
+                reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
+            ) {
+                const { processLB002Report } = await import(
+                    "@/utils/services/LB002/LB002"
+                );
+                const procRes: any = await processLB002Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process LB002 template file."
                         }),
                         {
                             status: 400,
@@ -195,14 +301,25 @@ export async function POST(request: NextRequest) {
                 const { processZS001Report } = await import(
                     "@/utils/services/ZS001/ZS001"
                 );
-                await processZS001Report(
+                const procRes: any = await processZS001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process ZS001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
             }
             // 4. Process OL001 Report Format
             else if (
@@ -215,8 +332,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processOL001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -243,8 +360,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processMA001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -268,11 +385,11 @@ export async function POST(request: NextRequest) {
                 const { processMK001Report } = await import(
                     "@/utils/services/MK001/MK001"
                 );
-                const procRes = await processMK001Report(
+                const procRes: any = await processMK001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -296,11 +413,11 @@ export async function POST(request: NextRequest) {
                 const { processMB001Report } = await import(
                     "@/utils/services/MB001/MB001"
                 );
-                const procRes = await processMB001Report(
+                const procRes: any = await processMB001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -327,8 +444,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processSRRYY001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -352,11 +469,11 @@ export async function POST(request: NextRequest) {
                 const { processRB001Report } = await import(
                     "@/utils/services/RB001/RB001"
                 );
-                const procRes = await processRB001Report(
+                const procRes: any = await processRB001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -372,7 +489,7 @@ export async function POST(request: NextRequest) {
                     );
                 }
             }
-            // 10. Process ZS001 Report Format
+            // 10. Process ZS001 Report Format (Duplicate block check)
             else if (
                 reportIdStr.toUpperCase().includes("ZS001") ||
                 reportIdStr.toUpperCase().includes("LSR")
@@ -380,11 +497,11 @@ export async function POST(request: NextRequest) {
                 const { processZS001Report } = await import(
                     "@/utils/services/ZS001/ZS001"
                 );
-                const procRes = await processZS001Report(
+                const procRes: any = await processZS001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -408,11 +525,11 @@ export async function POST(request: NextRequest) {
                 const { processKK001Report } = await import(
                     "@/utils/services/KK001/KK001"
                 );
-                const procRes = await processKK001Report(
+                const procRes: any = await processKK001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -440,8 +557,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processREGRL002Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -469,8 +586,8 @@ export async function POST(request: NextRequest) {
                 const procRes = await processMD002Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );
@@ -494,11 +611,11 @@ export async function POST(request: NextRequest) {
                 const { processDPWADP001Report } = await import(
                     "@/utils/services/DPWADP001/DPWADP001"
                 );
-                const procRes = await processDPWADP001Report(
+                const procRes: any = await processDPWADP001Report(
                     decodedToken?.instCode || "0000001",
                     filePath,
-                    validatedReport.startDate,
-                    validatedReport.endDate,
+                    startDateStr,
+                    endDateStr,
                     filePath,
                     jsonFilePath
                 );

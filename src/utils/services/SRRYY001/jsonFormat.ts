@@ -19,8 +19,12 @@ export const SRRYY001Format = (
     endDate: string,
     valuesMap: Record<string, string> = {}
 ) => {
-    const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null && val !== "" ? val.toString() : "";
+    const fmt = (val: string | number | undefined | null) => {
+        if (val !== undefined && val !== null && val !== "") {
+            return val.toString();
+        }
+        return "0";
+    };
 
     const returnItems: Array<{
         Code: string;
@@ -41,7 +45,7 @@ export const SRRYY001Format = (
                 Value: fmt(valuesMap[codeStr]),
                 _description: `${rowDesc}_${colSuffix}`,
                 _dataType: "NUMERIC",
-                _required: false
+                _required: true
             });
         });
     });

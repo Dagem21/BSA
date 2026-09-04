@@ -168,6 +168,19 @@ export async function validateNN001Template(
                             "This is not the exact DPWADP001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("LB002") || cleanId.includes("BOR_TEN_PER_LB002")) {
+                const isLB002 =
+                    codeA1.includes("LB002") ||
+                    codeA1.includes("BOR_TEN_PER_LB002") ||
+                    headerRow4.includes("large exposures") ||
+                    headerRow4.includes("exceed ten percent");
+                if (!isLB002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact LB002 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("MB001") || cleanId.includes("MB001MB001")) {
                 const isMB001 =
                     codeA1.includes("MB001") ||

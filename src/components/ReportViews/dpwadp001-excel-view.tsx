@@ -78,6 +78,28 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
         }
     }, [activeFileName]);
 
+    const handleDownloadExcel = async () => {
+        if (!currentFileName) return;
+        const excelName = currentFileName.endsWith(".json")
+            ? currentFileName.replace(/\.json$/, ".xlsx")
+            : currentFileName;
+        try {
+            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            if (!res.ok) throw new Error("Download failed");
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = excelName;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error("Failed to download Excel file:", err);
+        }
+    };
+
     const formatNum = (valStr: string, isPercent: boolean = false) => {
         if (valStr === undefined || valStr === null || valStr === "") return "-";
         const num = parseFloat(valStr);
@@ -101,9 +123,9 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
         row.forEach((item) => {
             const num = parseFloat(item.Value);
             if (!isNaN(num)) {
-                if (item.Code === "1.3") totalDepositAmount += num;
-                if (item.Code === "1.4") totalAccounts += num;
-                if (item.Code === "1.7") {
+                if (item.Code.endsWith(".3")) totalDepositAmount += num;
+                if (item.Code.endsWith(".4")) totalAccounts += num;
+                if (item.Code.endsWith(".7")) {
                     totalRateSum += num;
                     rateCount++;
                 }
@@ -194,6 +216,13 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                             )}
                         >
                             {`{ }`} Raw JSON
+                        </button>
+                        <button
+                            onClick={handleDownloadExcel}
+                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-emerald-700 transition"
+                            title="Download Excel file generated from JSON"
+                        >
+                            📥 Download Excel
                         </button>
                     </div>
                 </div>
@@ -290,8 +319,8 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                                 {excelRowIdx}
                                             </td>
 
-                                            {headers.map((h) => {
-                                                const item = row.find((i) => i.Code === h.code);
+                                            {headers.map((h, colIdx) => {
+                                                const item = row.find((i) => i.Code === h.code || i.Code.endsWith(`.${colIdx + 1}`)) || row[colIdx];
                                                 const val = item ? item.Value : "";
                                                 const cellRef = `${h.colLetter}${excelRowIdx}`;
                                                 const isSelected = selectedCell?.cellRef === cellRef;
@@ -303,7 +332,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                                         onClick={() =>
                                                             setSelectedCell({
                                                                 cellRef,
-                                                                code: h.code,
+                                                                code: item?.Code || h.code,
                                                                 colDesc: h.label,
                                                                 rowIdx: rIdx + 1,
                                                                 value: val
