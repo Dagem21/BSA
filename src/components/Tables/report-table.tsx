@@ -188,34 +188,6 @@ export function ReportTable() {
 
                             <TableCell className="xl:pr-7.5">
                                 <div className="flex items-center justify-end gap-x-4.5">
-                                     {item?.reportType?.reportId?.toUpperCase().includes("MA001") && (
-                                         <Link
-                                             href={`/report/ma001?filename=${encodeURIComponent(item.json || "")}`}
-                                             className="hover:text-primary text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded"
-                                             title="Excel Grid View"
-                                         >
-                                             📊 Excel View
-                                         </Link>
-                                     )}
-                                     {item?.reportType?.reportId?.toUpperCase().includes("OL001") && (
-                                         <Link
-                                             href={`/report/ol001?filename=${encodeURIComponent(item.json || "")}`}
-                                             className="hover:text-primary text-xs font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2 py-1 rounded"
-                                             title="Excel Grid View"
-                                         >
-                                             📊 Excel View
-                                         </Link>
-                                     )}
-                                     {(item?.reportType?.reportId?.toUpperCase().includes("NN001") ||
-                                         item?.reportType?.reportId?.toUpperCase().includes("NACNN001")) && (
-                                         <Link
-                                             href={`/report/nn001?filename=${encodeURIComponent(item.json || "")}`}
-                                             className="hover:text-primary text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-1 rounded"
-                                             title="Excel Grid View"
-                                         >
-                                             📊 Excel View
-                                         </Link>
-                                     )}
                                      {(item?.reportType?.reportId?.toUpperCase().includes("MK001") ||
                                          item?.reportType?.reportId?.toUpperCase().includes("KEY BALANCE SHEET")) && (
                                          <Link
@@ -251,26 +223,6 @@ export function ReportTable() {
                                          <Link
                                              href={`/report/rb001?filename=${encodeURIComponent(item.json || "")}`}
                                              className="hover:text-primary text-xs font-semibold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2 py-1 rounded"
-                                             title="Excel Grid View"
-                                         >
-                                             📊 Excel View
-                                         </Link>
-                                     )}
-                                     {(item?.reportType?.reportId?.toUpperCase().includes("ZS001") ||
-                                         item?.reportType?.reportId?.toUpperCase().includes("LSR")) && (
-                                         <Link
-                                             href={`/report/zs001?filename=${encodeURIComponent(item.json || "")}`}
-                                             className="hover:text-primary text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded"
-                                             title="Excel Grid View"
-                                         >
-                                             📊 Excel View
-                                         </Link>
-                                     )}
-                                     {(item?.reportType?.reportId?.toUpperCase().includes("KK001") ||
-                                         item?.reportType?.reportId?.toUpperCase().includes("M_CC")) && (
-                                         <Link
-                                             href={`/report/kk001?filename=${encodeURIComponent(item.json || "")}`}
-                                             className="hover:text-primary text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2 py-1 rounded"
                                              title="Excel Grid View"
                                          >
                                              📊 Excel View

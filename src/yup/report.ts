@@ -83,7 +83,9 @@ export const reportSchema = yup.object().shape({
                     reportIdStr.toUpperCase().includes("CDBY") ||
                     reportIdStr.toUpperCase().includes("SECTOR AND REG") ||
                     reportIdStr.toUpperCase().includes("DPWADP001") ||
-                    reportIdStr.toUpperCase().includes("DPW")
+                    reportIdStr.toUpperCase().includes("DPW") ||
+                    reportIdStr.toUpperCase().includes("LB002") ||
+                    reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
                 ) {
                     validationResult = await validateNN001Template(file, reportIdStr);
                 } else {

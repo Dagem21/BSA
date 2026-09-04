@@ -72,6 +72,28 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
         }
     }, [activeFileName]);
 
+    const handleDownloadExcel = async () => {
+        if (!currentFileName) return;
+        const excelName = currentFileName.endsWith(".json")
+            ? currentFileName.replace(/\.json$/, ".xlsx")
+            : currentFileName;
+        try {
+            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            if (!res.ok) throw new Error("Download failed");
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = excelName;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error("Failed to download Excel file:", err);
+        }
+    };
+
     const returnItemsMap: Record<string, string> = {};
     if (reportData?.ReturnItemsList) {
         reportData.ReturnItemsList.forEach((item) => {
@@ -209,6 +231,13 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                             )}
                         >
                             {`{ }`} Raw JSON
+                        </button>
+                        <button
+                            onClick={handleDownloadExcel}
+                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-emerald-700 transition"
+                            title="Download Excel file generated from JSON"
+                        >
+                            📥 Download Excel
                         </button>
                     </div>
                 </div>

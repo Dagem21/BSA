@@ -72,6 +72,49 @@ export function ZS001ExcelView({ initialData, activeFileName }: ZS001ExcelViewPr
         }
     }, [activeFileName]);
 
+    const handleDownloadExcel = async () => {
+        try {
+            if (currentFileName) {
+                const excelName = currentFileName.endsWith(".json")
+                    ? currentFileName.replace(/\.json$/, ".xlsx")
+                    : currentFileName;
+                const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+                if (res.ok) {
+                    const blob = await res.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = excelName;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                    return;
+                }
+            }
+
+            if (reportData) {
+                const res = await fetch(`/api/report/download`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(reportData)
+                });
+                if (!res.ok) throw new Error("Download failed");
+                const blob = await res.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `${reportData.ReturnKey || "ZS001"}_export.xlsx`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+            }
+        } catch (err) {
+            console.error("Failed to download Excel file:", err);
+        }
+    };
+
     const returnItemsMap: Record<string, string> = {};
     if (reportData?.ReturnItemsList) {
         reportData.ReturnItemsList.forEach((item) => {
@@ -221,6 +264,13 @@ export function ZS001ExcelView({ initialData, activeFileName }: ZS001ExcelViewPr
                             )}
                         >
                             {`{ }`} Raw JSON
+                        </button>
+
+                        <button
+                            onClick={handleDownloadExcel}
+                            className="flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700 disabled:opacity-50"
+                        >
+                            ⬇️ Download Excel
                         </button>
                     </div>
                 </div>
