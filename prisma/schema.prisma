@@ -8,10 +8,10 @@ datasource db {
 }
 
 model OpenPosition {
-  id               String   @id @default(uuid()) @db.VarChar(36)
+  id                String   @id @default(uuid()) @db.VarChar(36)
   BUSINESS_DATE     DateTime @map("BUSINESS_DATE") @db.Date
   ORDER_NUM         Decimal?  @default(0.00) @map("ORDER_NUM") @db.Decimal(5, 2)
-  NEW_DETAIL_GROUP   String   @map("NEW_DETAIL_GROUP") @db.VarChar(100)
+  NEW_DETAIL_GROUP  String   @map("NEW_DETAIL_GROUP") @db.VarChar(100)
 
   USD             Decimal?  @default(0.00) @map("USD") @db.Decimal(15, 2)
   EUR             Decimal?  @default(0.00) @map("EUR") @db.Decimal(15, 2)
@@ -159,4 +159,21 @@ model ZS001 {
   updatedAt        DateTime @updatedAt @map("UPDATED_AT")
 
   @@map("ZS001")
+}
+
+model WAADIR001 {
+  id               String   @id @default(uuid()) @db.VarChar(36)
+  BUSINESS_DATE    DateTime @map("BUSINESS_DATE") @db.Date
+
+  TYPE             String   @map("NEW_DETAIL_GROUP") @db.VarChar(100)
+  OWNERSHIP_ID     String   @map("OWNERSHIP_ID")
+  OWNERSHIP_DESC   String   @map("OWNERSHIP_DESC") @db.VarChar(100)
+  BALANCE          Decimal? @default(0.00) @map("BALANCE") @db.Decimal(20, 2)
+  NUMBERS          Int?     @map("NUMBERS")
+  MINIMUM_RATE     Decimal? @default(0.00) @map("MINIMUM_RATE") @db.Decimal(20, 2)
+  MAXIMUM_RATE     Decimal? @default(0.00) @map("MAXIMUM_RATE") @db.Decimal(20, 2)
+  WEIGHED_AVERAGE  Decimal? @default(0.00) @map("WEIGHED_AVERAGE") @db.Decimal(20, 2)
+  WEIGHT_BY_TYPE   Decimal? @default(0.00) @map("WEIGHT_BY_TYPE") @db.Decimal(20, 2)
+
+  @@map("WAADIR001")
 }
