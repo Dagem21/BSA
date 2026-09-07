@@ -1,0 +1,38 @@
+Reading: C:\Users\mulukenwalle\Desktop\national_bank\BSA\templates\BP001.xlsx
+Exists: true
+Worksheets: Sheet1
+Row count: 38
+Row 1: INT_FRE_SP_BP001 |  |  |  | 
+Row 4: Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement |  | 
+Row 5: Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement |  | 
+Row 6: Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement |  | 
+Row 7: Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement | Interest Free Banking Service Profit and loss statement |  | 
+Row 8: Instiution Code  | Instiution Code  | 0000001 |  | 
+Row 9: Financial Year | Financial Year | 2026 |  | 
+Row 10: Start Date | Start Date | "2026-07-01T00:00:00.000Z" |  | 
+Row 11: End Date | End Date | "2026-08-31T00:00:00.000Z" |  | 
+Row 13:  |  | Amount in Millions of Birr |  | 
+Row 14: S.No. | Description  | Amount |  | 
+Row 15: 1 | Income |  |  | 
+Row 16: 1.1 | Income derived from trade financing | 1492.43338191 |  | 
+Row 17: 1.2 | Income derived from Ijara (leasing) |  |  | 
+Row 18: 1.3 | Income derived from Mudarabah investment |  |  | 
+Row 19: 1.4 | Income derived from Musharakah investment |  |  | 
+Row 20: 1.5 | Charges & commissions (=5.1+5.2) | 307.24975823999995 |  | 
+Row 21: 1.5.1 | Charges & commissions- local | 307.24975823999995 |  | 
+Row 22: 1.5.2 | Charges & commissions-foreign |  |  | 
+Row 23: 1.6 | Gain on foreign Exchange  | -16.430991310000007 |  | 
+Row 24: 1.7 | Other income | 7.48899191 |  | 
+Row 25: 1.8 | Total distributable income(Sum 1.1-1.7) | 1790.7411407499999 |  | 
+Row 26: 1.9 | Income attributable to depositors/investors |  |  | 
+Row 27: 1.10 | Total income(=1.8-1.9) | 1790.7411407499999 |  | 
+Row 28: 2 | Expenses |  |  | 
+Row 29: 2.1 | Staff salaries and benefits | 316.418174 |  | 
+Row 30: 2.2 | Sharia Advisory Committee fee (if any) | 0.495136 |  | 
+Row 31: 2.3 | Administrative and General expense | 211.42523119 |  | 
+Row 32: 2.4 | Other expense |  |  | 
+Row 33: 2.5 | Operating income before tax and provisions[1.10-(sum 2.1-2.4)] | 1262.40259956 |  | 
+Row 34: 2.6 | Impairment losses on financing, investment, Ijarah financing and others |  |  | 
+Row 35: 2.7 | Total net income before tax(2.5-2.6) | 1262.40259956 |  | 
+Row 36: 2.8 | Business profit tax Payable | 378.72077986799997 |  | 
+Row 37: 3 | Net income after tax & provisions (2.7-2.8) | 883.6818196920001 |  | 

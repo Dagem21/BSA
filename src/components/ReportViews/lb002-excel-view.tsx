@@ -101,7 +101,7 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
     };
 
     const formatNum = (valStr: string, isPercent: boolean = false) => {
-        if (valStr === undefined || valStr === null || valStr === "") return "-";
+        if (!valStr || valStr === "" || valStr === "0") return isPercent ? "0.00%" : "0.00";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         const formatted = num.toLocaleString("en-US", {

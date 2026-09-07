@@ -399,6 +399,17 @@ export function ReportTable() {
                                              📊 Excel View
                                          </Link>
                                      )}
+                                     {(item?.reportType?.reportId?.toUpperCase().includes("MWAC001") ||
+                                         item?.reportType?.reportId?.toUpperCase().includes("LCMWAC001") ||
+                                         item?.reportType?.reportId?.toUpperCase().includes("WALIR")) && (
+                                         <Link
+                                             href={`/report/mwac001?filename=${encodeURIComponent(item.json || "")}`}
+                                             className="hover:text-primary text-xs font-semibold text-teal-600 dark:text-teal-400 bg-teal-500/10 px-2 py-1 rounded"
+                                             title="Excel Grid View"
+                                         >
+                                             📊 Excel View
+                                         </Link>
+                                     )}
                                     <button
                                         className="hover:text-primary"
                                         onClick={() => {

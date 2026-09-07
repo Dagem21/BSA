@@ -84,6 +84,12 @@ export const reportSchema = yup.object().shape({
                     reportIdStr.toUpperCase().includes("SECTOR AND REG") ||
                     reportIdStr.toUpperCase().includes("DPWADP001") ||
                     reportIdStr.toUpperCase().includes("DPW") ||
+                    reportIdStr.toUpperCase().includes("MWAC001") ||
+                    reportIdStr.toUpperCase().includes("LCMWAC001") ||
+                    reportIdStr.toUpperCase().includes("WALIR") ||
+                    reportIdStr.toUpperCase().includes("BP001") ||
+                    reportIdStr.toUpperCase().includes("DP001") ||
+                    reportIdStr.toUpperCase().includes("INT_FRE_SP") ||
                     reportIdStr.toUpperCase().includes("LB002") ||
                     reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
                 ) {

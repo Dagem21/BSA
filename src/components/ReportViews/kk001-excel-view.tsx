@@ -75,8 +75,40 @@ export function KK001ExcelView({ initialData, activeFileName }: KK001ExcelViewPr
         return item?.Value || "0";
     };
 
+    const handleDownloadExcel = async () => {
+        const targetFileName = currentFileName || (activeFileName ? activeFileName : "");
+        const excelName = targetFileName
+            ? (targetFileName.endsWith(".json") ? targetFileName.replace(/\.json$/, ".xlsx") : targetFileName)
+            : `${reportData?.ReturnKey || "KK001"}_report.xlsx`;
+
+        try {
+            let res;
+            if (targetFileName) {
+                res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            } else if (reportData) {
+                res = await fetch("/api/report/download", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(reportData)
+                });
+            }
+            if (!res || !res.ok) throw new Error("Download failed");
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = excelName;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error("Failed to download Excel file:", err);
+        }
+    };
+
     const formatNum = (valStr: string) => {
-        if (!valStr || valStr === "0" || valStr === "") return "-";
+        if (!valStr || valStr === "" || valStr === "0") return "0.00";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         return num.toLocaleString("en-US", {
@@ -178,6 +210,13 @@ export function KK001ExcelView({ initialData, activeFileName }: KK001ExcelViewPr
                             )}
                         >
                             {`{ }`} Raw JSON
+                        </button>
+
+                        <button
+                            onClick={handleDownloadExcel}
+                            className="flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-green-700 disabled:opacity-50"
+                        >
+                            ⬇️ Download Excel
                         </button>
                     </div>
                 </div>

@@ -1,0 +1,88 @@
+Reading: C:\Users\mulukenwalle\Desktop\national_bank\BSA\templates\MWAC001.xlsx
+Exists: true
+Worksheets: WALIR
+Row count: 99
+Row 1: LCMWAC001 |  |  |  |  |  |  |  |  | 
+Row 4: Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) | Monthly Weighted Average Lending Interest Rates (Conventional Banks) |  | 
+Row 5: Instiution Code  | 0000001 |  |  |  |  |  |  |  | 
+Row 6: Financial Year | 2026 |  |  |  |  |  |  |  | 
+Row 7: Start Date | "2026-08-01T00:00:00.000Z" |  |  |  |  |  |  |  | 
+Row 8: End Date | "2026-08-31T00:00:00.000Z" |  |  |  |  |  |  |  | 
+Row 9: Sector | Loan Category  | Outstanding Loan & 
+Advance ( in
+Mn Birr) | No. of Loan 
+Accounts by 
+Loan Category  | Lending Interest Rates (% per annum)  | Lending Interest Rates (% per annum)  | Lending Interest Rates (% per annum)  | Lending Interest Rates (% per annum)  |  | 
+Row 10: Sector | Loan Category  | Outstanding Loan & 
+Advance ( in
+Mn Birr) | No. of Loan 
+Accounts by 
+Loan Category  | Minimum Rate 
+by loan 
+category | Maximum Rate 
+by loan 
+category | Weighted 
+Average Rate 
+by loan 
+category  | Weighted Average Rate 
+by Sector |  | 
+Row 11: Agriculture | Over- draft | 624.82917264 | 14 | 14 | 15 | 14.95833781345386 | 14.186077031983679 |  | 
+Row 12: Agriculture | Up to 12 months | 72359.16460542 | 994 | 10 | 19.5 | 14.001267080724428 | 14.186077031983679 |  | Over- draft
+Row 13: Agriculture | 1-5 years | 5012.703713119996 | 428 | 10 | 19.5 | 14.580225233546612 | 14.186077031983679 |  | Up to 12 months
+Row 14: Agriculture | Over 5 years | 7766.11478993 | 103 | 11 | 21.5 | 15.591466310982948 | 14.186077031983679 |  | 1-5 years
+Row 15: Manufacturing | Over- draft | 34399.283357219996 | 248 | 12 | 15 | 14.964630568239597 | 15.925333988630017 |  | Over 5 years
+Row 16: Manufacturing | Up to 12 months | 8141.923089939996 | 454 | 10 | 18.75 | 14.96985848702922 | 15.925333988630017 |  | 
+Row 17: Manufacturing | 1-5 years | 27282.34913934001 | 806 | 10 | 26.25 | 15.779159192876204 | 15.925333988630017 |  | 
+Row 18: Manufacturing | Over 5 years | 70577.89492006003 | 136 | 11 | 19.5 | 16.56030488273932 | 15.925333988630017 |  | 
+Row 19: Domestic Trade | Over- draft | 17086.26813514999 | 546 | 14 | 15 | 14.999860529635196 | 15.451435607694721 |  | 
+Row 20: Domestic Trade | Up to 12 months | 14510.286662879971 | 14030 | 10 | 18.5 | 14.702521287752196 | 15.451435607694721 |  | 
+Row 21: Domestic Trade | 1-5 years | 26035.199129979934 | 7957 | 10 | 21.75 | 15.714342885522973 | 15.451435607694721 |  | 
+Row 22: Domestic Trade | Over 5 years | 13923.884464369996 | 904 | 12 | 21 | 16.294436785579723 | 15.451435607694721 |  | 
+Row 23: International trade  Export | Over- draft | 7128.30529086 | 49 | 12 | 15 | 13.074210092054878 | 12.582129504043962 |  | 
+Row 24: International trade  Export | Up to 12 months | 57977.29144976998 | 301 | 12 | 24 | 12.244557466291807 | 12.582129504043962 |  | 
+Row 25: International trade  Export | 1-5 years | 3721.38060008 | 85 | 10.5 | 24.75 | 16.37472041976774 | 12.582129504043962 |  | 
+Row 26: International trade  Export | Over 5 years | 302.76725139 | 13 | 11 | 24 | 19.023174538586282 | 12.582129504043962 |  | 
+Row 27: International trade  Import | Over- draft | 10419.739770769995 | 61 | 12 | 15 | 14.61759995513539 | 16.654978948383764 |  | 
+Row 28: International trade  Import | Up to 12 months | 22388.867829700004 | 108 | 10 | 18 | 17.80942194960257 | 16.654978948383764 |  | 
+Row 29: International trade  Import | 1-5 years | 4910.337905149998 | 188 | 10 | 18.75 | 15.722217765907326 | 16.654978948383764 |  | 
+Row 30: International trade  Import | Over 5 years | 242.228101 | 1 | 16.5 | 16.5 | 16.5 | 16.654978948383764 |  | 
+Row 31: Hotel and Tourism | Over- draft | 1063.2856897699999 | 70 | 15 | 15 | 15 | 16.264030825961594 |  | 
+Row 32: Hotel and Tourism | Up to 12 months | 347.6374972199999 | 658 | 10 | 18.75 | 14.371479022092588 | 16.264030825961594 |  | 
+Row 33: Hotel and Tourism | 1-5 years | 1513.3134220699988 | 379 | 5 | 18.75 | 15.673525932194737 | 16.264030825961594 |  | 
+Row 34: Hotel and Tourism | Over 5 years | 9109.908219809999 | 173 | 5 | 19.5 | 16.581878906622624 | 16.264030825961594 |  | 
+Row 35: Buliding  and Construction | Over- draft | 684.4741999500002 | 15 | 15 | 15 | 15 | 15.711305330162517 |  | 
+Row 36: Buliding  and Construction | Up to 12 months | 761.8823098299998 | 117 | 10 | 18 | 14.952807182229991 | 15.711305330162517 |  | 
+Row 37: Buliding  and Construction | 1-5 years | 60565.267669580004 | 93 | 10 | 25 | 14.702458582490278 | 15.711305330162517 |  | 
+Row 38: Buliding  and Construction | Over 5 years | 84046.20753742999 | 24 | 7 | 19.5 | 16.450967851524954 | 15.711305330162517 |  | 
+Row 39: Mining and Quarring | Over- draft | 0 | 0 | 0 | 0 | 0 | 16.45392477158991 |  | 
+Row 40: Mining and Quarring | Up to 12 months | 0.32772865 | 3 | 10 | 13 | 11.91702766907928 | 16.45392477158991 |  | 
+Row 41: Mining and Quarring | 1-5 years | 50.65736042 | 4 | 15.75 | 15.75 | 15.75 | 16.45392477158991 |  | 
+Row 42: Mining and Quarring | Over 5 years | 806.1998455 | 1 | 16.5 | 16.5 | 16.5 | 16.45392477158991 |  | 
+Row 43: Financial Institutions | Over- draft | 332.07527672000003 | 2 | 14 | 15 | 14.10139728525587 | 15.913859545712183 |  | 
+Row 44: Financial Institutions | Up to 12 months | 0.38170494999999993 | 4 | 10 | 10 | 10 | 15.913859545712183 |  | 
+Row 45: Financial Institutions | 1-5 years | 580.76618292 | 10 | 14.5 | 14.5 | 14.5 | 15.913859545712183 |  | 
+Row 46: Financial Institutions | Over 5 years | 2431.58965956 | 4 | 16.5 | 16.5 | 16.5 | 15.913859545712183 |  | 
+Row 47: Transport and Communication | Over- draft | 399.89366232 | 25 | 15 | 15 | 15 | 15.611494173311595 |  | 
+Row 48: Transport and Communication | Up to 12 months | 213.25685934999998 | 133 | 10 | 15 | 14.768241359172956 | 15.611494173311595 |  | 
+Row 49: Transport and Communication | 1-5 years | 1722.606024209999 | 85 | 10 | 21.75 | 15.827231263485517 | 15.611494173311595 |  | 
+Row 50: Transport and Communication | Over 5 years | 248.15392357 | 23 | 12 | 16.5 | 15.823991639788925 | 15.611494173311595 |  | 
+Row 51: Health and Education | Over- draft | 486.49024745 | 25 | 15 | 15 | 15 | 15.424020359993548 |  | 
+Row 52: Health and Education | Up to 12 months | 95.47911288000003 | 135 | 10 | 18 | 14.867304444209454 | 15.424020359993548 |  | 
+Row 53: Health and Education | 1-5 years | 730.2744424800001 | 168 | 10 | 15.75 | 15.692113332449454 | 15.424020359993548 |  | 
+Row 54: Health and Education | Over 5 years | 59.16010235000001 | 5 | 16.5 | 16.5 | 16.5 | 15.424020359993548 |  | 
+Row 55: Consumer  loans | Over- draft | 0 | 0 | 0 | 0 | 0 | 12.16061637797075 |  | 
+Row 56: Consumer  loans | Up to 12 months | 4.639484489999999 | 108 | 12 | 19.5 | 13.794264655468222 | 12.16061637797075 |  | 
+Row 57: Consumer  loans | 1-5 years | 4860.173441279997 | 3391 | 7 | 21.5 | 14.48096273772678 | 12.16061637797075 |  | 
+Row 58: Consumer  loans | Over 5 years | 34242.8650755902 | 60044 | 7 | 22 | 11.831062615071778 | 12.16061637797075 |  | 
+Row 59: Staff loans | Over- draft | 18227.553683650003 | 43569 | 0 | 0 | 0 | 5.24109535398262 |  | 
+Row 60: Staff loans | Up to 12 months | 0.11210045000000002 | 23 | 10 | 19.5 | 10.1705171121079 | 5.24109535398262 |  | 
+Row 61: Staff loans | 1-5 years | 47.281314359999996 | 64 | 7 | 10 | 7.00115614489022 | 5.24109535398262 |  | 
+Row 62: Staff loans | Over 5 years | 54091.70825036952 | 26779 | 7 | 15 | 7.00566481268981 | 5.24109535398262 |  | 
+Row 63: Other loans (not included elesewhere) | Over- draft | 106.3544957 | 3 | 15 | 15 | 15 | 14.887578389468558 |  | 
+Row 64: Other loans (not included elesewhere) | Up to 12 months | 0.75 | 2 | 13 | 13 | 13 | 14.887578389468558 |  | 
+Row 65: Other loans (not included elesewhere) | 1-5 years | 14.83915 | 6 | 14.5 | 14.5 | 14.5 | 14.887578389468558 |  | 
+Row 66: Other loans (not included elesewhere) | Over 5 years | 1.23200758 | 2 | 11 | 11 | 11 | 14.887578389468558 |  | 
+Row 67: Total | Over- draft | 90958.55298219998 | 44627 |  |  |  |  |  | 
+Row 68: Total | Up to 12 months | 176802.00043552998 | 17070 |  |  |  |  |  | 
+Row 69: Total | 1-5 years | 137047.14949498995 | 13664 |  |  |  |  |  | 
+Row 70: Total | Over 5 years | 277849.91414850974 | 88212 |  |  |  |  |  | 

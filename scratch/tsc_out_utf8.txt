@@ -1,0 +1,38 @@
+﻿src/app/(with-layout)/charts/basic-chart/page.tsx(3,29): error TS2307: Cannot find module '@/components/Charts/used-devices' or its corresponding type declarations.
+src/app/(with-layout)/charts/basic-chart/page.tsx(4,42): error TS2307: Cannot find module '@/utils/timeframe-extractor' or its corresponding type declarations.
+src/app/(with-layout)/history/_components/report-form.tsx(38,38): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(name: string, value: string | Blob): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | Blob'.
+  Overload 2 of 3, '(name: string, value: string): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string'.
+  Overload 3 of 3, '(name: string, blobValue: Blob, filename?: string | undefined): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'Blob'.
+      Type 'Date' is missing the following properties from type 'Blob': size, type, arrayBuffer, bytes, and 3 more.
+src/app/(with-layout)/history/_components/report-form.tsx(39,36): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(name: string, value: string | Blob): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | Blob'.
+  Overload 2 of 3, '(name: string, value: string): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string'.
+  Overload 3 of 3, '(name: string, blobValue: Blob, filename?: string | undefined): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'Blob'.
+      Type 'Date' is missing the following properties from type 'Blob': size, type, arrayBuffer, bytes, and 3 more.
+src/app/(with-layout)/history/_components/report-form.tsx(66,29): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(with-layout)/history/_components/report-form.tsx(87,29): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(with-layout)/report-types/_components/report-form.tsx(38,38): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(name: string, value: string | Blob): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | Blob'.
+  Overload 2 of 3, '(name: string, value: string): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string'.
+  Overload 3 of 3, '(name: string, blobValue: Blob, filename?: string | undefined): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'Blob'.
+      Type 'Date' is missing the following properties from type 'Blob': size, type, arrayBuffer, bytes, and 3 more.
+src/app/(with-layout)/report-types/_components/report-form.tsx(39,36): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(name: string, value: string | Blob): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string | Blob'.
+  Overload 2 of 3, '(name: string, value: string): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'string'.
+  Overload 3 of 3, '(name: string, blobValue: Blob, filename?: string | undefined): void', gave the following error.
+    Argument of type 'Date' is not assignable to parameter of type 'Blob'.
+      Type 'Date' is missing the following properties from type 'Blob': size, type, arrayBuffer, bytes, and 3 more.
+src/app/(with-layout)/report-types/_components/report-form.tsx(66,29): error TS2322: Type 'string' is not assignable to type 'Date'.
+src/app/(with-layout)/report-types/_components/report-form.tsx(87,29): error TS2322: Type 'string' is not assignable to type 'Date'.

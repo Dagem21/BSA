@@ -93,7 +93,7 @@ export function MB001ExcelView({ initialData, activeFileName }: MB001ExcelViewPr
     };
 
     const formatNum = (valStr: string) => {
-        if (valStr === undefined || valStr === null || valStr === "") return "-";
+        if (!valStr || valStr === "" || valStr === "0") return "0.00";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         return num.toLocaleString("en-US", {
@@ -104,7 +104,7 @@ export function MB001ExcelView({ initialData, activeFileName }: MB001ExcelViewPr
 
     const getItemValue = (code: string) => {
         const item = reportData?.ReturnItemsList?.find((i) => i.Code === code);
-        return item?.Value !== undefined && item?.Value !== null ? item.Value : "";
+        return item?.Value !== undefined && item?.Value !== null && item?.Value !== "" ? item.Value : "0";
     };
 
     // Key Summary Metrics

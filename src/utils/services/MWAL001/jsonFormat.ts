@@ -17,11 +17,22 @@ export const MWAL001Format = (
     endDate: string,
     rowsData: MWAL001RowData[] = []
 ) => {
-    const fmt = (val: string | number | undefined | null) => {
-        if (val !== undefined && val !== null && val !== "") {
-            return val.toString();
+    const fmt = (val: string | number | undefined | null, dataType: "TEXT" | "NUMERIC" | "DATE" = "NUMERIC") => {
+        if (val !== undefined && val !== null) {
+            const str = val.toString().trim();
+            if (
+                str !== "" &&
+                str !== "-" &&
+                str !== "—" &&
+                str !== "–" &&
+                str !== "--" &&
+                str.toLowerCase() !== "n/a" &&
+                str.toLowerCase() !== "nil"
+            ) {
+                return str;
+            }
         }
-        return "0";
+        return dataType === "TEXT" ? " " : "0";
     };
 
     const dynamicItems = rowsData.map((row, index) => {
@@ -29,56 +40,56 @@ export const MWAL001Format = (
         return [
             {
                 Code: `${rowNum}.1`,
-                Value: fmt(row.sector),
+                Value: fmt(row.sector, "TEXT"),
                 _description: "Sector",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.2`,
-                Value: fmt(row.loanCategory),
+                Value: fmt(row.loanCategory, "TEXT"),
                 _description: "Loan Category ",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.3`,
-                Value: fmt(row.outstandingLoan),
+                Value: fmt(row.outstandingLoan, "NUMERIC"),
                 _description: "Outstanding Loan & \nAdvance ( in\nMn Birr)",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.4`,
-                Value: fmt(row.noOfLoanAccounts),
+                Value: fmt(row.noOfLoanAccounts, "NUMERIC"),
                 _description: "No. of Loan \nAccounts by \nLoan Category ",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.5`,
-                Value: fmt(row.lendingInterestRates),
+                Value: fmt(row.lendingInterestRates, "NUMERIC"),
                 _description: "Lending Interest Rates (% per annum) ",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.6`,
-                Value: fmt(row.maximumRate),
+                Value: fmt(row.maximumRate, "NUMERIC"),
                 _description: "Lending Interest Rates (% per annum) _Maximum Rate ",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.7`,
-                Value: fmt(row.weighted),
+                Value: fmt(row.weighted, "NUMERIC"),
                 _description: "Lending Interest Rates (% per annum)_ Weighted ",
                 _dataType: "TEXT",
                 _required: false
             },
             {
                 Code: `${rowNum}.8`,
-                Value: fmt(row.weightedAverageRate),
+                Value: fmt(row.weightedAverageRate, "NUMERIC"),
                 _description: "Lending Interest Rates (% per annum)_Weighted Average Rate ",
                 _dataType: "TEXT",
                 _required: false
@@ -86,13 +97,13 @@ export const MWAL001Format = (
         ];
     });
 
-    const dynamicItemsList = dynamicItems.length > 0 ? [
+    const dynamicItemsList = [
         {
             Area: 214,
             _areaName: "Monthly Weighted Average Lending Profit Rates (Interest-Free Banks) ",
             DynamicItems: dynamicItems.flat()
         }
-    ] : [];
+    ];
 
     return {
         ReturnKey: returnKey,
