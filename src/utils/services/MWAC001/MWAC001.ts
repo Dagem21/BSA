@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 import * as fs from "fs";
 import * as path from "path";
-import { MWAL001Format, MWAL001RowData } from "./jsonFormat";
+import { MWAC001Format, MWAC001RowData } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -68,7 +68,7 @@ function getNumValue(cell: ExcelJS.Cell): number | string {
     return isNaN(num) ? raw : num;
 }
 
-export async function processMWAL001Report(
+export async function processMWAC001Report(
     instCode: string,
     inputFilePath: string,
     startDate: string,
@@ -80,7 +80,8 @@ export async function processMWAL001Report(
     await workbook.xlsx.readFile(inputFilePath);
 
     const worksheet =
-        workbook.getWorksheet("MWAL001") ||
+        workbook.getWorksheet("WALIR") ||
+        workbook.getWorksheet("MWAC001") ||
         workbook.getWorksheet("Sheet1") ||
         workbook.worksheets[0];
 
@@ -89,15 +90,15 @@ export async function processMWAL001Report(
     const formattedEndDate = formatIsoString(endDate);
 
     // Update Header Metadata cells in template
-    worksheet.getCell("B2").value = instCode;
-    worksheet.getCell("B3").value = finYear;
-    worksheet.getCell("B4").value = formattedStartDate;
-    worksheet.getCell("B5").value = formattedEndDate;
+    worksheet.getCell("B5").value = instCode;
+    worksheet.getCell("B6").value = finYear;
+    worksheet.getCell("B7").value = formattedStartDate;
+    worksheet.getCell("B8").value = formattedEndDate;
 
-    const rowsData: MWAL001RowData[] = [];
+    const rowsData: MWAC001RowData[] = [];
     let hasStarted = false;
 
-    // Scan table data starting from row 1 to 500, skipping headers/metadata until "Agricult, Hunt, Fors & Fish TL"
+    // Scan table data starting from row 1 to 500
     for (let r = 1; r <= 500; r++) {
         const row = worksheet.getRow(r);
         const sector = getDirectCellValue(row.getCell(1));
@@ -115,18 +116,20 @@ export async function processMWAL001Report(
         if (
             sectorLower.includes("end date") ||
             sectorLower.includes("start date") ||
+            sectorLower.includes("instiution code") ||
             sectorLower.includes("institution code") ||
             sectorLower.includes("financial year") ||
             sectorLower.includes("national bank") ||
+            sectorLower.includes("monthly weighted average") ||
             sectorLower === "sector" ||
-            catLower === "loan category"
+            catLower.includes("loan category")
         ) {
             continue;
         }
 
-        // Start scanning data from "Agricult, Hunt, Fors & Fish TL"
+        // Start scanning data from first data sector (e.g., Agriculture)
         if (!hasStarted) {
-            if (sectorLower.includes("agricult")) {
+            if (sectorLower.includes("agricult") || sectorLower.includes("manufactur") || sectorLower.includes("trade") || sectorLower.includes("hotel") || sectorLower.includes("building") || sectorLower.includes("mining") || sectorLower.includes("financial") || sectorLower.includes("transport") || sectorLower.includes("health") || sectorLower.includes("consumer") || sectorLower.includes("staff") || sectorLower.includes("other")) {
                 hasStarted = true;
             } else {
                 continue;
@@ -135,30 +138,30 @@ export async function processMWAL001Report(
 
         // If we hit a total row, stop scanning
         if (sectorLower.includes("total") || catLower.includes("total")) {
-            break; 
+            break;
         }
 
         const outstandingLoan = getNumValue(row.getCell(3));
         const noOfLoanAccounts = getNumValue(row.getCell(4));
-        const lendingInterestRates = getNumValue(row.getCell(5));
+        const minimumRate = getNumValue(row.getCell(5));
         const maximumRate = getNumValue(row.getCell(6));
-        const weighted = getNumValue(row.getCell(7));
-        const weightedAverageRate = getNumValue(row.getCell(8));
+        const weightedAverageLoanCategory = getNumValue(row.getCell(7));
+        const weightedAverageSector = getNumValue(row.getCell(8));
 
         rowsData.push({
             sector,
             loanCategory,
             outstandingLoan,
             noOfLoanAccounts,
-            lendingInterestRates,
+            minimumRate,
             maximumRate,
-            weighted,
-            weightedAverageRate
+            weightedAverageLoanCategory,
+            weightedAverageSector
         });
     }
 
-    const jsonOutput = MWAL001Format(
-        "IFBLCMWAL001",
+    const jsonOutput = MWAC001Format(
+        "LCMWAC001",
         instCode,
         finYear,
         formattedStartDate,

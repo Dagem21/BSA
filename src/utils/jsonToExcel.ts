@@ -17,12 +17,14 @@ export async function generateExcelFromJson(
     let sheetName = "Sheet1";
     if (returnKey.includes("ZS001")) sheetName = "ZS001";
     else if (returnKey.includes("MWAL001")) sheetName = "MWAL001";
+    else if (returnKey.includes("MWAC001") || returnKey.includes("LCMWAC001") || returnKey.includes("WALIR")) sheetName = "WALIR";
     else if (returnKey.includes("LB002")) sheetName = "LB002";
     else if (returnKey.includes("DPWADP001")) sheetName = "DPWADP001";
     else if (returnKey.includes("OL001")) sheetName = "OL001";
     else if (returnKey.includes("NN001")) sheetName = "NN001";
     else if (returnKey.includes("FB001")) sheetName = "FB001";
     else if (returnKey.includes("BP001")) sheetName = "BP001";
+    else if (returnKey.includes("KK001") || returnKey.includes("M_CC")) sheetName = "M_CC-On & OffKK001";
     else sheetName = returnKey.slice(0, 31);
 
     const worksheet = workbook.addWorksheet(sheetName);

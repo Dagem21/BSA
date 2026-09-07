@@ -24,35 +24,34 @@ function formatIsoString(dateVal: any): string {
 }
 
 function getDirectCellValue(cell: ExcelJS.Cell): string {
-    if (!cell || cell.value === null || cell.value === undefined) return "";
+    if (!cell || cell.value === null || cell.value === undefined) return "0";
     const val = cell.value;
+    let str = "";
     if (typeof val === "number") {
         return String(val);
     }
     if (typeof val === "string") {
-        return val.trim();
-    }
-    if (typeof val === "object") {
+        str = val.trim();
+    } else if (typeof val === "object") {
         if ("result" in val && val.result !== undefined && val.result !== null) {
             if (typeof val.result === "object" && "error" in val.result) {
-                return "";
+                return "0";
             }
-            return String(val.result).trim();
+            str = String(val.result).trim();
+        } else if ("richText" in val && Array.isArray(val.richText)) {
+            str = val.richText.map((t) => t.text).join("").trim();
+        } else if ("text" in val && val.text) {
+            str = String(val.text).trim();
         }
-        if ("richText" in val && Array.isArray(val.richText)) {
-            return val.richText.map((t) => t.text).join("").trim();
-        }
-        if ("text" in val && val.text) {
-            return String(val.text).trim();
-        }
+    } else if (cell.result !== undefined && cell.result !== null) {
+        str = String(cell.result).trim();
+    } else if (cell.text !== undefined && cell.text !== null) {
+        str = String(cell.text).trim();
     }
-    if (cell.result !== undefined && cell.result !== null) {
-        return String(cell.result).trim();
+    if (!str || str === "-" || str === "—" || str === "–" || str === "--" || str.toLowerCase() === "n/a" || str.toLowerCase() === "nil") {
+        return "0";
     }
-    if (cell.text !== undefined && cell.text !== null) {
-        return String(cell.text).trim();
-    }
-    return "";
+    return str;
 }
 
 export async function processMB001Report(

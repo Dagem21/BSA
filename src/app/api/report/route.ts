@@ -215,8 +215,12 @@ export async function POST(request: NextRequest) {
                     );
                 }
             }
-            // Process BP001 Report Format
-            else if (reportIdStr.toUpperCase().includes("BP001")) {
+            // Process BP001 / DP001 Report Format
+            else if (
+                reportIdStr.toUpperCase().includes("BP001") ||
+                reportIdStr.toUpperCase().includes("DP001") ||
+                reportIdStr.toUpperCase().includes("INT_FRE_SP")
+            ) {
                 const { processBP001Report } = await import(
                     "@/utils/services/BP001/BP001"
                 );
@@ -257,6 +261,35 @@ export async function POST(request: NextRequest) {
                     return new Response(
                         JSON.stringify({
                             error: procRes.error || "Failed to process MWAL001 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
+            // Process MWAC001 Report Format
+            else if (
+                reportIdStr.toUpperCase().includes("MWAC001") ||
+                reportIdStr.toUpperCase().includes("LCMWAC001") ||
+                reportIdStr.toUpperCase().includes("WALIR")
+            ) {
+                const { processMWAC001Report } = await import(
+                    "@/utils/services/MWAC001/MWAC001"
+                );
+                const procRes: any = await processMWAC001Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process MWAC001 template file."
                         }),
                         {
                             status: 400,
