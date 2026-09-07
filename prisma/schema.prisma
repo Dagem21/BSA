@@ -177,3 +177,64 @@ model WAADIR001 {
 
   @@map("WAADIR001")
 }
+model NN001 {
+  id                        String             @id @default(uuid()) @db.VarChar(36)
+  RETURN_KEY                String             @default("NACNN001") @map("RETURN_KEY") @db.VarChar(100)
+  INST_CODE                 String             @default("0000001") @map("INST_CODE") @db.VarChar(50)
+  FIN_YEAR                  Int                @default(2026) @map("FIN_YEAR")
+  START_DATE                DateTime           @map("START_DATE") @db.Date
+  END_DATE                  DateTime           @map("END_DATE") @db.Date
+
+  // ReturnItemsList (Fixed Summary Metrics)
+  LOANS_ADVANCE_AMOUNT      Decimal?           @default(0.00) @map("LOANS_ADVANCE_AMOUNT") @db.Decimal(20, 2) // 151_00001
+  COLLATERAL_VALUE          Decimal?           @default(0.00) @map("COLLATERAL_VALUE") @db.Decimal(20, 2)    // 151_00002
+  LOANS_ADVANCE_PCT_CAPITAL Decimal?           @default(0.00) @map("LOANS_ADVANCE_PCT_CAPITAL") @db.Decimal(10, 4) // 151_00003
+
+  // JSON storage for full raw payloads
+  RETURN_ITEMS              Json?              @map("RETURN_ITEMS")
+  DYNAMIC_ITEMS             Json?              @map("DYNAMIC_ITEMS")
+
+  // Relational dynamic sections
+  dynamicAreas              NN001DynamicArea[]
+
+  createdAt                 DateTime           @default(now()) @map("CREATED_AT")
+  updatedAt                 DateTime           @updatedAt @map("UPDATED_AT")
+
+  @@map("NN001")
+}
+
+model NN001DynamicArea {
+  id        String            @id @default(uuid()) @db.VarChar(36)
+  nn001Id   String            @map("NN001_ID") @db.VarChar(36)
+  AREA      Int               @map("AREA")
+  AREA_NAME String            @map("AREA_NAME") @db.VarChar(255)
+
+  rows      NN001DynamicRow[]
+
+  nn001     NN001             @relation(fields: [nn001Id], references: [id], onDelete: Cascade)
+
+  @@index([nn001Id])
+  @@map("NN001_DYNAMIC_AREA")
+}
+
+model NN001DynamicRow {
+  id                   String           @id @default(uuid()) @db.VarChar(36)
+  dynamicAreaId        String           @map("DYNAMIC_AREA_ID") @db.VarChar(36)
+  rowIndex             Int              @default(1) @map("ROW_INDEX")
+
+  counterpartyName     String?          @map("COUNTERPARTY_NAME") @db.VarChar(255)  // 1.1: Name of the Counterparty/Borrower*
+  loanType             String?          @map("LOAN_TYPE") @db.VarChar(150)          // 1.2: Type of Loan and Advance
+  sector               String?          @map("SECTOR") @db.VarChar(150)             // 1.3: Sector to which Loan is provided
+  loanAmount           Decimal?         @default(0.00) @map("LOAN_AMOUNT") @db.Decimal(20, 2) // 1.4: Amount of Loans and Advance
+  recategorizationDate String?          @map("RECATEGORIZATION_DATE") @db.VarChar(50) // 1.5: Date of Re-categorization
+  status               String?          @map("STATUS") @db.VarChar(100)             // 1.6: Classification/Status
+  collateralType       String?          @map("COLLATERAL_TYPE") @db.VarChar(150)   // 1.7: Collateral Type
+  collateralValue      Decimal?         @default(0.00) @map("COLLATERAL_VALUE") @db.Decimal(20, 2) // 1.8: Collateral Value
+  pctCapital           Decimal?         @default(0.00) @map("PCT_CAPITAL") @db.Decimal(10, 4) // 1.9: Loan as % of Total Capital
+
+  dynamicArea          NN001DynamicArea @relation(fields: [dynamicAreaId], references: [id], onDelete: Cascade)
+
+  @@index([dynamicAreaId])
+  @@map("NN001_DYNAMIC_ROW")
+}
+

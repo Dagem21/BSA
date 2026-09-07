@@ -18,7 +18,7 @@ export async function GET() {
         authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
 
         const filter: any = {};
-        if (decodedToken?.allowedReports?.length > 0) {
+        if (decodedToken?.role !== "Admin" && decodedToken?.allowedReports?.length > 0) {
             filter._id = { $in: decodedToken?.allowedReports };
         }
 

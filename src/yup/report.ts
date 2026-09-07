@@ -1,4 +1,4 @@
-import { validateTemplate } from "@/utils/fileValidation";
+import { validateNN001Template } from "@/utils/fileValidation";
 import * as yup from "yup";
 
 // Helper to reliably extract the File object from File, FileList, or File[]
@@ -57,13 +57,45 @@ export const reportSchema = yup.object().shape({
             async (value, context) => {
                 const file = extractFile(value);
                 if (!file) return false;
+                const reportIdStr = context.parent.reportType || "";
 
-                const validation = await validateTemplate(file);
+                let validationResult;
+                if (
+                    reportIdStr.toUpperCase().includes("NN001") ||
+                    reportIdStr.toUpperCase().includes("NACNN001") ||
+                    reportIdStr.toUpperCase().includes("OL001") ||
+                    reportIdStr.toUpperCase().includes("COL_ACQ_18M_OL001") ||
+                    reportIdStr.toUpperCase().includes("MA001") ||
+                    reportIdStr.toUpperCase().includes("NBE_MAT_ANL_MA001") ||
+                    reportIdStr.toUpperCase().includes("MK001") ||
+                    reportIdStr.toUpperCase().includes("MB001") ||
+                    reportIdStr.toUpperCase().includes("SRR") ||
+                    reportIdStr.toUpperCase().includes("RB001") ||
+                    reportIdStr.toUpperCase().includes("RESERVE BASE") ||
+                    reportIdStr.toUpperCase().includes("ZS001") ||
+                    reportIdStr.toUpperCase().includes("LSR") ||
+                    reportIdStr.toUpperCase().includes("KK001") ||
+                    reportIdStr.toUpperCase().includes("M_CC") ||
+                    reportIdStr.toUpperCase().includes("RL002") ||
+                    reportIdStr.toUpperCase().includes("REGRL002") ||
+                    reportIdStr.toUpperCase().includes("LOAN_RAN") ||
+                    reportIdStr.toUpperCase().includes("MD002") ||
+                    reportIdStr.toUpperCase().includes("CDBY") ||
+                    reportIdStr.toUpperCase().includes("SECTOR AND REG") ||
+                    reportIdStr.toUpperCase().includes("DPWADP001") ||
+                    reportIdStr.toUpperCase().includes("DPW") ||
+                    reportIdStr.toUpperCase().includes("LB002") ||
+                    reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
+                ) {
+                    validationResult = await validateNN001Template(file, reportIdStr);
+                } else {
+                    validationResult = { isValid: true } as any;
+                }
 
-                if (!validation.isValid) {
+                if (!validationResult.isValid) {
                     return context.createError({
                         message:
-                            validation.errorMessage ||
+                            validationResult.errorMessage ||
                             "Please use the correct template."
                     });
                 }
