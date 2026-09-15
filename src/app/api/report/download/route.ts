@@ -2,20 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { verifyUserAuth } from "@/utils/authHelper";
-<<<<<<< HEAD
-import { authorizeUser } from "@/utils/chechAuthorization";
-import { RoleTypes } from "@/types/types";
-
-export async function GET(request: NextRequest) {
-    await verifyUserAuth();
-    authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
-=======
 import { generateExcelFromJson } from "@/utils/jsonToExcel";
 
 export async function GET(request: NextRequest) {
     try {
         await verifyUserAuth();
->>>>>>> d458941f293986be4f1d18ad8612a80c6f3e1155
 
         const searchParams = request.nextUrl.searchParams;
         const fileName = searchParams.get("filename");

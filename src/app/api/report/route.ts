@@ -18,57 +18,20 @@ import { ReportFormValues, reportSchema } from "@/yup/report";
 import { generateFileName } from "@/utils/generateFileName";
 import * as fs from "fs";
 import { writeFile } from "fs/promises";
-import { authorizeUser } from "@/utils/chechAuthorization";
-import { RoleTypes } from "@/types/types";
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         const decodedToken = await verifyUserAuth();
-        authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
-
-        const searchParams = request?.nextUrl?.searchParams;
-        const page = searchParams.get("page");
-        const limit = searchParams.get("limit");
-        const reportType = searchParams.get("reportType");
-        const reportingDate = searchParams.get("reportingDate");
-        const startDate = searchParams.get("startDate");
-        const endDate = searchParams.get("endDate");
 
         const query: ReportDto = {
             reportType: { $in: decodedToken.allowedReports || [] }
         };
-
-        if (reportType && decodedToken?.allowedReports?.includes(reportType))
-            query.reportType = reportType;
-
-        if (reportingDate) {
-            const start = new Date(reportingDate);
-            start.setUTCHours(0, 0, 0, 0);
-
-            const end = new Date(reportingDate);
-            end.setUTCHours(23, 59, 59, 999);
-
-            query.reportingDate = { $gte: start, $lte: end };
-        }
-        if (startDate && endDate)
-            query.startDate = {
-                $gte: new Date(startDate),
-                $lt: new Date(endDate)
-            };
-        else if (startDate) query.startDate = { $gte: new Date(startDate) };
-        if (endDate) query.startDate = { $lt: new Date(endDate) };
-
-        const reports = await findReports(
-            query,
-            parseInt(page || "1"),
-            parseInt(limit || "10")
-        );
-
+        const reports = await findReports(query);
         if (reports) {
             return new Response(
                 JSON.stringify({
                     message: "Reports fetched.",
-                    contents: reports
+                    reports
                 }),
                 {
                     status: 200,
@@ -108,8 +71,6 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
-        authorizeUser([RoleTypes.Maker]);
-
         const formData = await request.formData();
 
         const reportType = formData.get("reportType") as string;
@@ -164,13 +125,6 @@ export async function POST(request: NextRequest) {
 
         // Trigger template validation and report processing based on report type
         try {
-<<<<<<< HEAD
-            require("@/models/reportTypeSchema");
-            const ReportTypeModel =
-                mongoose.models.reporttypes || mongoose.model("reporttypes");
-            const reportTypeDoc = await ReportTypeModel.findById(
-                validatedReport.reportType
-=======
             // 1. Strict Template Verification
             let validationResult;
             if (
@@ -203,7 +157,6 @@ export async function POST(request: NextRequest) {
                 "reports",
                 "json",
                 jsonFile
->>>>>>> d458941f293986be4f1d18ad8612a80c6f3e1155
             );
 
             const startDateStr = validatedReport.startDate.toISOString();
@@ -406,22 +359,10 @@ export async function POST(request: NextRequest) {
                 reportIdStr.toUpperCase().includes("ZS001") ||
                 reportIdStr.toUpperCase().includes("LSR")
             ) {
-<<<<<<< HEAD
-                const { processZS001Report } =
-                    await import("@/utils/services/ZS001/ZS001");
-                const jsonFilePath = path.join(
-                    process.cwd(),
-                    "reports",
-                    "json",
-                    jsonFile
-                );
-                await processZS001Report(
-=======
                 const { processZS001Report } = await import(
                     "@/utils/services/ZS001/ZS001"
                 );
                 const procRes: any = await processZS001Report(
->>>>>>> d458941f293986be4f1d18ad8612a80c6f3e1155
                     decodedToken?.instCode || "0000001",
                     filePath,
                     startDateStr,
@@ -820,8 +761,6 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
-        authorizeUser([RoleTypes.Checker]);
-
         const body = await request.json();
         if (!body) {
             return new Response(
@@ -832,12 +771,8 @@ export async function PUT(request: NextRequest) {
                 }
             );
         }
-        let { reportId, status, rejectionReason } = body;
-        if (
-            !reportId ||
-            !status ||
-            (status === "Rejected" && !rejectionReason)
-        ) {
+        let { reportId, status } = body;
+        if (!reportId || !status) {
             return new Response(
                 JSON.stringify({ error: "Missing required inputs." }),
                 {
@@ -851,10 +786,9 @@ export async function PUT(request: NextRequest) {
             status,
             updatedBy: decodedToken.id
         };
-
-        if (status === "Approved") updateQuery.approvedBy = decodedToken.id;
-        else if (status === "Rejected") updateQuery.response = rejectionReason;
-
+        if (status === "Approved") {
+            updateQuery.approvedBy = decodedToken.id;
+        }
         const report = await findReport(reportId);
         if (!report) {
             return new Response(
