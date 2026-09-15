@@ -42,6 +42,12 @@ export function ReportTypeTable() {
         method: "GET"
     });
 
+    const reportTypesList: ReportTypeDto[] = Array.isArray(data?.reportTypes)
+        ? data.reportTypes
+        : Array.isArray(data)
+        ? data
+        : [];
+
     const {
         data: dataCreate,
         fetchData: fetchDataCreate,
@@ -175,7 +181,7 @@ export function ReportTypeTable() {
                 </TableHeader>
 
                 <TableBody>
-                    {data?.reportTypes?.map(
+                    {reportTypesList.map(
                         (item: ReportTypeDto, index: number) => (
                             <TableRow
                                 key={index}

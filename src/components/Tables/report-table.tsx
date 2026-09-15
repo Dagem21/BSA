@@ -39,6 +39,12 @@ export function ReportTable() {
         method: "GET"
     });
 
+    const reportsList: ReportDto[] = Array.isArray(data?.reports)
+        ? data.reports
+        : Array.isArray(data)
+        ? data
+        : [];
+
     const {
         data: dataUpdate,
         fetchData: fetchDataUpdate,
@@ -126,7 +132,7 @@ export function ReportTable() {
                 </TableHeader>
 
                 <TableBody>
-                    {data?.reports?.map((item: ReportDto, index: number) => (
+                    {reportsList.map((item: ReportDto, index: number) => (
                         <TableRow
                             key={index}
                             className="border-[#eee] dark:border-dark-3"
@@ -323,8 +329,8 @@ export function ReportTable() {
                     ))}
                 </TableBody>
             </Table>
-            {data?.reports?.length === 0 && (
-                <p className="text-center text-sm">No records to display.</p>
+            {!isLoading && reportsList.length === 0 && (
+                <p className="py-4 text-center text-sm text-dark-6 dark:text-dark-3">No records to display.</p>
             )}
             <Modal
                 isOpen={isPopupOpenView}

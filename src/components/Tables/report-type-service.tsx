@@ -21,6 +21,12 @@ export function ReportTypeServiceTable() {
         method: "GET"
     });
 
+    const reportTypesList: any[] = Array.isArray(data?.reportTypes)
+        ? data.reportTypes
+        : Array.isArray(data)
+        ? data
+        : [];
+
     const handleSearch = () => {
         fetchData({
             params: { reportingDate: reportingDate.toISOString() }
@@ -68,7 +74,7 @@ export function ReportTypeServiceTable() {
                 </TableHeader>
 
                 <TableBody>
-                    {data?.reportTypes?.map((item: any, index: number) => (
+                    {reportTypesList.map((item: any, index: number) => (
                         <TableRow
                             key={index}
                             className="border-[#eee] dark:border-dark-3"
