@@ -181,6 +181,19 @@ export async function validateNN001Template(
                             "This is not the exact MWAC001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("13002") || cleanId.includes("BSD_LOAN_PART13002")) {
+                const is13002 =
+                    codeA1.includes("13002") ||
+                    codeA1.includes("BSD_LOAN_PART13002") ||
+                    headerRow4.includes("related party") ||
+                    headerRow4.includes("related party transactions");
+                if (!is13002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact 13002 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("LB002") || cleanId.includes("BOR_TEN_PER_LB002")) {
                 const isLB002 =
                     codeA1.includes("LB002") ||

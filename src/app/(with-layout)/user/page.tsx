@@ -25,7 +25,9 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function Page() {
+import { Suspense } from "react";
+
+function UserContent() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const { data, fetchData, isLoading } = useApiFetch({
@@ -231,45 +233,6 @@ export default function Page() {
                                 />
                             )}
                         />
-                        {/* <MultiSelect
-                            label="Select Tech Stack"
-                            options={dataReportTypes?.reportTypes?.map(
-                                (reportType: ReportTypeDto) => {
-                                    return {
-                                        label: reportType.reportId,
-                                        value: reportType._id
-                                    };
-                                }
-                            )}
-                            value={[]}
-                            onChange={() => {}}
-                            placeholder="Choose technologies..."
-                        /> */}
-                        {/* <MultiSelect
-                            selectOptions={[
-                                dataReportTypes?.reportTypes?.map(
-                                    (reportType: ReportTypeDto) => {
-                                        return {
-                                            text: reportType.reportId,
-                                            value: reportType._id,
-                                            selected: false
-                                        };
-                                    }
-                                )
-                            ]}
-                        /> */}
-                        {/* <Select
-                            label="Frequency"
-                            items={[
-                                { label: "Daily", value: "Daily" },
-                                { label: "Weekly", value: "Weekly" },
-                                { label: "Monthly", value: "Monthly" },
-                                { label: "Quarterly", value: "Quarterly" },
-                                { label: "Yearly", value: "Yearly" }
-                            ]}
-                            defaultValue="Monthly"
-                            {...register("frequency")}
-                        /> */}
                         {errors.allowedReports && (
                             <p className="text-sm text-red-500">
                                 {errors.allowedReports.message}
@@ -299,5 +262,13 @@ export default function Page() {
                 </form>
             </Modal>
         </div>
+    );
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div className="p-4 text-center">Loading users...</div>}>
+            <UserContent />
+        </Suspense>
     );
 }

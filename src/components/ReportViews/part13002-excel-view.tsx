@@ -17,7 +17,7 @@ interface DynamicArea {
     DynamicItems: DynamicItem[];
 }
 
-interface LB002JsonData {
+interface PART13002JsonData {
     ReturnKey?: string;
     InstCode?: string;
     FinYear?: number;
@@ -27,17 +27,17 @@ interface LB002JsonData {
     DynamicItemsList?: DynamicArea[];
 }
 
-interface LB002ExcelViewProps {
-    initialData?: LB002JsonData;
+interface PART13002ExcelViewProps {
+    initialData?: PART13002JsonData;
     activeFileName?: string;
 }
 
-export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewProps) {
+export function PART13002ExcelView({ initialData, activeFileName }: PART13002ExcelViewProps) {
     const [viewTab, setViewTab] = useState<"grid" | "json">("grid");
     const [searchQuery, setSearchQuery] = useState("");
     const [currentFileName, setCurrentFileName] = useState<string>(activeFileName || "");
     const [availableFiles, setAvailableFiles] = useState<string[]>([]);
-    const [reportData, setReportData] = useState<LB002JsonData | undefined>(initialData);
+    const [reportData, setReportData] = useState<PART13002JsonData | undefined>(initialData);
     const [loading, setLoading] = useState(false);
 
     const [selectedCell, setSelectedCell] = useState<{
@@ -57,7 +57,7 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
     const fetchJsonData = async (fileName?: string) => {
         try {
             setLoading(true);
-            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=LB002";
+            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=13002";
             const res = await fetch(`/api/report/json-view${query}`);
             if (res.ok) {
                 const json = await res.json();
@@ -66,7 +66,7 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
                 if (json.availableFiles) setAvailableFiles(json.availableFiles);
             }
         } catch (e) {
-            console.error("Failed to fetch LB002 JSON view:", e);
+            console.error("Failed to fetch 13002 JSON view:", e);
         } finally {
             setLoading(false);
         }
@@ -111,57 +111,58 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
         return isPercent ? `${formatted}%` : formatted;
     };
 
-function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
-    if (!Array.isArray(returnItems) || returnItems.length < 121) return [];
-    const itemMap: Record<string, any> = {};
-    returnItems.forEach((it: any) => {
-        if (it?.Code) itemMap[it.Code] = it.Value ?? "";
-    });
+    function get13002FlatItemsFromReturnItems(returnItems?: any[]) {
+        if (!Array.isArray(returnItems) || returnItems.length < 142) return [];
+        const itemMap: Record<string, any> = {};
+        returnItems.forEach((it: any) => {
+            if (it?.Code) itemMap[it.Code] = it.Value ?? "";
+        });
 
-    const flat: any[] = [];
-    for (let slot = 1; slot <= 20; slot++) {
-        const cCode = `LB002_${(21 - slot).toString().padStart(5, "0")}`;
-        const cpName = (itemMap[cCode] || "").trim();
+        const flat: any[] = [];
+        for (let slot = 1; slot <= 20; slot++) {
+            const cCode = `13002_${(21 - slot).toString().padStart(5, "0")}`;
+            const cpName = (itemMap[cCode] || "").trim();
 
-        if (cpName && cpName !== "0" && cpName !== "-") {
-            const totalOutCode = `LB002_${(41 - slot).toString().padStart(5, "0")}`;
-            const sectorCode = `LB002_${(61 - slot).toString().padStart(5, "0")}`;
-            const pctCode = `LB002_${(82 - slot).toString().padStart(5, "0")}`;
-            const statusCode = `LB002_${(102 - slot).toString().padStart(5, "0")}`;
-            const capitalCode = `LB002_${(122 - slot).toString().padStart(5, "0")}`;
+            if (cpName && cpName !== "0" && cpName !== "-") {
+                const natureCode = `13002_${(41 - slot).toString().padStart(5, "0")}`;
+                const totalOutCode = `13002_${(61 - slot).toString().padStart(5, "0")}`;
+                const sectorCode = `13002_${(81 - slot).toString().padStart(5, "0")}`;
+                const pctCode = `13002_${(101 - slot).toString().padStart(5, "0")}`;
+                const statusCode = `13002_${(121 - slot).toString().padStart(5, "0")}`;
+                const capitalCode = `13002_${(141 - slot).toString().padStart(5, "0")}`;
 
-            flat.push(
-                { Code: `${slot}.1`, Value: cpName, _description: "Name of Counterparty*", _dataType: "TEXT", _required: true },
-                { Code: `${slot}.2`, Value: "-", _description: "Type of Exposure", _dataType: "TEXT", _required: true },
-                { Code: `${slot}.3`, Value: itemMap[sectorCode] || "-", _description: "Sector of Exposure", _dataType: "TEXT", _required: true },
-                { Code: `${slot}.4`, Value: itemMap[totalOutCode] || "0", _description: "Approved Limit/Facility", _dataType: "NUMERIC", _required: true },
-                { Code: `${slot}.5`, Value: itemMap[totalOutCode] || "0", _description: "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A", _dataType: "NUMERIC", _required: false },
-                { Code: `${slot}.6`, Value: "0", _description: "Off-balance Sheet Exposure Amount (e.g. guarantee)_  B", _dataType: "NUMERIC", _required: false },
-                { Code: `${slot}.7`, Value: itemMap[totalOutCode] || "0", _description: "Total Outstanding Balance_    C=A+B", _dataType: "NUMERIC", _required: true },
-                { Code: `${slot}.8`, Value: "-", _description: "Maturity Date", _dataType: "DATE", _required: true },
-                { Code: `${slot}.9`, Value: itemMap[capitalCode] || "0", _description: "Capital", _dataType: "NUMERIC", _required: true },
-                { Code: `${slot}.10`, Value: itemMap[pctCode] || "0", _description: "Exposure Amount (A+B) as Percent of Total Capital", _dataType: "NUMERIC", _required: true },
-                { Code: `${slot}.11`, Value: itemMap[statusCode] || "-", _description: "Status (classification)", _dataType: "TEXT", _required: true },
-                { Code: `${slot}.12`, Value: "-", _description: "Collateral_Type", _dataType: "TEXT", _required: true },
-                { Code: `${slot}.13`, Value: "0", _description: "Collateral_Estimated/Face value", _dataType: "NUMERIC", _required: false }
-            );
+                flat.push(
+                    { Code: `${slot}.1`, Value: cpName, _description: "Name of Counterparty*", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.2`, Value: itemMap[natureCode] || "-", _description: "Nature of Counterparty", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.3`, Value: "-", _description: "Type of Exposure", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.4`, Value: itemMap[sectorCode] || "-", _description: "Sector of Exposure", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.5`, Value: itemMap[totalOutCode] || "0", _description: "Approved Limit/Facility", _dataType: "NUMERIC", _required: true },
+                    { Code: `${slot}.6`, Value: itemMap[totalOutCode] || "0", _description: "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A", _dataType: "NUMERIC", _required: false },
+                    { Code: `${slot}.7`, Value: "0", _description: "Off-balance Sheet Exposure Amount (e.g. guarantee)_   B", _dataType: "NUMERIC", _required: false },
+                    { Code: `${slot}.8`, Value: itemMap[totalOutCode] || "0", _description: "Total Outstanding Balance_     C=A+B", _dataType: "NUMERIC", _required: true },
+                    { Code: `${slot}.9`, Value: "-", _description: "Maturity Date", _dataType: "DATE", _required: true },
+                    { Code: `${slot}.10`, Value: itemMap[capitalCode] || "0", _description: "Capital", _dataType: "NUMERIC", _required: true },
+                    { Code: `${slot}.11`, Value: itemMap[pctCode] || "0", _description: "Exposure Amount (A+B) as Percent of Total Capital", _dataType: "NUMERIC", _required: true },
+                    { Code: `${slot}.12`, Value: itemMap[statusCode] || "-", _description: "Status (classification)", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.13`, Value: "-", _description: "Collateral_Type", _dataType: "TEXT", _required: true },
+                    { Code: `${slot}.14`, Value: "0", _description: "Collateral_Estimated/Face value", _dataType: "NUMERIC", _required: false }
+                );
+            }
         }
+        return flat;
     }
-    return flat;
-}
 
-    // Data is a flattened array of 13-column codes.
     const flatItems = (reportData?.DynamicItemsList?.[0]?.DynamicItems && reportData.DynamicItemsList[0].DynamicItems.length > 0)
         ? reportData.DynamicItemsList[0].DynamicItems
-        : getLB002FlatItemsFromReturnItems(reportData?.ReturnItemsList);
-    const rowsCount = Math.floor(flatItems.length / 13);
+        : get13002FlatItemsFromReturnItems(reportData?.ReturnItemsList);
+
+    const rowsCount = Math.floor(flatItems.length / 14);
     const dynamicRows: DynamicItem[][] = [];
 
     for (let i = 0; i < rowsCount; i++) {
-        dynamicRows.push(flatItems.slice(i * 13, i * 13 + 13));
+        dynamicRows.push(flatItems.slice(i * 14, i * 14 + 14));
     }
 
-    // Summary calculations
     let totalApprovedLimit = 0;
     let totalOnBalance = 0;
     let totalOffBalance = 0;
@@ -171,10 +172,10 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
         row.forEach((item, colIdx) => {
             const num = parseFloat(item.Value);
             if (!isNaN(num)) {
-                if (colIdx === 3 || item.Code.endsWith(".4")) totalApprovedLimit += num;
-                if (colIdx === 4 || item.Code.endsWith(".5")) totalOnBalance += num;
-                if (colIdx === 5 || item.Code.endsWith(".6")) totalOffBalance += num;
-                if (colIdx === 6 || item.Code.endsWith(".7")) totalOutstanding += num;
+                if (colIdx === 4 || item.Code.endsWith(".5")) totalApprovedLimit += num;
+                if (colIdx === 5 || item.Code.endsWith(".6")) totalOnBalance += num;
+                if (colIdx === 6 || item.Code.endsWith(".7")) totalOffBalance += num;
+                if (colIdx === 7 || item.Code.endsWith(".8")) totalOutstanding += num;
             }
         });
     });
@@ -187,18 +188,19 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
 
     const headers = [
         { code: "1.1", label: "Name of Counterparty", colLetter: "A" },
-        { code: "1.2", label: "Type of Exposure", colLetter: "B" },
-        { code: "1.3", label: "Sector of Exposure", colLetter: "C" },
-        { code: "1.4", label: "Approved Limit/Facility", colLetter: "D" },
-        { code: "1.5", label: "On-Balance Exposure (A)", colLetter: "E" },
-        { code: "1.6", label: "Off-Balance Exposure (B)", colLetter: "F" },
-        { code: "1.7", label: "Total Outstanding (C=A+B)", colLetter: "G" },
-        { code: "1.8", label: "Maturity Date", colLetter: "H" },
-        { code: "1.9", label: "Capital", colLetter: "I" },
-        { code: "1.10", label: "Exposure % of Capital", colLetter: "J" },
-        { code: "1.11", label: "Status (Classification)", colLetter: "K" },
-        { code: "1.12", label: "Collateral Type", colLetter: "L" },
-        { code: "1.13", label: "Collateral Value", colLetter: "M" }
+        { code: "1.2", label: "Nature of Counterparty", colLetter: "B" },
+        { code: "1.3", label: "Type of Exposure", colLetter: "C" },
+        { code: "1.4", label: "Sector of Exposure", colLetter: "D" },
+        { code: "1.5", label: "Approved Limit/Facility", colLetter: "E" },
+        { code: "1.6", label: "On-Balance Exposure (A)", colLetter: "F" },
+        { code: "1.7", label: "Off-Balance Exposure (B)", colLetter: "G" },
+        { code: "1.8", label: "Total Outstanding (C=A+B)", colLetter: "H" },
+        { code: "1.9", label: "Maturity Date", colLetter: "I" },
+        { code: "1.10", label: "Capital", colLetter: "J" },
+        { code: "1.11", label: "Exposure % of Capital", colLetter: "K" },
+        { code: "1.12", label: "Status (Classification)", colLetter: "L" },
+        { code: "1.13", label: "Collateral Type", colLetter: "M" },
+        { code: "1.14", label: "Collateral Value", colLetter: "N" }
     ];
 
     return (
@@ -212,11 +214,11 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
                                 Excel Dynamic Report Viewer
                             </span>
                             <span className="rounded bg-blue-500/10 px-2.5 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-                                {reportData?.ReturnKey || "BOR_TEN_PER_LB002"}
+                                {reportData?.ReturnKey || "BSD_LOAN_PART13002"}
                             </span>
                         </div>
                         <h1 className="mt-2 text-2xl font-bold text-dark dark:text-white">
-                            Monthly Return on Large Exposures Exceeding 10% of Bank's Total Capital
+                            Monthly Returns on Related Party Transactions List of Related Party Exposures
                         </h1>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                             Institution: <span className="font-semibold text-dark dark:text-white">{reportData?.InstCode || "0000001"}</span> | 
@@ -225,7 +227,6 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
                         </p>
                     </div>
 
-                    {/* File Selector & Mode Switcher */}
                     <div className="flex flex-wrap items-center gap-3">
                         {availableFiles.length > 0 && (
                             <select
@@ -306,7 +307,7 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
                             </h3>
                         </div>
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Counterparties</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Related Parties</p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
                                 {dynamicRows.length}
                             </h3>
@@ -360,7 +361,7 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
 
                     {/* Table Container */}
                     <div className="flex-1 overflow-auto bg-[#F3F4F6] p-4 dark:bg-dark-2 relative">
-                        <div className="min-w-[1800px] bg-white dark:bg-gray-dark rounded border border-stroke dark:border-dark-3 overflow-hidden shadow-sm">
+                        <div className="min-w-[1900px] bg-white dark:bg-gray-dark rounded border border-stroke dark:border-dark-3 overflow-hidden shadow-sm">
                             {/* Table Header */}
                             <div className="flex border-b border-stroke bg-gray-100 dark:border-dark-3 dark:bg-dark-2 text-xs font-bold text-gray-600 dark:text-gray-300">
                                 <div className="flex h-10 w-12 shrink-0 items-center justify-center border-r border-stroke dark:border-dark-3 bg-gray-200 dark:bg-dark-3">
@@ -385,8 +386,8 @@ function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
                                         {headers.map((h, colIdx) => {
                                             const item = rowItems.find(i => i.Code === h.code || i.Code.endsWith(`.${colIdx + 1}`)) || rowItems[colIdx];
                                             const val = item?.Value || "";
-                                            const isNumeric = [3, 4, 5, 6, 8, 9, 12].includes(colIdx);
-                                            const isPercent = colIdx === 9;
+                                            const isNumeric = [4, 5, 6, 7, 9, 10, 13].includes(colIdx);
+                                            const isPercent = colIdx === 10;
                                             
                                             const cellRef = `${h.colLetter}${8 + idx}`;
                                             const isSelected = selectedCell?.cellRef === cellRef;

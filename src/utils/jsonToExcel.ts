@@ -19,6 +19,7 @@ export async function generateExcelFromJson(
     else if (returnKey.includes("MWAL001")) sheetName = "MWAL001";
     else if (returnKey.includes("MWAC001") || returnKey.includes("LCMWAC001") || returnKey.includes("WALIR")) sheetName = "WALIR";
     else if (returnKey.includes("LB002")) sheetName = "LB002";
+    else if (returnKey.includes("13002") || returnKey.includes("BSD_LOAN_PART13002")) sheetName = "13002";
     else if (returnKey.includes("DPWADP001")) sheetName = "DPWADP001";
     else if (returnKey.includes("OL001")) sheetName = "OL001";
     else if (returnKey.includes("NN001")) sheetName = "NN001";
@@ -149,13 +150,57 @@ export async function generateExcelFromJson(
             worksheet.getCell(cell).font = metaFont;
         });
 
+function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
+    if (!Array.isArray(returnItems) || returnItems.length < 121) return [];
+    const itemMap: Record<string, any> = {};
+    returnItems.forEach((it: any) => {
+        if (it?.Code) itemMap[it.Code] = it.Value ?? "";
+    });
+
+    const flat: any[] = [];
+    for (let slot = 1; slot <= 20; slot++) {
+        const cCode = `LB002_${(21 - slot).toString().padStart(5, "0")}`;
+        const cpName = (itemMap[cCode] || "").trim();
+
+        if (cpName && cpName !== "0" && cpName !== "-") {
+            const totalOutCode = `LB002_${(41 - slot).toString().padStart(5, "0")}`;
+            const sectorCode = `LB002_${(61 - slot).toString().padStart(5, "0")}`;
+            const pctCode = `LB002_${(82 - slot).toString().padStart(5, "0")}`;
+            const statusCode = `LB002_${(102 - slot).toString().padStart(5, "0")}`;
+            const capitalCode = `LB002_${(122 - slot).toString().padStart(5, "0")}`;
+
+            flat.push(
+                { Code: `${slot}.1`, Value: cpName, _description: "Name of Counterparty*", _dataType: "TEXT", _required: true },
+                { Code: `${slot}.2`, Value: "-", _description: "Type of Exposure", _dataType: "TEXT", _required: true },
+                { Code: `${slot}.3`, Value: itemMap[sectorCode] || "-", _description: "Sector of Exposure", _dataType: "TEXT", _required: true },
+                { Code: `${slot}.4`, Value: itemMap[totalOutCode] || "0", _description: "Approved Limit/Facility", _dataType: "NUMERIC", _required: true },
+                { Code: `${slot}.5`, Value: itemMap[totalOutCode] || "0", _description: "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A", _dataType: "NUMERIC", _required: false },
+                { Code: `${slot}.6`, Value: "0", _description: "Off-balance Sheet Exposure Amount (e.g. guarantee)_  B", _dataType: "NUMERIC", _required: false },
+                { Code: `${slot}.7`, Value: itemMap[totalOutCode] || "0", _description: "Total Outstanding Balance_    C=A+B", _dataType: "NUMERIC", _required: true },
+                { Code: `${slot}.8`, Value: "-", _description: "Maturity Date", _dataType: "DATE", _required: true },
+                { Code: `${slot}.9`, Value: itemMap[capitalCode] || "0", _description: "Capital", _dataType: "NUMERIC", _required: true },
+                { Code: `${slot}.10`, Value: itemMap[pctCode] || "0", _description: "Exposure Amount (A+B) as Percent of Total Capital", _dataType: "NUMERIC", _required: true },
+                { Code: `${slot}.11`, Value: itemMap[statusCode] || "-", _description: "Status (classification)", _dataType: "TEXT", _required: true },
+                { Code: `${slot}.12`, Value: "-", _description: "Collateral_Type", _dataType: "TEXT", _required: true },
+                { Code: `${slot}.13`, Value: "0", _description: "Collateral_Estimated/Face value", _dataType: "NUMERIC", _required: false }
+            );
+        }
+    }
+    return flat;
+}
+
         const dynamicAreas = jsonData?.DynamicItemsList || [];
-        const flatItems = dynamicAreas?.[0]?.DynamicItems || [];
+        const flatItems = (dynamicAreas?.[0]?.DynamicItems && dynamicAreas[0].DynamicItems.length > 0)
+            ? dynamicAreas[0].DynamicItems
+            : ((returnKey.includes("LB002") || returnKey.includes("BOR_TEN_PER_LB002"))
+                ? getLB002FlatItemsFromReturnItems(jsonData?.ReturnItemsList)
+                : []);
 
         if (flatItems.length > 0) {
             // Group flatItems into rows
             let rowChunkSize = 8;
-            if (returnKey.includes("LB002")) rowChunkSize = 13;
+            if (returnKey.includes("13002") || returnKey.includes("BSD_LOAN_PART13002")) rowChunkSize = 14;
+            else if (returnKey.includes("LB002")) rowChunkSize = 13;
             else if (returnKey.includes("OL001")) rowChunkSize = 11;
             else if (returnKey.includes("NN001")) rowChunkSize = 9;
 
