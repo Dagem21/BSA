@@ -32,7 +32,7 @@ export const MWAL001Format = (
                 return str;
             }
         }
-        return dataType === "TEXT" ? " " : "0";
+        return dataType === "TEXT" ? "-" : "0";
     };
 
     const dynamicItems = rowsData.map((row, index) => {

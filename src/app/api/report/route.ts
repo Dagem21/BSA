@@ -373,6 +373,34 @@ export async function POST(request: NextRequest) {
                     );
                 }
             }
+            // Process BSD_LOAN_PART13002 Report Format
+            else if (
+                reportIdStr.toUpperCase().includes("13002") ||
+                reportIdStr.toUpperCase().includes("BSD_LOAN_PART13002")
+            ) {
+                const { process13002Report } = await import(
+                    "@/utils/services/BSD_LOAN_PART13002/13002"
+                );
+                const procRes: any = await process13002Report(
+                    decodedToken?.instCode || "0000001",
+                    filePath,
+                    startDateStr,
+                    endDateStr,
+                    filePath,
+                    jsonFilePath
+                );
+                if (!procRes.success) {
+                    return new Response(
+                        JSON.stringify({
+                            error: procRes.error || "Failed to process 13002 template file."
+                        }),
+                        {
+                            status: 400,
+                            headers: { "Content-Type": "application/json" }
+                        }
+                    );
+                }
+            }
             // 3. Process ZS001 Report Format
             else if (
                 reportIdStr.toUpperCase().includes("ZS001") ||

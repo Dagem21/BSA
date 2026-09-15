@@ -106,8 +106,8 @@ export function ReportForm() {
 
         const formData = new FormData();
         formData.append("reportType", data.reportType);
-        formData.append("startDate", data.startDate.toISOString());
-        formData.append("endDate", data.endDate.toISOString());
+        formData.append("startDate", data.startDate instanceof Date ? data.startDate.toISOString() : String(data.startDate ?? ""));
+        formData.append("endDate", data.endDate instanceof Date ? data.endDate.toISOString() : String(data.endDate ?? ""));
         if (fileToUpload) {
             formData.append("file", fileToUpload);
         }

@@ -30,7 +30,9 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export default function Page() {
+import { Suspense } from "react";
+
+function UserContent() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isPopupOpenView, setIsPopupOpenView] = useState(false);
     const [isPopupOpenUpdate, setIsPopupOpenUpdate] = useState(false);
@@ -314,132 +316,12 @@ export default function Page() {
                                     {errors.email.message}
                                 </p>
                             )}
-                        </div>
-
-                        <div>
-                            <InputGroup
-                                label="Name"
-                                type="text"
-                                placeholder="Employee name"
-                                {...register("name")}
-                                disabled
-                            />
-                            {errors.name && (
-                                <p className="text-sm text-red-500">
-                                    {errors.name.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <Select
-                                label="Role"
-                                items={[
-                                    { label: "Maker", value: "Maker" },
-                                    { label: "Checker", value: "Checker" },
-                                    { label: "Admin", value: "Admin" }
-                                ]}
-                                defaultValue="Checker"
-                                {...register("role")}
-                            />
-                            {errors.role && (
-                                <p className="text-sm text-red-500">
-                                    {errors.role.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <Controller
-                                name="allowedReports"
-                                control={control}
-                                render={({ field }) => (
-                                    <MultiSelect
-                                        label="Allowed Reports"
-                                        options={dataReportTypes?.reportTypes?.map(
-                                            (reportType: ReportTypeDto) => {
-                                                return {
-                                                    label: reportType.reportId,
-                                                    value: reportType._id
-                                                };
-                                            }
-                                        )}
-                                        value={field.value || []}
-                                        onChange={field.onChange}
-                                        placeholder="Select reports..."
-                                    />
-                                )}
-                            />
-                            {errors.allowedReports && (
-                                <p className="text-sm text-red-500">
-                                    {errors.allowedReports.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                            <Button
-                                className="w-full transition sm:flex-1"
-                                label={
-                                    isLoadingCreate
-                                        ? "Registering..."
-                                        : "Register"
-                                }
-                                variant="primary"
-                                shape="rounded"
-                                size="small"
-                            />
-
-                            <button
-                                type="button"
-                                onClick={() => setIsPopupOpen(false)}
-                                className="dark:border-strokedark dark:hover:bg-meta-4 w-full rounded border border-stroke px-4 py-2 font-medium text-black transition hover:bg-gray-100 sm:flex-1 dark:text-white"
-                            >
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
-                </Modal>
-
-                <Modal
-                    isOpen={isPopupOpenView}
-                    onClose={() => {
-                        setIsPopupOpenView(false);
-                        setSelectedItem(null);
-                    }}
-                    title="User Details"
-                >
-                    <div className="flex flex-col gap-2">
-                        <div>
-                            <label className="text-sm">Email: </label>
-                            <p className="font-medium">{selectedItem?.email}</p>
-                        </div>
-                        <div>
-                            <label className="text-sm">Role: </label>
-                            <p className="font-medium">{selectedItem?.role}</p>
-                        </div>
-                        <div>
-                            <label className="text-sm">Reports: </label>
-                            <div className="flex flex-col gap-2 py-2">
-                                {selectedItem?.allowedReports?.map(
-                                    (reportType: ReportTypeDto) => {
-                                        return (
-                                            <div
-                                                key={reportType._id}
-                                                className="border-s-2 border-primary ps-2"
-                                            >
-                                                <p className="text-sm font-bold">
-                                                    {reportType.reportId}
-                                                </p>
-                                                <p className="text-sm font-normal">
-                                                    {reportType.description}
-                                                </p>
-                                            </div>
-                                        );
-                                    }
-                                )}
-                            </div>
-                        </div>
+                        />
+                        {errors.allowedReports && (
+                            <p className="text-sm text-red-500">
+                                {errors.allowedReports.message}
+                            </p>
+                        )}
                     </div>
                 </Modal>
 
@@ -532,5 +414,13 @@ export default function Page() {
                 </Modal>
             </div>
         </div>
+    );
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div className="p-4 text-center">Loading users...</div>}>
+            <UserContent />
+        </Suspense>
     );
 }

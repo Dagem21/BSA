@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 import * as fs from "fs";
 import * as path from "path";
-import { LB002Format, LB002RowData } from "./jsonFormat";
+import { PART13002Format, PART13002RowData } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -90,7 +90,7 @@ function getNumValue(cell: ExcelJS.Cell): number | string {
     return isNaN(num) ? raw : num;
 }
 
-export async function processLB002Report(
+export async function process13002Report(
     instCode: string,
     inputFilePath: string,
     startDate: string,
@@ -102,8 +102,8 @@ export async function processLB002Report(
     await workbook.xlsx.readFile(inputFilePath);
 
     const worksheet =
-        workbook.getWorksheet("LB002") ||
-        workbook.getWorksheet("BOR_TEN_PER_LB002") ||
+        workbook.getWorksheet("13002") ||
+        workbook.getWorksheet("BSD_LOAN_PART13002") ||
         workbook.getWorksheet("Sheet1") ||
         workbook.worksheets[0];
 
@@ -111,7 +111,7 @@ export async function processLB002Report(
     const formattedStartDate = formatIsoString(startDate);
     const formattedEndDate = formatIsoString(endDate);
 
-    const rowsData: LB002RowData[] = [];
+    const rowsData: PART13002RowData[] = [];
 
     // Dynamically detect column offset for Counterparty Name
     let colOffset = 1;
@@ -133,18 +133,13 @@ export async function processLB002Report(
         }
     }
 
-    // Helper to identify invalid/header/metadata counterparty rows
-    const isInvalidCounterparty = (cpName: string, expType: string = "") => {
+    const isInvalidCounterparty = (cpName: string, nature: string = "") => {
         const cpTrim = cpName.trim();
         if (!cpTrim || cpTrim === "0") return true;
-
-        // Pure numbers, single digits or institution codes (like "1", "2026", "0000001")
         if (/^\d+$/.test(cpTrim) || cpTrim === "0000001") return true;
-
-        // Dates or ISO strings (like "2026-07-31T00:00:00", "2026-08-01")
         if (cpTrim.includes("T00:00:00") || /^\d{4}-\d{2}-\d{2}/.test(cpTrim)) return true;
 
-        const str = (cpName + " " + expType).toLowerCase();
+        const str = (cpName + " " + nature).toLowerCase();
         return (
             str.includes("end date") ||
             str.includes("start date") ||
@@ -153,6 +148,7 @@ export async function processLB002Report(
             str.includes("national bank") ||
             str.includes("s/n") ||
             str.includes("name of counterparty") ||
+            str.includes("nature of counterparty") ||
             str.includes("type of exposure") ||
             str.includes("sector of exposure") ||
             str.includes("approved limit") ||
@@ -161,61 +157,47 @@ export async function processLB002Report(
             str.includes("collateral") ||
             str.includes("capital") ||
             str.includes("status (classification)") ||
-            str.includes("exceed ten percent") ||
-            str.includes("list of counterparties") ||
-            str.includes("on-balance sheet") ||
-            str.includes("off-balance sheet") ||
-            str.includes("c=a+b")
+            str.includes("related party")
         );
     };
 
     let hasStarted = false;
 
-    // Scan table rows up to row 500
     for (let r = 1; r <= 500; r++) {
         const row = worksheet.getRow(r);
         const counterpartyName = getDirectCellValue(row.getCell(colOffset));
-        const exposureType = getDirectCellValue(row.getCell(colOffset + 1));
+        const counterpartyNature = getDirectCellValue(row.getCell(colOffset + 1));
 
-        // Skip invalid counterparty, metadata or header rows
-        if (isInvalidCounterparty(counterpartyName, exposureType)) {
+        if (isInvalidCounterparty(counterpartyName, counterpartyNature)) {
             continue;
         }
 
-        const cpUpper = counterpartyName.toUpperCase();
         const cpLower = counterpartyName.toLowerCase();
-
-        // Start scanning data from AMG STEEL FACTORY or first valid counterparty
         if (!hasStarted) {
-            if (cpUpper.includes("AMG STEEL") || cpUpper.includes("ABDULHAKIM") || cpUpper.includes("STEEL FACTORY")) {
-                hasStarted = true;
-            } else if (!isInvalidCounterparty(counterpartyName, exposureType)) {
-                hasStarted = true;
-            } else {
-                continue;
-            }
+            hasStarted = true;
         }
 
-        // Stop scanning on total row
-        if (cpLower.includes("total") || exposureType.toLowerCase().includes("total")) {
+        if (cpLower.includes("total") || counterpartyNature.toLowerCase().includes("total")) {
             break;
         }
 
-        const exposureSector = getDirectCellValue(row.getCell(colOffset + 2));
-        const approvedLimit = getNumValue(row.getCell(colOffset + 3));
-        const onBalanceExposure = getNumValue(row.getCell(colOffset + 4));
-        const offBalanceExposure = getNumValue(row.getCell(colOffset + 5));
-        const totalOutstanding = getNumValue(row.getCell(colOffset + 6));
-        const rawMaturity = row.getCell(colOffset + 7).value;
-        const maturityDate = formatDateOnly(rawMaturity) || getDirectCellValue(row.getCell(colOffset + 7));
-        const capital = getNumValue(row.getCell(colOffset + 8));
-        const exposurePctCapital = getNumValue(row.getCell(colOffset + 9));
-        const status = getDirectCellValue(row.getCell(colOffset + 10));
-        const collateralType = getDirectCellValue(row.getCell(colOffset + 11));
-        const collateralValue = getNumValue(row.getCell(colOffset + 12));
+        const exposureType = getDirectCellValue(row.getCell(colOffset + 2));
+        const exposureSector = getDirectCellValue(row.getCell(colOffset + 3));
+        const approvedLimit = getNumValue(row.getCell(colOffset + 4));
+        const onBalanceExposure = getNumValue(row.getCell(colOffset + 5));
+        const offBalanceExposure = getNumValue(row.getCell(colOffset + 6));
+        const totalOutstanding = getNumValue(row.getCell(colOffset + 7));
+        const rawMaturity = row.getCell(colOffset + 8).value;
+        const maturityDate = formatDateOnly(rawMaturity) || getDirectCellValue(row.getCell(colOffset + 8));
+        const capital = getNumValue(row.getCell(colOffset + 9));
+        const exposurePctCapital = getNumValue(row.getCell(colOffset + 10));
+        const status = getDirectCellValue(row.getCell(colOffset + 11));
+        const collateralType = getDirectCellValue(row.getCell(colOffset + 12));
+        const collateralValue = getNumValue(row.getCell(colOffset + 13));
 
         rowsData.push({
             counterpartyName,
+            counterpartyNature,
             exposureType,
             exposureSector,
             approvedLimit,
@@ -229,21 +211,16 @@ export async function processLB002Report(
             collateralType,
             collateralValue
         });
-
-        // If we hit AFRICAN OIL PLC, stop after adding it
-        if (cpUpper.includes("AFRICAN OIL")) {
-            break;
-        }
     }
 
-    // Update Header Metadata cells in template after row scanning
+    // Update Header Metadata cells in template
     worksheet.getCell("B2").value = instCode;
     worksheet.getCell("B3").value = finYear;
     worksheet.getCell("B4").value = formattedStartDate;
     worksheet.getCell("B5").value = formattedEndDate;
 
-    const jsonOutput = LB002Format(
-        "BOR_TEN_PER_LB002",
+    const jsonOutput = PART13002Format(
+        "BSD_LOAN_PART13002",
         instCode,
         finYear,
         formattedStartDate,
