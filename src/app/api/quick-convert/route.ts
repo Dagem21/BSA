@@ -10,6 +10,31 @@ const { processLL001 } = require("@/utils/services/LL001/LL001");
 const { processNL001 } = require("@/utils/services/NL001/NL001");
 const { processWAADIR001 } = require("@/utils/services/WAADIR001/WAADIR001");
 
+function sanitizeJsonPayload(payload: any) {
+    if (!payload) return payload;
+    if (Array.isArray(payload.ReturnItemsList)) {
+        payload.ReturnItemsList = payload.ReturnItemsList.map((item: any) => ({
+            ...item,
+            Value: (item.Value === null || item.Value === undefined || String(item.Value).trim() === "") ? "0" : String(item.Value).trim()
+        }));
+    }
+    if (Array.isArray(payload.DynamicItemsList)) {
+        payload.DynamicItemsList = payload.DynamicItemsList.map((row: any) => {
+            if (row && typeof row === "object") {
+                Object.keys(row).forEach((k) => {
+                    if (row[k] === null || row[k] === undefined || String(row[k]).trim() === "") {
+                        row[k] = "0";
+                    } else {
+                        row[k] = String(row[k]).trim();
+                    }
+                });
+            }
+            return row;
+        });
+    }
+    return payload;
+}
+
 export async function POST(request: NextRequest) {
     try {
         const formData = await request.formData();
@@ -58,6 +83,8 @@ export async function POST(request: NextRequest) {
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }
+
+        jsonPayload = sanitizeJsonPayload(jsonPayload);
 
         // Cleanup temporary file
         try {

@@ -324,8 +324,9 @@ export const LP001Format = (
     itemValuesMap: Record<string, string | number | null | undefined> = {}
 ) => {
     const fmt = (val: string | number | null | undefined): string => {
-        if (val === null || val === undefined) return "";
-        return val.toString().trim();
+        if (val === null || val === undefined) return "0";
+        const str = val.toString().trim();
+        return str === "" ? "0" : str;
     };
 
     const returnItemsList = LP001_ITEM_DEFINITIONS.map((def) => ({
