@@ -3,21 +3,14 @@ import * as path from "path";
 import * as fs from "fs";
 import { LL001Format, LL001RowData, LL001SummaryTotals } from "./jsonFormat";
 
-export interface ProcessLL001Options {
-    instCode?: string;
-    uploadedExcelPath: string;
-    startDate?: Date | string;
-    endDate?: Date | string;
-    outputPathJson: string;
-}
-
-export async function processLL001Report({
-    instCode = "0000001",
-    uploadedExcelPath,
-    startDate,
-    endDate,
-    outputPathJson
-}: ProcessLL001Options): Promise<{ success: boolean; error?: string; jsonPath?: string }> {
+export async function processLL001Report(
+    instCode: string = "0000001",
+    uploadedExcelPath: string,
+    startDate: string,
+    endDate: string,
+    outputExcelPath: string,
+    outputPathJson: string
+): Promise<{ success: boolean; error?: string; jsonPath?: string }> {
     try {
         const workbook = new ExcelJS.Workbook();
         await workbook.xlsx.readFile(uploadedExcelPath);
@@ -43,17 +36,26 @@ export async function processLL001Report({
             if (typeof cellVal === "number") return cellVal.toString();
             if (typeof cellVal === "string") {
                 const trimmed = cellVal.trim();
-                if (trimmed.includes("GMT") || trimmed.includes("Arabian Standard Time") || /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/.test(trimmed)) {
+                if (
+                    trimmed.includes("GMT") ||
+                    trimmed.includes("Arabian Standard Time") ||
+                    /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/.test(trimmed)
+                ) {
                     const d = new Date(trimmed);
                     if (!isNaN(d.getTime())) {
-                        const pad = (n: number) => n.toString().padStart(2, "0");
+                        const pad = (n: number) =>
+                            n.toString().padStart(2, "0");
                         return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
                     }
                 }
                 return trimmed;
             }
             if (typeof cellVal === "object") {
-                if ("result" in cellVal && cellVal.result !== null && cellVal.result !== undefined) {
+                if (
+                    "result" in cellVal &&
+                    cellVal.result !== null &&
+                    cellVal.result !== undefined
+                ) {
                     return formatCellVal(cellVal.result);
                 }
                 if ("text" in cellVal && cellVal.text) {
@@ -66,47 +68,64 @@ export async function processLL001Report({
         const getNum = (cellVal: any): number => {
             if (cellVal === null || cellVal === undefined) return 0;
             if (typeof cellVal === "number") return cellVal;
-            if (typeof cellVal === "object" && "result" in cellVal && typeof cellVal.result === "number") {
+            if (
+                typeof cellVal === "object" &&
+                "result" in cellVal &&
+                typeof cellVal.result === "number"
+            ) {
                 return cellVal.result;
             }
             const parsed = parseFloat(formatCellVal(cellVal).replace(/,/g, ""));
             return isNaN(parsed) ? 0 : parsed;
         };
 
-        const formatDateNoShift = (val: Date | string | undefined | null, fallback: string): string => {
-            if (!val) return fallback;
+        const formatDateNoShift = (
+            val: Date | string | undefined | null
+        ): string => {
+            if (!val) return "";
             if (val instanceof Date) {
-                if (isNaN(val.getTime())) return fallback;
+                if (isNaN(val.getTime())) return "";
                 const pad = (n: number) => n.toString().padStart(2, "0");
                 return `${val.getFullYear()}-${pad(val.getMonth() + 1)}-${pad(val.getDate())}T00:00:00`;
             }
             if (typeof val === "string") {
                 const trimmed = val.trim();
-                if (trimmed.includes("GMT") || trimmed.includes("Arabian Standard Time") || /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/.test(trimmed)) {
+                if (
+                    trimmed.includes("GMT") ||
+                    trimmed.includes("Arabian Standard Time") ||
+                    /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/.test(trimmed)
+                ) {
                     const d = new Date(trimmed);
                     if (!isNaN(d.getTime())) {
-                        const pad = (n: number) => n.toString().padStart(2, "0");
+                        const pad = (n: number) =>
+                            n.toString().padStart(2, "0");
                         return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T00:00:00`;
                     }
                 }
                 if (trimmed.includes("T")) return trimmed.split(".")[0];
-                if (trimmed.length >= 10) return `${trimmed.substring(0, 10)}T00:00:00`;
-                return fallback;
+                if (trimmed.length >= 10)
+                    return `${trimmed.substring(0, 10)}T00:00:00`;
+                return "";
             }
-            return fallback;
+            return "";
         };
 
         // Extract header values (Row 8 to 11)
-        const parsedInstCode = formatCellVal(worksheet.getCell("C8").value) ||
-                              formatCellVal(worksheet.getCell("B8").value) ||
-                              instCode;
+        const parsedInstCode =
+            formatCellVal(worksheet.getCell("C8").value) ||
+            formatCellVal(worksheet.getCell("B8").value) ||
+            instCode;
 
         const finYearStr = formatCellVal(worksheet.getCell("C9").value);
         const sDateRaw = worksheet.getCell("C10").value;
         const eDateRaw = worksheet.getCell("C11").value;
 
-        const formattedStartDate = formatDateNoShift(startDate || sDateRaw, "2026-04-01T00:00:00");
-        const formattedEndDate = formatDateNoShift(endDate || eDateRaw, "2026-06-30T00:00:00");
+        const formattedStartDate = formatDateNoShift(
+            startDate || sDateRaw?.toString()
+        );
+        const formattedEndDate = formatDateNoShift(
+            endDate || eDateRaw?.toString()
+        );
         const finYear = finYearStr ? parseInt(finYearStr, 10) : 2026;
 
         const borrowerRows: LL001RowData[] = [];
@@ -160,11 +179,21 @@ export async function processLL001Report({
 
         // Totals row (Row 166 or accumulated totals)
         const totalsRow = worksheet.getRow(166);
-        const rowPrincipalTotal = formatCellVal(totalsRow.getCell(3).value) || (calcPrincipal ? calcPrincipal.toString() : "");
-        const rowInterestTotal = formatCellVal(totalsRow.getCell(4).value) || (calcInterest ? calcInterest.toString() : "");
-        const rowSalesValueTotal = formatCellVal(totalsRow.getCell(8).value) || (calcSalesValue ? calcSalesValue.toString() : "");
-        const rowDisposalExpensesTotal = formatCellVal(totalsRow.getCell(9).value) || (calcDisposalExpenses ? calcDisposalExpenses.toString() : "");
-        const rowNetRealizedValueTotal = formatCellVal(totalsRow.getCell(10).value) || (calcNetRealizedValue ? calcNetRealizedValue.toString() : "");
+        const rowPrincipalTotal =
+            formatCellVal(totalsRow.getCell(3).value) ||
+            (calcPrincipal ? calcPrincipal.toString() : "");
+        const rowInterestTotal =
+            formatCellVal(totalsRow.getCell(4).value) ||
+            (calcInterest ? calcInterest.toString() : "");
+        const rowSalesValueTotal =
+            formatCellVal(totalsRow.getCell(8).value) ||
+            (calcSalesValue ? calcSalesValue.toString() : "");
+        const rowDisposalExpensesTotal =
+            formatCellVal(totalsRow.getCell(9).value) ||
+            (calcDisposalExpenses ? calcDisposalExpenses.toString() : "");
+        const rowNetRealizedValueTotal =
+            formatCellVal(totalsRow.getCell(10).value) ||
+            (calcNetRealizedValue ? calcNetRealizedValue.toString() : "");
 
         const summaryTotals: LL001SummaryTotals = {
             totalPrincipal: rowPrincipalTotal,
@@ -191,7 +220,11 @@ export async function processLL001Report({
             fs.mkdirSync(jsonDir, { recursive: true });
         }
 
-        fs.writeFileSync(outputPathJson, JSON.stringify(jsonPayload, null, 4), "utf8");
+        fs.writeFileSync(
+            outputPathJson,
+            JSON.stringify(jsonPayload, null, 4),
+            "utf8"
+        );
 
         return {
             success: true,

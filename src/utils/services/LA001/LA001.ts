@@ -47,7 +47,10 @@ function getDirectCellValue(cell: ExcelJS.Cell): string {
 }
 
 export async function processLA001Report(
+    instCode: string,
     inputFilePath: string,
+    startDateStr: string,
+    endDateStr: string,
     outputExcelPath: string,
     outputJsonPath: string
 ) {

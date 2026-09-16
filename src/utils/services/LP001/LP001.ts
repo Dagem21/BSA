@@ -11,13 +11,14 @@ export interface ProcessLP001Options {
     outputPathJson: string;
 }
 
-export async function processLP001Report({
-    instCode = "0000001",
-    uploadedExcelPath,
-    startDate,
-    endDate,
-    outputPathJson
-}: ProcessLP001Options): Promise<{ success: boolean; error?: string; jsonPath?: string }> {
+export async function processLP001Report(
+    instCode: string = "0000001",
+    uploadedExcelPath: string,
+    startDate: string,
+    endDate: string,
+    outputExcelPath: string,
+    outputPathJson: string
+): Promise<{ success: boolean; error?: string; jsonPath?: string }> {
     try {
         const workbook = new ExcelJS.Workbook();
         await workbook.xlsx.readFile(uploadedExcelPath);
@@ -35,7 +36,11 @@ export async function processLP001Report({
             if (typeof cellVal === "number") return cellVal.toString();
             if (typeof cellVal === "string") return cellVal.trim();
             if (typeof cellVal === "object") {
-                if ("result" in cellVal && cellVal.result !== null && cellVal.result !== undefined) {
+                if (
+                    "result" in cellVal &&
+                    cellVal.result !== null &&
+                    cellVal.result !== undefined
+                ) {
                     return cellVal.result.toString().trim();
                 }
                 if ("text" in cellVal && cellVal.text) {
@@ -45,12 +50,16 @@ export async function processLP001Report({
             return cellVal.toString().trim();
         };
 
-        const formatDateNoShift = (val: Date | string | undefined | null, fallback: string): string => {
+        const formatDateNoShift = (
+            val: Date | string | undefined | null,
+            fallback: string
+        ): string => {
             if (!val) return fallback;
             if (typeof val === "string") {
                 const trimmed = val.trim();
                 if (trimmed.includes("T")) return trimmed.split(".")[0];
-                if (trimmed.length >= 10) return `${trimmed.substring(0, 10)}T00:00:00`;
+                if (trimmed.length >= 10)
+                    return `${trimmed.substring(0, 10)}T00:00:00`;
                 return fallback;
             }
             if (val instanceof Date && !isNaN(val.getTime())) {
@@ -61,16 +70,23 @@ export async function processLP001Report({
         };
 
         // Extract header values
-        const parsedInstCode = getCellValueAsString(worksheet.getCell("C4").value) ||
-                              getCellValueAsString(worksheet.getCell("B4").value) ||
-                              instCode;
+        const parsedInstCode =
+            getCellValueAsString(worksheet.getCell("C4").value) ||
+            getCellValueAsString(worksheet.getCell("B4").value) ||
+            instCode;
 
         const finYearStr = getCellValueAsString(worksheet.getCell("C5").value);
         const sDateStr = getCellValueAsString(worksheet.getCell("C6").value);
         const eDateStr = getCellValueAsString(worksheet.getCell("C7").value);
 
-        const formattedStartDate = formatDateNoShift(startDate || sDateStr, "2026-04-01T00:00:00");
-        const formattedEndDate = formatDateNoShift(endDate || eDateStr, "2026-06-30T00:00:00");
+        const formattedStartDate = formatDateNoShift(
+            startDate || sDateStr,
+            "2026-04-01T00:00:00"
+        );
+        const formattedEndDate = formatDateNoShift(
+            endDate || eDateStr,
+            "2026-06-30T00:00:00"
+        );
 
         const finYear = finYearStr ? parseInt(finYearStr, 10) : 2026;
 
@@ -82,7 +98,7 @@ export async function processLP001Report({
         const startRow = 16;
         const endRow = 49;
         const startCol = 3; // Column C
-        const endCol = 11;  // Column K
+        const endCol = 11; // Column K
 
         for (let r = startRow; r <= endRow; r++) {
             const row = worksheet.getRow(r);
@@ -97,9 +113,10 @@ export async function processLP001Report({
         }
 
         // Summary item 21_00307 (Row 50, Column J / Col 10 or Col 9)
-        const summaryCellVal = getCellValueAsString(worksheet.getCell("J50").value) ||
-                               getCellValueAsString(worksheet.getCell("I50").value) ||
-                               getCellValueAsString(worksheet.getCell("H50").value);
+        const summaryCellVal =
+            getCellValueAsString(worksheet.getCell("J50").value) ||
+            getCellValueAsString(worksheet.getCell("I50").value) ||
+            getCellValueAsString(worksheet.getCell("H50").value);
 
         itemValuesMap["21_00307"] = summaryCellVal;
 
@@ -119,7 +136,11 @@ export async function processLP001Report({
             fs.mkdirSync(jsonDir, { recursive: true });
         }
 
-        fs.writeFileSync(outputPathJson, JSON.stringify(jsonPayload, null, 4), "utf8");
+        fs.writeFileSync(
+            outputPathJson,
+            JSON.stringify(jsonPayload, null, 4),
+            "utf8"
+        );
 
         return {
             success: true,
