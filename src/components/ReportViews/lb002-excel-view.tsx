@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import useApiFetch from "@/hooks/useAPIFetch";
+import { toast } from "sonner";
 
 interface DynamicItem {
     Code: string;
@@ -32,13 +34,19 @@ interface LB002ExcelViewProps {
     activeFileName?: string;
 }
 
-export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewProps) {
+export function LB002ExcelView({
+    initialData,
+    activeFileName
+}: LB002ExcelViewProps) {
     const [viewTab, setViewTab] = useState<"grid" | "json">("grid");
     const [searchQuery, setSearchQuery] = useState("");
-    const [currentFileName, setCurrentFileName] = useState<string>(activeFileName || "");
+    const [currentFileName, setCurrentFileName] = useState<string>(
+        activeFileName || ""
+    );
     const [availableFiles, setAvailableFiles] = useState<string[]>([]);
-    const [reportData, setReportData] = useState<LB002JsonData | undefined>(initialData);
-    const [loading, setLoading] = useState(false);
+    const [reportData, setReportData] = useState<LB002JsonData | undefined>(
+        initialData
+    );
 
     const [selectedCell, setSelectedCell] = useState<{
         cellRef: string;
@@ -54,22 +62,30 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
         value: ""
     });
 
-    const fetchJsonData = async (fileName?: string) => {
-        try {
-            setLoading(true);
-            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=LB002";
-            const res = await fetch(`/api/report/json-view${query}`);
-            if (res.ok) {
-                const json = await res.json();
-                setReportData(json.data);
-                if (json.fileName) setCurrentFileName(json.fileName);
-                if (json.availableFiles) setAvailableFiles(json.availableFiles);
-            }
-        } catch (e) {
-            console.error("Failed to fetch LB002 JSON view:", e);
-        } finally {
-            setLoading(false);
+    const { fetchData, data, isLoading, errors } = useApiFetch({
+        url: "/api/report/json-view",
+        method: "GET"
+    });
+
+    useEffect(() => {
+        if (!isLoading && data) {
+            setReportData(data.data);
+
+            if (data.fileName) setCurrentFileName(data.fileName);
+            if (data.availableFiles) setAvailableFiles(data.availableFiles);
+        } else if (!isLoading && errors.details) {
+            toast.error(
+                errors.details?.response?.data?.error ||
+                    "Failed to fetch LB002 JSON view"
+            );
         }
+    }, [data, isLoading, errors]);
+
+    const fetchJsonData = async (fileName?: string) => {
+        const query = fileName
+            ? { filename: encodeURIComponent(fileName) }
+            : { type: "LB002" };
+        fetchData({ params: query });
     };
 
     useEffect(() => {
@@ -84,7 +100,9 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
             ? currentFileName.replace(/\.json$/, ".xlsx")
             : currentFileName;
         try {
-            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            const res = await fetch(
+                `/api/report/download?filename=${encodeURIComponent(excelName)}`
+            );
             if (!res.ok) throw new Error("Download failed");
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
@@ -101,7 +119,8 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
     };
 
     const formatNum = (valStr: string, isPercent: boolean = false) => {
-        if (valStr === undefined || valStr === null || valStr === "") return "-";
+        if (valStr === undefined || valStr === null || valStr === "")
+            return "-";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         const formatted = num.toLocaleString("en-US", {
@@ -141,7 +160,11 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
     const filteredRows = dynamicRows.filter((row) => {
         if (!searchQuery) return true;
         const q = searchQuery.toLowerCase();
-        return row.some((item) => item.Value.toLowerCase().includes(q) || item._description.toLowerCase().includes(q));
+        return row.some(
+            (item) =>
+                item.Value.toLowerCase().includes(q) ||
+                item._description.toLowerCase().includes(q)
+        );
     });
 
     const headers = [
@@ -175,12 +198,26 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
                             </span>
                         </div>
                         <h1 className="mt-2 text-2xl font-bold text-dark dark:text-white">
-                            Monthly Return on Large Exposures Exceeding 10% of Bank's Total Capital
+                            Monthly Return on Large Exposures Exceeding 10% of
+                            Bank's Total Capital
                         </h1>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                            Institution: <span className="font-semibold text-dark dark:text-white">{reportData?.InstCode || "0000001"}</span> | 
-                            Financial Year: <span className="font-semibold text-dark dark:text-white">{reportData?.FinYear || 2026}</span> | 
-                            Period: <span className="font-semibold text-dark dark:text-white">{reportData?.StartDate?.split("T")[0] || "2026-08-01"} to {reportData?.EndDate?.split("T")[0] || "2026-08-31"}</span>
+                            Institution:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.InstCode || "0000001"}
+                            </span>{" "}
+                            | Financial Year:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.FinYear || 2026}
+                            </span>{" "}
+                            | Period:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.StartDate?.split("T")[0] ||
+                                    "2026-08-01"}{" "}
+                                to{" "}
+                                {reportData?.EndDate?.split("T")[0] ||
+                                    "2026-08-31"}
+                            </span>
                         </p>
                     </div>
 
@@ -193,7 +230,7 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
                                     setCurrentFileName(e.target.value);
                                     fetchJsonData(e.target.value);
                                 }}
-                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
                             >
                                 <option value="">Select file...</option>
                                 {availableFiles.map((fn) => (
@@ -238,34 +275,52 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
                 </div>
 
                 {/* KPI Summary Cards */}
-                {viewTab === "grid" && !loading && (
+                {viewTab === "grid" && !isLoading && (
                     <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Approved Limit</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                Total Approved Limit
+                            </p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
-                                {totalApprovedLimit.toLocaleString("en-US", { maximumFractionDigits: 2 })}
+                                {totalApprovedLimit.toLocaleString("en-US", {
+                                    maximumFractionDigits: 2
+                                })}
                             </h3>
                         </div>
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total On-Balance (A)</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                Total On-Balance (A)
+                            </p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
-                                {totalOnBalance.toLocaleString("en-US", { maximumFractionDigits: 2 })}
+                                {totalOnBalance.toLocaleString("en-US", {
+                                    maximumFractionDigits: 2
+                                })}
                             </h3>
                         </div>
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Off-Balance (B)</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                Total Off-Balance (B)
+                            </p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
-                                {totalOffBalance.toLocaleString("en-US", { maximumFractionDigits: 2 })}
+                                {totalOffBalance.toLocaleString("en-US", {
+                                    maximumFractionDigits: 2
+                                })}
                             </h3>
                         </div>
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Outstanding (C)</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                Total Outstanding (C)
+                            </p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
-                                {totalOutstanding.toLocaleString("en-US", { maximumFractionDigits: 2 })}
+                                {totalOutstanding.toLocaleString("en-US", {
+                                    maximumFractionDigits: 2
+                                })}
                             </h3>
                         </div>
                         <div className="rounded-xl border border-stroke bg-gray-50 p-4 dark:border-dark-3 dark:bg-dark-2">
-                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Counterparties</p>
+                            <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                                Total Counterparties
+                            </p>
                             <h3 className="mt-1 text-xl font-bold text-dark dark:text-white">
                                 {dynamicRows.length}
                             </h3>
@@ -275,60 +330,75 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
             </div>
 
             {/* Main Content Area */}
-            {loading ? (
+            {isLoading ? (
                 <div className="flex min-h-[400px] items-center justify-center rounded-[10px] border border-stroke bg-white dark:border-dark-3 dark:bg-gray-dark">
                     <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
                 </div>
             ) : viewTab === "json" ? (
                 <div className="rounded-[10px] border border-stroke bg-white p-6 shadow-1 dark:border-dark-3 dark:bg-gray-dark">
-                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-50 p-4 text-xs font-mono text-dark dark:bg-dark-2 dark:text-white">
+                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-50 p-4 font-mono text-xs text-dark dark:bg-dark-2 dark:text-white">
                         {JSON.stringify(reportData, null, 4)}
                     </pre>
                 </div>
             ) : (
-                <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark flex flex-col min-h-[600px] max-h-[75vh]">
+                <div className="flex max-h-[75vh] min-h-[600px] flex-col rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark">
                     {/* Toolbar */}
-                    <div className="flex items-center justify-between border-b border-stroke p-4 dark:border-dark-3 shrink-0">
+                    <div className="flex shrink-0 items-center justify-between border-b border-stroke p-4 dark:border-dark-3">
                         <div className="flex items-center gap-3">
                             <div className="flex items-center gap-2 rounded bg-gray-100 px-3 py-1.5 dark:bg-dark-2">
-                                <span className="font-mono text-sm font-bold text-dark dark:text-white min-w-[32px] text-center">
+                                <span className="min-w-[32px] text-center font-mono text-sm font-bold text-dark dark:text-white">
                                     {selectedCell?.cellRef}
                                 </span>
                                 <span className="h-4 w-px bg-stroke dark:bg-dark-3"></span>
-                                <span className="text-sm font-medium italic text-gray-500">fx</span>
+                                <span className="text-sm font-medium text-gray-500 italic">
+                                    fx
+                                </span>
                                 <span className="h-4 w-px bg-stroke dark:bg-dark-3"></span>
-                                <span className="font-mono text-sm text-dark dark:text-white truncate max-w-[200px] sm:max-w-[400px]">
+                                <span className="max-w-[200px] truncate font-mono text-sm text-dark sm:max-w-[400px] dark:text-white">
                                     {selectedCell?.value || '""'}
                                 </span>
                             </div>
-                            <span className="text-xs font-medium text-gray-500 hidden sm:inline-block">
-                                [{selectedCell?.code}] {selectedCell?.colDesc} (Row {selectedCell?.rowIdx})
+                            <span className="hidden text-xs font-medium text-gray-500 sm:inline-block">
+                                [{selectedCell?.code}] {selectedCell?.colDesc}{" "}
+                                (Row {selectedCell?.rowIdx})
                             </span>
                         </div>
                         <div className="relative w-full max-w-[250px]">
-                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+                            <span className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400">
+                                🔍
+                            </span>
                             <input
                                 type="text"
                                 placeholder="Filter counterparties..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full rounded-lg border border-stroke bg-gray-50 py-1.5 pl-9 pr-3 text-sm text-dark outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+                                className="w-full rounded-lg border border-stroke bg-gray-50 py-1.5 pr-3 pl-9 text-sm text-dark outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
                             />
                         </div>
                     </div>
 
                     {/* Table Container */}
-                    <div className="flex-1 overflow-auto bg-[#F3F4F6] p-4 dark:bg-dark-2 relative">
-                        <div className="min-w-[1800px] bg-white dark:bg-gray-dark rounded border border-stroke dark:border-dark-3 overflow-hidden shadow-sm">
+                    <div className="relative flex-1 overflow-auto bg-[#F3F4F6] p-4 dark:bg-dark-2">
+                        <div className="min-w-[1800px] overflow-hidden rounded border border-stroke bg-white shadow-sm dark:border-dark-3 dark:bg-gray-dark">
                             {/* Table Header */}
-                            <div className="flex border-b border-stroke bg-gray-100 dark:border-dark-3 dark:bg-dark-2 text-xs font-bold text-gray-600 dark:text-gray-300">
-                                <div className="flex h-10 w-12 shrink-0 items-center justify-center border-r border-stroke dark:border-dark-3 bg-gray-200 dark:bg-dark-3">
+                            <div className="flex border-b border-stroke bg-gray-100 text-xs font-bold text-gray-600 dark:border-dark-3 dark:bg-dark-2 dark:text-gray-300">
+                                <div className="flex h-10 w-12 shrink-0 items-center justify-center border-r border-stroke bg-gray-200 dark:border-dark-3 dark:bg-dark-3">
                                     #
                                 </div>
                                 {headers.map((h) => (
-                                    <div key={h.code} className="flex-1 flex flex-col justify-center px-3 border-r border-stroke dark:border-dark-3 text-center truncate">
-                                        <div className="font-mono text-[10px] text-gray-400">{h.colLetter}</div>
-                                        <div className="truncate" title={h.label}>{h.label}</div>
+                                    <div
+                                        key={h.code}
+                                        className="flex flex-1 flex-col justify-center truncate border-r border-stroke px-3 text-center dark:border-dark-3"
+                                    >
+                                        <div className="font-mono text-[10px] text-gray-400">
+                                            {h.colLetter}
+                                        </div>
+                                        <div
+                                            className="truncate"
+                                            title={h.label}
+                                        >
+                                            {h.label}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -336,41 +406,72 @@ export function LB002ExcelView({ initialData, activeFileName }: LB002ExcelViewPr
                             {/* Table Body */}
                             {filteredRows.length > 0 ? (
                                 filteredRows.map((rowItems, idx) => (
-                                    <div key={idx} className="flex border-b border-stroke dark:border-dark-3 hover:bg-gray-50 dark:hover:bg-dark-2 transition-colors group">
+                                    <div
+                                        key={idx}
+                                        className="group flex border-b border-stroke transition-colors hover:bg-gray-50 dark:border-dark-3 dark:hover:bg-dark-2"
+                                    >
                                         <div className="flex min-h-[40px] w-12 shrink-0 items-center justify-center border-r border-stroke bg-gray-50 font-mono text-xs text-gray-400 dark:border-dark-3 dark:bg-dark-2">
                                             {8 + idx}
                                         </div>
-                                        
+
                                         {headers.map((h, colIdx) => {
-                                            const item = rowItems.find(i => i.Code === h.code || i.Code.endsWith(`.${colIdx + 1}`)) || rowItems[colIdx];
+                                            const item =
+                                                rowItems.find(
+                                                    (i) =>
+                                                        i.Code === h.code ||
+                                                        i.Code.endsWith(
+                                                            `.${colIdx + 1}`
+                                                        )
+                                                ) || rowItems[colIdx];
                                             const val = item?.Value || "";
-                                            const isNumeric = [3, 4, 5, 6, 8, 9, 12].includes(colIdx);
+                                            const isNumeric = [
+                                                3, 4, 5, 6, 8, 9, 12
+                                            ].includes(colIdx);
                                             const isPercent = colIdx === 9;
-                                            
+
                                             const cellRef = `${h.colLetter}${8 + idx}`;
-                                            const isSelected = selectedCell?.cellRef === cellRef;
+                                            const isSelected =
+                                                selectedCell?.cellRef ===
+                                                cellRef;
 
                                             return (
-                                                <div 
+                                                <div
                                                     key={h.code}
-                                                    onClick={() => setSelectedCell({
-                                                        cellRef,
-                                                        code: item?.Code || `${idx + 1}.${colIdx + 1}`,
-                                                        colDesc: h.label,
-                                                        rowIdx: 8 + idx,
-                                                        value: val
-                                                    })}
+                                                    onClick={() =>
+                                                        setSelectedCell({
+                                                            cellRef,
+                                                            code:
+                                                                item?.Code ||
+                                                                `${idx + 1}.${colIdx + 1}`,
+                                                            colDesc: h.label,
+                                                            rowIdx: 8 + idx,
+                                                            value: val
+                                                        })
+                                                    }
                                                     className={cn(
-                                                        "flex-1 flex items-center px-3 border-r border-stroke dark:border-dark-3 cursor-pointer text-sm overflow-hidden",
-                                                        isSelected ? "bg-primary/10 ring-1 ring-inset ring-primary z-10" : "",
-                                                        isNumeric ? "justify-end font-mono" : "justify-start"
+                                                        "flex flex-1 cursor-pointer items-center overflow-hidden border-r border-stroke px-3 text-sm dark:border-dark-3",
+                                                        isSelected
+                                                            ? "z-10 bg-primary/10 ring-1 ring-primary ring-inset"
+                                                            : "",
+                                                        isNumeric
+                                                            ? "justify-end font-mono"
+                                                            : "justify-start"
                                                     )}
                                                 >
-                                                    <span className={cn(
-                                                        "truncate",
-                                                        !val ? "text-gray-300 dark:text-gray-600" : "text-dark dark:text-white"
-                                                    )}>
-                                                        {isNumeric ? formatNum(val, isPercent) : (val || "-")}
+                                                    <span
+                                                        className={cn(
+                                                            "truncate",
+                                                            !val
+                                                                ? "text-gray-300 dark:text-gray-600"
+                                                                : "text-dark dark:text-white"
+                                                        )}
+                                                    >
+                                                        {isNumeric
+                                                            ? formatNum(
+                                                                  val,
+                                                                  isPercent
+                                                              )
+                                                            : val || "-"}
                                                     </span>
                                                 </div>
                                             );

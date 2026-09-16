@@ -1,0 +1,437 @@
+{
+    "ReturnKey": "BD_L&A_BD001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "2_00001",
+            "Value": "",
+            "_description": "1-TOTAL LOANS & ADVANCES (sum 2-4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00002",
+            "Value": "",
+            "_description": "2-SHORT TERM (sum 2.1-2.13)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00003",
+            "Value": "",
+            "_description": "2,1-   Agriculture",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00004",
+            "Value": "",
+            "_description": "2,2-  Manufacturing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00005",
+            "Value": "",
+            "_description": "2,3-   Domestic trade",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00006",
+            "Value": "",
+            "_description": "2,4-   International trade (sum 2.4.1-2.4.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00007",
+            "Value": "",
+            "_description": "2.4.1-   Export",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00008",
+            "Value": "",
+            "_description": "2.4.2-  Import",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00009",
+            "Value": "",
+            "_description": "2,5-  Hotel & tourism",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00010",
+            "Value": "",
+            "_description": "2,6-  Transport and communication",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00011",
+            "Value": "",
+            "_description": "2,7-   Building & construction (sum 2.7.1-2.7.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00012",
+            "Value": "",
+            "_description": "2.7.1-  Residential building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00013",
+            "Value": "",
+            "_description": "2.7.2- Commercial building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00014",
+            "Value": "",
+            "_description": "2.7.3-  Real estate",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00015",
+            "Value": "",
+            "_description": "2.7.4- Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00016",
+            "Value": "",
+            "_description": "2,8-  Mines, power & water resource",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00017",
+            "Value": "",
+            "_description": "2,9-Consumer loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00018",
+            "Value": "",
+            "_description": "2.10- Inter-bank loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00019",
+            "Value": "",
+            "_description": "2,11- Loans to non-bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00020",
+            "Value": "",
+            "_description": "2,12- Insider loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00021",
+            "Value": "",
+            "_description": "2,13- Other short term loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00022",
+            "Value": "",
+            "_description": "3-MEDIUM TERM (sum 3.1-3.13)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00023",
+            "Value": "",
+            "_description": "3,1- Agriculture",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00024",
+            "Value": "",
+            "_description": "3,2-  Manufacturing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00025",
+            "Value": "",
+            "_description": "3,3-  Domestic trade",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00026",
+            "Value": "",
+            "_description": "3,4-  International trade (sum 3.4.1-3.4.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00027",
+            "Value": "",
+            "_description": "3.4.1-   Export",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00028",
+            "Value": "",
+            "_description": "3.4.2- Import",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00029",
+            "Value": "",
+            "_description": "3,5- Hotel & tourism",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00030",
+            "Value": "",
+            "_description": "3,6-  Transport and communication",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00031",
+            "Value": "",
+            "_description": "3,7-  Building & construction (sum 3.7.1-3.7.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00032",
+            "Value": "",
+            "_description": "3.7.1- Residential building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00033",
+            "Value": "",
+            "_description": "3.7.2-Commercial building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00034",
+            "Value": "",
+            "_description": "3.7.3-Real estate",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00035",
+            "Value": "",
+            "_description": "3.7.4-   Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00036",
+            "Value": "",
+            "_description": "3,8-   Mines, power & water resource",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00037",
+            "Value": "",
+            "_description": "3,9-   Consumer loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00038",
+            "Value": "",
+            "_description": "3.10 -    Inter-bank loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00039",
+            "Value": "",
+            "_description": "3,11-  Loans to non-bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00040",
+            "Value": "",
+            "_description": "3,12- Insider loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00041",
+            "Value": "",
+            "_description": "3,13-  Other medium term loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00042",
+            "Value": "",
+            "_description": "4-LONG TERM (sum 4.1-4.13)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00043",
+            "Value": "",
+            "_description": "4,1-Agriculture",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00044",
+            "Value": "",
+            "_description": "4,2-Manufacturing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00045",
+            "Value": "",
+            "_description": "4,3- Domestic trade",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00046",
+            "Value": "",
+            "_description": "4,4-International trade (sum 4.4.1-4.4.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00047",
+            "Value": "",
+            "_description": "4.4.1-Export",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00048",
+            "Value": "",
+            "_description": "4.4.2-Import",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00049",
+            "Value": "",
+            "_description": "4,5- Hotel & tourism",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00050",
+            "Value": "",
+            "_description": "4,6-Transport and communication",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00051",
+            "Value": "",
+            "_description": "4,7-Building & construction (sum 4.7.1-4.7.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00052",
+            "Value": "",
+            "_description": "4.7.1-Residential building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00053",
+            "Value": "",
+            "_description": "4.7.2- Commercial building",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00054",
+            "Value": "",
+            "_description": "4.7.3- Real estate",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00055",
+            "Value": "",
+            "_description": "4.7.4-Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00056",
+            "Value": "",
+            "_description": "4,8- Mines, power & water resource",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00057",
+            "Value": "",
+            "_description": "4,9-Consumer loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00058",
+            "Value": "",
+            "_description": "4.10 - Inter-bank loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00059",
+            "Value": "",
+            "_description": "4,11- Loans to non-bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00060",
+            "Value": "",
+            "_description": "4,12-Insider loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "2_00061",
+            "Value": "",
+            "_description": "4,13- Other long term loans",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

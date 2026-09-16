@@ -1,8 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { RB001_ROW_DESCRIPTIONS, RB001_COL_SUFFIXES } from "@/utils/services/RB001/jsonFormat";
+import {
+    RB001_ROW_DESCRIPTIONS,
+    RB001_COL_SUFFIXES
+} from "@/utils/services/RB001/jsonFormat";
 import { cn } from "@/lib/utils";
+import useApiFetch from "@/hooks/useAPIFetch";
+import { toast } from "sonner";
 
 interface ReturnItem {
     Code: string;
@@ -26,13 +31,19 @@ interface RB001ExcelViewProps {
     activeFileName?: string;
 }
 
-export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewProps) {
+export function RB001ExcelView({
+    initialData,
+    activeFileName
+}: RB001ExcelViewProps) {
     const [viewTab, setViewTab] = useState<"grid" | "json">("grid");
     const [searchQuery, setSearchQuery] = useState("");
-    const [currentFileName, setCurrentFileName] = useState<string>(activeFileName || "");
+    const [currentFileName, setCurrentFileName] = useState<string>(
+        activeFileName || ""
+    );
     const [availableFiles, setAvailableFiles] = useState<string[]>([]);
-    const [reportData, setReportData] = useState<RB001JsonData | undefined>(initialData);
-    const [loading, setLoading] = useState(false);
+    const [reportData, setReportData] = useState<RB001JsonData | undefined>(
+        initialData
+    );
 
     const [selectedCell, setSelectedCell] = useState<{
         cellRef: string;
@@ -48,22 +59,30 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
         value: "0"
     });
 
-    const fetchJsonData = async (fileName?: string) => {
-        try {
-            setLoading(true);
-            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=RB001";
-            const res = await fetch(`/api/report/json-view${query}`);
-            if (res.ok) {
-                const json = await res.json();
-                setReportData(json.data);
-                if (json.fileName) setCurrentFileName(json.fileName);
-                if (json.availableFiles) setAvailableFiles(json.availableFiles);
-            }
-        } catch (e) {
-            console.error("Failed to fetch RB001 JSON view:", e);
-        } finally {
-            setLoading(false);
+    const { fetchData, data, isLoading, errors } = useApiFetch({
+        url: "/api/report/json-view",
+        method: "GET"
+    });
+
+    useEffect(() => {
+        if (!isLoading && data) {
+            setReportData(data.data);
+
+            if (data.fileName) setCurrentFileName(data.fileName);
+            if (data.availableFiles) setAvailableFiles(data.availableFiles);
+        } else if (!isLoading && errors.details) {
+            toast.error(
+                errors.details?.response?.data?.error ||
+                    "Failed to fetch RB001 JSON view"
+            );
         }
+    }, [data, isLoading, errors]);
+
+    const fetchJsonData = async (fileName?: string) => {
+        const query = fileName
+            ? { filename: encodeURIComponent(fileName) }
+            : { type: "RB001" };
+        fetchData({ params: query });
     };
 
     useEffect(() => {
@@ -78,7 +97,9 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
             ? currentFileName.replace(/\.json$/, ".xlsx")
             : currentFileName;
         try {
-            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            const res = await fetch(
+                `/api/report/download?filename=${encodeURIComponent(excelName)}`
+            );
             if (!res.ok) throw new Error("Download failed");
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
@@ -120,7 +141,7 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
     };
 
     // Calculate totals for KPI cards (Monthly Average column)
-    const reserveBaseAvg = getItemValue(32);    // 166_00032
+    const reserveBaseAvg = getItemValue(32); // 166_00032
     const demandDepositsAvg = getItemValue(64); // 166_00064
     const savingDepositsAvg = getItemValue(96); // 166_00096
     const netReserveBaseAvg = getItemValue(256); // 166_00256
@@ -185,9 +206,22 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                             Monthly Reserve Base Report (RB001)
                         </h1>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                            Institution: <span className="font-semibold text-dark dark:text-white">{reportData?.InstCode || "0000001"}</span> | 
-                            Financial Year: <span className="font-semibold text-dark dark:text-white">{reportData?.FinYear || 2026}</span> | 
-                            Period: <span className="font-semibold text-dark dark:text-white">{reportData?.StartDate?.split("T")[0] || "2026-07-01"} to {reportData?.EndDate?.split("T")[0] || "2026-07-31"}</span>
+                            Institution:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.InstCode || "0000001"}
+                            </span>{" "}
+                            | Financial Year:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.FinYear || 2026}
+                            </span>{" "}
+                            | Period:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.StartDate?.split("T")[0] ||
+                                    "2026-07-01"}{" "}
+                                to{" "}
+                                {reportData?.EndDate?.split("T")[0] ||
+                                    "2026-07-31"}
+                            </span>
                         </p>
                     </div>
 
@@ -200,7 +234,7 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                     setCurrentFileName(e.target.value);
                                     fetchJsonData(e.target.value);
                                 }}
-                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
                             >
                                 {availableFiles.map((fn) => (
                                     <option key={fn} value={fn}>
@@ -234,7 +268,7 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                         </button>
                         <button
                             onClick={handleDownloadExcel}
-                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-emerald-700 transition"
+                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md transition hover:bg-emerald-700"
                             title="Download Excel file generated from JSON"
                         >
                             📥 Download Excel
@@ -245,43 +279,51 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                 {/* Metric Summary Cards */}
                 <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 dark:border-emerald-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
                             Total Reserve Base
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(reserveBaseAvg)}
                         </div>
-                        <span className="text-xs text-gray-500">Monthly Avg (Row 1)</span>
+                        <span className="text-xs text-gray-500">
+                            Monthly Avg (Row 1)
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4 dark:border-blue-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                        <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase dark:text-blue-400">
                             Demand/Current Deposits
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(demandDepositsAvg)}
                         </div>
-                        <span className="text-xs text-gray-500">Monthly Avg (Row 2)</span>
+                        <span className="text-xs text-gray-500">
+                            Monthly Avg (Row 2)
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-purple-500/20 bg-purple-500/5 p-4 dark:border-purple-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                        <span className="text-xs font-semibold tracking-wider text-purple-600 uppercase dark:text-purple-400">
                             Saving Deposits
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(savingDepositsAvg)}
                         </div>
-                        <span className="text-xs text-gray-500">Monthly Avg (Row 3)</span>
+                        <span className="text-xs text-gray-500">
+                            Monthly Avg (Row 3)
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 dark:border-amber-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                        <span className="text-xs font-semibold tracking-wider text-amber-600 uppercase dark:text-amber-400">
                             Net Reserve Base
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(netReserveBaseAvg)}
                         </div>
-                        <span className="text-xs text-gray-500">Monthly Avg (Row 8)</span>
+                        <span className="text-xs text-gray-500">
+                            Monthly Avg (Row 8)
+                        </span>
                     </div>
                 </div>
             </div>
@@ -296,11 +338,20 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                             </span>
                             <span className="text-gray-400">fx</span>
                             <span className="font-mono text-xs text-gray-500 dark:text-gray-400">
-                                Code: <span className="font-semibold text-primary">{selectedCell?.code || "-"}</span> |{" "}
-                                {selectedCell ? `${selectedCell.rowDesc} (${selectedCell.colSuffix})` : "Click any cell to inspect"} =
+                                Code:{" "}
+                                <span className="font-semibold text-primary">
+                                    {selectedCell?.code || "-"}
+                                </span>{" "}
+                                |{" "}
+                                {selectedCell
+                                    ? `${selectedCell.rowDesc} (${selectedCell.colSuffix})`
+                                    : "Click any cell to inspect"}{" "}
+                                =
                             </span>
                             <span className="font-mono font-bold text-dark dark:text-white">
-                                {selectedCell ? formatNum(selectedCell.value) : ""}
+                                {selectedCell
+                                    ? formatNum(selectedCell.value)
+                                    : ""}
                             </span>
                         </div>
 
@@ -310,7 +361,7 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                 placeholder="Search category rows..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:text-white"
+                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:text-white"
                             />
                         </div>
                     </div>
@@ -321,18 +372,27 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                             <thead>
                                 <tr className="border-b border-stroke bg-gray-100 text-center font-mono text-[11px] font-semibold text-gray-600 dark:border-dark-3 dark:bg-dark-2 dark:text-gray-300">
                                     <th className="w-10 border-r border-stroke py-1.5 dark:border-dark-3"></th>
-                                    <th className="w-12 border-r border-stroke py-1.5 dark:border-dark-3">A</th>
-                                    <th className="min-w-[240px] border-r border-stroke py-1.5 text-left pl-3 dark:border-dark-3">B</th>
+                                    <th className="w-12 border-r border-stroke py-1.5 dark:border-dark-3">
+                                        A
+                                    </th>
+                                    <th className="min-w-[240px] border-r border-stroke py-1.5 pl-3 text-left dark:border-dark-3">
+                                        B
+                                    </th>
                                     {RB001_COL_SUFFIXES.map((_, i) => {
                                         let colLetter = "";
                                         let c = i + 3;
                                         while (c > 0) {
                                             let mod = (c - 1) % 26;
-                                            colLetter = String.fromCharCode(65 + mod) + colLetter;
+                                            colLetter =
+                                                String.fromCharCode(65 + mod) +
+                                                colLetter;
                                             c = Math.floor((c - mod) / 26);
                                         }
                                         return (
-                                            <th key={i} className="min-w-[110px] border-r border-stroke py-1.5 dark:border-dark-3">
+                                            <th
+                                                key={i}
+                                                className="min-w-[110px] border-r border-stroke py-1.5 dark:border-dark-3"
+                                            >
                                                 {colLetter}
                                             </th>
                                         );
@@ -340,11 +400,20 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                 </tr>
 
                                 <tr className="border-b border-stroke bg-gray-200 font-semibold text-dark dark:border-dark-3 dark:bg-dark-3 dark:text-white">
-                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">#</th>
-                                    <th className="border-r border-stroke p-2 text-center dark:border-dark-3">Code</th>
-                                    <th className="border-r border-stroke p-2 dark:border-dark-3">Descriptions</th>
+                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">
+                                        #
+                                    </th>
+                                    <th className="border-r border-stroke p-2 text-center dark:border-dark-3">
+                                        Code
+                                    </th>
+                                    <th className="border-r border-stroke p-2 dark:border-dark-3">
+                                        Descriptions
+                                    </th>
                                     {RB001_COL_SUFFIXES.map((suffix, i) => (
-                                        <th key={i} className="border-r border-stroke p-2 text-right dark:border-dark-3">
+                                        <th
+                                            key={i}
+                                            className="border-r border-stroke p-2 text-right dark:border-dark-3"
+                                        >
                                             {suffix}
                                         </th>
                                     ))}
@@ -356,8 +425,9 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                         key={row.rowIndex}
                                         className={cn(
                                             "border-b border-stroke transition dark:border-dark-3",
-                                            (row.rowIndex === 0 || row.rowIndex === 7)
-                                                ? "bg-emerald-500/10 font-bold dark:bg-emerald-500/20 text-dark dark:text-white"
+                                            row.rowIndex === 0 ||
+                                                row.rowIndex === 7
+                                                ? "bg-emerald-500/10 font-bold text-dark dark:bg-emerald-500/20 dark:text-white"
                                                 : "hover:bg-gray-50 dark:hover:bg-dark-2/50"
                                         )}
                                     >
@@ -374,24 +444,28 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                         </td>
 
                                         {row.rowItems.map((cell) => {
-                                            const isSelected = selectedCell?.cellRef === cell.cellRef;
+                                            const isSelected =
+                                                selectedCell?.cellRef ===
+                                                cell.cellRef;
 
                                             return (
                                                 <td
                                                     key={cell.colIndex}
                                                     onClick={() =>
                                                         setSelectedCell({
-                                                            cellRef: cell.cellRef,
+                                                            cellRef:
+                                                                cell.cellRef,
                                                             code: cell.codeStr,
                                                             rowDesc: row.desc,
-                                                            colSuffix: cell.colSuffix,
+                                                            colSuffix:
+                                                                cell.colSuffix,
                                                             value: cell.val
                                                         })
                                                     }
                                                     className={cn(
                                                         "cursor-pointer border-r border-stroke p-2 text-right font-mono transition dark:border-dark-3",
                                                         isSelected
-                                                            ? "ring-2 ring-emerald-500 ring-inset bg-emerald-500/20 font-bold text-emerald-900 dark:text-emerald-200"
+                                                            ? "bg-emerald-500/20 font-bold text-emerald-900 ring-2 ring-emerald-500 ring-inset dark:text-emerald-200"
                                                             : "text-gray-800 dark:text-gray-200"
                                                     )}
                                                 >
@@ -410,7 +484,8 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                 <div className="rounded-[10px] border border-stroke bg-white p-6 shadow-1 dark:border-dark-3 dark:bg-gray-dark">
                     <div className="mb-4 flex items-center justify-between">
                         <h2 className="text-lg font-bold text-dark dark:text-white">
-                            Raw JSON Payload ({reportData?.ReturnItemsList?.length || 256} items)
+                            Raw JSON Payload (
+                            {reportData?.ReturnItemsList?.length || 256} items)
                         </h2>
                         <button
                             onClick={() => {
@@ -418,12 +493,12 @@ export function RB001ExcelView({ initialData, activeFileName }: RB001ExcelViewPr
                                     JSON.stringify(reportData, null, 4)
                                 );
                             }}
-                            className="rounded bg-primary px-3 py-1.5 text-xs font-medium text-white hover:bg-opacity-90 transition"
+                            className="hover:bg-opacity-90 rounded bg-primary px-3 py-1.5 text-xs font-medium text-white transition"
                         >
                             📋 Copy JSON
                         </button>
                     </div>
-                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 text-xs font-mono text-emerald-400">
+                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 font-mono text-xs text-emerald-400">
                         {JSON.stringify(reportData, null, 4)}
                     </pre>
                 </div>

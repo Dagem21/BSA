@@ -1,6 +1,7 @@
 export interface ReportDto {
     _id?: string;
     reportType?: any;
+    upload?: string;
     file?: string;
     json?: string;
     reportingDate?: string | any;

@@ -1,0 +1,1018 @@
+{
+    "ReturnKey": "LA_STAT_LS001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "6_00001",
+            "Value": "",
+            "_description": "Agriculture_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00002",
+            "Value": "",
+            "_description": "Agriculture_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00003",
+            "Value": "",
+            "_description": "Agriculture_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00004",
+            "Value": "",
+            "_description": "Agriculture_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00005",
+            "Value": "",
+            "_description": "Agriculture_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00006",
+            "Value": "",
+            "_description": "Agriculture_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00007",
+            "Value": "",
+            "_description": "Agriculture_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00008",
+            "Value": "",
+            "_description": "Agriculture_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00009",
+            "Value": "",
+            "_description": "Agriculture_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00010",
+            "Value": "",
+            "_description": "Manufacturing_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00011",
+            "Value": "",
+            "_description": "Manufacturing_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00012",
+            "Value": "",
+            "_description": "Manufacturing_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00013",
+            "Value": "",
+            "_description": "Manufacturing_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00014",
+            "Value": "",
+            "_description": "Manufacturing_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00015",
+            "Value": "",
+            "_description": "Manufacturing_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00016",
+            "Value": "",
+            "_description": "Manufacturing_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00017",
+            "Value": "",
+            "_description": "Manufacturing_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00018",
+            "Value": "",
+            "_description": "Manufacturing_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00019",
+            "Value": "",
+            "_description": "Domestic trade & service_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00020",
+            "Value": "",
+            "_description": "Domestic trade & service_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00021",
+            "Value": "",
+            "_description": "Domestic trade & service_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00022",
+            "Value": "",
+            "_description": "Domestic trade & service_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00023",
+            "Value": "",
+            "_description": "Domestic trade & service_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00024",
+            "Value": "",
+            "_description": "Domestic trade & service_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00025",
+            "Value": "",
+            "_description": "Domestic trade & service_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00026",
+            "Value": "",
+            "_description": "Domestic trade & service_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00027",
+            "Value": "",
+            "_description": "Domestic trade & service_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00028",
+            "Value": "",
+            "_description": "International trade_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00029",
+            "Value": "",
+            "_description": "International trade_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00030",
+            "Value": "",
+            "_description": "International trade_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00031",
+            "Value": "",
+            "_description": "International trade_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00032",
+            "Value": "",
+            "_description": "International trade_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00033",
+            "Value": "",
+            "_description": "International trade_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00034",
+            "Value": "",
+            "_description": "International trade_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00035",
+            "Value": "",
+            "_description": "International trade_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00036",
+            "Value": "",
+            "_description": "International trade_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00037",
+            "Value": "",
+            "_description": "4.1 Export_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00038",
+            "Value": "",
+            "_description": "4.1 Export_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00039",
+            "Value": "",
+            "_description": "4.1 Export_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00040",
+            "Value": "",
+            "_description": "4.1 Export_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00041",
+            "Value": "",
+            "_description": "4.1 Export_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00042",
+            "Value": "",
+            "_description": "4.1 Export_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00043",
+            "Value": "",
+            "_description": "4.1 Export_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00044",
+            "Value": "",
+            "_description": "4.1 Export_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00045",
+            "Value": "",
+            "_description": "4.1 Export_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00046",
+            "Value": "",
+            "_description": "4.2 Import_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00047",
+            "Value": "",
+            "_description": "4.2 Import_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00048",
+            "Value": "",
+            "_description": "4.2 Import_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00049",
+            "Value": "",
+            "_description": "4.2 Import_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00050",
+            "Value": "",
+            "_description": "4.2 Import_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00051",
+            "Value": "",
+            "_description": "4.2 Import_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00052",
+            "Value": "",
+            "_description": "4.2 Import_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00053",
+            "Value": "",
+            "_description": "4.2 Import_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00054",
+            "Value": "",
+            "_description": "4.2 Import_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00055",
+            "Value": "",
+            "_description": "Hotel and tourism_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00056",
+            "Value": "",
+            "_description": "Hotel and tourism_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00057",
+            "Value": "",
+            "_description": "Hotel and tourism_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00058",
+            "Value": "",
+            "_description": "Hotel and tourism_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00059",
+            "Value": "",
+            "_description": "Hotel and tourism_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00060",
+            "Value": "",
+            "_description": "Hotel and tourism_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00061",
+            "Value": "",
+            "_description": "Hotel and tourism_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00062",
+            "Value": "",
+            "_description": "Hotel and tourism_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00063",
+            "Value": "",
+            "_description": "Hotel and tourism_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00064",
+            "Value": "",
+            "_description": "Transport and communication_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00065",
+            "Value": "",
+            "_description": "Transport and communication_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00066",
+            "Value": "",
+            "_description": "Transport and communication_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00067",
+            "Value": "",
+            "_description": "Transport and communication_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00068",
+            "Value": "",
+            "_description": "Transport and communication_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00069",
+            "Value": "",
+            "_description": "Transport and communication_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00070",
+            "Value": "",
+            "_description": "Transport and communication_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00071",
+            "Value": "",
+            "_description": "Transport and communication_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00072",
+            "Value": "",
+            "_description": "Transport and communication_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00073",
+            "Value": "",
+            "_description": "Building and construction_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00074",
+            "Value": "",
+            "_description": "Building and construction_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00075",
+            "Value": "",
+            "_description": "Building and construction_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00076",
+            "Value": "",
+            "_description": "Building and construction_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00077",
+            "Value": "",
+            "_description": "Building and construction_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00078",
+            "Value": "",
+            "_description": "Building and construction_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00079",
+            "Value": "",
+            "_description": "Building and construction_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00080",
+            "Value": "",
+            "_description": "Building and construction_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00081",
+            "Value": "",
+            "_description": "Building and construction_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00082",
+            "Value": "",
+            "_description": "Mines, power & water resource_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00083",
+            "Value": "",
+            "_description": "Mines, power & water resource_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00084",
+            "Value": "",
+            "_description": "Mines, power & water resource_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00085",
+            "Value": "",
+            "_description": "Mines, power & water resource_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00086",
+            "Value": "",
+            "_description": "Mines, power & water resource_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00087",
+            "Value": "",
+            "_description": "Mines, power & water resource_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00088",
+            "Value": "",
+            "_description": "Mines, power & water resource_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00089",
+            "Value": "",
+            "_description": "Mines, power & water resource_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00090",
+            "Value": "",
+            "_description": "Mines, power & water resource_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00091",
+            "Value": "",
+            "_description": "Consumer loans_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00092",
+            "Value": "",
+            "_description": "Consumer loans_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00093",
+            "Value": "",
+            "_description": "Consumer loans_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00094",
+            "Value": "",
+            "_description": "Consumer loans_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00095",
+            "Value": "",
+            "_description": "Consumer loans_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00096",
+            "Value": "",
+            "_description": "Consumer loans_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00097",
+            "Value": "",
+            "_description": "Consumer loans_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00098",
+            "Value": "",
+            "_description": "Consumer loans_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00099",
+            "Value": "",
+            "_description": "Consumer loans_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00100",
+            "Value": "",
+            "_description": "Inter-bank loans_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00101",
+            "Value": "",
+            "_description": "Inter-bank loans_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00102",
+            "Value": "",
+            "_description": "Inter-bank loans_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00103",
+            "Value": "",
+            "_description": "Inter-bank loans_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00104",
+            "Value": "",
+            "_description": "Inter-bank loans_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00105",
+            "Value": "",
+            "_description": "Inter-bank loans_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00106",
+            "Value": "",
+            "_description": "Inter-bank loans_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00107",
+            "Value": "",
+            "_description": "Inter-bank loans_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00108",
+            "Value": "",
+            "_description": "Inter-bank loans_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00109",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00110",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00111",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00112",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00113",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00114",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00115",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00116",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00117",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00118",
+            "Value": "",
+            "_description": "Insider loans_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00119",
+            "Value": "",
+            "_description": "Insider loans_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00120",
+            "Value": "",
+            "_description": "Insider loans_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00121",
+            "Value": "",
+            "_description": "Insider loans_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00122",
+            "Value": "",
+            "_description": "Insider loans_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00123",
+            "Value": "",
+            "_description": "Insider loans_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00124",
+            "Value": "",
+            "_description": "Insider loans_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00125",
+            "Value": "",
+            "_description": "Insider loans_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00126",
+            "Value": "",
+            "_description": "Insider loans_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00127",
+            "Value": "",
+            "_description": "Other loans_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00128",
+            "Value": "",
+            "_description": "Other loans_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00129",
+            "Value": "",
+            "_description": "Other loans_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00130",
+            "Value": "",
+            "_description": "Other loans_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00131",
+            "Value": "",
+            "_description": "Other loans_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00132",
+            "Value": "",
+            "_description": "Other loans_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00133",
+            "Value": "",
+            "_description": "Other loans_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00134",
+            "Value": "",
+            "_description": "Other loans_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00135",
+            "Value": "",
+            "_description": "Other loans_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00136",
+            "Value": "",
+            "_description": "Total_PE_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00137",
+            "Value": "",
+            "_description": "Total_PE_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00138",
+            "Value": "",
+            "_description": "Total_PE_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00139",
+            "Value": "",
+            "_description": "Total_CO_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00140",
+            "Value": "",
+            "_description": "Total_CO_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00141",
+            "Value": "",
+            "_description": "Total_CO_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00142",
+            "Value": "",
+            "_description": "Total_PI_Disbursement",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00143",
+            "Value": "",
+            "_description": "Total_PI_Collection",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "6_00144",
+            "Value": "",
+            "_description": "Total_PI_Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

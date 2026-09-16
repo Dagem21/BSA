@@ -9,10 +9,11 @@ export async function populateWAADIR001Report(
     intCode: string,
     rowsData: WAADIR001[],
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    reportTypeID: string
 ): Promise<any> {
     try {
-        const fileName = generateFileName();
+        const fileName = generateFileName(reportTypeID);
 
         const fileNameExcel = `${fileName}.xlsx`;
         const fileNameJson = `${fileName}.json`;
@@ -109,22 +110,22 @@ async function generateExcel(
             cellB.value = row.OWNERSHIP_DESC?.toString() || "";
             cellC.value = row?.BALANCE
                 ? parseFloat(row.BALANCE?.toString())
-                : "";
+                : "0";
             cellD.value = row?.NUMBERS
                 ? parseFloat(row.NUMBERS?.toString())
-                : "";
+                : "0";
             cellE.value = row?.MINIMUM_RATE
                 ? parseFloat(row.MINIMUM_RATE?.toString())
-                : "";
-            cellF.value = row?.MINIMUM_RATE
-                ? parseFloat(row.MINIMUM_RATE?.toString())
-                : "";
+                : "0";
+            cellF.value = row?.MAXIMUM_RATE
+                ? parseFloat(row.MAXIMUM_RATE?.toString())
+                : "0";
             cellG.value = row?.WEIGHED_AVERAGE
                 ? parseFloat(row.WEIGHED_AVERAGE?.toString())
-                : "";
+                : "0";
             cellH.value = row?.WEIGHT_BY_TYPE
                 ? parseFloat(row.WEIGHT_BY_TYPE.toString())
-                : "";
+                : "0";
 
             excelRow++;
         }

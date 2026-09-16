@@ -12,7 +12,7 @@ import { populateOpenPositionReport } from "@/utils/services/OP001/OP001";
 import { SystemLogDto } from "@/dto/systemLog";
 import { createSystemLog } from "@/dal/mongo/systemLogsdal";
 
-export const service = async (reportTypeID: string) => {
+export const service = async (reportTypeID: string, reportID: string) => {
     try {
         const log: SystemLogDto = {
             reportID: reportTypeID,
@@ -89,7 +89,8 @@ export const service = async (reportTypeID: string) => {
                 "0000001",
                 openPositions,
                 yesterday,
-                yesterday
+                yesterday,
+                reportID
             );
 
         if (!created) {

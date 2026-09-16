@@ -1,6 +1,6 @@
 "use server";
 
-import { findReportType } from "@/dal/mongo/reportTypedal";
+import { findReportTypes } from "@/dal/mongo/reportTypedal";
 import { ReportTypeDto } from "@/dto/reportType";
 import { FrequncyTypes, ServiceTypes } from "@/types/types";
 import { checkFirstDays } from "@/utils/checkDate";
@@ -32,12 +32,13 @@ const startService = async () => {
         service: ServiceTypes.Auto
     };
 
-    const reportTypesToRun = await findReportType(filter);
+    const reportTypesToRun = await findReportTypes(filter);
 
     reportTypesToRun?.forEach(async (reportType: ReportTypeDto) => {
         if (!reportType._id) return;
-        const service = getService(reportType._id?.toString());
-        if (service) await service(reportType._id?.toString());
+        const service = getService(reportType?.reportId || "");
+        if (service)
+            await service(reportType._id?.toString(), reportType.reportId);
     });
 
     await updateSystemLog(created?._id?.toString(), {

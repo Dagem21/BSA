@@ -1,4 +1,4 @@
-import { validateNN001Template } from "@/utils/fileValidation";
+import { validateTemplate } from "@/utils/fileValidation";
 import * as yup from "yup";
 
 // Helper to reliably extract the File object from File, FileList, or File[]
@@ -87,7 +87,10 @@ export const reportSchema = yup.object().shape({
                     reportIdStr.toUpperCase().includes("LB002") ||
                     reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
                 ) {
-                    validationResult = await validateNN001Template(file, reportIdStr);
+                    validationResult = await validateTemplate(
+                        file,
+                        reportIdStr
+                    );
                 } else {
                     validationResult = { isValid: true } as any;
                 }

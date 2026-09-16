@@ -7,6 +7,9 @@ const reportSchema = new mongoose.Schema(
             required: true,
             ref: "reporttypes"
         },
+        upload: {
+            type: String
+        },
         file: {
             type: String,
             required: true

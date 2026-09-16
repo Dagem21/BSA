@@ -18,6 +18,7 @@ type InputGroupProps = {
     height?: "sm" | "default";
     defaultValue?: string;
     readOnly?: boolean;
+    autoFocus?: boolean;
 };
 
 const InputGroup: React.FC<InputGroupProps> = ({
