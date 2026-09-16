@@ -119,8 +119,8 @@ export function LB002ExcelView({
     };
 
     const formatNum = (valStr: string, isPercent: boolean = false) => {
-        if (valStr === undefined || valStr === null || valStr === "")
-            return "-";
+        if (!valStr || valStr === "" || valStr === "0")
+            return isPercent ? "0.00%" : "0.00";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         const formatted = num.toLocaleString("en-US", {
@@ -130,8 +130,132 @@ export function LB002ExcelView({
         return isPercent ? `${formatted}%` : formatted;
     };
 
-    // Data is a flattened array of codes. Every 13 items make up one row.
-    const flatItems = reportData?.DynamicItemsList?.[0]?.DynamicItems || [];
+    function getLB002FlatItemsFromReturnItems(returnItems?: any[]) {
+        if (!Array.isArray(returnItems) || returnItems.length < 121) return [];
+        const itemMap: Record<string, any> = {};
+        returnItems.forEach((it: any) => {
+            if (it?.Code) itemMap[it.Code] = it.Value ?? "";
+        });
+
+        const flat: any[] = [];
+        for (let slot = 1; slot <= 20; slot++) {
+            const cCode = `LB002_${(21 - slot).toString().padStart(5, "0")}`;
+            const cpName = (itemMap[cCode] || "").trim();
+
+            if (cpName && cpName !== "0" && cpName !== "-") {
+                const totalOutCode = `LB002_${(41 - slot).toString().padStart(5, "0")}`;
+                const sectorCode = `LB002_${(61 - slot).toString().padStart(5, "0")}`;
+                const pctCode = `LB002_${(82 - slot).toString().padStart(5, "0")}`;
+                const statusCode = `LB002_${(102 - slot).toString().padStart(5, "0")}`;
+                const capitalCode = `LB002_${(122 - slot).toString().padStart(5, "0")}`;
+
+                flat.push(
+                    {
+                        Code: `${slot}.1`,
+                        Value: cpName,
+                        _description: "Name of Counterparty*",
+                        _dataType: "TEXT",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.2`,
+                        Value: "-",
+                        _description: "Type of Exposure",
+                        _dataType: "TEXT",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.3`,
+                        Value: itemMap[sectorCode] || "-",
+                        _description: "Sector of Exposure",
+                        _dataType: "TEXT",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.4`,
+                        Value: itemMap[totalOutCode] || "0",
+                        _description: "Approved Limit/Facility",
+                        _dataType: "NUMERIC",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.5`,
+                        Value: itemMap[totalOutCode] || "0",
+                        _description:
+                            "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A",
+                        _dataType: "NUMERIC",
+                        _required: false
+                    },
+                    {
+                        Code: `${slot}.6`,
+                        Value: "0",
+                        _description:
+                            "Off-balance Sheet Exposure Amount (e.g. guarantee)_  B",
+                        _dataType: "NUMERIC",
+                        _required: false
+                    },
+                    {
+                        Code: `${slot}.7`,
+                        Value: itemMap[totalOutCode] || "0",
+                        _description: "Total Outstanding Balance_    C=A+B",
+                        _dataType: "NUMERIC",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.8`,
+                        Value: "-",
+                        _description: "Maturity Date",
+                        _dataType: "DATE",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.9`,
+                        Value: itemMap[capitalCode] || "0",
+                        _description: "Capital",
+                        _dataType: "NUMERIC",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.10`,
+                        Value: itemMap[pctCode] || "0",
+                        _description:
+                            "Exposure Amount (A+B) as Percent of Total Capital",
+                        _dataType: "NUMERIC",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.11`,
+                        Value: itemMap[statusCode] || "-",
+                        _description: "Status (classification)",
+                        _dataType: "TEXT",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.12`,
+                        Value: "-",
+                        _description: "Collateral_Type",
+                        _dataType: "TEXT",
+                        _required: true
+                    },
+                    {
+                        Code: `${slot}.13`,
+                        Value: "0",
+                        _description: "Collateral_Estimated/Face value",
+                        _dataType: "NUMERIC",
+                        _required: false
+                    }
+                );
+            }
+        }
+        return flat;
+    }
+
+    // Data is a flattened array of 13-column codes.
+    const flatItems =
+        reportData?.DynamicItemsList?.[0]?.DynamicItems &&
+        reportData.DynamicItemsList[0].DynamicItems.length > 0
+            ? reportData.DynamicItemsList[0].DynamicItems
+            : getLB002FlatItemsFromReturnItems(reportData?.ReturnItemsList);
     const rowsCount = Math.floor(flatItems.length / 13);
     const dynamicRows: DynamicItem[][] = [];
 
@@ -146,13 +270,17 @@ export function LB002ExcelView({
     let totalOutstanding = 0;
 
     dynamicRows.forEach((row) => {
-        row.forEach((item) => {
+        row.forEach((item, colIdx) => {
             const num = parseFloat(item.Value);
             if (!isNaN(num)) {
-                if (item.Code.endsWith(".4")) totalApprovedLimit += num;
-                if (item.Code.endsWith(".5")) totalOnBalance += num;
-                if (item.Code.endsWith(".6")) totalOffBalance += num;
-                if (item.Code.endsWith(".7")) totalOutstanding += num;
+                if (colIdx === 3 || item.Code.endsWith(".4"))
+                    totalApprovedLimit += num;
+                if (colIdx === 4 || item.Code.endsWith(".5"))
+                    totalOnBalance += num;
+                if (colIdx === 5 || item.Code.endsWith(".6"))
+                    totalOffBalance += num;
+                if (colIdx === 6 || item.Code.endsWith(".7"))
+                    totalOutstanding += num;
             }
         });
     });

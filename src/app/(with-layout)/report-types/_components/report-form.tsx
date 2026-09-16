@@ -35,8 +35,8 @@ export function ReportForm() {
         }
 
         const formData = new FormData();
-        formData.append("startDate", data.startDate);
-        formData.append("endDate", data.endDate);
+        formData.append("startDate", data.startDate instanceof Date ? data.startDate.toISOString() : String(data.startDate ?? ""));
+        formData.append("endDate", data.endDate instanceof Date ? data.endDate.toISOString() : String(data.endDate ?? ""));
         if (fileToUpload) {
             formData.append("file", fileToUpload);
         }
@@ -63,7 +63,6 @@ export function ReportForm() {
                         <Controller
                             name="startDate"
                             control={control}
-                            defaultValue=""
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="Start Date"
@@ -84,7 +83,6 @@ export function ReportForm() {
                         <Controller
                             name="endDate"
                             control={control}
-                            defaultValue=""
                             render={({ field }) => (
                                 <DatePickerOne
                                     label="End Date"

@@ -21,10 +21,9 @@ const sectors = ["Manufacturing", "Services", "Construction", "Trade", "Transpor
 const statuses = ["Pass", "Special Mention", "Substandard", "Doubtful", "Loss"];
 const collateralTypes = ["Building", "Factory Machinery", "Cash Deposit", "Corporate Guarantee", "Vehicle Fleet"];
 
-const dynamicItems = [];
+const sampleRows = [];
 
-for (let i = 0; i < 20; i++) {
-    const rowNum = i + 1;
+for (let i = 0; i < 8; i++) {
     const cp = counterparties[i % counterparties.length];
     const expType = exposureTypes[Math.floor(Math.random() * exposureTypes.length)];
     const sec = sectors[Math.floor(Math.random() * sectors.length)];
@@ -33,29 +32,148 @@ for (let i = 0; i < 20; i++) {
     const onBal = (Math.random() * 4000 + 500).toFixed(2);
     const offBal = (Math.random() * 1000 + 100).toFixed(2);
     const totalOut = (parseFloat(onBal) + parseFloat(offBal)).toFixed(2);
-    const maturity = `2027-12-${String((i % 28) + 1).padStart(2, '0')}T00:00:00`;
-    const capital = "15000.00";
+    const maturity = `2027-12-${String((i % 28) + 1).padStart(2, '0')}`;
+    const capital = "197320.25";
     const pctCapital = ((parseFloat(totalOut) / parseFloat(capital)) * 100).toFixed(2);
     const status = statuses[Math.floor(Math.random() * statuses.length)];
     const colType = collateralTypes[Math.floor(Math.random() * collateralTypes.length)];
     const colVal = (parseFloat(totalOut) * 1.2).toFixed(2);
 
-    dynamicItems.push(
-        { Code: `${rowNum}.1`, Value: cp, _description: "Name of Counterparty*", _dataType: "TEXT", _required: true },
-        { Code: `${rowNum}.2`, Value: expType, _description: "Type of Exposure", _dataType: "TEXT", _required: true },
-        { Code: `${rowNum}.3`, Value: sec, _description: "Sector of Exposure", _dataType: "TEXT", _required: true },
-        { Code: `${rowNum}.4`, Value: approvedLimit, _description: "Approved Limit/Facility", _dataType: "NUMERIC", _required: true },
-        { Code: `${rowNum}.5`, Value: onBal, _description: "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A", _dataType: "NUMERIC", _required: false },
-        { Code: `${rowNum}.6`, Value: offBal, _description: "Off-balance Sheet Exposure Amount (e.g. guarantee)_  B", _dataType: "NUMERIC", _required: false },
-        { Code: `${rowNum}.7`, Value: totalOut, _description: "Total Outstanding Balance_    C=A+B", _dataType: "NUMERIC", _required: true },
-        { Code: `${rowNum}.8`, Value: maturity, _description: "Maturity Date", _dataType: "DATE", _required: true },
-        { Code: `${rowNum}.9`, Value: capital, _description: "Capital", _dataType: "NUMERIC", _required: true },
-        { Code: `${rowNum}.10`, Value: pctCapital, _description: "Exposure Amount (A+B) as Percent of Total Capital", _dataType: "NUMERIC", _required: true },
-        { Code: `${rowNum}.11`, Value: status, _description: "Status (classification)", _dataType: "TEXT", _required: true },
-        { Code: `${rowNum}.12`, Value: colType, _description: "Collateral_Type", _dataType: "TEXT", _required: true },
-        { Code: `${rowNum}.13`, Value: colVal, _description: "Collateral_Estimated/Face value", _dataType: "NUMERIC", _required: false }
-    );
+    sampleRows.push({
+        counterpartyName: cp,
+        exposureType: expType,
+        exposureSector: sec,
+        approvedLimit,
+        onBalanceExposure: onBal,
+        offBalanceExposure: offBal,
+        totalOutstanding: totalOut,
+        maturityDate: maturity,
+        capital,
+        exposurePctCapital: pctCapital,
+        status,
+        collateralType: colType,
+        collateralValue: colVal
+    });
 }
+
+// Inline format generator for sample script matching LB002Format
+const fmt = (val, dataType = "NUMERIC") => {
+    if (val !== undefined && val !== null) {
+        let str = val.toString().trim();
+        if (str !== "" && str !== "-" && str !== "—" && str !== "–" && str !== "--" && str.toLowerCase() !== "n/a" && str.toLowerCase() !== "nil") {
+            if (dataType === "DATE") {
+                if (str.includes("T")) {
+                    return str.split("T")[0];
+                }
+                return str;
+            }
+            return str;
+        }
+    }
+    if (dataType === "DATE") return "";
+    return dataType === "TEXT" ? "-" : "0";
+};
+
+let sumTotalOutstanding = 0;
+sampleRows.forEach((row) => {
+    const num = parseFloat(row.totalOutstanding?.toString() || "0");
+    if (!isNaN(num)) sumTotalOutstanding += num;
+});
+
+const returnItems = [];
+
+for (let c = 1; c <= 121; c++) {
+    const codeStr = `LB002_${c.toString().padStart(5, "0")}`;
+
+    if (c >= 1 && c <= 20) {
+        const idx = 21 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.counterpartyName, "TEXT"),
+            _description: `Name of Counterparty_${idx}`,
+            _dataType: "TEXT",
+            _required: true
+        });
+    } else if (c >= 21 && c <= 40) {
+        const idx = 41 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.totalOutstanding, "NUMERIC"),
+            _description: `Total Outstanding Balance After Deduction Cash and Cash Equivalent_${idx}`,
+            _dataType: "NUMERIC",
+            _required: true
+        });
+    } else if (c >= 41 && c <= 60) {
+        const idx = 61 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.exposureSector, "TEXT"),
+            _description: `Sector of Exposure_${idx}`,
+            _dataType: "TEXT",
+            _required: true
+        });
+    } else if (c === 61) {
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(sumTotalOutstanding, "NUMERIC"),
+            _description: "Aggregate _Total Outstanding Balance",
+            _dataType: "NUMERIC",
+            _required: true
+        });
+    } else if (c >= 62 && c <= 81) {
+        const idx = 82 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.exposurePctCapital, "NUMERIC"),
+            _description: `Percent of Capital (L=I/K*100)_${idx}`,
+            _dataType: "NUMERIC",
+            _required: true
+        });
+    } else if (c >= 82 && c <= 101) {
+        const idx = 102 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.status, "TEXT"),
+            _description: `Status (Classification)_${idx}`,
+            _dataType: "TEXT",
+            _required: true
+        });
+    } else if (c >= 102 && c <= 121) {
+        const idx = 122 - c;
+        const row = sampleRows[idx - 1];
+        returnItems.push({
+            Code: codeStr,
+            Value: fmt(row?.capital, "NUMERIC"),
+            _description: `Capital of the Bank_${idx}`,
+            _dataType: "NUMERIC",
+            _required: true
+        });
+    }
+}
+
+const dynamicItems = sampleRows.map((row, index) => {
+    const rowNum = index + 1;
+    return [
+        { Code: `${rowNum}.1`, Value: fmt(row.counterpartyName, "TEXT"), _description: "Name of Counterparty*", _dataType: "TEXT", _required: true },
+        { Code: `${rowNum}.2`, Value: fmt(row.exposureType, "TEXT"), _description: "Type of Exposure", _dataType: "TEXT", _required: true },
+        { Code: `${rowNum}.3`, Value: fmt(row.exposureSector, "TEXT"), _description: "Sector of Exposure", _dataType: "TEXT", _required: true },
+        { Code: `${rowNum}.4`, Value: fmt(row.approvedLimit, "NUMERIC"), _description: "Approved Limit/Facility", _dataType: "NUMERIC", _required: true },
+        { Code: `${rowNum}.5`, Value: fmt(row.onBalanceExposure, "NUMERIC"), _description: "Exposure Amount/ Outstanding Balance (on-balance sheet)_    A", _dataType: "NUMERIC", _required: false },
+        { Code: `${rowNum}.6`, Value: fmt(row.offBalanceExposure, "NUMERIC"), _description: "Off-balance Sheet Exposure Amount (e.g. guarantee)_  B", _dataType: "NUMERIC", _required: false },
+        { Code: `${rowNum}.7`, Value: fmt(row.totalOutstanding, "NUMERIC"), _description: "Total Outstanding Balance_    C=A+B", _dataType: "NUMERIC", _required: true },
+        { Code: `${rowNum}.8`, Value: fmt(row.maturityDate, "DATE"), _description: "Maturity Date", _dataType: "DATE", _required: true },
+        { Code: `${rowNum}.9`, Value: fmt(row.capital, "NUMERIC"), _description: "Capital", _dataType: "NUMERIC", _required: true },
+        { Code: `${rowNum}.10`, Value: fmt(row.exposurePctCapital, "NUMERIC"), _description: "Exposure Amount (A+B) as Percent of Total Capital", _dataType: "NUMERIC", _required: true },
+        { Code: `${rowNum}.11`, Value: fmt(row.status, "TEXT"), _description: "Status (classification)", _dataType: "TEXT", _required: true },
+        { Code: `${rowNum}.12`, Value: fmt(row.collateralType, "TEXT"), _description: "Collateral_Type", _dataType: "TEXT", _required: true },
+        { Code: `${rowNum}.13`, Value: fmt(row.collateralValue, "NUMERIC"), _description: "Collateral_Estimated/Face value", _dataType: "NUMERIC", _required: false }
+    ];
+});
 
 const reportData = {
     "ReturnKey": "BOR_TEN_PER_LB002",
@@ -63,12 +181,12 @@ const reportData = {
     "FinYear": 2026,
     "StartDate": "2026-08-01T00:00:00",
     "EndDate": "2026-08-31T00:00:00",
-    "ReturnItemsList": [],
+    "ReturnItemsList": returnItems,
     "DynamicItemsList": [
         {
             "Area": 226,
             "_areaName": "Monthly Return on Large Exposures List of Counterparties that Exceed Ten Percent of the Bank’s Total Capital ",
-            "DynamicItems": dynamicItems
+            "DynamicItems": dynamicItems.flat()
         }
     ]
 };

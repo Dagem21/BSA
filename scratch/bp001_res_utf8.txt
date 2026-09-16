@@ -1,0 +1,37 @@
+﻿Testing processBP001Report...
+Result success: true
+ReturnKey: INT_FRE_SP_BP001
+InstCode: 0000001
+FinYear: 2026
+StartDate: 2026-04-01T00:00:00
+EndDate: 2026-06-30T00:00:00
+ReturnItemsList count: 23
+
+All ReturnItemsList items:
+1. Code: 29_00001 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Income_Amount"
+2. Code: 29_00002 | Value: "1492.43338191" | _dataType: NUMERIC | _required: false | _description: "Income derived from trade financing_Amount"
+3. Code: 29_00003 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Income derived from Ijara (leasing)_Amount"
+4. Code: 29_00004 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Income derived from Mudarabah investment_Amount"
+5. Code: 29_00005 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Income derived from Musharakah investment_Amount"
+6. Code: 29_00006 | Value: "307.24975823999995" | _dataType: NUMERIC | _required: false | _description: "Charges & commissions (=5.1+5.2)_Amount"
+7. Code: 29_00007 | Value: "307.24975823999995" | _dataType: NUMERIC | _required: false | _description: "Charges & commissions- local_Amount"
+8. Code: 29_00008 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Charges & commissions-foreign_Amount"
+9. Code: 29_00009 | Value: "-16.430991310000007" | _dataType: NUMERIC | _required: false | _description: "Gain on foreign Exchange _Amount"
+10. Code: 29_00010 | Value: "7.48899191" | _dataType: NUMERIC | _required: false | _description: "Other income_Amount"
+11. Code: 29_00011 | Value: "1790.7411407499999" | _dataType: NUMERIC | _required: false | _description: "Total distributable income(Sum 1.1-1.7)_Amount"
+12. Code: 29_00012 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Income attributable to depositors/investors_Amount"
+13. Code: 29_00013 | Value: "1790.7411407499999" | _dataType: NUMERIC | _required: false | _description: "Total income(=1.8-1.9)_Amount"
+14. Code: 29_00014 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Expenses_Amount"
+15. Code: 29_00015 | Value: "316.418174" | _dataType: NUMERIC | _required: false | _description: "Staff salaries and benefits_Amount"
+16. Code: 29_00016 | Value: "0.495136" | _dataType: NUMERIC | _required: false | _description: "Sharia Advisory Committee fee (if any)_Amount"
+17. Code: 29_00017 | Value: "211.42523119" | _dataType: NUMERIC | _required: false | _description: "Administrative and General expense_Amount"
+18. Code: 29_00018 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Other expense_Amount"
+19. Code: 29_00019 | Value: "1262.40259956" | _dataType: NUMERIC | _required: false | _description: "Operating income before tax and provisions[1.10-(sum 2.1-2.4)]_Amount"
+20. Code: 29_00020 | Value: "" | _dataType: NUMERIC | _required: false | _description: "Impairment losses on financing, investment, Ijarah financing and others_Amount"
+21. Code: 29_00021 | Value: "1262.40259956" | _dataType: NUMERIC | _required: false | _description: "Total net income before tax(2.5-2.6)_Amount"
+22. Code: 29_00022 | Value: "378.72077986799997" | _dataType: NUMERIC | _required: false | _description: "Business profit tax Payable_Amount"
+23. Code: 29_00023 | Value: "883.6818196920001" | _dataType: NUMERIC | _required: false | _description: "Net income after tax & provisions (2.7-2.9)_Amount"
+
+Verification checks:
+
+ALL VERIFICATION CHECKS PASSED SUCCESSFULLY!

@@ -11,9 +11,19 @@ export const BP001Format = (
     valuesMap: BP001ValuesMap = {}
 ) => {
     const fmt = (val: number | string | undefined | null) => {
-        if (val === undefined || val === null || val === "") return "0";
+        if (val === undefined || val === null) return "";
         const str = val.toString().trim();
-        if (isNaN(Number(str))) return "0";
+        if (
+            str === "" ||
+            str === "-" ||
+            str === "—" ||
+            str === "–" ||
+            str === "--" ||
+            str.toLowerCase() === "n/a" ||
+            str.toLowerCase() === "nil"
+        ) {
+            return "";
+        }
         return str;
     };
 

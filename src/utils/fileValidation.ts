@@ -189,6 +189,41 @@ export async function validateTemplate(
                     };
                 }
             } else if (
+                cleanId.includes("MWAC001") ||
+                cleanId.includes("LCMWAC001") ||
+                cleanId.includes("WALIR")
+            ) {
+                const isMWAC001 =
+                    codeA1.includes("MWAC001") ||
+                    codeA1.includes("LCMWAC001") ||
+                    headerRow4.includes("conventional banks") ||
+                    headerRow4.includes(
+                        "weighted average lending interest rates"
+                    );
+                if (!isMWAC001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact MWAC001 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("13002") ||
+                cleanId.includes("BSD_LOAN_PART13002")
+            ) {
+                const is13002 =
+                    codeA1.includes("13002") ||
+                    codeA1.includes("BSD_LOAN_PART13002") ||
+                    headerRow4.includes("related party") ||
+                    headerRow4.includes("related party transactions");
+                if (!is13002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact 13002 Excel template file."
+                    };
+                }
+            } else if (
                 cleanId.includes("LB002") ||
                 cleanId.includes("BOR_TEN_PER_LB002")
             ) {
@@ -257,6 +292,25 @@ export async function validateTemplate(
                         isValid: false,
                         errorMessage:
                             "This is not the exact ZS001 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("BP001") ||
+                cleanId.includes("DP001") ||
+                cleanId.includes("INT_FRE_SP")
+            ) {
+                const isBP001 =
+                    codeA1.includes("BP001") ||
+                    codeA1.includes("INT_FRE_SP_BP001") ||
+                    headerRow4.includes(
+                        "interest free banking service profit and loss"
+                    ) ||
+                    headerRow4.includes("statement of profit or loss");
+                if (!isBP001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact BP001 Excel template file."
                     };
                 }
             }

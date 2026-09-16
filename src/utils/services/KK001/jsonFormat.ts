@@ -22,8 +22,23 @@ export const KK001Format = (
     endDate: string,
     valuesMap: Record<string, string> = {}
 ) => {
-    const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null && val !== "" ? val.toString() : "";
+    const fmt = (val: string | number | undefined | null) => {
+        if (val !== undefined && val !== null) {
+            const str = val.toString().trim();
+            if (
+                str !== "" &&
+                str !== "-" &&
+                str !== "—" &&
+                str !== "–" &&
+                str !== "--" &&
+                str.toLowerCase() !== "n/a" &&
+                str.toLowerCase() !== "nil"
+            ) {
+                return str;
+            }
+        }
+        return "0";
+    };
 
     const returnItems = KK001_DESCRIPTIONS.map((item) => ({
         Code: item.code,

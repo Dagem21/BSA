@@ -1,0 +1,171 @@
+{
+    "ReturnKey": "INT_FRE_SP_BP001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "29_00001",
+            "Value": "",
+            "_description": "Income_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00002",
+            "Value": "1492.43338191",
+            "_description": "Income derived from trade financing_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00003",
+            "Value": "",
+            "_description": "Income derived from Ijara (leasing)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00004",
+            "Value": "",
+            "_description": "Income derived from Mudarabah investment_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00005",
+            "Value": "",
+            "_description": "Income derived from Musharakah investment_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00006",
+            "Value": "307.24975823999995",
+            "_description": "Charges & commissions (=5.1+5.2)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00007",
+            "Value": "307.24975823999995",
+            "_description": "Charges & commissions- local_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00008",
+            "Value": "",
+            "_description": "Charges & commissions-foreign_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00009",
+            "Value": "-16.430991310000007",
+            "_description": "Gain on foreign Exchange _Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00010",
+            "Value": "7.48899191",
+            "_description": "Other income_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00011",
+            "Value": "1790.7411407499999",
+            "_description": "Total distributable income(Sum 1.1-1.7)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00012",
+            "Value": "",
+            "_description": "Income attributable to depositors/investors_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00013",
+            "Value": "1790.7411407499999",
+            "_description": "Total income(=1.8-1.9)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00014",
+            "Value": "",
+            "_description": "Expenses_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00015",
+            "Value": "316.418174",
+            "_description": "Staff salaries and benefits_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00016",
+            "Value": "0.495136",
+            "_description": "Sharia Advisory Committee fee (if any)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00017",
+            "Value": "211.42523119",
+            "_description": "Administrative and General expense_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00018",
+            "Value": "",
+            "_description": "Other expense_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00019",
+            "Value": "1262.40259956",
+            "_description": "Operating income before tax and provisions[1.10-(sum 2.1-2.4)]_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00020",
+            "Value": "",
+            "_description": "Impairment losses on financing, investment, Ijarah financing and others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00021",
+            "Value": "1262.40259956",
+            "_description": "Total net income before tax(2.5-2.6)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00022",
+            "Value": "378.72077986799997",
+            "_description": "Business profit tax Payable_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "29_00023",
+            "Value": "883.6818196920001",
+            "_description": "Net income after tax & provisions (2.7-2.9)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

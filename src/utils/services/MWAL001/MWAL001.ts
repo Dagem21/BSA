@@ -61,7 +61,9 @@ function getDirectCellValue(cell: ExcelJS.Cell): string {
 
 function getNumValue(cell: ExcelJS.Cell): number | string {
     const raw = getDirectCellValue(cell);
-    if (!raw) return "";
+    if (!raw || raw === "-" || raw === "—" || raw === "–" || raw === "--" || raw.toLowerCase() === "n/a" || raw.toLowerCase() === "nil") {
+        return "0";
+    }
     const num = parseFloat(raw.replace(/,/g, ""));
     return isNaN(num) ? raw : num;
 }
@@ -93,9 +95,10 @@ export async function processMWAL001Report(
     worksheet.getCell("B5").value = formattedEndDate;
 
     const rowsData: MWAL001RowData[] = [];
+    let hasStarted = false;
 
-    // Scan table data starting from row 8 (after headers in rows 6 & 7)
-    for (let r = 8; r <= 500; r++) {
+    // Scan table data starting from row 1 to 500, skipping headers/metadata until "Agricult, Hunt, Fors & Fish TL"
+    for (let r = 1; r <= 500; r++) {
         const row = worksheet.getRow(r);
         const sector = getDirectCellValue(row.getCell(1));
         const loanCategory = getDirectCellValue(row.getCell(2));
@@ -105,8 +108,33 @@ export async function processMWAL001Report(
             continue;
         }
 
+        const sectorLower = sector.toLowerCase();
+        const catLower = loanCategory.toLowerCase();
+
+        // Skip metadata and header rows
+        if (
+            sectorLower.includes("end date") ||
+            sectorLower.includes("start date") ||
+            sectorLower.includes("institution code") ||
+            sectorLower.includes("financial year") ||
+            sectorLower.includes("national bank") ||
+            sectorLower === "sector" ||
+            catLower === "loan category"
+        ) {
+            continue;
+        }
+
+        // Start scanning data from "Agricult, Hunt, Fors & Fish TL"
+        if (!hasStarted) {
+            if (sectorLower.includes("agricult")) {
+                hasStarted = true;
+            } else {
+                continue;
+            }
+        }
+
         // If we hit a total row, stop scanning
-        if (sector.toLowerCase().includes("total") || loanCategory.toLowerCase().includes("total")) {
+        if (sectorLower.includes("total") || catLower.includes("total")) {
             break; 
         }
 

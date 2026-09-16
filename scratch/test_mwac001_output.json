@@ -1,0 +1,3152 @@
+{
+    "ReturnKey": "LCMWAC001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-08-01T00:00:00",
+    "EndDate": "2026-08-31T00:00:00",
+    "ReturnItemsList": [],
+    "DynamicItemsList": [
+        {
+            "Area": 213,
+            "_areaName": "Monthly Weighted Average Lending Interest Rates (Conventional Banks)",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "Agriculture",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "624.82917264",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "14",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "14",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "14.95833781345386",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "1.8",
+                    "Value": "14.186077031983679",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.1",
+                    "Value": "Agriculture",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "2.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "2.3",
+                    "Value": "72359.16460542",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.4",
+                    "Value": "994",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.7",
+                    "Value": "14.001267080724428",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "2.8",
+                    "Value": "14.186077031983679",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.1",
+                    "Value": "Agriculture",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "3.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "3.3",
+                    "Value": "5012.703713119996",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.4",
+                    "Value": "428",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.7",
+                    "Value": "14.580225233546612",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "3.8",
+                    "Value": "14.186077031983679",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.1",
+                    "Value": "Agriculture",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "4.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "4.3",
+                    "Value": "7766.11478993",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.4",
+                    "Value": "103",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.5",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.6",
+                    "Value": "21.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.7",
+                    "Value": "15.591466310982948",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "4.8",
+                    "Value": "14.186077031983679",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.1",
+                    "Value": "Manufacturing",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "5.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "5.3",
+                    "Value": "34399.283357219996",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.4",
+                    "Value": "248",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.7",
+                    "Value": "14.964630568239597",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "5.8",
+                    "Value": "15.925333988630017",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.1",
+                    "Value": "Manufacturing",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "6.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "6.3",
+                    "Value": "8141.923089939996",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.4",
+                    "Value": "454",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.6",
+                    "Value": "18.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.7",
+                    "Value": "14.96985848702922",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "6.8",
+                    "Value": "15.925333988630017",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.1",
+                    "Value": "Manufacturing",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "7.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "7.3",
+                    "Value": "27282.34913934001",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.4",
+                    "Value": "806",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.6",
+                    "Value": "26.25",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.7",
+                    "Value": "15.779159192876204",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "7.8",
+                    "Value": "15.925333988630017",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.1",
+                    "Value": "Manufacturing",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "8.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "8.3",
+                    "Value": "70577.89492006003",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.4",
+                    "Value": "136",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.5",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.7",
+                    "Value": "16.56030488273932",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "8.8",
+                    "Value": "15.925333988630017",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.1",
+                    "Value": "Domestic Trade",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "9.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "9.3",
+                    "Value": "17086.26813514999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.4",
+                    "Value": "546",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.5",
+                    "Value": "14",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.7",
+                    "Value": "14.999860529635196",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "9.8",
+                    "Value": "15.451435607694721",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.1",
+                    "Value": "Domestic Trade",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "10.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "10.3",
+                    "Value": "14510.286662879971",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.4",
+                    "Value": "14030",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.6",
+                    "Value": "18.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.7",
+                    "Value": "14.702521287752196",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "10.8",
+                    "Value": "15.451435607694721",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.1",
+                    "Value": "Domestic Trade",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "11.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "11.3",
+                    "Value": "26035.199129979934",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.4",
+                    "Value": "7957",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.6",
+                    "Value": "21.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.7",
+                    "Value": "15.714342885522973",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "11.8",
+                    "Value": "15.451435607694721",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.1",
+                    "Value": "Domestic Trade",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "12.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "12.3",
+                    "Value": "13923.884464369996",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.4",
+                    "Value": "904",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.6",
+                    "Value": "21",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.7",
+                    "Value": "16.294436785579723",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "12.8",
+                    "Value": "15.451435607694721",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.1",
+                    "Value": "International trade  Export",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "13.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "13.3",
+                    "Value": "7128.30529086",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.4",
+                    "Value": "49",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.7",
+                    "Value": "13.074210092054878",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "13.8",
+                    "Value": "12.582129504043962",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.1",
+                    "Value": "International trade  Export",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "14.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "14.3",
+                    "Value": "57977.29144976998",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.4",
+                    "Value": "301",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.6",
+                    "Value": "24",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.7",
+                    "Value": "12.244557466291807",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "14.8",
+                    "Value": "12.582129504043962",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.1",
+                    "Value": "International trade  Export",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "15.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "15.3",
+                    "Value": "3721.38060008",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.4",
+                    "Value": "85",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.5",
+                    "Value": "10.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.6",
+                    "Value": "24.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.7",
+                    "Value": "16.37472041976774",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "15.8",
+                    "Value": "12.582129504043962",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.1",
+                    "Value": "International trade  Export",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "16.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "16.3",
+                    "Value": "302.76725139",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.4",
+                    "Value": "13",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.5",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.6",
+                    "Value": "24",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.7",
+                    "Value": "19.023174538586282",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "16.8",
+                    "Value": "12.582129504043962",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.1",
+                    "Value": "International trade  Import",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "17.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "17.3",
+                    "Value": "10419.739770769995",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.4",
+                    "Value": "61",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.7",
+                    "Value": "14.61759995513539",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "17.8",
+                    "Value": "16.654978948383764",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.1",
+                    "Value": "International trade  Import",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "18.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "18.3",
+                    "Value": "22388.867829700004",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.4",
+                    "Value": "108",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.6",
+                    "Value": "18",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.7",
+                    "Value": "17.80942194960257",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "18.8",
+                    "Value": "16.654978948383764",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.1",
+                    "Value": "International trade  Import",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "19.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "19.3",
+                    "Value": "4910.337905149998",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.4",
+                    "Value": "188",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.6",
+                    "Value": "18.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.7",
+                    "Value": "15.722217765907326",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "19.8",
+                    "Value": "16.654978948383764",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.1",
+                    "Value": "International trade  Import",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "20.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "20.3",
+                    "Value": "242.228101",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.4",
+                    "Value": "1",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.5",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.6",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.7",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "20.8",
+                    "Value": "16.654978948383764",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.1",
+                    "Value": "Hotel and Tourism",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "21.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "21.3",
+                    "Value": "1063.2856897699999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.4",
+                    "Value": "70",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.5",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.7",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "21.8",
+                    "Value": "16.264030825961594",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.1",
+                    "Value": "Hotel and Tourism",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "22.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "22.3",
+                    "Value": "347.6374972199999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.4",
+                    "Value": "658",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.6",
+                    "Value": "18.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.7",
+                    "Value": "14.371479022092588",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "22.8",
+                    "Value": "16.264030825961594",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.1",
+                    "Value": "Hotel and Tourism",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "23.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "23.3",
+                    "Value": "1513.3134220699988",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.4",
+                    "Value": "379",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.5",
+                    "Value": "5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.6",
+                    "Value": "18.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.7",
+                    "Value": "15.673525932194737",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "23.8",
+                    "Value": "16.264030825961594",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.1",
+                    "Value": "Hotel and Tourism",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "24.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "24.3",
+                    "Value": "9109.908219809999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.4",
+                    "Value": "173",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.5",
+                    "Value": "5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.7",
+                    "Value": "16.581878906622624",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "24.8",
+                    "Value": "16.264030825961594",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.1",
+                    "Value": "Buliding  and Construction",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "25.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "25.3",
+                    "Value": "684.4741999500002",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.4",
+                    "Value": "15",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.5",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.7",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "25.8",
+                    "Value": "15.711305330162517",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.1",
+                    "Value": "Buliding  and Construction",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "26.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "26.3",
+                    "Value": "761.8823098299998",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.4",
+                    "Value": "117",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.6",
+                    "Value": "18",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.7",
+                    "Value": "14.952807182229991",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "26.8",
+                    "Value": "15.711305330162517",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.1",
+                    "Value": "Buliding  and Construction",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "27.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "27.3",
+                    "Value": "60565.267669580004",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.4",
+                    "Value": "93",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.6",
+                    "Value": "25",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.7",
+                    "Value": "14.702458582490278",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "27.8",
+                    "Value": "15.711305330162517",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.1",
+                    "Value": "Buliding  and Construction",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "28.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "28.3",
+                    "Value": "84046.20753742999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.4",
+                    "Value": "24",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.5",
+                    "Value": "7",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.7",
+                    "Value": "16.450967851524954",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "28.8",
+                    "Value": "15.711305330162517",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.1",
+                    "Value": "Mining and Quarring",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "29.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "29.3",
+                    "Value": "0",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.4",
+                    "Value": "0",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.5",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.6",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.7",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "29.8",
+                    "Value": "16.45392477158991",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.1",
+                    "Value": "Mining and Quarring",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "30.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "30.3",
+                    "Value": "0.32772865",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.4",
+                    "Value": "3",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.6",
+                    "Value": "13",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.7",
+                    "Value": "11.91702766907928",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "30.8",
+                    "Value": "16.45392477158991",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.1",
+                    "Value": "Mining and Quarring",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "31.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "31.3",
+                    "Value": "50.65736042",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.4",
+                    "Value": "4",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.5",
+                    "Value": "15.75",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.6",
+                    "Value": "15.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.7",
+                    "Value": "15.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "31.8",
+                    "Value": "16.45392477158991",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.1",
+                    "Value": "Mining and Quarring",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "32.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "32.3",
+                    "Value": "806.1998455",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.4",
+                    "Value": "1",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.5",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.6",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.7",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "32.8",
+                    "Value": "16.45392477158991",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.1",
+                    "Value": "Financial Institutions",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "33.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "33.3",
+                    "Value": "332.07527672000003",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.4",
+                    "Value": "2",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.5",
+                    "Value": "14",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.7",
+                    "Value": "14.10139728525587",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "33.8",
+                    "Value": "15.913859545712183",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.1",
+                    "Value": "Financial Institutions",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "34.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "34.3",
+                    "Value": "0.38170494999999993",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.4",
+                    "Value": "4",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.6",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.7",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "34.8",
+                    "Value": "15.913859545712183",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.1",
+                    "Value": "Financial Institutions",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "35.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "35.3",
+                    "Value": "580.76618292",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.4",
+                    "Value": "10",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.5",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.6",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.7",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "35.8",
+                    "Value": "15.913859545712183",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.1",
+                    "Value": "Financial Institutions",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "36.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "36.3",
+                    "Value": "2431.58965956",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.4",
+                    "Value": "4",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.5",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.6",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.7",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "36.8",
+                    "Value": "15.913859545712183",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.1",
+                    "Value": "Transport and Communication",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "37.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "37.3",
+                    "Value": "399.89366232",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.4",
+                    "Value": "25",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.5",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.7",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "37.8",
+                    "Value": "15.611494173311595",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.1",
+                    "Value": "Transport and Communication",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "38.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "38.3",
+                    "Value": "213.25685934999998",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.4",
+                    "Value": "133",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.7",
+                    "Value": "14.768241359172956",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "38.8",
+                    "Value": "15.611494173311595",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.1",
+                    "Value": "Transport and Communication",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "39.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "39.3",
+                    "Value": "1722.606024209999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.4",
+                    "Value": "85",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.6",
+                    "Value": "21.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.7",
+                    "Value": "15.827231263485517",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "39.8",
+                    "Value": "15.611494173311595",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.1",
+                    "Value": "Transport and Communication",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "40.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "40.3",
+                    "Value": "248.15392357",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.4",
+                    "Value": "23",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.6",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.7",
+                    "Value": "15.823991639788925",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "40.8",
+                    "Value": "15.611494173311595",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.1",
+                    "Value": "Health and Education",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "41.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "41.3",
+                    "Value": "486.49024745",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.4",
+                    "Value": "25",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.5",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.7",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "41.8",
+                    "Value": "15.424020359993548",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.1",
+                    "Value": "Health and Education",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "42.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "42.3",
+                    "Value": "95.47911288000003",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.4",
+                    "Value": "135",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.6",
+                    "Value": "18",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.7",
+                    "Value": "14.867304444209454",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "42.8",
+                    "Value": "15.424020359993548",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.1",
+                    "Value": "Health and Education",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "43.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "43.3",
+                    "Value": "730.2744424800001",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.4",
+                    "Value": "168",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.6",
+                    "Value": "15.75",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.7",
+                    "Value": "15.692113332449454",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "43.8",
+                    "Value": "15.424020359993548",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.1",
+                    "Value": "Health and Education",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "44.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "44.3",
+                    "Value": "59.16010235000001",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.4",
+                    "Value": "5",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.5",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.6",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.7",
+                    "Value": "16.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "44.8",
+                    "Value": "15.424020359993548",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.1",
+                    "Value": "Consumer  loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "45.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "45.3",
+                    "Value": "0",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.4",
+                    "Value": "0",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.5",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.6",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.7",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "45.8",
+                    "Value": "12.16061637797075",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.1",
+                    "Value": "Consumer  loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "46.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "46.3",
+                    "Value": "4.639484489999999",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.4",
+                    "Value": "108",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.5",
+                    "Value": "12",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.7",
+                    "Value": "13.794264655468222",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "46.8",
+                    "Value": "12.16061637797075",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.1",
+                    "Value": "Consumer  loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "47.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "47.3",
+                    "Value": "4860.173441279997",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.4",
+                    "Value": "3391",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.5",
+                    "Value": "7",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.6",
+                    "Value": "21.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.7",
+                    "Value": "14.48096273772678",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "47.8",
+                    "Value": "12.16061637797075",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.1",
+                    "Value": "Consumer  loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "48.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "48.3",
+                    "Value": "34242.8650755902",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.4",
+                    "Value": "60044",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.5",
+                    "Value": "7",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.6",
+                    "Value": "22",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.7",
+                    "Value": "11.831062615071778",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "48.8",
+                    "Value": "12.16061637797075",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.1",
+                    "Value": "Staff loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "49.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "49.3",
+                    "Value": "18227.553683650003",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.4",
+                    "Value": "43569",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.5",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.6",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.7",
+                    "Value": "0",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "49.8",
+                    "Value": "5.24109535398262",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.1",
+                    "Value": "Staff loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "50.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "50.3",
+                    "Value": "0.11210045000000002",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.4",
+                    "Value": "23",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.5",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.6",
+                    "Value": "19.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.7",
+                    "Value": "10.1705171121079",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "50.8",
+                    "Value": "5.24109535398262",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.1",
+                    "Value": "Staff loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "51.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "51.3",
+                    "Value": "47.281314359999996",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.4",
+                    "Value": "64",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.5",
+                    "Value": "7",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.6",
+                    "Value": "10",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.7",
+                    "Value": "7.00115614489022",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "51.8",
+                    "Value": "5.24109535398262",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.1",
+                    "Value": "Staff loans",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "52.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "52.3",
+                    "Value": "54091.70825036952",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.4",
+                    "Value": "26779",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.5",
+                    "Value": "7",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.7",
+                    "Value": "7.00566481268981",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "52.8",
+                    "Value": "5.24109535398262",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.1",
+                    "Value": "Other loans (not included elesewhere)",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "53.2",
+                    "Value": "Over- draft",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "53.3",
+                    "Value": "106.3544957",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.4",
+                    "Value": "3",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.5",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.6",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.7",
+                    "Value": "15",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "53.8",
+                    "Value": "14.887578389468558",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.1",
+                    "Value": "Other loans (not included elesewhere)",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "54.2",
+                    "Value": "Up to 12 months",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "54.3",
+                    "Value": "0.75",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.4",
+                    "Value": "2",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.5",
+                    "Value": "13",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.6",
+                    "Value": "13",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.7",
+                    "Value": "13",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "54.8",
+                    "Value": "14.887578389468558",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.1",
+                    "Value": "Other loans (not included elesewhere)",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "55.2",
+                    "Value": "1-5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "55.3",
+                    "Value": "14.83915",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.4",
+                    "Value": "6",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.5",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.6",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.7",
+                    "Value": "14.5",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "55.8",
+                    "Value": "14.887578389468558",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.1",
+                    "Value": "Other loans (not included elesewhere)",
+                    "_description": "Sector",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "56.2",
+                    "Value": "Over 5 years",
+                    "_description": "Loan Category ",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "56.3",
+                    "Value": "1.23200758",
+                    "_description": "Outstanding Loan & Advance ( in Mn Birr)",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.4",
+                    "Value": "2",
+                    "_description": "No. of Loan Accounts by Loan Category",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.5",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum) _Minimum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.6",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum)_ Maximum Rate \nby loan \ncategory",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.7",
+                    "Value": "11",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby loan \ncategory ",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                },
+                {
+                    "Code": "56.8",
+                    "Value": "14.887578389468558",
+                    "_description": "Lending Interest Rates (% per annum)_ Weighted Average Rate by Sector",
+                    "_dataType": "NUMERIC",
+                    "_required": true
+                }
+            ]
+        }
+    ]
+}
