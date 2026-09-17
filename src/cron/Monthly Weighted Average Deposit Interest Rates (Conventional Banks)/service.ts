@@ -12,7 +12,7 @@ import {
 import { populateWAADIR001Report } from "@/utils/services/WAADIR001/WAADIR001";
 import { Decimal } from "@/generated/prisma/runtime/client";
 
-export const service = async (reportTypeID: string) => {
+export const service = async (reportTypeID: string, reportID: string) => {
     try {
         const log: SystemLogDto = {
             reportID: reportTypeID,
@@ -21,7 +21,7 @@ export const service = async (reportTypeID: string) => {
         };
 
         const yesterday = new Date();
-        yesterday.setUTCDate(yesterday.getUTCDate() - 11);
+        yesterday.setUTCDate(yesterday.getUTCDate() - 21);
         yesterday.setUTCHours(0, 0, 0, 0);
 
         const filter: any = { BUSINESS_DATE: yesterday.toISOString() };
@@ -99,7 +99,8 @@ export const service = async (reportTypeID: string) => {
                 "0000001",
                 wAADIR001sFormatted,
                 yesterday,
-                yesterday
+                yesterday,
+                reportID
             );
 
         if (!created) {

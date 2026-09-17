@@ -36,10 +36,11 @@ export async function populateOpenPositionReport(
     intCode: string,
     rowsData: OpenPosition[],
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    reportTypeID: string
 ): Promise<any> {
     try {
-        const fileName = generateFileName("OP001");
+        const fileName = generateFileName(reportTypeID);
 
         const fileNameExcel = `${fileName}.xlsx`;
         const fileNameJson = `${fileName}.json`;

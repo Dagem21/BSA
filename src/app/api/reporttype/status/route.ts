@@ -1,4 +1,4 @@
-import { findReportType } from "@/dal/mongo/reportTypedal";
+import { findReportTypes } from "@/dal/mongo/reportTypedal";
 import { ReportTypeDto } from "@/dto/reportType";
 import { verifyUserAuth } from "@/utils/authHelper";
 import { writeToLog } from "@/utils/log";
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
         if (decodedToken.role !== RoleTypes.Admin)
             filter._id = { $in: decodedToken?.allowedReports };
 
-        const reportTypes = await findReportType(filter);
+        const reportTypes = await findReportTypes(filter);
 
         // Date bounds setup
         const start = new Date(reportDate);

@@ -1,0 +1,290 @@
+{
+    "ReturnKey": "LOA_PORT_EP001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "34_00001",
+            "Value": "",
+            "_description": "Advance on import bills_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00002",
+            "Value": "",
+            "_description": "Advance on import bills_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00003",
+            "Value": "",
+            "_description": "Advance on import bills_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00004",
+            "Value": "",
+            "_description": "Advance on import bills_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00006",
+            "Value": "",
+            "_description": "Pre-shipment export loans_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00007",
+            "Value": "",
+            "_description": "Pre-shipment export loans_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00008",
+            "Value": "",
+            "_description": "Pre-shipment export loans_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00009",
+            "Value": "",
+            "_description": "Pre-shipment export loans_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00011",
+            "Value": "",
+            "_description": "Overdraft facilities_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00012",
+            "Value": "",
+            "_description": "Overdraft facilities_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00013",
+            "Value": "",
+            "_description": "Overdraft facilities_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00014",
+            "Value": "",
+            "_description": "Overdraft facilities_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00016",
+            "Value": "",
+            "_description": "Merchandise_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00017",
+            "Value": "",
+            "_description": "Merchandise_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00018",
+            "Value": "",
+            "_description": "Merchandise_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00019",
+            "Value": "",
+            "_description": "Term loans_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00021",
+            "Value": "",
+            "_description": "Other loans_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00022",
+            "Value": "",
+            "_description": "Other loans_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00023",
+            "Value": "",
+            "_description": "Other loans_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00024",
+            "Value": "",
+            "_description": "Other loans_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00026",
+            "Value": "",
+            "_description": "Total(sum 1.1-1.5)_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00027",
+            "Value": "",
+            "_description": "Total(sum 1.1-1.5)_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00028",
+            "Value": "",
+            "_description": "Total(sum 1.1-1.5)_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00029",
+            "Value": "",
+            "_description": "Total(sum 1.1-1.5)_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00031",
+            "Value": "",
+            "_description": "Short term loans_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00032",
+            "Value": "",
+            "_description": "Short term loans_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00033",
+            "Value": "",
+            "_description": "Short term loans_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00034",
+            "Value": "",
+            "_description": "Short term loans_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00036",
+            "Value": "",
+            "_description": "Long term loans_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00037",
+            "Value": "",
+            "_description": "Long term loans_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00038",
+            "Value": "",
+            "_description": "Long term loans_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00039",
+            "Value": "",
+            "_description": "Long term loans_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00040",
+            "Value": "",
+            "_description": "Term loans_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00041",
+            "Value": "",
+            "_description": "Total(sum 2.1-2.2)_Disbursement in the month_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00042",
+            "Value": "",
+            "_description": "Total(sum 2.1-2.2)_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00043",
+            "Value": "",
+            "_description": "Total(sum 2.1-2.2)_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00044",
+            "Value": "",
+            "_description": "Total(sum 2.1-2.2)_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00045",
+            "Value": "",
+            "_description": "Term loans_Outstanding loans and advances_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00046",
+            "Value": "",
+            "_description": "Term loans_Disbursement in the month_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "34_00047",
+            "Value": "",
+            "_description": "Merchandise_Outstanding loans and advances_Percentage (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

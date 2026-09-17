@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import useApiFetch from "@/hooks/useAPIFetch";
+import { toast } from "sonner";
 
 interface ReturnItem {
     Code: string;
@@ -26,23 +28,77 @@ interface MK001ExcelViewProps {
 }
 
 const ITEMS_CONFIG = [
-    { code: "107_00001", rowNum: 15, desc: "Total assets", indent: 0, isTotal: true },
-    { code: "107_00002", rowNum: 16, desc: "Total loans and bonds", indent: 0, isTotal: false },
-    { code: "107_00003", rowNum: 17, desc: "Of which bonds", indent: 1, isTotal: false },
-    { code: "107_00008", rowNum: 18, desc: "Total deposits", indent: 0, isTotal: true },
-    { code: "107_00004", rowNum: 19, desc: "Demand/Current deposits", indent: 1, isTotal: false },
-    { code: "107_00005", rowNum: 20, desc: "Saving deposits", indent: 1, isTotal: false },
-    { code: "107_00006", rowNum: 21, desc: "Time/Fixed deposits", indent: 1, isTotal: false },
-    { code: "107_00007", rowNum: 22, desc: "Total capital & reserves", indent: 0, isTotal: true }
+    {
+        code: "107_00001",
+        rowNum: 15,
+        desc: "Total assets",
+        indent: 0,
+        isTotal: true
+    },
+    {
+        code: "107_00002",
+        rowNum: 16,
+        desc: "Total loans and bonds",
+        indent: 0,
+        isTotal: false
+    },
+    {
+        code: "107_00003",
+        rowNum: 17,
+        desc: "Of which bonds",
+        indent: 1,
+        isTotal: false
+    },
+    {
+        code: "107_00008",
+        rowNum: 18,
+        desc: "Total deposits",
+        indent: 0,
+        isTotal: true
+    },
+    {
+        code: "107_00004",
+        rowNum: 19,
+        desc: "Demand/Current deposits",
+        indent: 1,
+        isTotal: false
+    },
+    {
+        code: "107_00005",
+        rowNum: 20,
+        desc: "Saving deposits",
+        indent: 1,
+        isTotal: false
+    },
+    {
+        code: "107_00006",
+        rowNum: 21,
+        desc: "Time/Fixed deposits",
+        indent: 1,
+        isTotal: false
+    },
+    {
+        code: "107_00007",
+        rowNum: 22,
+        desc: "Total capital & reserves",
+        indent: 0,
+        isTotal: true
+    }
 ];
 
-export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewProps) {
+export function MK001ExcelView({
+    initialData,
+    activeFileName
+}: MK001ExcelViewProps) {
     const [viewTab, setViewTab] = useState<"grid" | "json">("grid");
     const [searchQuery, setSearchQuery] = useState("");
-    const [currentFileName, setCurrentFileName] = useState<string>(activeFileName || "");
+    const [currentFileName, setCurrentFileName] = useState<string>(
+        activeFileName || ""
+    );
     const [availableFiles, setAvailableFiles] = useState<string[]>([]);
-    const [reportData, setReportData] = useState<MK001JsonData | undefined>(initialData);
-    const [loading, setLoading] = useState(false);
+    const [reportData, setReportData] = useState<MK001JsonData | undefined>(
+        initialData
+    );
 
     const [selectedCell, setSelectedCell] = useState<{
         cellRef: string;
@@ -56,22 +112,30 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
         value: "0"
     });
 
-    const fetchJsonData = async (fileName?: string) => {
-        try {
-            setLoading(true);
-            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=MK001";
-            const res = await fetch(`/api/report/json-view${query}`);
-            if (res.ok) {
-                const json = await res.json();
-                setReportData(json.data);
-                if (json.fileName) setCurrentFileName(json.fileName);
-                if (json.availableFiles) setAvailableFiles(json.availableFiles);
-            }
-        } catch (e) {
-            console.error("Failed to fetch MK001 JSON view:", e);
-        } finally {
-            setLoading(false);
+    const { fetchData, data, isLoading, errors } = useApiFetch({
+        url: "/api/report/json-view",
+        method: "GET"
+    });
+
+    useEffect(() => {
+        if (!isLoading && data) {
+            setReportData(data.data);
+
+            if (data.fileName) setCurrentFileName(data.fileName);
+            if (data.availableFiles) setAvailableFiles(data.availableFiles);
+        } else if (!isLoading && errors.details) {
+            toast.error(
+                errors.details?.response?.data?.error ||
+                    "Failed to fetch MK001 JSON view"
+            );
         }
+    }, [data, isLoading, errors]);
+
+    const fetchJsonData = async (fileName?: string) => {
+        const query = fileName
+            ? { filename: encodeURIComponent(fileName) }
+            : { type: "MK001" };
+        fetchData({ params: query });
     };
 
     useEffect(() => {
@@ -86,7 +150,9 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
             ? currentFileName.replace(/\.json$/, ".xlsx")
             : currentFileName;
         try {
-            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            const res = await fetch(
+                `/api/report/download?filename=${encodeURIComponent(excelName)}`
+            );
             if (!res.ok) throw new Error("Download failed");
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
@@ -122,9 +188,10 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
     const totalLoansBonds = getItemValue("107_00002");
     const totalCapital = getItemValue("107_00007");
 
-    const filteredItems = ITEMS_CONFIG.filter((i) =>
-        i.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        i.code.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredItems = ITEMS_CONFIG.filter(
+        (i) =>
+            i.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            i.code.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (
@@ -138,16 +205,30 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                                 Excel Report Viewer
                             </span>
                             <span className="rounded bg-blue-500/10 px-2.5 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-500/20 dark:text-blue-400">
-                                {reportData?.ReturnKey || "Key Balance SheetMK001"}
+                                {reportData?.ReturnKey ||
+                                    "Key Balance SheetMK001"}
                             </span>
                         </div>
                         <h1 className="mt-2 text-2xl font-bold text-dark dark:text-white">
                             Monthly Key Balance Sheet (MK001)
                         </h1>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                            Institution: <span className="font-semibold text-dark dark:text-white">{reportData?.InstCode || "0000001"}</span> | 
-                            Financial Year: <span className="font-semibold text-dark dark:text-white">{reportData?.FinYear || 2026}</span> | 
-                            Period: <span className="font-semibold text-dark dark:text-white">{reportData?.StartDate?.split("T")[0] || "2026-07-01"} to {reportData?.EndDate?.split("T")[0] || "2026-07-31"}</span>
+                            Institution:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.InstCode || "0000001"}
+                            </span>{" "}
+                            | Financial Year:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.FinYear || 2026}
+                            </span>{" "}
+                            | Period:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.StartDate?.split("T")[0] ||
+                                    "2026-07-01"}{" "}
+                                to{" "}
+                                {reportData?.EndDate?.split("T")[0] ||
+                                    "2026-07-31"}
+                            </span>
                         </p>
                     </div>
 
@@ -160,7 +241,7 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                                     setCurrentFileName(e.target.value);
                                     fetchJsonData(e.target.value);
                                 }}
-                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
                             >
                                 {availableFiles.map((fn) => (
                                     <option key={fn} value={fn}>
@@ -195,7 +276,7 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                         </button>
                         <button
                             onClick={handleDownloadExcel}
-                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-emerald-700 transition"
+                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md transition hover:bg-emerald-700"
                             title="Download Excel file generated from JSON"
                         >
                             📥 Download Excel
@@ -206,43 +287,51 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                 {/* Summary KPI Cards */}
                 <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 dark:border-emerald-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
                             Total Assets
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(totalAssets)}
                         </div>
-                        <span className="text-xs text-gray-500">Code: 107_00001 (In Millions Birr)</span>
+                        <span className="text-xs text-gray-500">
+                            Code: 107_00001 (In Millions Birr)
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4 dark:border-blue-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                        <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase dark:text-blue-400">
                             Total Loans & Bonds
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(totalLoansBonds)}
                         </div>
-                        <span className="text-xs text-gray-500">Code: 107_00002</span>
+                        <span className="text-xs text-gray-500">
+                            Code: 107_00002
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-purple-500/20 bg-purple-500/5 p-4 dark:border-purple-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                        <span className="text-xs font-semibold tracking-wider text-purple-600 uppercase dark:text-purple-400">
                             Total Deposits
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(totalDeposits)}
                         </div>
-                        <span className="text-xs text-gray-500">Code: 107_00008</span>
+                        <span className="text-xs text-gray-500">
+                            Code: 107_00008
+                        </span>
                     </div>
 
                     <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 dark:border-amber-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                        <span className="text-xs font-semibold tracking-wider text-amber-600 uppercase dark:text-amber-400">
                             Total Capital & Reserves
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
                             {formatNum(totalCapital)}
                         </div>
-                        <span className="text-xs text-gray-500">Code: 107_00007</span>
+                        <span className="text-xs text-gray-500">
+                            Code: 107_00007
+                        </span>
                     </div>
                 </div>
             </div>
@@ -257,11 +346,20 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                             </span>
                             <span className="text-gray-400">fx</span>
                             <span className="font-mono text-xs text-gray-500 dark:text-gray-400">
-                                Code: <span className="font-semibold text-primary">{selectedCell?.code || "-"}</span> |{" "}
-                                {selectedCell ? selectedCell.colName : "Click cell to inspect"} =
+                                Code:{" "}
+                                <span className="font-semibold text-primary">
+                                    {selectedCell?.code || "-"}
+                                </span>{" "}
+                                |{" "}
+                                {selectedCell
+                                    ? selectedCell.colName
+                                    : "Click cell to inspect"}{" "}
+                                =
                             </span>
                             <span className="font-mono font-bold text-dark dark:text-white">
-                                {selectedCell ? formatNum(selectedCell.value) : ""}
+                                {selectedCell
+                                    ? formatNum(selectedCell.value)
+                                    : ""}
                             </span>
                         </div>
 
@@ -271,7 +369,7 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                                 placeholder="Search line items or code..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:text-white"
+                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:text-white"
                             />
                         </div>
                     </div>
@@ -282,27 +380,41 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                             <thead>
                                 <tr className="border-b border-stroke bg-gray-100 text-center font-mono text-[11px] font-semibold text-gray-600 dark:border-dark-3 dark:bg-dark-2 dark:text-gray-300">
                                     <th className="w-10 border-r border-stroke py-1.5 dark:border-dark-3"></th>
-                                    <th className="min-w-[120px] border-r border-stroke py-1.5 dark:border-dark-3">A</th>
-                                    <th className="min-w-[300px] border-r border-stroke py-1.5 dark:border-dark-3">B</th>
+                                    <th className="min-w-[120px] border-r border-stroke py-1.5 dark:border-dark-3">
+                                        A
+                                    </th>
+                                    <th className="min-w-[300px] border-r border-stroke py-1.5 dark:border-dark-3">
+                                        B
+                                    </th>
                                 </tr>
                                 <tr className="border-b border-stroke bg-gray-200 font-semibold text-dark dark:border-dark-3 dark:bg-dark-3 dark:text-white">
-                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">Row</th>
-                                    <th className="border-r border-stroke p-2 text-center dark:border-dark-3">Code</th>
-                                    <th className="border-r border-stroke p-2 dark:border-dark-3">Particulars (In Millions of Birr)</th>
+                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">
+                                        Row
+                                    </th>
+                                    <th className="border-r border-stroke p-2 text-center dark:border-dark-3">
+                                        Code
+                                    </th>
+                                    <th className="border-r border-stroke p-2 dark:border-dark-3">
+                                        Particulars (In Millions of Birr)
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {filteredItems.map((item) => {
                                     const val = getItemValue(item.code);
-                                    const isSelected = selectedCell?.cellRef === `B${item.rowNum}`;
+                                    const isSelected =
+                                        selectedCell?.cellRef ===
+                                        `B${item.rowNum}`;
 
                                     return (
                                         <tr
                                             key={item.code}
                                             className={cn(
                                                 "border-b border-stroke transition dark:border-dark-3",
-                                                item.isTotal && "bg-gray-100 font-bold dark:bg-dark-2 text-dark dark:text-white",
-                                                !item.isTotal && "hover:bg-gray-50 dark:hover:bg-dark-2/50"
+                                                item.isTotal &&
+                                                    "bg-gray-100 font-bold text-dark dark:bg-dark-2 dark:text-white",
+                                                !item.isTotal &&
+                                                    "hover:bg-gray-50 dark:hover:bg-dark-2/50"
                                             )}
                                         >
                                             <td className="border-r border-stroke bg-gray-50 p-2 text-center font-mono text-[11px] font-semibold text-gray-500 dark:border-dark-3 dark:bg-dark-2">
@@ -315,7 +427,11 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
 
                                             <td className="border-r border-stroke p-2 dark:border-dark-3">
                                                 <div className="flex items-center justify-between">
-                                                    <span style={{ paddingLeft: `${item.indent * 20}px` }}>
+                                                    <span
+                                                        style={{
+                                                            paddingLeft: `${item.indent * 20}px`
+                                                        }}
+                                                    >
                                                         {item.desc}
                                                     </span>
                                                     <span
@@ -323,14 +439,15 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                                                             setSelectedCell({
                                                                 cellRef: `B${item.rowNum}`,
                                                                 code: item.code,
-                                                                colName: item.desc,
+                                                                colName:
+                                                                    item.desc,
                                                                 value: val
                                                             })
                                                         }
                                                         className={cn(
-                                                            "font-mono cursor-pointer px-3 py-1 rounded transition",
+                                                            "cursor-pointer rounded px-3 py-1 font-mono transition",
                                                             isSelected
-                                                                ? "ring-2 ring-emerald-500 bg-emerald-500/20 font-bold text-emerald-900 dark:text-emerald-200"
+                                                                ? "bg-emerald-500/20 font-bold text-emerald-900 ring-2 ring-emerald-500 dark:text-emerald-200"
                                                                 : "text-gray-800 dark:text-gray-200"
                                                         )}
                                                     >
@@ -350,7 +467,8 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                 <div className="rounded-[10px] border border-stroke bg-white p-6 shadow-1 dark:border-dark-3 dark:bg-gray-dark">
                     <div className="mb-4 flex items-center justify-between">
                         <h2 className="text-lg font-bold text-dark dark:text-white">
-                            Raw JSON Payload ({reportData?.ReturnItemsList?.length || 8} items)
+                            Raw JSON Payload (
+                            {reportData?.ReturnItemsList?.length || 8} items)
                         </h2>
                         <button
                             onClick={() => {
@@ -358,12 +476,12 @@ export function MK001ExcelView({ initialData, activeFileName }: MK001ExcelViewPr
                                     JSON.stringify(reportData, null, 4)
                                 );
                             }}
-                            className="rounded bg-primary px-3 py-1.5 text-xs font-medium text-white hover:bg-opacity-90 transition"
+                            className="hover:bg-opacity-90 rounded bg-primary px-3 py-1.5 text-xs font-medium text-white transition"
                         >
                             📋 Copy JSON
                         </button>
                     </div>
-                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 text-xs font-mono text-emerald-400">
+                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 font-mono text-xs text-emerald-400">
                         {JSON.stringify(reportData, null, 4)}
                     </pre>
                 </div>

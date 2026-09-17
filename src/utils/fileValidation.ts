@@ -28,7 +28,7 @@ export interface StructuralValidationResult {
     errorMessage?: string;
 }
 
-export async function validateNN001Template(
+export async function validateTemplate(
     file: File,
     expectedReportId?: string
 ): Promise<StructuralValidationResult> {
@@ -82,7 +82,10 @@ export async function validateNN001Template(
                             "This is not the exact NN001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("OL001") || cleanId.includes("COL_ACQ_18M_OL001")) {
+            } else if (
+                cleanId.includes("OL001") ||
+                cleanId.includes("COL_ACQ_18M_OL001")
+            ) {
                 const isOL001 =
                     codeA1.includes("COL_ACQ_18M_OL001") ||
                     codeA1.includes("OL001") ||
@@ -95,7 +98,10 @@ export async function validateNN001Template(
                             "This is not the exact OL001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("MA001") || cleanId.includes("NBE_MAT_ANL_MA001")) {
+            } else if (
+                cleanId.includes("MA001") ||
+                cleanId.includes("NBE_MAT_ANL_MA001")
+            ) {
                 const isMA001 =
                     codeA1.includes("NBE_MAT_ANL_MA001") ||
                     codeA1.includes("MA001") ||
@@ -107,7 +113,10 @@ export async function validateNN001Template(
                             "This is not the exact MA001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("MK001") || cleanId.includes("KEY BALANCE SHEET")) {
+            } else if (
+                cleanId.includes("MK001") ||
+                cleanId.includes("KEY BALANCE SHEET")
+            ) {
                 const isMK001 =
                     codeA1.includes("MK001") ||
                     codeA1.includes("KEY BALANCE SHEET") ||
@@ -131,7 +140,11 @@ export async function validateNN001Template(
                             "This is not the exact KK001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("RL002") || cleanId.includes("REGRL002") || cleanId.includes("LOAN_RAN")) {
+            } else if (
+                cleanId.includes("RL002") ||
+                cleanId.includes("REGRL002") ||
+                cleanId.includes("LOAN_RAN")
+            ) {
                 const isRL002 =
                     codeA1.includes("RL002") ||
                     codeA1.includes("REGRL002") ||
@@ -144,7 +157,11 @@ export async function validateNN001Template(
                             "This is not the exact REGRL002 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("MD002") || cleanId.includes("CDBY") || cleanId.includes("SECTOR AND REG")) {
+            } else if (
+                cleanId.includes("MD002") ||
+                cleanId.includes("CDBY") ||
+                cleanId.includes("SECTOR AND REG")
+            ) {
                 const isMD002 =
                     codeA1.includes("MD002") ||
                     codeA1.includes("CDBY") ||
@@ -156,7 +173,10 @@ export async function validateNN001Template(
                             "This is not the exact MD002 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("DPWADP001") || cleanId.includes("DPW")) {
+            } else if (
+                cleanId.includes("DPWADP001") ||
+                cleanId.includes("DPW")
+            ) {
                 const isDPWADP001 =
                     codeA1.includes("DPWADP001") ||
                     headerRow4.includes("interest-free banks") ||
@@ -168,12 +188,18 @@ export async function validateNN001Template(
                             "This is not the exact DPWADP001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("MWAC001") || cleanId.includes("LCMWAC001") || cleanId.includes("WALIR")) {
+            } else if (
+                cleanId.includes("MWAC001") ||
+                cleanId.includes("LCMWAC001") ||
+                cleanId.includes("WALIR")
+            ) {
                 const isMWAC001 =
                     codeA1.includes("MWAC001") ||
                     codeA1.includes("LCMWAC001") ||
                     headerRow4.includes("conventional banks") ||
-                    headerRow4.includes("weighted average lending interest rates");
+                    headerRow4.includes(
+                        "weighted average lending interest rates"
+                    );
                 if (!isMWAC001) {
                     return {
                         isValid: false,
@@ -181,7 +207,10 @@ export async function validateNN001Template(
                             "This is not the exact MWAC001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("13002") || cleanId.includes("BSD_LOAN_PART13002")) {
+            } else if (
+                cleanId.includes("13002") ||
+                cleanId.includes("BSD_LOAN_PART13002")
+            ) {
                 const is13002 =
                     codeA1.includes("13002") ||
                     codeA1.includes("BSD_LOAN_PART13002") ||
@@ -194,7 +223,10 @@ export async function validateNN001Template(
                             "This is not the exact 13002 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("LB002") || cleanId.includes("BOR_TEN_PER_LB002")) {
+            } else if (
+                cleanId.includes("LB002") ||
+                cleanId.includes("BOR_TEN_PER_LB002")
+            ) {
                 const isLB002 =
                     codeA1.includes("LB002") ||
                     codeA1.includes("BOR_TEN_PER_LB002") ||
@@ -207,7 +239,10 @@ export async function validateNN001Template(
                             "This is not the exact LB002 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("MB001") || cleanId.includes("MB001MB001")) {
+            } else if (
+                cleanId.includes("MB001") ||
+                cleanId.includes("MB001MB001")
+            ) {
                 const isMB001 =
                     codeA1.includes("MB001") ||
                     headerRow4.includes("monthly balance sheet");
@@ -229,7 +264,10 @@ export async function validateNN001Template(
                             "This is not the exact SRRYY001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("RB001") || cleanId.includes("RESERVE BASE")) {
+            } else if (
+                cleanId.includes("RB001") ||
+                cleanId.includes("RESERVE BASE")
+            ) {
                 const isRB001 =
                     codeA1.includes("RB001") ||
                     codeA1.includes("RESERVE BASE") ||
@@ -245,7 +283,9 @@ export async function validateNN001Template(
                 const isZS001 =
                     codeA1.includes("ZS001") ||
                     codeA1.includes("LSR") ||
-                    getCellText("A17").toLowerCase().includes("net current liabilities") ||
+                    getCellText("A17")
+                        .toLowerCase()
+                        .includes("net current liabilities") ||
                     getCellText("B9").toLowerCase().includes("instiution");
                 if (!isZS001) {
                     return {
@@ -254,11 +294,17 @@ export async function validateNN001Template(
                             "This is not the exact ZS001 Excel template file."
                     };
                 }
-            } else if (cleanId.includes("BP001") || cleanId.includes("DP001") || cleanId.includes("INT_FRE_SP")) {
+            } else if (
+                cleanId.includes("BP001") ||
+                cleanId.includes("DP001") ||
+                cleanId.includes("INT_FRE_SP")
+            ) {
                 const isBP001 =
                     codeA1.includes("BP001") ||
                     codeA1.includes("INT_FRE_SP_BP001") ||
-                    headerRow4.includes("interest free banking service profit and loss") ||
+                    headerRow4.includes(
+                        "interest free banking service profit and loss"
+                    ) ||
                     headerRow4.includes("statement of profit or loss");
                 if (!isBP001) {
                     return {
@@ -273,19 +319,25 @@ export async function validateNN001Template(
         // Check if file matches OP001 layout (B8: Instiution Code) or ZS001 layout (B9: Instiution code)
         const isOP001 = getCellText("B8").toLowerCase().includes("instiution");
         const isZS001 = getCellText("B9").toLowerCase().includes("instiution");
-        const isNN001Header = getCellText("A8").toLowerCase().includes("instiution") || codeA1.includes("NACNN001");
+        const isNN001Header =
+            getCellText("A8").toLowerCase().includes("instiution") ||
+            codeA1.includes("NACNN001");
 
         if (!isOP001 && !isZS001 && !isNN001Header) {
             // Flexible check: ensure at least one institution code label exists
             const hasHeader = REQUIRED_CELL_CHECKS.some((check) =>
-                getCellText(check.cell)
-                    .toLowerCase()
-                    .includes("instiution")
+                getCellText(check.cell).toLowerCase().includes("instiution")
             );
-            if (!hasHeader && getCellText("B9") === "" && getCellText("B8") === "" && getCellText("A8") === "") {
+            if (
+                !hasHeader &&
+                getCellText("B9") === "" &&
+                getCellText("B8") === "" &&
+                getCellText("A8") === ""
+            ) {
                 return {
                     isValid: false,
-                    errorMessage: "Template structure mismatch. Expected Institution Code header."
+                    errorMessage:
+                        "Template structure mismatch. Expected Institution Code header."
                 };
             }
         }
@@ -299,4 +351,3 @@ export async function validateNN001Template(
         };
     }
 }
-

@@ -18,20 +18,86 @@ import { ReportFormValues, reportSchema } from "@/yup/report";
 import { generateFileName } from "@/utils/generateFileName";
 import * as fs from "fs";
 import { writeFile } from "fs/promises";
+import { authorizeUser } from "@/utils/chechAuthorization";
+import { RoleTypes } from "@/types/types";
+import { findReportType } from "@/dal/mongo/reportTypedal";
+import { fileProcessor } from "@/utils/fileProcessor";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
+
+        const searchParams = request?.nextUrl?.searchParams;
+
+        const reportID = searchParams.get("reportID");
+        const page = searchParams.get("page");
+        const limit = searchParams.get("limit");
+        const reportType = searchParams.get("reportType");
+        const reportingDate = searchParams.get("reportingDate");
+        const startDate = searchParams.get("startDate");
+        const endDate = searchParams.get("endDate");
+
+        if (reportID) {
+            const report = await findReport(reportID);
+            if (report) {
+                return new Response(
+                    JSON.stringify({
+                        message: "Report fetched.",
+                        content: report
+                    }),
+                    {
+                        status: 200,
+                        headers: { "Content-Type": "application/json" }
+                    }
+                );
+            }
+            return new Response(
+                JSON.stringify({
+                    error: "Fetch failed."
+                }),
+                {
+                    status: 400,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
 
         const query: ReportDto = {
             reportType: { $in: decodedToken.allowedReports || [] }
         };
-        const reports = await findReports(query);
+
+        if (reportType && decodedToken?.allowedReports?.includes(reportType))
+            query.reportType = reportType;
+
+        if (reportingDate) {
+            const start = new Date(reportingDate);
+            start.setUTCHours(0, 0, 0, 0);
+
+            const end = new Date(reportingDate);
+            end.setUTCHours(23, 59, 59, 999);
+
+            query.reportingDate = { $gte: start, $lte: end };
+        }
+        if (startDate && endDate)
+            query.startDate = {
+                $gte: new Date(startDate),
+                $lt: new Date(endDate)
+            };
+        else if (startDate) query.startDate = { $gte: new Date(startDate) };
+        if (endDate) query.startDate = { $lt: new Date(endDate) };
+
+        const reports = await findReports(
+            query,
+            parseInt(page || "1"),
+            parseInt(limit || "10")
+        );
+
         if (reports) {
             return new Response(
                 JSON.stringify({
                     message: "Reports fetched.",
-                    reports
+                    contents: reports
                 }),
                 {
                     status: 200,
@@ -71,6 +137,8 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Maker]);
+
         const formData = await request.formData();
 
         const reportType = formData.get("reportType") as string;
@@ -86,13 +154,7 @@ export async function POST(request: NextRequest) {
         };
 
         const validatedReport = await reportSchema.validate(reportRecieved);
-        require("@/models/reportTypeSchema");
-        const ReportTypeModel =
-            mongoose.models.reporttypes ||
-            mongoose.model("reporttypes");
-        const reportTypeDoc = await ReportTypeModel.findById(
-            validatedReport.reportType
-        );
+        const reportTypeDoc = await findReportType(validatedReport.reportType);
         const reportIdStr = reportTypeDoc?.reportId || "";
         const fileName = generateFileName(reportIdStr);
 
@@ -111,599 +173,32 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const uploadDir = path.join(process.cwd(), "reports", "excel");
+        const uploadDir = path.join(process.cwd(), "reports", "uploads");
+        const excelDir = path.join(process.cwd(), "reports", "excel");
 
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
         }
 
+        if (!fs.existsSync(excelDir)) {
+            fs.mkdirSync(excelDir, { recursive: true });
+        }
+
         const ext = path.extname(file.name).toLowerCase();
         const excelFile = `${fileName}${ext}`;
         const jsonFile = `${fileName}.json`;
-        const filePath = path.join(uploadDir, excelFile);
-        await writeFile(filePath, buffer);
+        const filePath = path.join(excelDir, excelFile);
+        const uploadFilePath = path.join(uploadDir, excelFile);
+        await writeFile(uploadFilePath, buffer);
 
-        // Trigger template validation and report processing based on report type
-        try {
-            // 1. Strict Template Verification
-            let validationResult;
-            if (
-                reportIdStr.toUpperCase().includes("NN001") ||
-                reportIdStr.toUpperCase().includes("NACNN001") ||
-                reportIdStr.toUpperCase().includes("OL001") ||
-                reportIdStr.toUpperCase().includes("COL_ACQ_18M_OL001") ||
-                reportIdStr.toUpperCase().includes("MA001") ||
-                reportIdStr.toUpperCase().includes("NBE_MAT_ANL_MA001")
-            ) {
-                const { validateNN001Template } = await import("@/utils/fileValidation");
-                validationResult = await validateNN001Template(file, reportIdStr);
-            } else {
-                validationResult = { isValid: true } as any;
-            }
-            if (!validationResult.isValid) {
-                return new Response(
-                    JSON.stringify({
-                        error: validationResult.errorMessage || "This is not the exact template file."
-                    }),
-                    {
-                        status: 400,
-                        headers: { "Content-Type": "application/json" }
-                    }
-                );
-            }
-
-            const jsonFilePath = path.join(
-                process.cwd(),
-                "reports",
-                "json",
-                jsonFile
-            );
-
-            const startDateStr = validatedReport.startDate.toISOString();
-            const endDateStr = validatedReport.endDate.toISOString();
-
-            // 2. Process NN001 Report Format
-            if (
-                reportIdStr.toUpperCase().includes("NN001") ||
-                reportIdStr.toUpperCase().includes("NACNN001")
-            ) {
-                const { processNN001Report } = await import(
-                    "@/utils/services/NN001/NN001"
-                );
-                const procRes = await processNN001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process NN001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process FB001 Report Format
-            else if (reportIdStr.toUpperCase().includes("FB001")) {
-                const { processFB001Report } = await import(
-                    "@/utils/services/FB001/FB001"
-                );
-                const procRes: any = await processFB001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process FB001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process BP001 / DP001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("BP001") ||
-                reportIdStr.toUpperCase().includes("DP001") ||
-                reportIdStr.toUpperCase().includes("INT_FRE_SP")
-            ) {
-                const { processBP001Report } = await import(
-                    "@/utils/services/BP001/BP001"
-                );
-                const procRes: any = await processBP001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process BP001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process MWAL001 Report Format
-            else if (reportIdStr.toUpperCase().includes("MWAL001")) {
-                const { processMWAL001Report } = await import(
-                    "@/utils/services/MWAL001/MWAL001"
-                );
-                const procRes: any = await processMWAL001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MWAL001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process MWAC001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("MWAC001") ||
-                reportIdStr.toUpperCase().includes("LCMWAC001") ||
-                reportIdStr.toUpperCase().includes("WALIR")
-            ) {
-                const { processMWAC001Report } = await import(
-                    "@/utils/services/MWAC001/MWAC001"
-                );
-                const procRes: any = await processMWAC001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MWAC001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process LB002 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("LB002") ||
-                reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002")
-            ) {
-                const { processLB002Report } = await import(
-                    "@/utils/services/LB002/LB002"
-                );
-                const procRes: any = await processLB002Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process LB002 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // Process BSD_LOAN_PART13002 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("13002") ||
-                reportIdStr.toUpperCase().includes("BSD_LOAN_PART13002")
-            ) {
-                const { process13002Report } = await import(
-                    "@/utils/services/BSD_LOAN_PART13002/13002"
-                );
-                const procRes: any = await process13002Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process 13002 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 3. Process ZS001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("ZS001") ||
-                reportIdStr.toUpperCase().includes("LSR")
-            ) {
-                const { processZS001Report } = await import(
-                    "@/utils/services/ZS001/ZS001"
-                );
-                const procRes: any = await processZS001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process ZS001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 4. Process OL001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("OL001") ||
-                reportIdStr.toUpperCase().includes("COL_ACQ_18M_OL001")
-            ) {
-                const { processOL001Report } = await import(
-                    "@/utils/services/OL001/OL001"
-                );
-                const procRes = await processOL001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process OL001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 5. Process MA001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("MA001") ||
-                reportIdStr.toUpperCase().includes("NBE_MAT_ANL_MA001")
-            ) {
-                const { processMA001Report } = await import(
-                    "@/utils/services/MA001/MA001"
-                );
-                const procRes = await processMA001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MA001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 6. Process MK001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("MK001") ||
-                reportIdStr.toUpperCase().includes("KEY BALANCE SHEET")
-            ) {
-                const { processMK001Report } = await import(
-                    "@/utils/services/MK001/MK001"
-                );
-                const procRes: any = await processMK001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MK001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 7. Process MB001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("MB001") ||
-                reportIdStr.toUpperCase().includes("MB001MB001")
-            ) {
-                const { processMB001Report } = await import(
-                    "@/utils/services/MB001/MB001"
-                );
-                const procRes: any = await processMB001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MB001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 8. Process SRRYY001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("SRR") ||
-                reportIdStr.toUpperCase().includes("SRRYY001")
-            ) {
-                const { processSRRYY001Report } = await import(
-                    "@/utils/services/SRRYY001/SRRYY001"
-                );
-                const procRes = await processSRRYY001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process SRRYY001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 9. Process RB001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("RB001") ||
-                reportIdStr.toUpperCase().includes("RESERVE BASE")
-            ) {
-                const { processRB001Report } = await import(
-                    "@/utils/services/RB001/RB001"
-                );
-                const procRes: any = await processRB001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process RB001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 10. Process ZS001 Report Format (Duplicate block check)
-            else if (
-                reportIdStr.toUpperCase().includes("ZS001") ||
-                reportIdStr.toUpperCase().includes("LSR")
-            ) {
-                const { processZS001Report } = await import(
-                    "@/utils/services/ZS001/ZS001"
-                );
-                const procRes: any = await processZS001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process ZS001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 11. Process KK001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("KK001") ||
-                reportIdStr.toUpperCase().includes("M_CC")
-            ) {
-                const { processKK001Report } = await import(
-                    "@/utils/services/KK001/KK001"
-                );
-                const procRes: any = await processKK001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process KK001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 12. Process REGRL002 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("RL002") ||
-                reportIdStr.toUpperCase().includes("REGRL002") ||
-                reportIdStr.toUpperCase().includes("LOAN_RAN")
-            ) {
-                const { processREGRL002Report } = await import(
-                    "@/utils/services/REGRL002/REGRL002"
-                );
-                const procRes = await processREGRL002Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process REGRL002 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 13. Process MD002 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("MD002") ||
-                reportIdStr.toUpperCase().includes("CDBY") ||
-                reportIdStr.toUpperCase().includes("SECTOR AND REG")
-            ) {
-                const { processMD002Report } = await import(
-                    "@/utils/services/MD002/MD002"
-                );
-                const procRes = await processMD002Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process MD002 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-            // 14. Process DPWADP001 Report Format
-            else if (
-                reportIdStr.toUpperCase().includes("DPWADP001") ||
-                reportIdStr.toUpperCase().includes("DPW")
-            ) {
-                const { processDPWADP001Report } = await import(
-                    "@/utils/services/DPWADP001/DPWADP001"
-                );
-                const procRes: any = await processDPWADP001Report(
-                    decodedToken?.instCode || "0000001",
-                    filePath,
-                    startDateStr,
-                    endDateStr,
-                    filePath,
-                    jsonFilePath
-                );
-                if (!procRes.success) {
-                    return new Response(
-                        JSON.stringify({
-                            error: procRes.error || "Failed to process DPWADP001 template file."
-                        }),
-                        {
-                            status: 400,
-                            headers: { "Content-Type": "application/json" }
-                        }
-                    );
-                }
-            }
-        } catch (procErr: any) {
-            console.error("Error processing report template format:", procErr);
-            return new Response(
-                JSON.stringify({
-                    error: procErr.message || "Failed to process uploaded Excel template."
-                }),
-                {
-                    status: 400,
-                    headers: { "Content-Type": "application/json" }
-                }
-            );
-        }
+        await fileProcessor(
+            "0000001",
+            reportIdStr,
+            uploadFilePath,
+            jsonFile,
+            filePath,
+            validatedReport
+        );
 
         const newReport: ReportDto = {
             file: excelFile,
@@ -761,6 +256,8 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
     try {
         const decodedToken = await verifyUserAuth();
+        authorizeUser([RoleTypes.Checker]);
+
         const body = await request.json();
         if (!body) {
             return new Response(
@@ -771,8 +268,12 @@ export async function PUT(request: NextRequest) {
                 }
             );
         }
-        let { reportId, status } = body;
-        if (!reportId || !status) {
+        let { reportId, status, rejectionReason } = body;
+        if (
+            !reportId ||
+            !status ||
+            (status === "Rejected" && !rejectionReason)
+        ) {
             return new Response(
                 JSON.stringify({ error: "Missing required inputs." }),
                 {
@@ -786,9 +287,10 @@ export async function PUT(request: NextRequest) {
             status,
             updatedBy: decodedToken.id
         };
-        if (status === "Approved") {
-            updateQuery.approvedBy = decodedToken.id;
-        }
+
+        if (status === "Approved") updateQuery.approvedBy = decodedToken.id;
+        else if (status === "Rejected") updateQuery.response = rejectionReason;
+
         const report = await findReport(reportId);
         if (!report) {
             return new Response(

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 import {
     createReportType,
-    findReportType,
+    findReportTypes,
     updateReportType
 } from "@/dal/mongo/reportTypedal";
 import { ReportTypeDto } from "@/dto/reportType";
@@ -18,11 +18,14 @@ export async function GET() {
         authorizeUser([RoleTypes.Maker, RoleTypes.Checker, RoleTypes.Admin]);
 
         const filter: any = {};
-        if (decodedToken?.role !== "Admin" && decodedToken?.allowedReports?.length > 0) {
+        if (
+            decodedToken?.role !== "Admin" &&
+            decodedToken?.allowedReports?.length > 0
+        ) {
             filter._id = { $in: decodedToken?.allowedReports };
         }
 
-        const reportTypes = await findReportType(filter);
+        const reportTypes = await findReportTypes(filter);
         if (reportTypes) {
             return new Response(
                 JSON.stringify({

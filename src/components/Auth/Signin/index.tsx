@@ -74,6 +74,7 @@ export default function Signin() {
                         onChange={handleChange}
                         value={data.email}
                         icon={<EmailIcon />}
+                        autoFocus={true}
                     />
 
                     <InputGroup

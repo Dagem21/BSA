@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import useApiFetch from "@/hooks/useAPIFetch";
+import { toast } from "sonner";
 
 interface DynamicItem {
     Code: string;
@@ -32,13 +34,19 @@ interface DPWADP001ExcelViewProps {
     activeFileName?: string;
 }
 
-export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001ExcelViewProps) {
+export function DPWADP001ExcelView({
+    initialData,
+    activeFileName
+}: DPWADP001ExcelViewProps) {
     const [viewTab, setViewTab] = useState<"grid" | "json">("grid");
     const [searchQuery, setSearchQuery] = useState("");
-    const [currentFileName, setCurrentFileName] = useState<string>(activeFileName || "");
+    const [currentFileName, setCurrentFileName] = useState<string>(
+        activeFileName || ""
+    );
     const [availableFiles, setAvailableFiles] = useState<string[]>([]);
-    const [reportData, setReportData] = useState<DPWADP001JsonData | undefined>(initialData);
-    const [loading, setLoading] = useState(false);
+    const [reportData, setReportData] = useState<DPWADP001JsonData | undefined>(
+        initialData
+    );
 
     const [selectedCell, setSelectedCell] = useState<{
         cellRef: string;
@@ -54,22 +62,30 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
         value: "Saving Deposit"
     });
 
-    const fetchJsonData = async (fileName?: string) => {
-        try {
-            setLoading(true);
-            const query = fileName ? `?filename=${encodeURIComponent(fileName)}` : "?type=DPWADP001";
-            const res = await fetch(`/api/report/json-view${query}`);
-            if (res.ok) {
-                const json = await res.json();
-                setReportData(json.data);
-                if (json.fileName) setCurrentFileName(json.fileName);
-                if (json.availableFiles) setAvailableFiles(json.availableFiles);
-            }
-        } catch (e) {
-            console.error("Failed to fetch DPWADP001 JSON view:", e);
-        } finally {
-            setLoading(false);
+    const { fetchData, data, isLoading, errors } = useApiFetch({
+        url: "/api/report/json-view",
+        method: "GET"
+    });
+
+    useEffect(() => {
+        if (!isLoading && data) {
+            setReportData(data.data);
+
+            if (data.fileName) setCurrentFileName(data.fileName);
+            if (data.availableFiles) setAvailableFiles(data.availableFiles);
+        } else if (!isLoading && errors.details) {
+            toast.error(
+                errors.details?.response?.data?.error ||
+                    "Failed to fetch DPWADP001 JSON view"
+            );
         }
+    }, [data, isLoading, errors]);
+
+    const fetchJsonData = async (fileName?: string) => {
+        const query = fileName
+            ? { filename: encodeURIComponent(fileName) }
+            : { type: "DPWADP001" };
+        fetchData({ params: query });
     };
 
     useEffect(() => {
@@ -84,7 +100,9 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
             ? currentFileName.replace(/\.json$/, ".xlsx")
             : currentFileName;
         try {
-            const res = await fetch(`/api/report/download?filename=${encodeURIComponent(excelName)}`);
+            const res = await fetch(
+                `/api/report/download?filename=${encodeURIComponent(excelName)}`
+            );
             if (!res.ok) throw new Error("Download failed");
             const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
@@ -101,7 +119,8 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
     };
 
     const formatNum = (valStr: string, isPercent: boolean = false) => {
-        if (valStr === undefined || valStr === null || valStr === "") return "-";
+        if (valStr === undefined || valStr === null || valStr === "")
+            return "-";
         const num = parseFloat(valStr);
         if (isNaN(num)) return valStr;
         const formatted = num.toLocaleString("en-US", {
@@ -138,13 +157,21 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
     const filteredRows = dynamicRows.filter((row) => {
         if (!searchQuery) return true;
         const q = searchQuery.toLowerCase();
-        return row.some((item) => item.Value.toLowerCase().includes(q) || item._description.toLowerCase().includes(q));
+        return row.some(
+            (item) =>
+                item.Value.toLowerCase().includes(q) ||
+                item._description.toLowerCase().includes(q)
+        );
     });
 
     const headers = [
         { code: "1.1", label: "Deposit Type", colLetter: "A" },
         { code: "1.2", label: "Deposit Category", colLetter: "B" },
-        { code: "1.3", label: "Total Deposit Amount (Mn Birr)", colLetter: "C" },
+        {
+            code: "1.3",
+            label: "Total Deposit Amount (Mn Birr)",
+            colLetter: "C"
+        },
         { code: "1.4", label: "No. of Accounts", colLetter: "D" },
         { code: "1.5", label: "Min Rate (% p.a.)", colLetter: "E" },
         { code: "1.6", label: "Max Rate (% p.a.)", colLetter: "F" },
@@ -167,12 +194,26 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                             </span>
                         </div>
                         <h1 className="mt-2 text-2xl font-bold text-dark dark:text-white">
-                            Monthly Weighted Average Deposit Profit Rates (Interest-Free Banks)
+                            Monthly Weighted Average Deposit Profit Rates
+                            (Interest-Free Banks)
                         </h1>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                            Institution: <span className="font-semibold text-dark dark:text-white">{reportData?.InstCode || "0000001"}</span> | 
-                            Financial Year: <span className="font-semibold text-dark dark:text-white">{reportData?.FinYear || 2026}</span> | 
-                            Period: <span className="font-semibold text-dark dark:text-white">{reportData?.StartDate?.split("T")[0] || "2026-07-01"} to {reportData?.EndDate?.split("T")[0] || "2026-07-31"}</span>
+                            Institution:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.InstCode || "0000001"}
+                            </span>{" "}
+                            | Financial Year:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.FinYear || 2026}
+                            </span>{" "}
+                            | Period:{" "}
+                            <span className="font-semibold text-dark dark:text-white">
+                                {reportData?.StartDate?.split("T")[0] ||
+                                    "2026-07-01"}{" "}
+                                to{" "}
+                                {reportData?.EndDate?.split("T")[0] ||
+                                    "2026-07-31"}
+                            </span>
                         </p>
                     </div>
 
@@ -185,7 +226,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                     setCurrentFileName(e.target.value);
                                     fetchJsonData(e.target.value);
                                 }}
-                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
+                                className="rounded-lg border border-stroke bg-gray-50 px-3 py-2 text-xs font-medium text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white"
                             >
                                 {availableFiles.map((fn) => (
                                     <option key={fn} value={fn}>
@@ -219,7 +260,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                         </button>
                         <button
                             onClick={handleDownloadExcel}
-                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md hover:bg-emerald-700 transition"
+                            className="flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-md transition hover:bg-emerald-700"
                             title="Download Excel file generated from JSON"
                         >
                             📥 Download Excel
@@ -230,7 +271,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                 {/* Metric Summary Cards */}
                 <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4 dark:border-emerald-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
                             Total Deposit Categories
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
@@ -239,7 +280,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                     </div>
 
                     <div className="rounded-lg border border-blue-500/20 bg-blue-500/5 p-4 dark:border-blue-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                        <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase dark:text-blue-400">
                             Total Deposit Amount
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
@@ -248,7 +289,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                     </div>
 
                     <div className="rounded-lg border border-purple-500/20 bg-purple-500/5 p-4 dark:border-purple-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                        <span className="text-xs font-semibold tracking-wider text-purple-600 uppercase dark:text-purple-400">
                             Total Accounts
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
@@ -257,7 +298,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                     </div>
 
                     <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4 dark:border-amber-500/30">
-                        <span className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                        <span className="text-xs font-semibold tracking-wider text-amber-600 uppercase dark:text-amber-400">
                             Overall Avg Profit Rate
                         </span>
                         <div className="mt-1 text-xl font-bold text-dark dark:text-white">
@@ -277,8 +318,15 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                             </span>
                             <span className="text-gray-400">fx</span>
                             <span className="font-mono text-xs text-gray-500 dark:text-gray-400">
-                                Code: <span className="font-semibold text-primary">{selectedCell?.code || "-"}</span> |{" "}
-                                {selectedCell ? `Row ${selectedCell.rowIdx} - ${selectedCell.colDesc}` : "Click any cell to inspect"} =
+                                Code:{" "}
+                                <span className="font-semibold text-primary">
+                                    {selectedCell?.code || "-"}
+                                </span>{" "}
+                                |{" "}
+                                {selectedCell
+                                    ? `Row ${selectedCell.rowIdx} - ${selectedCell.colDesc}`
+                                    : "Click any cell to inspect"}{" "}
+                                =
                             </span>
                             <span className="font-mono font-bold text-dark dark:text-white">
                                 {selectedCell ? selectedCell.value : ""}
@@ -291,7 +339,7 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                 placeholder="Filter deposit categories..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark outline-none transition focus:border-primary dark:border-dark-3 dark:text-white"
+                                className="w-full rounded-md border border-stroke bg-transparent px-3 py-2 text-sm text-dark transition outline-none focus:border-primary dark:border-dark-3 dark:text-white"
                             />
                         </div>
                     </div>
@@ -301,9 +349,14 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                         <table className="w-full border-collapse text-left text-xs font-normal">
                             <thead>
                                 <tr className="border-b border-stroke bg-gray-200 font-semibold text-dark dark:border-dark-3 dark:bg-dark-3 dark:text-white">
-                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">Row</th>
+                                    <th className="border-r border-stroke p-2 text-center text-gray-500 dark:border-dark-3">
+                                        Row
+                                    </th>
                                     {headers.map((h) => (
-                                        <th key={h.code} className="border-r border-stroke p-2 dark:border-dark-3">
+                                        <th
+                                            key={h.code}
+                                            className="border-r border-stroke p-2 dark:border-dark-3"
+                                        >
                                             {h.label}
                                         </th>
                                     ))}
@@ -314,17 +367,38 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                     const excelRowIdx = 11 + rIdx;
 
                                     return (
-                                        <tr key={rIdx} className="border-b border-stroke hover:bg-gray-50 dark:border-dark-3 dark:hover:bg-dark-2/50">
+                                        <tr
+                                            key={rIdx}
+                                            className="border-b border-stroke hover:bg-gray-50 dark:border-dark-3 dark:hover:bg-dark-2/50"
+                                        >
                                             <td className="border-r border-stroke bg-gray-50 p-2 text-center font-mono text-[11px] font-semibold text-gray-500 dark:border-dark-3 dark:bg-dark-2">
                                                 {excelRowIdx}
                                             </td>
 
                                             {headers.map((h, colIdx) => {
-                                                const item = row.find((i) => i.Code === h.code || i.Code.endsWith(`.${colIdx + 1}`)) || row[colIdx];
-                                                const val = item ? item.Value : "";
+                                                const item =
+                                                    row.find(
+                                                        (i) =>
+                                                            i.Code === h.code ||
+                                                            i.Code.endsWith(
+                                                                `.${colIdx + 1}`
+                                                            )
+                                                    ) || row[colIdx];
+                                                const val = item
+                                                    ? item.Value
+                                                    : "";
                                                 const cellRef = `${h.colLetter}${excelRowIdx}`;
-                                                const isSelected = selectedCell?.cellRef === cellRef;
-                                                const isNumeric = ["1.3", "1.4", "1.5", "1.6", "1.7", "1.8"].includes(h.code);
+                                                const isSelected =
+                                                    selectedCell?.cellRef ===
+                                                    cellRef;
+                                                const isNumeric = [
+                                                    "1.3",
+                                                    "1.4",
+                                                    "1.5",
+                                                    "1.6",
+                                                    "1.7",
+                                                    "1.8"
+                                                ].includes(h.code);
 
                                                 return (
                                                     <td
@@ -332,21 +406,39 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                                         onClick={() =>
                                                             setSelectedCell({
                                                                 cellRef,
-                                                                code: item?.Code || h.code,
-                                                                colDesc: h.label,
-                                                                rowIdx: rIdx + 1,
+                                                                code:
+                                                                    item?.Code ||
+                                                                    h.code,
+                                                                colDesc:
+                                                                    h.label,
+                                                                rowIdx:
+                                                                    rIdx + 1,
                                                                 value: val
                                                             })
                                                         }
                                                         className={cn(
                                                             "cursor-pointer border-r border-stroke p-2 font-mono transition dark:border-dark-3",
-                                                            isNumeric ? "text-right" : "text-left",
+                                                            isNumeric
+                                                                ? "text-right"
+                                                                : "text-left",
                                                             isSelected
-                                                                ? "ring-2 ring-emerald-500 ring-inset bg-emerald-500/20 font-bold text-emerald-900 dark:text-emerald-200"
+                                                                ? "bg-emerald-500/20 font-bold text-emerald-900 ring-2 ring-emerald-500 ring-inset dark:text-emerald-200"
                                                                 : "text-gray-800 dark:text-gray-200"
                                                         )}
                                                     >
-                                                        {isNumeric ? formatNum(val, ["1.5", "1.6", "1.7", "1.8"].includes(h.code)) : val || "-"}
+                                                        {isNumeric
+                                                            ? formatNum(
+                                                                  val,
+                                                                  [
+                                                                      "1.5",
+                                                                      "1.6",
+                                                                      "1.7",
+                                                                      "1.8"
+                                                                  ].includes(
+                                                                      h.code
+                                                                  )
+                                                              )
+                                                            : val || "-"}
                                                     </td>
                                                 );
                                             })}
@@ -362,7 +454,8 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                 <div className="rounded-[10px] border border-stroke bg-white p-6 shadow-1 dark:border-dark-3 dark:bg-gray-dark">
                     <div className="mb-4 flex items-center justify-between">
                         <h2 className="text-lg font-bold text-dark dark:text-white">
-                            Raw JSON Payload ({dynamicRows.length} Dynamic Items)
+                            Raw JSON Payload ({dynamicRows.length} Dynamic
+                            Items)
                         </h2>
                         <button
                             onClick={() => {
@@ -370,12 +463,12 @@ export function DPWADP001ExcelView({ initialData, activeFileName }: DPWADP001Exc
                                     JSON.stringify(reportData, null, 4)
                                 );
                             }}
-                            className="rounded bg-primary px-3 py-1.5 text-xs font-medium text-white hover:bg-opacity-90 transition"
+                            className="hover:bg-opacity-90 rounded bg-primary px-3 py-1.5 text-xs font-medium text-white transition"
                         >
                             📋 Copy JSON
                         </button>
                     </div>
-                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 text-xs font-mono text-emerald-400">
+                    <pre className="max-h-[600px] overflow-auto rounded-lg bg-gray-900 p-4 font-mono text-xs text-emerald-400">
                         {JSON.stringify(reportData, null, 4)}
                     </pre>
                 </div>

@@ -42,21 +42,21 @@ export const jsonFormat = (
         };
         const tda = {
             Code: `${i + 1}.3`,
-            Value: element.BALANCE,
+            Value: element.BALANCE || "0",
             _description: "Total Deposit Amount  ( in\nMn Birr)",
             _dataType: "NUMERIC",
             _required: true
         };
         const ndac = {
             Code: `${i + 1}.4`,
-            Value: element.NUMBERS,
+            Value: element.NUMBERS || "0",
             _description: "No. of Deposit \nAccounts by \nCategory ",
             _dataType: "NUMERIC",
             _required: true
         };
         const lirminr = {
             Code: `${i + 1}.5`,
-            Value: element.MINIMUM_RATE,
+            Value: element.MINIMUM_RATE || "0",
             _description:
                 "Lending Interest Rates (% per annum)_ Minimum Rate \nby Deposit \ncategory",
             _dataType: "NUMERIC",
@@ -64,7 +64,7 @@ export const jsonFormat = (
         };
         const lirmaxr = {
             Code: `${i + 1}.6`,
-            Value: element.MAXIMUM_RATE,
+            Value: element.MAXIMUM_RATE || "0",
             _description:
                 "Lending Interest Rates (% per annum)_ Maximum Rate \nby Deposit \ncategory",
             _dataType: "NUMERIC",
@@ -72,7 +72,7 @@ export const jsonFormat = (
         };
         const lirwarc = {
             Code: `${i + 1}.7`,
-            Value: element.WEIGHED_AVERAGE,
+            Value: element.WEIGHED_AVERAGE || "0",
             _description:
                 "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby Deposit \ncategory ",
             _dataType: "NUMERIC",
@@ -80,7 +80,7 @@ export const jsonFormat = (
         };
         const lirwart = {
             Code: `${i + 1}.8`,
-            Value: element.WEIGHT_BY_TYPE,
+            Value: element.WEIGHT_BY_TYPE || "0",
             _description:
                 "Lending Interest Rates (% per annum) _Weighted Average Rate \nby Deposit Type",
             _dataType: "NUMERIC",
