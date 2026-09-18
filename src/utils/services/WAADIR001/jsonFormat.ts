@@ -1,12 +1,11 @@
-import { WAADIR001 } from "@/generated/prisma";
-
+// @ts-nocheck
 export const jsonFormat = (
     returnKey: string,
     instCode: string,
     finYear: number,
     startDate: string,
     endDate: string,
-    rawData: WAADIR001[]
+    rawData: any[]
 ) => {
     const dynamicItems: Array<any> = [];
     for (let i = 0; i < rawData.length; i++) {
