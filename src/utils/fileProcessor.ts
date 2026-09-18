@@ -26,6 +26,11 @@ import { process13002Report } from "./services/BSD_LOAN_PART13002/13002";
 import { processLL001Report } from "./services/LL001/LL001";
 import { processNL001Report } from "./services/NL001/NL001";
 import { processLP001Report } from "./services/LP001/LP001";
+import { processGS001Report } from "./services/GS001/GS001";
+import { processDR002Report } from "./services/DR002/DR002";
+import { processDS003Report } from "./services/DS003/DS003";
+import { processID002Report } from "./services/ID002/ID002";
+import { processRI003Report } from "./services/RI003/RI003";
 
 export const fileProcessor = async (
     instCode: string,
@@ -154,6 +159,26 @@ export const fileProcessor = async (
                 break;
             case "LP001": // TODO check the real ID of LP001
                 processor = processLP001Report;
+                break;
+            case "Digital SavingGS001":
+            case "GS001":
+                processor = processGS001Report;
+                break;
+            case "DEP_RAN&REG_DR002":
+            case "DR002":
+                processor = processDR002Report;
+                break;
+            case "DEP_SEC&REG_DS003":
+            case "DS003":
+                processor = processDS003Report;
+                break;
+            case "INT_FRE_RANID002":
+            case "ID002":
+                processor = processID002Report;
+                break;
+            case "INT_FRE_SECRI003":
+            case "RI003":
+                processor = processRI003Report;
                 break;
             default:
                 break;
