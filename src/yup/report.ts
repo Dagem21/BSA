@@ -43,7 +43,7 @@ export const reportSchema = yup.object().shape({
         })
         .test(
             "fileExtension",
-            "Invalid format. Only .xls and .xlsx are allowed.",
+            "Invalid file format. Only Excel files are allowed.",
             (value) => {
                 const file = extractFile(value);
                 if (!file) return false;

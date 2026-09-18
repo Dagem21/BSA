@@ -45,9 +45,7 @@ export async function validateTemplate(
             };
         }
 
-        const EXPECTED_SHEET_NAME =
-            workbook.SheetNames.find((s) => s.toUpperCase() === "NBE") ||
-            workbook.SheetNames[0];
+        const EXPECTED_SHEET_NAME = workbook.SheetNames[0];
 
         const worksheet: XLSX.WorkSheet = workbook.Sheets[EXPECTED_SHEET_NAME];
         if (!worksheet) {
