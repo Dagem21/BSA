@@ -16,6 +16,11 @@ const { processLCMWAC001 } = require("@/utils/services/MWAC001/MWAC001");
 const { processRD002 } = require("@/utils/services/RD002/RD002");
 const { processRS002 } = require("@/utils/services/RS002/RS002");
 const { processZZ002 } = require("@/utils/services/ZZ002/ZZ002");
+const { processGS001 } = require("@/utils/services/GS001/GS001");
+const { processDR002 } = require("@/utils/services/DR002/DR002");
+const { processDS003 } = require("@/utils/services/DS003/DS003");
+const { processID002 } = require("@/utils/services/ID002/ID002");
+const { processRI003 } = require("@/utils/services/RI003/RI003");
 
 function sanitizeJsonPayload(payload: any) {
     if (!payload) return payload;
@@ -116,6 +121,16 @@ export async function POST(request: NextRequest) {
             jsonPayload = processLC001 ? processLC001(worksheet) : null;
         } else if (requestedType.includes("LCMWAC001") || requestedType.includes("MWAC001")) {
             jsonPayload = processLCMWAC001 ? processLCMWAC001(worksheet) : null;
+        } else if (requestedType.includes("GS001")) {
+            jsonPayload = processGS001 ? processGS001(worksheet) : null;
+        } else if (requestedType.includes("DR002")) {
+            jsonPayload = processDR002 ? processDR002(worksheet) : null;
+        } else if (requestedType.includes("DS003")) {
+            jsonPayload = processDS003 ? processDS003(worksheet) : null;
+        } else if (requestedType.includes("ID002") || requestedType.includes("INT_FRE_RAN")) {
+            jsonPayload = processID002 ? processID002(worksheet) : null;
+        } else if (requestedType.includes("RI003") || requestedType.includes("INT_FRE_SEC")) {
+            jsonPayload = processRI003 ? processRI003(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

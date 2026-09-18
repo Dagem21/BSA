@@ -1,0 +1,101 @@
+const ID002_REGIONS = [
+    "Addis Ababa", "Afar", "Amhara", "Benishangul", "Dire Dawa", "Gambela",
+    "Harari", "Oromia", "Somalia", "Tigray", "Sidama", "SWERS", "CERS", "SERS"
+];
+
+const getID002SubRows = (regIndex1Based) => [
+    "",
+    "Demand_",
+    "Saving_",
+    `Time (${regIndex1Based}.3.1+${regIndex1Based}.3.2)_`,
+    "Restricted Investment Deposit_",
+    "Unrestricted Investment Deposit_",
+    "Urban_",
+    "Rural_"
+];
+
+const ID002_METRIC_DESCRIPTIONS = [
+    "  <= Birr 100,000 _Amount ",
+    " <= Birr 100,000 _ # of Depositors ",
+    " <= Birr 100,000 _ # of Accounts  ",
+    ">Birr 100,000-1million _ >Birr 100,000-1million _Amount ",
+    ">Birr 100,000-1million _ # of Depositors ",
+    " >Birr 100,000-1million _# of Accounts  ",
+    " > Birr 1 million_ Amount ",
+    " > Birr 1 million_ # of Depositors ",
+    " > Birr 1 million_ # of Accounts  ",
+    "  Total  _Amount ",
+    " Total  _ # of Depositors ",
+    " Total  _ # of Accounts  "
+];
+
+function ID002Format(returnKey = "INT_FRE_RANID002", instCode = "0000001", finYear = 2026, startDate = "2026-04-01T00:00:00", endDate = "2026-06-30T00:00:00", valuesMap = {}) {
+    const returnItemsList = [];
+    let codeCounter = 37736;
+
+    ID002_REGIONS.forEach((regName, regIdx) => {
+        const subRows = getID002SubRows(regIdx + 1);
+        subRows.forEach((subRow) => {
+            const rowPrefix = subRow ? `${regName}_${subRow}` : `${regName}_`;
+
+            ID002_METRIC_DESCRIPTIONS.forEach((metricDesc) => {
+                const codeStr = `ID002_${codeCounter}`;
+                codeCounter++;
+
+                const desc = `${rowPrefix}${metricDesc}`;
+
+                returnItemsList.push({
+                    Code: codeStr,
+                    Value: valuesMap[codeStr] !== undefined && valuesMap[codeStr] !== null ? String(valuesMap[codeStr]) : "",
+                    _description: desc,
+                    _dataType: "NUMERIC",
+                    _required: false
+                });
+            });
+        });
+    });
+
+    return {
+        ReturnKey: returnKey,
+        InstCode: instCode,
+        FinYear: finYear,
+        StartDate: startDate,
+        EndDate: endDate,
+        ReturnItemsList: returnItemsList,
+        DynamicItemsList: []
+    };
+}
+
+async function runTest() {
+    const valuesMap = {
+        "ID002_37736": "2500000",
+        "ID002_37737": "150",
+        "ID002_37738": "140",
+        "ID002_37772": "5000000",
+        "ID002_37832": "1200000",
+        "ID002_37868": "3000000"
+    };
+
+    const output = ID002Format("INT_FRE_RANID002", "0000001", 2026, "2026-04-01T00:00:00", "2026-06-30T00:00:00", valuesMap);
+
+    console.log("ID002 Generated JSON Summary:");
+    console.log("ReturnKey:", output.ReturnKey);
+    console.log("InstCode:", output.InstCode);
+    console.log("FinYear:", output.FinYear);
+    console.log("StartDate:", output.StartDate);
+    console.log("EndDate:", output.EndDate);
+    console.log("Total ReturnItemsList count:", output.ReturnItemsList.length);
+    console.log("First Item (ID002_37736):", JSON.stringify(output.ReturnItemsList[0], null, 2));
+    console.log("Item 37 (ID002_37772 - Addis Ababa Time 1.3.1+1.3.2):", JSON.stringify(output.ReturnItemsList[36], null, 2));
+    console.log("Item 97 (ID002_37832 - Afar Total):", JSON.stringify(output.ReturnItemsList[96], null, 2));
+    console.log("Item 133 (ID002_37868 - Afar Time 2.3.1+2.3.2):", JSON.stringify(output.ReturnItemsList[132], null, 2));
+    console.log("Last Item (ID002_39079):", JSON.stringify(output.ReturnItemsList[output.ReturnItemsList.length - 1], null, 2));
+
+    if (output.ReturnItemsList.length === 1344) {
+        console.log("\nSUCCESS: Total items equals 1,344 exactly as expected!");
+    } else {
+        console.error(`\nFAILURE: Expected 1,344 items, but got ${output.ReturnItemsList.length}`);
+    }
+}
+
+runTest();

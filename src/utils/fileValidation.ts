@@ -293,6 +293,91 @@ export async function validateTemplate(
                     };
                 }
             } else if (
+                cleanId.includes("GS001") ||
+                cleanId.includes("DIGITAL SAVING")
+            ) {
+                const isGS001 =
+                    codeA1.includes("GS001") ||
+                    codeA1.includes("DIGITAL SAVING") ||
+                    headerRow4.includes("digital saving") ||
+                    getCellText("A14").toLowerCase().includes("demand") ||
+                    getCellText("B14").toLowerCase().includes("demand");
+                if (!isGS001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact GS001 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("DR002") ||
+                cleanId.includes("DEP_RAN")
+            ) {
+                const isDR002 =
+                    codeA1.includes("DR002") ||
+                    codeA1.includes("DEP_RAN") ||
+                    headerRow4.includes("deposit by range") ||
+                    getCellText("A14").toLowerCase().includes("addis ababa") ||
+                    getCellText("B14").toLowerCase().includes("addis ababa");
+                if (!isDR002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact DR002 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("DS003") ||
+                cleanId.includes("DEP_SEC")
+            ) {
+                const isDS003 =
+                    codeA1.includes("DS003") ||
+                    codeA1.includes("DEP_SEC") ||
+                    headerRow4.includes("deposit by sector") ||
+                    getCellText("A14").toLowerCase().includes("addis ababa") ||
+                    getCellText("B14").toLowerCase().includes("addis ababa");
+                if (!isDS003) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact DS003 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("ID002") ||
+                cleanId.includes("INT_FRE_RAN")
+            ) {
+                const isID002 =
+                    codeA1.includes("ID002") ||
+                    codeA1.includes("INT_FRE_RAN") ||
+                    headerRow4.includes("interest free") ||
+                    getCellText("A14").toLowerCase().includes("addis ababa") ||
+                    getCellText("B14").toLowerCase().includes("addis ababa");
+                if (!isID002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact ID002 Excel template file."
+                    };
+                }
+            } else if (
+                cleanId.includes("RI003") ||
+                cleanId.includes("INT_FRE_SEC")
+            ) {
+                const isRI003 =
+                    codeA1.includes("RI003") ||
+                    codeA1.includes("INT_FRE_SEC") ||
+                    headerRow4.includes("interest free") ||
+                    getCellText("A15").toLowerCase().includes("addis ababa") ||
+                    getCellText("B15").toLowerCase().includes("addis ababa");
+                if (!isRI003) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact RI003 Excel template file."
+                    };
+                }
+            } else if (
                 cleanId.includes("BP001") ||
                 cleanId.includes("DP001") ||
                 cleanId.includes("INT_FRE_SP")

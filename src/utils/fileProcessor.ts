@@ -34,6 +34,11 @@ import { processLC001Report } from "./services/LC001/LC001";
 import { processRD002Report } from "./services/RD002/RD002";
 import { processRS002Report } from "./services/RS002/RS002";
 import { processZZ002Report } from "./services/ZZ002/ZZ002";
+import { processGS001Report } from "./services/GS001/GS001";
+import { processDR002Report } from "./services/DR002/DR002";
+import { processDS003Report } from "./services/DS003/DS003";
+import { processID002Report } from "./services/ID002/ID002";
+import { processRI003Report } from "./services/RI003/RI003";
 
 export const fileProcessor = async (
     instCode: string,
@@ -186,6 +191,26 @@ export const fileProcessor = async (
                 break;
             case "IFB_LON_S & RZZ002":
                 processor = processZZ002Report;
+                break;
+            case "Digital SavingGS001":
+            case "GS001":
+                processor = processGS001Report;
+                break;
+            case "DEP_RAN&REG_DR002":
+            case "DR002":
+                processor = processDR002Report;
+                break;
+            case "DEP_SEC&REG_DS003":
+            case "DS003":
+                processor = processDS003Report;
+                break;
+            case "INT_FRE_RANID002":
+            case "ID002":
+                processor = processID002Report;
+                break;
+            case "INT_FRE_SECRI003":
+            case "RI003":
+                processor = processRI003Report;
                 break;
             default:
                 break;
