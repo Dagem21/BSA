@@ -18,7 +18,7 @@ import { processMD002Report } from "@/utils/services/MD002/MD002";
 import { processDPWADP001Report } from "@/utils/services/DPWADP001/DPWADP001";
 import { processBD001Report } from "@/utils/services/BD001/BD001";
 import { ReportFormValues } from "@/yup/report";
-import { processRWW001Report } from "./services/RWW002/RWW001";
+import { processRWW002Report } from "./services/RWW002/RWW002";
 import { processLA001Report } from "./services/LA001/LA001";
 import { processEP001Report } from "./services/EP001/EP001";
 import { processMWAC001Report } from "./services/MWAC001/MWAC001";
@@ -26,6 +26,7 @@ import { process13002Report } from "./services/BSD_LOAN_PART13002/13002";
 import { processLL001Report } from "./services/LL001/LL001";
 import { processNL001Report } from "./services/NL001/NL001";
 import { processLP001Report } from "./services/LP001/LP001";
+import { processRA002Report } from "./services/RA002/RA002";
 
 export const fileProcessor = async (
     instCode: string,
@@ -138,7 +139,7 @@ export const fileProcessor = async (
                 processor = processBD001Report;
                 break;
             case "IFB_LON_R & RWW002":
-                processor = processRWW001Report;
+                processor = processRWW002Report;
                 break;
             case "LOA_ADV_OUT_LA001":
                 processor = processLA001Report;
@@ -151,6 +152,9 @@ export const fileProcessor = async (
                 break;
             case "NPL&PRO_NL001":
                 processor = processNL001Report;
+                break;
+            case "LOAN_RAN&REG_RA002":
+                processor = processRA002Report;
                 break;
             case "LP001": // TODO check the real ID of LP001
                 processor = processLP001Report;

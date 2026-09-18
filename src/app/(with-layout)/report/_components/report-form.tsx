@@ -13,8 +13,10 @@ import { ReportTypeDto } from "@/dto/reportType";
 import { useEffect, useState } from "react";
 import { FrequncyTypes, ServiceTypes } from "@/types/types";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export function ReportForm() {
+    const router = useRouter();
     const [frequency, setFrequency] = useState("");
     const { data } = useApiFetch({
         url: "/api/reporttype",
@@ -90,6 +92,7 @@ export function ReportForm() {
         if (!isLoadingCreate && dataCreate) {
             toast.success("Report submitted successfully.");
             reset();
+            router.push(`/report/details?reportid=${dataCreate.report._id}`);
         } else if (!isLoadingCreate && errorsCreate?.details) {
             toast.error(errorsCreate.details?.response?.data?.error);
         }
@@ -106,8 +109,18 @@ export function ReportForm() {
 
         const formData = new FormData();
         formData.append("reportType", data.reportType);
-        formData.append("startDate", data.startDate instanceof Date ? data.startDate.toISOString() : String(data.startDate ?? ""));
-        formData.append("endDate", data.endDate instanceof Date ? data.endDate.toISOString() : String(data.endDate ?? ""));
+        formData.append(
+            "startDate",
+            data.startDate instanceof Date
+                ? data.startDate.toISOString()
+                : String(data.startDate ?? "")
+        );
+        formData.append(
+            "endDate",
+            data.endDate instanceof Date
+                ? data.endDate.toISOString()
+                : String(data.endDate ?? "")
+        );
         if (fileToUpload) {
             formData.append("file", fileToUpload);
         }

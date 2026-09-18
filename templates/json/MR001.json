@@ -1,0 +1,177 @@
+{
+    "ReturnKey": "NBE_20_DEP_MR001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "17_00001",
+            "Value": "",
+            "_description": "Sub total top ten (10)_Demand/Current",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00002",
+            "Value": "",
+            "_description": "Sub total top ten (10)_Time/Fixed",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00003",
+            "Value": "",
+            "_description": "Grand total top twenty (20)_Time/Fixed",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00004",
+            "Value": "",
+            "_description": "Grand total top twenty (20)_Saving",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00005",
+            "Value": "",
+            "_description": "Grand total top twenty (20)_Demand/Current",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00006",
+            "Value": "",
+            "_description": "Sub total top ten (10)_Total per depositor ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00007",
+            "Value": "",
+            "_description": "Sub total top ten (10)_Saving",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "17_00008",
+            "Value": "",
+            "_description": "Grand total top twenty (20)_Total per depositor",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 168,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Name of Depositor",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Type of Deposit - Demand/Current",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Type of Deposit - Saving",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Type of Deposit - Time/Fixed",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "Days Left for Maturity",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Total per depositor",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 169,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "S.No",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Name of Depositor ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Type of Deposit - Demand/Current",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Type of Deposit_Saving",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Type of Deposit_Time/ Fixed",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "Days Left for Maturity",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Total per depositor ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                }
+            ]
+        }
+    ]
+}
