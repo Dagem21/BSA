@@ -1,4 +1,77 @@
 // @ts-nocheck
+
+function getDirectCellValue(cell: any): string {
+    if (!cell || cell === null || cell === undefined) return "";
+    let val = cell;
+    if (cell && typeof cell === "object" && "value" in cell && ("type" in cell || "address" in cell || "worksheet" in cell)) {
+        val = cell.value;
+    }
+    if (val === null || val === undefined) {
+        if (cell && typeof cell === "object") {
+            if (cell.result !== undefined && cell.result !== null) {
+                if (typeof cell.result === "object" && "error" in cell.result) return "";
+                return String(cell.result).trim();
+            }
+            if (cell.text !== undefined && cell.text !== null) {
+                return String(cell.text).trim();
+            }
+        }
+        return "";
+    }
+    if (typeof val === "number") return String(val);
+    if (typeof val === "string") {
+        const trimmed = val.trim();
+        if (trimmed === "[object Object]") return "";
+        return trimmed;
+    }
+    if (Array.isArray(val)) {
+        return val.map((item: any) => {
+            if (!item) return "";
+            if (typeof item === "string") return item;
+            if (typeof item === "object") {
+                if ("text" in item && item.text) return item.text;
+                if ("result" in item && item.result !== undefined && item.result !== null) return String(item.result);
+            }
+            return "";
+        }).join("").trim();
+    }
+    if (val instanceof Date) {
+        if (isNaN(val.getTime())) return "";
+        const pad = (n: number) => String(n).padStart(2, "0");
+        return `${val.getFullYear()}-${pad(val.getMonth() + 1)}-${pad(val.getDate())}`;
+    }
+    if (typeof val === "object") {
+        if ("result" in val && val.result !== undefined && val.result !== null) {
+            if (typeof val.result === "object" && val.result !== null && "error" in val.result) return "";
+            if (typeof val.result === "number") return String(val.result);
+            if (typeof val.result === "string") {
+                const s = val.result.trim();
+                return s === "[object Object]" ? "" : s;
+            }
+            if (Array.isArray(val.result)) {
+                return val.result.map((item: any) => (item && typeof item === "object" && "text" in item ? item.text : String(item))).join("").trim();
+            }
+            if (val.result instanceof Date) {
+                if (isNaN(val.result.getTime())) return "";
+                const pad = (n: number) => String(n).padStart(2, "0");
+                return `${val.result.getFullYear()}-${pad(val.result.getMonth() + 1)}-${pad(val.result.getDate())}`;
+            }
+            return String(val.result).trim();
+        }
+        if ("richText" in val && Array.isArray(val.richText)) {
+            return val.richText.map((t: any) => (t && t.text ? t.text : "")).join("").trim();
+        }
+        if ("text" in val && val.text) return String(val.text).trim();
+        if (cell && cell.result !== undefined && cell.result !== null) {
+            if (typeof cell.result === "object" && "error" in cell.result) return "";
+            return String(cell.result).trim();
+        }
+        if (cell && cell.text !== undefined && cell.text !== null) return String(cell.text).trim();
+        return "";
+    }
+    return "";
+}
+
 import ExcelJS from "exceljs";
 import * as path from "path";
 import * as fs from "fs";
@@ -74,28 +147,7 @@ function cleanDateStr(val, fallback) {
 }
 
 export function processWAADIR001(worksheet, instCode, startDate, endDate) {
-    const formatCellVal = (cellVal) => {
-        if (cellVal === null || cellVal === undefined) return "";
-        if (cellVal instanceof Date) {
-            if (isNaN(cellVal.getTime())) return "";
-            const pad = (n) => n.toString().padStart(2, "0");
-            const yyyy = cellVal.getFullYear();
-            const mm = pad(cellVal.getMonth() + 1);
-            const dd = pad(cellVal.getDate());
-            return `${yyyy}-${mm}-${dd}`;
-        }
-        if (typeof cellVal === "number") return cellVal.toString();
-        if (typeof cellVal === "string") return cellVal.trim();
-        if (typeof cellVal === "object") {
-            if ("result" in cellVal && cellVal.result !== null && cellVal.result !== undefined) {
-                return formatCellVal(cellVal.result);
-            }
-            if ("text" in cellVal && cellVal.text) {
-                return formatCellVal(cellVal.text);
-            }
-        }
-        return cellVal.toString().trim();
-    };
+    const formatCellVal = (cellVal: any): string => getDirectCellValue(cellVal);
 
     let parsedInst = "";
     let parsedYear = "";
@@ -444,11 +496,15 @@ function sanitizeJsonPayload(payload: any): any {
     if (Array.isArray(payload.ReturnItemsList)) {
         payload.ReturnItemsList = payload.ReturnItemsList.map((item: any) => {
             if (!item) return item;
-            const val = item.Value;
-            const isZero = val === null || val === undefined || String(val).trim() === "";
+            let val = item.Value;
+            if (val && typeof val === "object") {
+                val = getDirectCellValue(val);
+            }
+            const strVal = (val === null || val === undefined) ? "" : String(val).trim();
+            const isZero = strVal === "" || strVal === "[object Object]";
             return {
                 ...item,
-                Value: isZero ? "0" : String(val).trim()
+                Value: isZero ? "0" : strVal
             };
         });
     }
@@ -458,23 +514,31 @@ function sanitizeJsonPayload(payload: any): any {
             if (Array.isArray(entry.DynamicItems)) {
                 entry.DynamicItems = entry.DynamicItems.map((subItem: any) => {
                     if (!subItem) return subItem;
+                    let val = subItem.Value;
+                    if (val && typeof val === "object") {
+                        val = getDirectCellValue(val);
+                    }
+                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
                     const isNumeric = subItem._dataType === "NUMERIC" ||
                         (subItem.Code && !["1.1", "1.2", "1.4", "1.6"].includes(subItem.Code) && !subItem.Code.endsWith(".name"));
-                    const val = subItem.Value;
-                    const isZero = val === null || val === undefined || String(val).trim() === "";
+                    const isZero = strVal === "" || strVal === "[object Object]";
                     return {
                         ...subItem,
-                        Value: (isNumeric && isZero) ? "0" : (val === null || val === undefined ? "" : String(val).trim())
+                        Value: (isNumeric && isZero) ? "0" : (isZero && !isNumeric ? "" : strVal)
                     };
                 });
             } else if (typeof entry === "object") {
                 Object.keys(entry).forEach((k) => {
                     if (k.startsWith("_")) return;
-                    const val = entry[k];
-                    if (val === null || val === undefined || String(val).trim() === "") {
+                    let val = entry[k];
+                    if (val && typeof val === "object") {
+                        val = getDirectCellValue(val);
+                    }
+                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
+                    if (strVal === "" || strVal === "[object Object]") {
                         entry[k] = "0";
                     } else {
-                        entry[k] = String(val).trim();
+                        entry[k] = strVal;
                     }
                 });
             }
