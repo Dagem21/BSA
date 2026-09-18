@@ -155,47 +155,36 @@ export const fileProcessor = async (
                 processor = processEP001Report;
                 break;
             case "COL_SOL_18M_LL001":
-            case "LL001":
                 processor = processLL001Report;
                 break;
             case "NPL&PRO_NL001":
-            case "NL001":
                 processor = processNL001Report;
                 break;
             case "LOAN_RAN&REG_RA002":
                 processor = processRA002Report;
                 break;
-            case "LP001": // TODO check the real ID of LP001
             case "LOAN_CLA&PROV_LP001":
-            case "LP001":
                 processor = processLP001Report;
                 break;
             case "WAADIR001":
-            case "ADIR001":
                 processor = processWAADIR001Report;
                 break;
             case "CDby Range and RegCM002":
-            case "CM002":
                 processor = processCM002Report;
                 break;
             case "DIFIF002":
-            case "IF002":
                 processor = processIF002Report;
                 break;
             case "M_LCPLC001":
-            case "LC001":
                 processor = processLC001Report;
                 break;
             case "DIR RANGERD002":
-            case "RD002":
                 processor = processRD002Report;
                 break;
             case "LOAN_SEC & REGRS002":
-            case "RS002":
                 processor = processRS002Report;
                 break;
             case "IFB_LON_S & RZZ002":
-            case "ZZ002":
                 processor = processZZ002Report;
                 break;
             default:
@@ -211,7 +200,7 @@ export const fileProcessor = async (
                 filePath,
                 jsonFilePath
             );
-
+            console.log(procRes);
             if (!procRes.success) {
                 return new Response(
                     JSON.stringify({
