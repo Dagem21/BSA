@@ -1,0 +1,849 @@
+{
+    "ReturnKey": "NPL_ECPOMNE001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "92_00001",
+            "Value": "",
+            "_description": "Agriculture_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00002",
+            "Value": "",
+            "_description": "Agriculture_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00003",
+            "Value": "",
+            "_description": "Agriculture_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00004",
+            "Value": "",
+            "_description": "Agriculture_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00005",
+            "Value": "",
+            "_description": "Agriculture_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00006",
+            "Value": "",
+            "_description": "Agriculture_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00007",
+            "Value": "",
+            "_description": "Agriculture_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00008",
+            "Value": "",
+            "_description": "Manufacturing_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00009",
+            "Value": "",
+            "_description": "Manufacturing_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00010",
+            "Value": "",
+            "_description": "Manufacturing_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00011",
+            "Value": "",
+            "_description": "Manufacturing_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00012",
+            "Value": "",
+            "_description": "Manufacturing_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00013",
+            "Value": "",
+            "_description": "Manufacturing_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00014",
+            "Value": "",
+            "_description": "Manufacturing_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00015",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00016",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00017",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00018",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00019",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00020",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00021",
+            "Value": "",
+            "_description": "Domestic Trade & Service_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00022",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00023",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00024",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00025",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00026",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00027",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00028",
+            "Value": "",
+            "_description": "International Trade & Service(4.1+4.2)_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00029",
+            "Value": "",
+            "_description": "Import_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00030",
+            "Value": "",
+            "_description": "Import_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00031",
+            "Value": "",
+            "_description": "Import_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00032",
+            "Value": "",
+            "_description": "Import_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00033",
+            "Value": "",
+            "_description": "Import_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00034",
+            "Value": "",
+            "_description": "Import_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00035",
+            "Value": "",
+            "_description": "Import_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00036",
+            "Value": "",
+            "_description": "Export_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00037",
+            "Value": "",
+            "_description": "Export_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00038",
+            "Value": "",
+            "_description": "Export_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00039",
+            "Value": "",
+            "_description": "Export_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00040",
+            "Value": "",
+            "_description": "Export_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00041",
+            "Value": "",
+            "_description": "Export_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00042",
+            "Value": "",
+            "_description": "Export_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00043",
+            "Value": "",
+            "_description": "Hotel and tourism_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00044",
+            "Value": "",
+            "_description": "Hotel and tourism_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00045",
+            "Value": "",
+            "_description": "Hotel and tourism_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00046",
+            "Value": "",
+            "_description": "Hotel and tourism_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00047",
+            "Value": "",
+            "_description": "Hotel and tourism_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00048",
+            "Value": "",
+            "_description": "Hotel and tourism_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00049",
+            "Value": "",
+            "_description": "Hotel and tourism_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00050",
+            "Value": "",
+            "_description": "Transport and communication_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00051",
+            "Value": "",
+            "_description": "Transport and communication_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00052",
+            "Value": "",
+            "_description": "Transport and communication_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00053",
+            "Value": "",
+            "_description": "Transport and communication_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00054",
+            "Value": "",
+            "_description": "Transport and communication_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00055",
+            "Value": "",
+            "_description": "Transport and communication_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00056",
+            "Value": "",
+            "_description": "Transport and communication_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00057",
+            "Value": "",
+            "_description": "Building & Construction_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00058",
+            "Value": "",
+            "_description": "Building & Construction_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00059",
+            "Value": "",
+            "_description": "Building & Construction_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00060",
+            "Value": "",
+            "_description": "Building & Construction_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00061",
+            "Value": "",
+            "_description": "Building & Construction_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00062",
+            "Value": "",
+            "_description": "Building & Construction_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00063",
+            "Value": "",
+            "_description": "Building & Construction_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00064",
+            "Value": "",
+            "_description": "Mines, power and water resource_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00065",
+            "Value": "",
+            "_description": "Mines, power and water resource_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00066",
+            "Value": "",
+            "_description": "Mines, power and water resource_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00067",
+            "Value": "",
+            "_description": "Mines, power and water resource_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00068",
+            "Value": "",
+            "_description": "Mines, power and water resource_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00069",
+            "Value": "",
+            "_description": "Mines, power and water resource_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00070",
+            "Value": "",
+            "_description": "Mines, power and water resource_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00071",
+            "Value": "",
+            "_description": "Consumer loans_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00072",
+            "Value": "",
+            "_description": "Consumer loans_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00073",
+            "Value": "",
+            "_description": "Consumer loans_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00074",
+            "Value": "",
+            "_description": "Consumer loans_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00075",
+            "Value": "",
+            "_description": "Consumer loans_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00076",
+            "Value": "",
+            "_description": "Consumer loans_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00077",
+            "Value": "",
+            "_description": "Consumer loans_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00078",
+            "Value": "",
+            "_description": "Inter-bank loans_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00079",
+            "Value": "",
+            "_description": "Inter-bank loans_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00080",
+            "Value": "",
+            "_description": "Inter-bank loans_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00081",
+            "Value": "",
+            "_description": "Inter-bank loans_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00082",
+            "Value": "",
+            "_description": "Inter-bank loans_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00083",
+            "Value": "",
+            "_description": "Inter-bank loans_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00084",
+            "Value": "",
+            "_description": "Inter-bank loans_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00085",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00086",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00087",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00088",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00089",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00090",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00091",
+            "Value": "",
+            "_description": "Loans to non-bank FIs_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00092",
+            "Value": "",
+            "_description": "Insider loans_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00093",
+            "Value": "",
+            "_description": "Insider loans_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00094",
+            "Value": "",
+            "_description": "Insider loans_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00095",
+            "Value": "",
+            "_description": "Insider loans_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00096",
+            "Value": "",
+            "_description": "Insider loans_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00097",
+            "Value": "",
+            "_description": "Insider loans_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00098",
+            "Value": "",
+            "_description": "Insider loans_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00099",
+            "Value": "",
+            "_description": "Other loans_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00100",
+            "Value": "",
+            "_description": "Other loans_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00101",
+            "Value": "",
+            "_description": "Other loans_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00102",
+            "Value": "",
+            "_description": "Other loans_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00103",
+            "Value": "",
+            "_description": "Other loans_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00104",
+            "Value": "",
+            "_description": "Other loans_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00105",
+            "Value": "",
+            "_description": "Other loans_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00106",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00107",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00108",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00109",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00110",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00111",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00112",
+            "Value": "",
+            "_description": "Total (Economic Sector)_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00113",
+            "Value": "",
+            "_description": "Total (Branch)_Substandard Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00114",
+            "Value": "",
+            "_description": "Total (Branch)_Substandard O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00115",
+            "Value": "",
+            "_description": "Total (Branch)_Doubtful Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00116",
+            "Value": "",
+            "_description": "Total (Branch)_Doubtful O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00117",
+            "Value": "",
+            "_description": "Total (Branch)_Loss Term loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00118",
+            "Value": "",
+            "_description": "Total (Branch)_Loss O/D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "92_00119",
+            "Value": "",
+            "_description": "Total (Branch)_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 179,
+            "_areaName": "",
+            "DynamicItems": []
+        }
+    ]
+}

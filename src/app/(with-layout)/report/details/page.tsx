@@ -30,6 +30,11 @@ import { RB001ExcelView } from "@/components/ReportViews/rb001-excel-view";
 import { REGRL002ExcelView } from "@/components/ReportViews/regrl002-excel-view";
 import { SRRYY001ExcelView } from "@/components/ReportViews/srryy001-excel-view";
 import { ZS001ExcelView } from "@/components/ReportViews/zs001-excel-view";
+import { GS001ExcelView } from "@/components/ReportViews/gs001-excel-view";
+import { DR002ExcelView } from "@/components/ReportViews/dr002-excel-view";
+import { DS003ExcelView } from "@/components/ReportViews/ds003-excel-view";
+import { ID002ExcelView } from "@/components/ReportViews/id002-excel-view";
+import { RI003ExcelView } from "@/components/ReportViews/ri003-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -118,6 +123,21 @@ export default function Details() {
                 return <WAADIR001ExcelView activeFileName={report.json} />;
             case "LSR-Statutory ZS001":
                 return <ZS001ExcelView activeFileName={report.json} />;
+            case "Digital SavingGS001":
+            case "GS001":
+                return <GS001ExcelView activeFileName={report.json} />;
+            case "DEP_RAN&REG_DR002":
+            case "DR002":
+                return <DR002ExcelView activeFileName={report.json} />;
+            case "DEP_SEC&REG_DS003":
+            case "DS003":
+                return <DS003ExcelView activeFileName={report.json} />;
+            case "INT_FRE_RANID002":
+            case "ID002":
+                return <ID002ExcelView activeFileName={report.json} />;
+            case "INT_FRE_SECRI003":
+            case "RI003":
+                return <RI003ExcelView activeFileName={report.json} />;
             default:
                 return <></>;
         }

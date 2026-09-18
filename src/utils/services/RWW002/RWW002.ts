@@ -46,7 +46,7 @@ function getDirectCellValue(cell: ExcelJS.Cell): string {
     return "";
 }
 
-export async function processRWW001Report(
+export async function processRWW002Report(
     instCode: string,
     inputFilePath: string,
     startDateStr: string,

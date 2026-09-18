@@ -93,7 +93,17 @@ export const reportSchema = yup.object().shape({
                     reportIdStr.toUpperCase().includes("LB002") ||
                     reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002") ||
                     reportIdStr.toUpperCase().includes("13002") ||
-                    reportIdStr.toUpperCase().includes("BSD_LOAN_PART13002")
+                    reportIdStr.toUpperCase().includes("BSD_LOAN_PART13002") ||
+                    reportIdStr.toUpperCase().includes("GS001") ||
+                    reportIdStr.toUpperCase().includes("DIGITAL SAVING") ||
+                    reportIdStr.toUpperCase().includes("DR002") ||
+                    reportIdStr.toUpperCase().includes("DEP_RAN") ||
+                    reportIdStr.toUpperCase().includes("DS003") ||
+                    reportIdStr.toUpperCase().includes("DEP_SEC") ||
+                    reportIdStr.toUpperCase().includes("ID002") ||
+                    reportIdStr.toUpperCase().includes("INT_FRE_RAN") ||
+                    reportIdStr.toUpperCase().includes("RI003") ||
+                    reportIdStr.toUpperCase().includes("INT_FRE_SEC")
                 ) {
                     validationResult = await validateTemplate(
                         file,

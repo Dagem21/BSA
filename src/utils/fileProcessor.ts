@@ -18,7 +18,7 @@ import { processMD002Report } from "@/utils/services/MD002/MD002";
 import { processDPWADP001Report } from "@/utils/services/DPWADP001/DPWADP001";
 import { processBD001Report } from "@/utils/services/BD001/BD001";
 import { ReportFormValues } from "@/yup/report";
-import { processRWW001Report } from "./services/RWW002/RWW001";
+import { processRWW002Report } from "./services/RWW002/RWW002";
 import { processLA001Report } from "./services/LA001/LA001";
 import { processEP001Report } from "./services/EP001/EP001";
 import { processMWAC001Report } from "./services/MWAC001/MWAC001";
@@ -26,6 +26,7 @@ import { process13002Report } from "./services/BSD_LOAN_PART13002/13002";
 import { processLL001Report } from "./services/LL001/LL001";
 import { processNL001Report } from "./services/NL001/NL001";
 import { processLP001Report } from "./services/LP001/LP001";
+import { processRA002Report } from "./services/RA002/RA002";
 import { processWAADIR001Report } from "./services/WAADIR001/WAADIR001";
 import { processCM002Report } from "./services/CM002/CM002";
 import { processIF002Report } from "./services/IF002/IF002";
@@ -33,6 +34,11 @@ import { processLC001Report } from "./services/LC001/LC001";
 import { processRD002Report } from "./services/RD002/RD002";
 import { processRS002Report } from "./services/RS002/RS002";
 import { processZZ002Report } from "./services/ZZ002/ZZ002";
+import { processGS001Report } from "./services/GS001/GS001";
+import { processDR002Report } from "./services/DR002/DR002";
+import { processDS003Report } from "./services/DS003/DS003";
+import { processID002Report } from "./services/ID002/ID002";
+import { processRI003Report } from "./services/RI003/RI003";
 
 export const fileProcessor = async (
     instCode: string,
@@ -145,7 +151,7 @@ export const fileProcessor = async (
                 processor = processBD001Report;
                 break;
             case "IFB_LON_R & RWW002":
-                processor = processRWW001Report;
+                processor = processRWW002Report;
                 break;
             case "LOA_ADV_OUT_LA001":
                 processor = processLA001Report;
@@ -154,44 +160,57 @@ export const fileProcessor = async (
                 processor = processEP001Report;
                 break;
             case "COL_SOL_18M_LL001":
-            case "LL001":
                 processor = processLL001Report;
                 break;
             case "NPL&PRO_NL001":
-            case "NL001":
                 processor = processNL001Report;
                 break;
+            case "LOAN_RAN&REG_RA002":
+                processor = processRA002Report;
+                break;
             case "LOAN_CLA&PROV_LP001":
-            case "LP001":
                 processor = processLP001Report;
                 break;
             case "WAADIR001":
-            case "ADIR001":
                 processor = processWAADIR001Report;
                 break;
             case "CDby Range and RegCM002":
-            case "CM002":
                 processor = processCM002Report;
                 break;
             case "DIFIF002":
-            case "IF002":
                 processor = processIF002Report;
                 break;
             case "M_LCPLC001":
-            case "LC001":
                 processor = processLC001Report;
                 break;
             case "DIR RANGERD002":
-            case "RD002":
                 processor = processRD002Report;
                 break;
             case "LOAN_SEC & REGRS002":
-            case "RS002":
                 processor = processRS002Report;
                 break;
             case "IFB_LON_S & RZZ002":
-            case "ZZ002":
                 processor = processZZ002Report;
+                break;
+            case "Digital SavingGS001":
+            case "GS001":
+                processor = processGS001Report;
+                break;
+            case "DEP_RAN&REG_DR002":
+            case "DR002":
+                processor = processDR002Report;
+                break;
+            case "DEP_SEC&REG_DS003":
+            case "DS003":
+                processor = processDS003Report;
+                break;
+            case "INT_FRE_RANID002":
+            case "ID002":
+                processor = processID002Report;
+                break;
+            case "INT_FRE_SECRI003":
+            case "RI003":
+                processor = processRI003Report;
                 break;
             default:
                 break;
@@ -206,7 +225,7 @@ export const fileProcessor = async (
                 filePath,
                 jsonFilePath
             );
-
+            console.log(procRes);
             if (!procRes.success) {
                 return new Response(
                     JSON.stringify({

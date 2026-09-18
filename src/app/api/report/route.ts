@@ -216,7 +216,8 @@ export async function POST(request: NextRequest) {
         if (result.created) {
             return new Response(
                 JSON.stringify({
-                    message: "Report created."
+                    message: "Report created.",
+                    report: result.created
                 }),
                 {
                     status: 200,

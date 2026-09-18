@@ -1,0 +1,24 @@
+Sample RI003 Excel created at: C:\Users\mulukenwalle\Desktop\national_bank\BSA\reports\excel\RI003_sample.xlsx
+Sample RI003 JSON created at: C:\Users\mulukenwalle\Desktop\national_bank\BSA\reports\json\RI003_sample.json
+
+Generated RI003 JSON Summary:
+ReturnKey: INT_FRE_SECRI003
+InstCode: 0000001
+FinYear: 2026
+StartDate: 2026-04-01T00:00:00
+EndDate: 2026-06-30T00:00:00
+ReturnItemsList count: 2016
+First Item (RI003_35702): {
+  Code: 'RI003_35702',
+  Value: '1050000',
+  _description: 'Addis Ababa_Pub.  Enterprise_Amount',
+  _dataType: 'NUMERIC',
+  _required: false
+}
+Last Item (RI003_37717): {
+  Code: 'RI003_37717',
+  Value: '144170',
+  _description: 'SERS_Rural_ Total _# of Accounts  ',
+  _dataType: 'NUMERIC',
+  _required: false
+}

@@ -26,6 +26,11 @@ export async function generateExcelFromJson(
     else if (returnKey.includes("FB001")) sheetName = "FB001";
     else if (returnKey.includes("BP001")) sheetName = "BP001";
     else if (returnKey.includes("KK001") || returnKey.includes("M_CC")) sheetName = "M_CC-On & OffKK001";
+    else if (returnKey.includes("GS001")) sheetName = "GS001";
+    else if (returnKey.includes("DR002")) sheetName = "DR002";
+    else if (returnKey.includes("DS003")) sheetName = "DS003";
+    else if (returnKey.includes("ID002") || returnKey.includes("INT_FRE_RAN")) sheetName = "ID002";
+    else if (returnKey.includes("RI003") || returnKey.includes("INT_FRE_SEC")) sheetName = "RI003";
     else sheetName = returnKey.slice(0, 31);
 
     const worksheet = workbook.addWorksheet(sheetName);
@@ -132,6 +137,440 @@ export async function generateExcelFromJson(
                 cell.border = borderStyle;
                 cell.alignment = { horizontal: "right" };
             }
+        });
+
+    } else if (returnKey.includes("GS001")) {
+        // GS001 Metadata layout
+        worksheet.getCell("B9").value = "Institution code";
+        worksheet.getCell("B10").value = "Financial Year";
+        worksheet.getCell("B11").value = "Start Date";
+        worksheet.getCell("B12").value = "End Date";
+
+        worksheet.getCell("C9").value = instCode;
+        worksheet.getCell("C10").value = finYear;
+        worksheet.getCell("C11").value = startDate ? `${startDate}T00:00:00` : "";
+        worksheet.getCell("C12").value = endDate ? `${endDate}T00:00:00` : "";
+
+        ["B9", "B10", "B11", "B12"].forEach(cell => {
+            worksheet.getCell(cell).font = metaFont;
+        });
+
+        // Write GS001 Table Header at Row 14
+        const headers = ["Deposit Type", "Deposit Amount", "# of depositors accounts", "# of depositors"];
+        headers.forEach((h, i) => {
+            const cell = worksheet.getRow(14).getCell(i + 2); // Start at Col B
+            cell.value = h;
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: i >= 1 ? "right" : "left", vertical: "middle" };
+        });
+
+        const returnItems = jsonData?.ReturnItemsList || [];
+        const itemsMap: Record<string, string> = {};
+        returnItems.forEach((item: any) => {
+            itemsMap[item.Code] = item.Value;
+        });
+
+        const gs001Rows = [
+            { type: "Demand", amtCode: "163_00001", accCode: "163_00002", depCode: "163_00003", excelRow: 15 },
+            { type: "Saving", amtCode: "163_00004", accCode: "163_00005", depCode: "163_00006", excelRow: 16 },
+            { type: "Time", amtCode: "163_00007", accCode: "163_00008", depCode: "163_00009", excelRow: 17 },
+            { type: "Total", amtCode: "163_00010", accCode: "163_00011", depCode: "163_00012", excelRow: 18 }
+        ];
+
+        gs001Rows.forEach((rInfo) => {
+            const row = worksheet.getRow(rInfo.excelRow);
+            const cellType = row.getCell(2);
+            cellType.value = rInfo.type;
+            cellType.border = borderStyle;
+
+            [
+                { code: rInfo.amtCode, isInteger: false, col: 3 },
+                { code: rInfo.accCode, isInteger: true, col: 4 },
+                { code: rInfo.depCode, isInteger: true, col: 5 }
+            ].forEach((colInfo) => {
+                const cell = row.getCell(colInfo.col);
+                const valStr = itemsMap[colInfo.code] ?? "";
+
+                if (valStr !== "" && !isNaN(Number(valStr))) {
+                    cell.value = Number(valStr);
+                    cell.numFmt = colInfo.isInteger ? "#,##0" : "#,##0.00";
+                } else {
+                    cell.value = valStr;
+                }
+                cell.border = borderStyle;
+                cell.alignment = { horizontal: "right" };
+            });
+        });
+
+    } else if (returnKey.includes("DR002")) {
+        // DR002 Metadata layout
+        worksheet.getCell("B9").value = "Institution code";
+        worksheet.getCell("B10").value = "Financial Year";
+        worksheet.getCell("B11").value = "Start Date";
+        worksheet.getCell("B12").value = "End Date";
+
+        worksheet.getCell("C9").value = instCode;
+        worksheet.getCell("C10").value = finYear;
+        worksheet.getCell("C11").value = startDate ? `${startDate}T00:00:00` : "";
+        worksheet.getCell("C12").value = endDate ? `${endDate}T00:00:00` : "";
+
+        ["B9", "B10", "B11", "B12"].forEach(cell => {
+            worksheet.getCell(cell).font = metaFont;
+        });
+
+        // Write DR002 Range Headers at Row 13 & 14
+        worksheet.getRow(13).getCell(2).value = "Region / Category";
+        worksheet.getRow(13).getCell(2).fill = headerFill;
+        worksheet.getRow(13).getCell(2).font = headerFont;
+
+        const ranges = ["<= Birr 100,000", ">Birr 100,000 - 1 Million", "> Birr 1 Million", "Total"];
+        ranges.forEach((rng, i) => {
+            const startCol = 3 + i * 3;
+            worksheet.mergeCells(13, startCol, 13, startCol + 2);
+            const cell = worksheet.getRow(13).getCell(startCol);
+            cell.value = rng;
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "center", vertical: "middle" };
+        });
+
+        for (let i = 0; i < 12; i++) {
+            const cell = worksheet.getRow(14).getCell(i + 3);
+            cell.value = i % 3 === 0 ? "Amount" : (i % 3 === 1 ? "# of Depositors" : "# of Accounts");
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "right", vertical: "middle" };
+        }
+
+        const returnItems = jsonData?.ReturnItemsList || [];
+        const itemsMap: Record<string, string> = {};
+        returnItems.forEach((item: any) => {
+            itemsMap[item.Code] = item.Value;
+        });
+
+        const regions = [
+            "Addis Ababa", "Afar", "Amhara", "Benishangul", "Dire Dawa", "Gambela",
+            "Harari", "Oromia", "Somalia", "Tigray", "Sidama", "SWERS", "CERS", "SERS"
+        ];
+        const subRows = ["", "Demand_", "Saving_", "Time_", "Urban_", "Rural_"];
+
+        let globalCodeCounter = 34682;
+        let excelRowIndex = 15;
+
+        regions.forEach((regName) => {
+            subRows.forEach((subRow) => {
+                const row = worksheet.getRow(excelRowIndex);
+                const subRowLabel = subRow === "" ? regName : `${regName} (${subRow.replace("_", "")})`;
+                
+                const cellLabel = row.getCell(2);
+                cellLabel.value = subRowLabel;
+                cellLabel.border = borderStyle;
+                if (subRow === "") cellLabel.font = { bold: true };
+
+                for (let cIdx = 0; cIdx < 12; cIdx++) {
+                    const codeStr = `DR002_${globalCodeCounter}`;
+                    globalCodeCounter++;
+
+                    const valStr = itemsMap[codeStr] ?? "";
+                    const cell = row.getCell(3 + cIdx);
+                    const isInteger = cIdx % 3 !== 0;
+
+                    if (valStr !== "" && !isNaN(Number(valStr))) {
+                        cell.value = Number(valStr);
+                        cell.numFmt = isInteger ? "#,##0" : "#,##0.00";
+                    } else {
+                        cell.value = valStr;
+                    }
+                    cell.border = borderStyle;
+                    cell.alignment = { horizontal: "right" };
+                }
+
+                excelRowIndex++;
+            });
+        });
+
+    } else if (returnKey.includes("DS003")) {
+        // DS003 Metadata layout
+        worksheet.getCell("B9").value = "Institution code";
+        worksheet.getCell("B10").value = "Financial Year";
+        worksheet.getCell("B11").value = "Start Date";
+        worksheet.getCell("B12").value = "End Date";
+
+        worksheet.getCell("C9").value = instCode;
+        worksheet.getCell("C10").value = finYear;
+        worksheet.getCell("C11").value = startDate ? `${startDate}T00:00:00` : "";
+        worksheet.getCell("C12").value = endDate ? `${endDate}T00:00:00` : "";
+
+        ["B9", "B10", "B11", "B12"].forEach(cell => {
+            worksheet.getCell(cell).font = metaFont;
+        });
+
+        // Write DS003 Sector Headers at Row 13 & 14
+        worksheet.getRow(13).getCell(2).value = "Region / Category";
+        worksheet.getRow(13).getCell(2).fill = headerFill;
+        worksheet.getRow(13).getCell(2).font = headerFont;
+
+        const sectors = ["Pub. Enterprise", "Private & Coop.", "Regional Gov.", "Banks", "Others", "Total"];
+        sectors.forEach((sec, i) => {
+            const startCol = 3 + i * 3;
+            worksheet.mergeCells(13, startCol, 13, startCol + 2);
+            const cell = worksheet.getRow(13).getCell(startCol);
+            cell.value = sec;
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "center", vertical: "middle" };
+        });
+
+        for (let i = 0; i < 18; i++) {
+            const cell = worksheet.getRow(14).getCell(i + 3);
+            cell.value = i % 3 === 0 ? "Amount" : (i % 3 === 1 ? "# of Depositors" : "# of Accounts");
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "right", vertical: "middle" };
+        }
+
+        const returnItems = jsonData?.ReturnItemsList || [];
+        const itemsMap: Record<string, string> = {};
+        returnItems.forEach((item: any) => {
+            itemsMap[item.Code] = item.Value;
+        });
+
+        const regions = [
+            "Addis Ababa", "Afar", "Amhara", "Benishangul", "Dire Dawa", "Gambela",
+            "Harari", "Oromia", "Somalia", "Tigray", "Sidama", "SWERS", "CERS", "SERS"
+        ];
+        const subRows = ["", "Demand_", "Saving_", "Time_", "Urban_", "Rural_"];
+
+        let globalCodeCounter = 33152;
+        let excelRowIndex = 15;
+
+        regions.forEach((regName) => {
+            subRows.forEach((subRow) => {
+                const row = worksheet.getRow(excelRowIndex);
+                const subRowLabel = subRow === "" ? regName : `${regName} (${subRow.replace("_", "")})`;
+                
+                const cellLabel = row.getCell(2);
+                cellLabel.value = subRowLabel;
+                cellLabel.border = borderStyle;
+                if (subRow === "") cellLabel.font = { bold: true };
+
+                for (let cIdx = 0; cIdx < 18; cIdx++) {
+                    const codeStr = `DS003_${globalCodeCounter}`;
+                    globalCodeCounter++;
+
+                    const valStr = itemsMap[codeStr] ?? "";
+                    const cell = row.getCell(3 + cIdx);
+                    const isInteger = cIdx % 3 !== 0;
+
+                    if (valStr !== "" && !isNaN(Number(valStr))) {
+                        cell.value = Number(valStr);
+                        cell.numFmt = isInteger ? "#,##0" : "#,##0.00";
+                    } else {
+                        cell.value = valStr;
+                    }
+                    cell.border = borderStyle;
+                    cell.alignment = { horizontal: "right" };
+                }
+
+                excelRowIndex++;
+            });
+        });
+
+    } else if (returnKey.includes("ID002") || returnKey.includes("INT_FRE_RAN")) {
+        // Metadata (B9:B12)
+        worksheet.getCell("B9").value = "Institution code";
+        worksheet.getCell("B10").value = "Financial Year";
+        worksheet.getCell("B11").value = "Start Date";
+        worksheet.getCell("B12").value = "End Date";
+
+        worksheet.getCell("C9").value = instCode;
+        worksheet.getCell("C10").value = finYear;
+        worksheet.getCell("C11").value = startDate ? `${startDate}T00:00:00` : "";
+        worksheet.getCell("C12").value = endDate ? `${endDate}T00:00:00` : "";
+
+        ["B9", "B10", "B11", "B12"].forEach(cell => {
+            worksheet.getCell(cell).font = metaFont;
+        });
+
+        // Table Header at Row 13 & 14
+        worksheet.getRow(13).getCell(2).value = "Region / Deposit Breakdown";
+        worksheet.getRow(13).getCell(2).fill = headerFill;
+        worksheet.getRow(13).getCell(2).font = headerFont;
+
+        const ranges = ["<= Birr 100,000", "> Birr 100,000 - 1 Million", "> Birr 1 Million", "Total"];
+        ranges.forEach((rng, i) => {
+            const startCol = 3 + i * 3;
+            worksheet.mergeCells(13, startCol, 13, startCol + 2);
+            const cell = worksheet.getRow(13).getCell(startCol);
+            cell.value = rng;
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "center", vertical: "middle" };
+        });
+
+        for (let i = 0; i < 12; i++) {
+            const cell = worksheet.getRow(14).getCell(i + 3);
+            cell.value = i % 3 === 0 ? "Amount" : (i % 3 === 1 ? "# of Depositors" : "# of Accounts");
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "right", vertical: "middle" };
+        }
+
+        const returnItems = jsonData?.ReturnItemsList || [];
+        const itemsMap: Record<string, string> = {};
+        returnItems.forEach((item: any) => {
+            itemsMap[item.Code] = item.Value;
+        });
+
+        const regions = [
+            "Addis Ababa", "Afar", "Amhara", "Benishangul", "Dire Dawa", "Gambela",
+            "Harari", "Oromia", "Somalia", "Tigray", "Sidama", "SWERS", "CERS", "SERS"
+        ];
+
+        let globalCodeCounter = 37736;
+        let excelRowIndex = 15;
+
+        regions.forEach((regName, regIdx) => {
+            const regIdx1Based = regIdx + 1;
+            const subRows = [
+                "",
+                "Demand_",
+                "Saving_",
+                `Time (${regIdx1Based}.3.1+${regIdx1Based}.3.2)_`,
+                "Restricted Investment Deposit_",
+                "Unrestricted Investment Deposit_",
+                "Urban_",
+                "Rural_"
+            ];
+
+            subRows.forEach((subRow) => {
+                const row = worksheet.getRow(excelRowIndex);
+                const subRowLabel = subRow === "" ? `${regName} Total` : `${regName} (${subRow.replace("_", "")})`;
+                
+                const cellLabel = row.getCell(2);
+                cellLabel.value = subRowLabel;
+                cellLabel.border = borderStyle;
+                if (subRow === "") cellLabel.font = { bold: true };
+
+                for (let cIdx = 0; cIdx < 12; cIdx++) {
+                    const codeStr = `ID002_${globalCodeCounter}`;
+                    globalCodeCounter++;
+
+                    const valStr = itemsMap[codeStr] ?? "";
+                    const cell = row.getCell(3 + cIdx);
+                    const isInteger = cIdx % 3 !== 0;
+
+                    if (valStr !== "" && !isNaN(Number(valStr))) {
+                        cell.value = Number(valStr);
+                        cell.numFmt = isInteger ? "#,##0" : "#,##0.00";
+                    } else {
+                        cell.value = valStr;
+                    }
+                    cell.border = borderStyle;
+                    cell.alignment = { horizontal: "right" };
+                }
+
+                excelRowIndex++;
+            });
+        });
+
+    } else if (returnKey.includes("RI003") || returnKey.includes("INT_FRE_SEC")) {
+        // Metadata (B9:B12)
+        worksheet.getCell("B9").value = "Institution code";
+        worksheet.getCell("B10").value = "Financial Year";
+        worksheet.getCell("B11").value = "Start Date";
+        worksheet.getCell("B12").value = "End Date";
+
+        worksheet.getCell("C9").value = instCode;
+        worksheet.getCell("C10").value = finYear;
+        worksheet.getCell("C11").value = startDate ? `${startDate}T00:00:00` : "";
+        worksheet.getCell("C12").value = endDate ? `${endDate}T00:00:00` : "";
+
+        ["B9", "B10", "B11", "B12"].forEach(cell => {
+            worksheet.getCell(cell).font = metaFont;
+        });
+
+        // Table Header at Row 13 & 14
+        worksheet.getRow(13).getCell(2).value = "Region / Category";
+        worksheet.getRow(13).getCell(2).fill = headerFill;
+        worksheet.getRow(13).getCell(2).font = headerFont;
+
+        const sectors = ["Pub. Enterprise", "Private & Coop.", "Regional Gov.", "Banks", "Others", "Total"];
+        sectors.forEach((sec, i) => {
+            const startCol = 3 + i * 3;
+            worksheet.mergeCells(13, startCol, 13, startCol + 2);
+            const cell = worksheet.getRow(13).getCell(startCol);
+            cell.value = sec;
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "center", vertical: "middle" };
+        });
+
+        for (let i = 0; i < 18; i++) {
+            const cell = worksheet.getRow(14).getCell(i + 3);
+            cell.value = i % 3 === 0 ? "Amount" : (i % 3 === 1 ? "# of Depositors" : "# of Accounts");
+            cell.fill = headerFill;
+            cell.font = headerFont;
+            cell.alignment = { horizontal: "right", vertical: "middle" };
+        }
+
+        const returnItems = jsonData?.ReturnItemsList || [];
+        const itemsMap: Record<string, string> = {};
+        returnItems.forEach((item: any) => {
+            itemsMap[item.Code] = item.Value;
+        });
+
+        const regions = [
+            "Addis Ababa", "Afar", "Amhara", "Benishangul", "Dire Dawa", "Gambela",
+            "Harari", "Oromia", "Somalia", "Tigray", "Sidama", "SWERS", "CERS", "SERS"
+        ];
+
+        let globalCodeCounter = 35702;
+        let excelRowIndex = 15;
+
+        regions.forEach((regName, regIdx) => {
+            const regIdx1Based = regIdx + 1;
+            const subRows = [
+                "",
+                "Demand_",
+                "Saving_",
+                `Time (${regIdx1Based}.3.1+${regIdx1Based}.3.2)_`,
+                "Restricted Investment Deposit_",
+                "Unrestricted Investment Deposit_",
+                "Urban_",
+                "Rural_"
+            ];
+
+            subRows.forEach((subRow) => {
+                const row = worksheet.getRow(excelRowIndex);
+                const subRowLabel = subRow === "" ? `${regName} Total` : `${regName} (${subRow.replace("_", "")})`;
+                
+                const cellLabel = row.getCell(2);
+                cellLabel.value = subRowLabel;
+                cellLabel.border = borderStyle;
+                if (subRow === "") cellLabel.font = { bold: true };
+
+                for (let cIdx = 0; cIdx < 18; cIdx++) {
+                    const codeStr = `RI003_${globalCodeCounter}`;
+                    globalCodeCounter++;
+
+                    const valStr = itemsMap[codeStr] ?? "";
+                    const cell = row.getCell(3 + cIdx);
+                    const isInteger = cIdx % 3 !== 0;
+
+                    if (valStr !== "" && !isNaN(Number(valStr))) {
+                        cell.value = Number(valStr);
+                        cell.numFmt = isInteger ? "#,##0" : "#,##0.00";
+                    } else {
+                        cell.value = valStr;
+                    }
+                    cell.border = borderStyle;
+                    cell.alignment = { horizontal: "right" };
+                }
+
+                excelRowIndex++;
+            });
         });
 
     } else {
