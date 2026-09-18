@@ -9,6 +9,13 @@ const { processLP001 } = require("@/utils/services/LP001/LP001");
 const { processLL001 } = require("@/utils/services/LL001/LL001");
 const { processNL001 } = require("@/utils/services/NL001/NL001");
 const { processWAADIR001 } = require("@/utils/services/WAADIR001/WAADIR001");
+const { processCM002 } = require("@/utils/services/CM002/CM002");
+const { processIF002 } = require("@/utils/services/IF002/IF002");
+const { processLC001 } = require("@/utils/services/LC001/LC001");
+const { processLCMWAC001 } = require("@/utils/services/MWAC001/MWAC001");
+const { processRD002 } = require("@/utils/services/RD002/RD002");
+const { processRS002 } = require("@/utils/services/RS002/RS002");
+const { processZZ002 } = require("@/utils/services/ZZ002/ZZ002");
 
 function sanitizeJsonPayload(payload: any) {
     if (!payload) return payload;
@@ -19,17 +26,32 @@ function sanitizeJsonPayload(payload: any) {
         }));
     }
     if (Array.isArray(payload.DynamicItemsList)) {
-        payload.DynamicItemsList = payload.DynamicItemsList.map((row: any) => {
-            if (row && typeof row === "object") {
-                Object.keys(row).forEach((k) => {
-                    if (row[k] === null || row[k] === undefined || String(row[k]).trim() === "") {
-                        row[k] = "0";
+        payload.DynamicItemsList = payload.DynamicItemsList.map((entry: any) => {
+            if (!entry) return entry;
+            if (Array.isArray(entry.DynamicItems)) {
+                entry.DynamicItems = entry.DynamicItems.map((subItem: any) => {
+                    if (!subItem) return subItem;
+                    const isNumeric = subItem._dataType === "NUMERIC" ||
+                        (subItem.Code && !["1.1", "1.2", "1.4", "1.6"].includes(subItem.Code) && !subItem.Code.endsWith(".name"));
+                    const val = subItem.Value;
+                    const isZero = val === null || val === undefined || String(val).trim() === "";
+                    return {
+                        ...subItem,
+                        Value: (isNumeric && isZero) ? "0" : (val === null || val === undefined ? "" : String(val).trim())
+                    };
+                });
+            } else if (typeof entry === "object") {
+                Object.keys(entry).forEach((k) => {
+                    if (k.startsWith("_")) return;
+                    const val = entry[k];
+                    if (val === null || val === undefined || String(val).trim() === "") {
+                        entry[k] = "0";
                     } else {
-                        row[k] = String(row[k]).trim();
+                        entry[k] = String(val).trim();
                     }
                 });
             }
-            return row;
+            return entry;
         });
     }
     return payload;
@@ -78,8 +100,22 @@ export async function POST(request: NextRequest) {
             jsonPayload = processLL001 ? processLL001(worksheet) : null;
         } else if (requestedType.includes("NL001")) {
             jsonPayload = processNL001 ? processNL001(worksheet) : null;
-        } else if (requestedType.includes("WAADIR001")) {
+        } else if (requestedType.includes("WAADIR001") || requestedType.includes("ADIR001")) {
             jsonPayload = processWAADIR001 ? processWAADIR001(worksheet) : null;
+        } else if (requestedType.includes("CM002") || requestedType.includes("CDby Range")) {
+            jsonPayload = processCM002 ? processCM002(worksheet) : null;
+        } else if (requestedType.includes("ZZ002") || requestedType.includes("IFB_LON_S")) {
+            jsonPayload = processZZ002 ? processZZ002(worksheet) : null;
+        } else if (requestedType.includes("RS002") || requestedType.includes("LOAN_SEC")) {
+            jsonPayload = processRS002 ? processRS002(worksheet) : null;
+        } else if (requestedType.includes("IF002") || requestedType.includes("DIFIF002")) {
+            jsonPayload = processIF002 ? processIF002(worksheet) : null;
+        } else if (requestedType.includes("RD002") || requestedType.includes("DIR RANGE")) {
+            jsonPayload = processRD002 ? processRD002(worksheet) : null;
+        } else if (requestedType.includes("LC001") || requestedType.includes("M_LCPLC001")) {
+            jsonPayload = processLC001 ? processLC001(worksheet) : null;
+        } else if (requestedType.includes("LCMWAC001") || requestedType.includes("MWAC001")) {
+            jsonPayload = processLCMWAC001 ? processLCMWAC001(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }
