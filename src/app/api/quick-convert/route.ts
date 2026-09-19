@@ -23,6 +23,7 @@ const { processID002 } = require("@/utils/services/ID002/ID002");
 const { processRI003 } = require("@/utils/services/RI003/RI003");
 const { processDL001 } = require("@/utils/services/DL001/DL001");
 const { processEE002 } = require("@/utils/services/EE002/EE002");
+const { processSR002 } = require("@/utils/services/SR002/SR002");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -226,6 +227,8 @@ export async function POST(request: NextRequest) {
             jsonPayload = processDL001 ? processDL001(worksheet) : null;
         } else if (requestedType.includes("EE002") || requestedType.includes("INT_LON_R&R") || requestedType.includes("INT_LON_RR")) {
             jsonPayload = processEE002 ? processEE002(worksheet) : null;
+        } else if (requestedType.includes("SR002") || requestedType.includes("INT_LON_S&R") || requestedType.includes("INT_LON_SR")) {
+            jsonPayload = processSR002 ? processSR002(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

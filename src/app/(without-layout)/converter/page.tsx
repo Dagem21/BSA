@@ -145,6 +145,9 @@ export default function StandaloneConverterPage() {
                             <option value="INT_LON_R&R_EE002">
                                 INT_LON_R&R_EE002 — Quarterly Interest Free Loans by Range and Region (EE002)
                             </option>
+                            <option value="INT_LON_S&R_SR002">
+                                INT_LON_S&R_SR002 — Quarterly Interest Free Loans by Sector and Region (SR002)
+                            </option>
                         </select>
                     </div>
 
