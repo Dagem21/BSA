@@ -38,6 +38,16 @@ import { processSE002Report } from "./services/SE002/SE002";
 import { processNE001Report } from "./services/NE001/NE001";
 import { processMR001Report } from "./services/MR001/MR001";
 import { processXW002Report } from "./services/XW002/XW002";
+import { processGS001Report } from "./services/GS001/GS001";
+import { processDR002Report } from "./services/DR002/DR002";
+import { processDS003Report } from "./services/DS003/DS003";
+import { processID002Report } from "./services/ID002/ID002";
+import { processRI003Report } from "./services/RI003/RI003";
+import { processDL001Report } from "./services/DL001/DL001";
+import { processEE002Report } from "./services/EE002/EE002";
+import { processSR002Report } from "./services/SR002/SR002";
+import { processTB001Report } from "./services/TB001/TB001";
+import { processTN001Report } from "./services/TN001/TN001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -202,6 +212,36 @@ export const fileProcessor = async (
                 break;
             case "BUIL_CONSTXW002":
                 processor = processXW002Report;
+                break;
+            case "Digital SavingGS001":
+                processor = processGS001Report;
+                break;
+            case "DEP_RAN&REG_DR002":
+                processor = processDR002Report;
+                break;
+            case "DEP_SEC&REG_DS003":
+                processor = processDS003Report;
+                break;
+            case "INT_FRE_RANID002":
+                processor = processID002Report;
+                break;
+            case "INT_FRE_SECRI003":
+                processor = processRI003Report;
+                break;
+            case "DigitalLendingDL001":
+                processor = processDL001Report;
+                break;
+            case "INT_LON_R&R_EE002":
+                processor = processEE002Report;
+                break;
+            case "INT_LON_S&R_SR002":
+                processor = processSR002Report;
+                break;
+            case "TOP_20_BOR_TB001":
+                processor = processTB001Report;
+                break;
+            case "TOP_20_NPLs_TN001":
+                processor = processTN001Report;
                 break;
             default:
                 break;

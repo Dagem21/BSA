@@ -139,6 +139,21 @@ export default function StandaloneConverterPage() {
                             <option value="WAADIR001">
                                 WAADIR001 — Deposit Interest Rates (WAADIR001)
                             </option>
+                            <option value="DigitalLendingDL001">
+                                DigitalLendingDL001 — Quarterly Digital Lending Report (DL001)
+                            </option>
+                            <option value="INT_LON_R&R_EE002">
+                                INT_LON_R&R_EE002 — Quarterly Interest Free Loans by Range and Region (EE002)
+                            </option>
+                            <option value="INT_LON_S&R_SR002">
+                                INT_LON_S&R_SR002 — Quarterly Interest Free Loans by Sector and Region (SR002)
+                            </option>
+                            <option value="TOP_20_BOR_TB001">
+                                TOP_20_BOR_TB001 — Quarterly Top Twenty (20) Borrowers' Report (TB001)
+                            </option>
+                            <option value="TOP_20_NPLs_TN001">
+                                TOP_20_NPLs_TN001 — Quarterly Top Twenty (20) NPLs Report (TN001)
+                            </option>
                         </select>
                     </div>
 

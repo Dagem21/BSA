@@ -16,14 +16,105 @@ const { processLCMWAC001 } = require("@/utils/services/MWAC001/MWAC001");
 const { processRD002 } = require("@/utils/services/RD002/RD002");
 const { processRS002 } = require("@/utils/services/RS002/RS002");
 const { processZZ002 } = require("@/utils/services/ZZ002/ZZ002");
+const { processGS001 } = require("@/utils/services/GS001/GS001");
+const { processDR002 } = require("@/utils/services/DR002/DR002");
+const { processDS003 } = require("@/utils/services/DS003/DS003");
+const { processID002 } = require("@/utils/services/ID002/ID002");
+const { processRI003 } = require("@/utils/services/RI003/RI003");
+const { processDL001 } = require("@/utils/services/DL001/DL001");
+const { processEE002 } = require("@/utils/services/EE002/EE002");
+const { processSR002 } = require("@/utils/services/SR002/SR002");
+const { processTB001 } = require("@/utils/services/TB001/TB001");
+const { processTN001 } = require("@/utils/services/TN001/TN001");
+
+function getDirectCellValue(cell: any): string {
+    if (!cell || cell === null || cell === undefined) return "";
+    let val = cell;
+    if (cell && typeof cell === "object" && "value" in cell && ("type" in cell || "address" in cell || "worksheet" in cell)) {
+        val = cell.value;
+    }
+    if (val === null || val === undefined) {
+        if (cell && typeof cell === "object") {
+            if (cell.result !== undefined && cell.result !== null) {
+                if (typeof cell.result === "object" && "error" in cell.result) return "";
+                return String(cell.result).trim();
+            }
+            if (cell.text !== undefined && cell.text !== null) {
+                return String(cell.text).trim();
+            }
+        }
+        return "";
+    }
+    if (typeof val === "number") return String(val);
+    if (typeof val === "string") {
+        const trimmed = val.trim();
+        if (trimmed === "[object Object]") return "";
+        return trimmed;
+    }
+    if (Array.isArray(val)) {
+        return val.map((item: any) => {
+            if (!item) return "";
+            if (typeof item === "string") return item;
+            if (typeof item === "object") {
+                if ("text" in item && item.text) return item.text;
+                if ("result" in item && item.result !== undefined && item.result !== null) return String(item.result);
+            }
+            return "";
+        }).join("").trim();
+    }
+    if (val instanceof Date) {
+        if (isNaN(val.getTime())) return "";
+        const pad = (n: number) => String(n).padStart(2, "0");
+        return `${val.getFullYear()}-${pad(val.getMonth() + 1)}-${pad(val.getDate())}`;
+    }
+    if (typeof val === "object") {
+        if ("result" in val && val.result !== undefined && val.result !== null) {
+            if (typeof val.result === "object" && val.result !== null && "error" in val.result) return "";
+            if (typeof val.result === "number") return String(val.result);
+            if (typeof val.result === "string") {
+                const s = val.result.trim();
+                return s === "[object Object]" ? "" : s;
+            }
+            if (Array.isArray(val.result)) {
+                return val.result.map((item: any) => (item && typeof item === "object" && "text" in item ? item.text : String(item))).join("").trim();
+            }
+            if (val.result instanceof Date) {
+                if (isNaN(val.result.getTime())) return "";
+                const pad = (n: number) => String(n).padStart(2, "0");
+                return `${val.result.getFullYear()}-${pad(val.result.getMonth() + 1)}-${pad(val.result.getDate())}`;
+            }
+            return String(val.result).trim();
+        }
+        if ("richText" in val && Array.isArray(val.richText)) {
+            return val.richText.map((t: any) => (t && t.text ? t.text : "")).join("").trim();
+        }
+        if ("text" in val && val.text) return String(val.text).trim();
+        if (cell && cell.result !== undefined && cell.result !== null) {
+            if (typeof cell.result === "object" && "error" in cell.result) return "";
+            return String(cell.result).trim();
+        }
+        if (cell && cell.text !== undefined && cell.text !== null) return String(cell.text).trim();
+        return "";
+    }
+    return "";
+}
 
 function sanitizeJsonPayload(payload: any) {
     if (!payload) return payload;
     if (Array.isArray(payload.ReturnItemsList)) {
-        payload.ReturnItemsList = payload.ReturnItemsList.map((item: any) => ({
-            ...item,
-            Value: (item.Value === null || item.Value === undefined || String(item.Value).trim() === "") ? "0" : String(item.Value).trim()
-        }));
+        payload.ReturnItemsList = payload.ReturnItemsList.map((item: any) => {
+            if (!item) return item;
+            let val = item.Value;
+            if (val && typeof val === "object") {
+                val = getDirectCellValue(val);
+            }
+            const strVal = (val === null || val === undefined) ? "" : String(val).trim();
+            const isZero = strVal === "" || strVal === "[object Object]";
+            return {
+                ...item,
+                Value: isZero ? "0" : strVal
+            };
+        });
     }
     if (Array.isArray(payload.DynamicItemsList)) {
         payload.DynamicItemsList = payload.DynamicItemsList.map((entry: any) => {
@@ -31,23 +122,31 @@ function sanitizeJsonPayload(payload: any) {
             if (Array.isArray(entry.DynamicItems)) {
                 entry.DynamicItems = entry.DynamicItems.map((subItem: any) => {
                     if (!subItem) return subItem;
+                    let val = subItem.Value;
+                    if (val && typeof val === "object") {
+                        val = getDirectCellValue(val);
+                    }
+                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
                     const isNumeric = subItem._dataType === "NUMERIC" ||
                         (subItem.Code && !["1.1", "1.2", "1.4", "1.6"].includes(subItem.Code) && !subItem.Code.endsWith(".name"));
-                    const val = subItem.Value;
-                    const isZero = val === null || val === undefined || String(val).trim() === "";
+                    const isZero = strVal === "" || strVal === "[object Object]";
                     return {
                         ...subItem,
-                        Value: (isNumeric && isZero) ? "0" : (val === null || val === undefined ? "" : String(val).trim())
+                        Value: (isNumeric && isZero) ? "0" : (isZero && !isNumeric ? "" : strVal)
                     };
                 });
             } else if (typeof entry === "object") {
                 Object.keys(entry).forEach((k) => {
                     if (k.startsWith("_")) return;
-                    const val = entry[k];
-                    if (val === null || val === undefined || String(val).trim() === "") {
+                    let val = entry[k];
+                    if (val && typeof val === "object") {
+                        val = getDirectCellValue(val);
+                    }
+                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
+                    if (strVal === "" || strVal === "[object Object]") {
                         entry[k] = "0";
                     } else {
-                        entry[k] = String(val).trim();
+                        entry[k] = strVal;
                     }
                 });
             }
@@ -116,6 +215,26 @@ export async function POST(request: NextRequest) {
             jsonPayload = processLC001 ? processLC001(worksheet) : null;
         } else if (requestedType.includes("LCMWAC001") || requestedType.includes("MWAC001")) {
             jsonPayload = processLCMWAC001 ? processLCMWAC001(worksheet) : null;
+        } else if (requestedType.includes("GS001")) {
+            jsonPayload = processGS001 ? processGS001(worksheet) : null;
+        } else if (requestedType.includes("DR002")) {
+            jsonPayload = processDR002 ? processDR002(worksheet) : null;
+        } else if (requestedType.includes("DS003")) {
+            jsonPayload = processDS003 ? processDS003(worksheet) : null;
+        } else if (requestedType.includes("ID002") || requestedType.includes("INT_FRE_RAN")) {
+            jsonPayload = processID002 ? processID002(worksheet) : null;
+        } else if (requestedType.includes("RI003") || requestedType.includes("INT_FRE_SEC")) {
+            jsonPayload = processRI003 ? processRI003(worksheet) : null;
+        } else if (requestedType.includes("DL001") || requestedType.includes("DigitalLending")) {
+            jsonPayload = processDL001 ? processDL001(worksheet) : null;
+        } else if (requestedType.includes("EE002") || requestedType.includes("INT_LON_R&R") || requestedType.includes("INT_LON_RR")) {
+            jsonPayload = processEE002 ? processEE002(worksheet) : null;
+        } else if (requestedType.includes("SR002") || requestedType.includes("INT_LON_S&R") || requestedType.includes("INT_LON_SR")) {
+            jsonPayload = processSR002 ? processSR002(worksheet) : null;
+        } else if (requestedType.includes("TB001") || requestedType.includes("TOP_20_BOR")) {
+            jsonPayload = processTB001 ? processTB001(worksheet) : null;
+        } else if (requestedType.includes("TN001") || requestedType.includes("TOP_20_NPL")) {
+            jsonPayload = processTN001 ? processTN001(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }
