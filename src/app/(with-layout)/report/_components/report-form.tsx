@@ -142,7 +142,7 @@ export function ReportForm() {
                         label="Report Type"
                         items={data?.reportTypes?.map(
                             (item: ReportTypeDto) => ({
-                                label: `${item.reportId} (${item.service})`,
+                                label: `${item.description} (${item.service})`,
                                 value: item._id,
                                 disabled: item.service === ServiceTypes.Auto
                             })

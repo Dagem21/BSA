@@ -29,9 +29,14 @@ export function Select({
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setIsOptionSelected(e.target.value !== "");
-        if ((props as any).onChange) {
-            (props as any).onChange(e);
+        if (props.onChange) {
+            props.onChange(e);
         }
+    };
+
+    const truncateText = (text: string, maxLength = 45) => {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + "...";
     };
 
     return (
@@ -55,7 +60,7 @@ export function Select({
                 <select
                     id={id}
                     defaultValue={defaultValue || ""}
-                    onChange={(e) => setIsOptionSelected(true)}
+                    onChange={handleChange} // Fixed: using the correct handler
                     className={cn(
                         "w-full appearance-none rounded-lg border border-stroke bg-transparent px-5.5 py-3 transition outline-none focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary [&>option]:text-dark-5 dark:[&>option]:text-dark-6",
                         isOptionSelected && "text-dark dark:text-white",
@@ -74,8 +79,9 @@ export function Select({
                             key={item.value}
                             value={item.value}
                             disabled={item.disabled}
+                            title={item.label} // Shows the full text on hover (browser dependent)
                         >
-                            {item.label}
+                            {truncateText(item.label, 53)}{" "}
                         </option>
                     ))}
                 </select>

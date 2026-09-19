@@ -34,6 +34,10 @@ import { processLC001Report } from "./services/LC001/LC001";
 import { processRD002Report } from "./services/RD002/RD002";
 import { processRS002Report } from "./services/RS002/RS002";
 import { processZZ002Report } from "./services/ZZ002/ZZ002";
+import { processSE002Report } from "./services/SE002/SE002";
+import { processNE001Report } from "./services/NE001/NE001";
+import { processMR001Report } from "./services/MR001/MR001";
+import { processXW002Report } from "./services/XW002/XW002";
 
 export const fileProcessor = async (
     instCode: string,
@@ -187,6 +191,18 @@ export const fileProcessor = async (
             case "IFB_LON_S & RZZ002":
                 processor = processZZ002Report;
                 break;
+            case "LOAN_SEC&REG_SE002":
+                processor = processSE002Report;
+                break;
+            case "NPL_ECPOMNE001":
+                processor = processNE001Report;
+                break;
+            case "NBE_20_DEP_MR001":
+                processor = processMR001Report;
+                break;
+            case "BUIL_CONSTXW002":
+                processor = processXW002Report;
+                break;
             default:
                 break;
         }
@@ -200,7 +216,6 @@ export const fileProcessor = async (
                 filePath,
                 jsonFilePath
             );
-            console.log(procRes);
             if (!procRes.success) {
                 return new Response(
                     JSON.stringify({

@@ -106,42 +106,42 @@
         {
             "Code": "92_00015",
             "Value": "",
-            "_description": "Domestic Trade & Service_Substandard Term loan",
+            "_description": "Domestic Trade and Service_Substandard Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00016",
             "Value": "",
-            "_description": "Domestic Trade & Service_Substandard O/D",
+            "_description": "Domestic Trade and Service_Substandard O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00017",
             "Value": "",
-            "_description": "Domestic Trade & Service_Doubtful Term loan",
+            "_description": "Domestic Trade and Service_Doubtful Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00018",
             "Value": "",
-            "_description": "Domestic Trade & Service_Doubtful O/D",
+            "_description": "Domestic Trade and Service_Doubtful O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00019",
             "Value": "",
-            "_description": "Domestic Trade & Service_Loss Term loan",
+            "_description": "Domestic Trade and Service_Loss Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00020",
             "Value": "",
-            "_description": "Domestic Trade & Service_Loss O/D",
+            "_description": "Domestic Trade and Service_Loss O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
@@ -155,49 +155,49 @@
         {
             "Code": "92_00022",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Substandard Term loan",
+            "_description": "International Trade & Service (4.1+4.2)_Substandard Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00023",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Substandard O/D",
+            "_description": "International Trade & Service (4.1+4.2)_Substandard O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00024",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Doubtful Term loan",
+            "_description": "International Trade & Service (4.1+4.2)_Doubtful Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00025",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Doubtful O/D",
+            "_description": "International Trade & Service (4.1+4.2)_Doubtful O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00026",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Loss Term loan",
+            "_description": "International Trade & Service (4.1+4.2)_Loss Term loan",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00027",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Loss O/D",
+            "_description": "International Trade & Service (4.1+4.2)_Loss O/D",
             "_dataType": "NUMERIC",
             "_required": false
         },
         {
             "Code": "92_00028",
             "Value": "",
-            "_description": "International Trade & Service(4.1+4.2)_Total",
+            "_description": "International Trade & Service (4.1+4.2)_Total",
             "_dataType": "NUMERIC",
             "_required": false
         },

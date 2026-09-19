@@ -67,12 +67,6 @@ export function ReportTable() {
         false
     );
 
-    const reportsList: ReportDto[] = Array.isArray(data?.reports)
-        ? data.reports
-        : Array.isArray(data)
-        ? data
-        : [];
-
     const {
         data: dataUpdate,
         fetchData: fetchDataUpdate,
@@ -404,6 +398,12 @@ export function ReportTable() {
                 title="Report Details"
             >
                 <div className="flex flex-col gap-2">
+                    <div>
+                        <label className="text-sm">Report Name: </label>
+                        <p className="font-medium">
+                            {selectedReport?.reportType?.description}
+                        </p>
+                    </div>
                     <div>
                         <label className="text-sm">Report Type: </label>
                         <p className="font-medium">
