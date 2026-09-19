@@ -148,6 +148,9 @@ export default function StandaloneConverterPage() {
                             <option value="INT_LON_S&R_SR002">
                                 INT_LON_S&R_SR002 — Quarterly Interest Free Loans by Sector and Region (SR002)
                             </option>
+                            <option value="TOP_20_BOR_TB001">
+                                TOP_20_BOR_TB001 — Quarterly Top Twenty (20) Borrowers' Report (TB001)
+                            </option>
                         </select>
                     </div>
 

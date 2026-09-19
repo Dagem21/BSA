@@ -24,6 +24,7 @@ const { processRI003 } = require("@/utils/services/RI003/RI003");
 const { processDL001 } = require("@/utils/services/DL001/DL001");
 const { processEE002 } = require("@/utils/services/EE002/EE002");
 const { processSR002 } = require("@/utils/services/SR002/SR002");
+const { processTB001 } = require("@/utils/services/TB001/TB001");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -229,6 +230,8 @@ export async function POST(request: NextRequest) {
             jsonPayload = processEE002 ? processEE002(worksheet) : null;
         } else if (requestedType.includes("SR002") || requestedType.includes("INT_LON_S&R") || requestedType.includes("INT_LON_SR")) {
             jsonPayload = processSR002 ? processSR002(worksheet) : null;
+        } else if (requestedType.includes("TB001") || requestedType.includes("TOP_20_BOR")) {
+            jsonPayload = processTB001 ? processTB001(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

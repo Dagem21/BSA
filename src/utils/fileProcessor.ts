@@ -42,6 +42,7 @@ import { processRI003Report } from "./services/RI003/RI003";
 import { processDL001Report } from "./services/DL001/DL001";
 import { processEE002Report } from "./services/EE002/EE002";
 import { processSR002Report } from "./services/SR002/SR002";
+import { processTB001Report } from "./services/TB001/TB001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -228,6 +229,10 @@ export const fileProcessor = async (
             case "INT_LON_SR_SR002":
             case "SR002":
                 processor = processSR002Report;
+                break;
+            case "TOP_20_BOR_TB001":
+            case "TB001":
+                processor = processTB001Report;
                 break;
             default:
                 break;
