@@ -151,6 +151,9 @@ export default function StandaloneConverterPage() {
                             <option value="TOP_20_BOR_TB001">
                                 TOP_20_BOR_TB001 — Quarterly Top Twenty (20) Borrowers' Report (TB001)
                             </option>
+                            <option value="TOP_20_NPLs_TN001">
+                                TOP_20_NPLs_TN001 — Quarterly Top Twenty (20) NPLs Report (TN001)
+                            </option>
                         </select>
                     </div>
 

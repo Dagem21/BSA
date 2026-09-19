@@ -1,0 +1,1167 @@
+{
+    "ReturnKey": "TOP_20_NPLs_TN001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "10_00001",
+            "Value": "",
+            "_description": "Sub total top ten (10) NPLs_Loans Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00002",
+            "Value": "",
+            "_description": "Sub total top ten (10) NPLs_Provision Held",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00003",
+            "Value": "",
+            "_description": "Grand total top twenty (20) NPLs_Loans Approved",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00004",
+            "Value": "",
+            "_description": "Sub total top ten (10) NPLs_Collateral value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00005",
+            "Value": "",
+            "_description": "Sub total top ten (10) NPLs_Loans Approved",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00006",
+            "Value": "",
+            "_description": "Grand total top twenty (20) NPLs_Loans Outstanding",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00007",
+            "Value": "",
+            "_description": "Grand total top twenty (20) NPLs_Collateral value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "10_00008",
+            "Value": "",
+            "_description": "Grand total top twenty (20) NPLs_Provision held",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "2.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "2.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "2.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "3.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "3.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "3.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "4.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "4.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "4.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "5.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "5.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "5.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "6.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "6.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "6.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "7.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "7.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "7.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "8.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "8.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "8.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "9.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "9.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "9.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "10.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "10.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "10.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "11.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "11.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "11.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "12.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "12.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "12.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "13.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "13.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "13.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "14.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "14.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "14.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "15.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "15.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "15.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "16.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "16.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "16.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "17.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "17.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "17.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "18.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "18.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "18.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "19.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "19.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "19.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 171,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "20.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "20.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "20.3",
+                    "Value": "",
+                    "_description": "Loans Approved",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.4",
+                    "Value": "",
+                    "_description": "Loans Outstanding",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.5",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.6",
+                    "Value": "",
+                    "_description": "Provision held",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.7",
+                    "Value": "",
+                    "_description": "Loan Status",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        }
+    ]
+}
