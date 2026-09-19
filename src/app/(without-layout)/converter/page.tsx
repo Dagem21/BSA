@@ -142,6 +142,9 @@ export default function StandaloneConverterPage() {
                             <option value="DigitalLendingDL001">
                                 DigitalLendingDL001 — Quarterly Digital Lending Report (DL001)
                             </option>
+                            <option value="INT_LON_R&R_EE002">
+                                INT_LON_R&R_EE002 — Quarterly Interest Free Loans by Range and Region (EE002)
+                            </option>
                         </select>
                     </div>
 
