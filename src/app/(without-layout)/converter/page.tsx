@@ -139,6 +139,9 @@ export default function StandaloneConverterPage() {
                             <option value="WAADIR001">
                                 WAADIR001 — Deposit Interest Rates (WAADIR001)
                             </option>
+                            <option value="DigitalLendingDL001">
+                                DigitalLendingDL001 — Quarterly Digital Lending Report (DL001)
+                            </option>
                         </select>
                     </div>
 
