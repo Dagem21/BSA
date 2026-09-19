@@ -1,0 +1,2147 @@
+{
+    "ReturnKey": "TOP_20_BOR_TB001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "14_00001",
+            "Value": "",
+            "_description": "Name of Borrower_1",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00002",
+            "Value": "",
+            "_description": "Name of Borrower_3",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00003",
+            "Value": "",
+            "_description": "Name of Borrower_4",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00004",
+            "Value": "",
+            "_description": "Name of Borrower_5",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00005",
+            "Value": "",
+            "_description": "Name of Borrower_6",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00006",
+            "Value": "",
+            "_description": "Name of Borrower_7",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00007",
+            "Value": "",
+            "_description": "Name of Borrower_8",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00008",
+            "Value": "",
+            "_description": "Name of Borrower_9",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00009",
+            "Value": "",
+            "_description": "Name of Borrower_10",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00010",
+            "Value": "",
+            "_description": "Name of Borrower_11",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00011",
+            "Value": "",
+            "_description": "Name of Borrower_12",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00012",
+            "Value": "",
+            "_description": "Name of Borrower_13",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00013",
+            "Value": "",
+            "_description": "Name of Borrower_14",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00014",
+            "Value": "",
+            "_description": "Name of Borrower_15",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00015",
+            "Value": "",
+            "_description": "Name of Borrower_16",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00016",
+            "Value": "",
+            "_description": "Name of Borrower_17",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00017",
+            "Value": "",
+            "_description": "Name of Borrower_18",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00018",
+            "Value": "",
+            "_description": "Name of Borrower_19",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00019",
+            "Value": "",
+            "_description": "Name of Borrower_20",
+            "_dataType": "TEXT",
+            "_required": false
+        },
+        {
+            "Code": "14_00020",
+            "Value": "",
+            "_description": "Sub total top ten(10) borrowers_Approved loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00021",
+            "Value": "",
+            "_description": "Sub total top ten(10) borrowers_Outstanding balance",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00022",
+            "Value": "",
+            "_description": "Sub total top ten(10) borrowers_Off balance sheet",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00023",
+            "Value": "",
+            "_description": "Sub total top ten(10) borrowers_Total outstanding exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00024",
+            "Value": "",
+            "_description": "Grand total top twenty (20) borrowers_Approved loan",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00025",
+            "Value": "",
+            "_description": "Grand total top twenty (20) borrowers_Outstanding balance",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00026",
+            "Value": "",
+            "_description": "Grand total top twenty (20) borrowers_Off balance sheet",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00027",
+            "Value": "",
+            "_description": "Grand total top twenty (20) borrowers_Total outstanding exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00028",
+            "Value": "",
+            "_description": "Outstanding balance_1",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00029",
+            "Value": "",
+            "_description": "Outstanding balance_2",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00030",
+            "Value": "",
+            "_description": "Outstanding balance_3",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00031",
+            "Value": "",
+            "_description": "Outstanding balance_4",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00032",
+            "Value": "",
+            "_description": "Outstanding balance_5",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00033",
+            "Value": "",
+            "_description": "Outstanding balance_6",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00034",
+            "Value": "",
+            "_description": "Outstanding balance_7",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00035",
+            "Value": "",
+            "_description": "Outstanding balance_8",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00036",
+            "Value": "",
+            "_description": "Outstanding balance_9",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00037",
+            "Value": "",
+            "_description": "Outstanding balance_10",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00038",
+            "Value": "",
+            "_description": "Outstanding balance_11",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00039",
+            "Value": "",
+            "_description": "Outstanding balance_12",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00040",
+            "Value": "",
+            "_description": "Outstanding balance_13",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00041",
+            "Value": "",
+            "_description": "Outstanding balance_14",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00042",
+            "Value": "",
+            "_description": "Outstanding balance_15",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00043",
+            "Value": "",
+            "_description": "Outstanding balance_16",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00044",
+            "Value": "",
+            "_description": "Outstanding balance_17",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00045",
+            "Value": "",
+            "_description": "Outstanding balance_18",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00046",
+            "Value": "",
+            "_description": "Outstanding balance_19",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00047",
+            "Value": "",
+            "_description": "Outstanding balance_20",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00048",
+            "Value": "",
+            "_description": "Off balance sheet_1",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00049",
+            "Value": "",
+            "_description": "Off balance sheet_2",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00050",
+            "Value": "",
+            "_description": "Off balance sheet_3",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00051",
+            "Value": "",
+            "_description": "Off balance sheet_4",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00052",
+            "Value": "",
+            "_description": "Off balance sheet_5",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00053",
+            "Value": "",
+            "_description": "Off balance sheet_6",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00054",
+            "Value": "",
+            "_description": "Off balance sheet_7",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00055",
+            "Value": "",
+            "_description": "Off balance sheet_8",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00056",
+            "Value": "",
+            "_description": "Off balance sheet_9",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00057",
+            "Value": "",
+            "_description": "Off balance sheet_10",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00058",
+            "Value": "",
+            "_description": "Off balance sheet_11",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00059",
+            "Value": "",
+            "_description": "Off balance sheet_12",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00060",
+            "Value": "",
+            "_description": "Off balance sheet_13",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00061",
+            "Value": "",
+            "_description": "Off balance sheet_14",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00062",
+            "Value": "",
+            "_description": "Off balance sheet_15",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00063",
+            "Value": "",
+            "_description": "Off balance sheet_16",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00064",
+            "Value": "",
+            "_description": "Off balance sheet_17",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00065",
+            "Value": "",
+            "_description": "Off balance sheet_18",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00066",
+            "Value": "",
+            "_description": "Off balance sheet_19",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00067",
+            "Value": "",
+            "_description": "Off balance sheet_20",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00068",
+            "Value": "",
+            "_description": "Total outstanding exposure_1",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00069",
+            "Value": "",
+            "_description": "Total outstanding exposure_2",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00070",
+            "Value": "",
+            "_description": "Total outstanding exposure_3",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00071",
+            "Value": "",
+            "_description": "Total outstanding exposure_4",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00072",
+            "Value": "",
+            "_description": "Total outstanding exposure_5",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00073",
+            "Value": "",
+            "_description": "Total outstanding exposure_6",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00074",
+            "Value": "",
+            "_description": "Total outstanding exposure_7",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00075",
+            "Value": "",
+            "_description": "Total outstanding exposure_8",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00076",
+            "Value": "",
+            "_description": "Total outstanding exposure_9",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00077",
+            "Value": "",
+            "_description": "Total outstanding exposure_10",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00078",
+            "Value": "",
+            "_description": "Total outstanding exposure_11",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00079",
+            "Value": "",
+            "_description": "Total outstanding exposure_12",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00080",
+            "Value": "",
+            "_description": "Total outstanding exposure_13",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00081",
+            "Value": "",
+            "_description": "Total outstanding exposure_14",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00082",
+            "Value": "",
+            "_description": "Total outstanding exposure_15",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00083",
+            "Value": "",
+            "_description": "Total outstanding exposure_16",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00084",
+            "Value": "",
+            "_description": "Total outstanding exposure_17",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00085",
+            "Value": "",
+            "_description": "Total outstanding exposure_18",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00086",
+            "Value": "",
+            "_description": "Total outstanding exposure_19",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00087",
+            "Value": "",
+            "_description": "Total outstanding exposure_20",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "14_00088",
+            "Value": "",
+            "_description": "Name of Borrower_2",
+            "_dataType": "TEXT",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "2.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "2.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "2.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "2.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "3.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "3.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "3.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "3.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "4.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "4.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "4.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "4.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "5.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "5.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "5.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "5.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "6.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "6.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "6.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "6.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "7.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "7.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "7.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "7.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "8.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "8.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "8.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "8.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "9.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "9.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "9.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "9.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "10.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "10.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "10.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "10.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "11.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "11.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "11.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "11.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "12.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "12.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "12.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "12.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "13.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "13.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "13.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "13.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "14.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "14.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "14.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "14.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "15.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "15.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "15.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "15.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "16.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "16.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "16.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "16.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "17.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "17.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "17.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "17.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "18.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "18.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "18.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "18.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "19.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "19.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "19.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "19.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 188,
+            "_areaName": "",
+            "DynamicItems": [
+                {
+                    "Code": "20.1",
+                    "Value": "",
+                    "_description": "S.No.",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "20.2",
+                    "Value": "",
+                    "_description": "Name of Borrower",
+                    "_dataType": "TEXT",
+                    "_required": false
+                },
+                {
+                    "Code": "20.3",
+                    "Value": "",
+                    "_description": "Collateral Value ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.4",
+                    "Value": "",
+                    "_description": "Bank's Capital  (excluding retained earnings & Provisional profit/loss)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.5",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Approved loan",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.6",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_On balance sheet_Outstanding balance  ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.7",
+                    "Value": "",
+                    "_description": "Outstanding Exposure_Off balance sheet",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.8",
+                    "Value": "",
+                    "_description": "Total outstanding exposure",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.9",
+                    "Value": "",
+                    "_description": "% of Capital ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "20.10",
+                    "Value": "",
+                    "_description": "Status ",
+                    "_dataType": "TEXT",
+                    "_required": false
+                }
+            ]
+        }
+    ]
+}
