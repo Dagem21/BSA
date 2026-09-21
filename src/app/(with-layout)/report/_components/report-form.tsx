@@ -45,7 +45,8 @@ export function ReportForm() {
         reset,
         formState: { errors }
     } = useForm<ReportFormValues>({
-        resolver: yupResolver(reportSchema)
+        resolver: yupResolver(reportSchema),
+        context: { reportTypes: data?.reportTypes }
     });
 
     const reportType = watch("reportType");

@@ -1,0 +1,675 @@
+{
+    "ReturnKey": "CAP_ADQ_OFB_QO001",
+    "InstCode": "",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "12_00001",
+            "Value": "",
+            "_description": "Commitments to purchase  and/or sell FCY_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00002",
+            "Value": "",
+            "_description": "Commitments to purchase  and/or sell FCY_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00003",
+            "Value": "",
+            "_description": "Commitments to purchase  and/or sell FCY_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00004",
+            "Value": "",
+            "_description": "Commitments to purchase  and/or sell FCY_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00005",
+            "Value": "",
+            "_description": "Commitments to purchase  and/or sell FCY_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00006",
+            "Value": "",
+            "_description": "Federal government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00007",
+            "Value": "",
+            "_description": "Federal government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00008",
+            "Value": "",
+            "_description": "Federal government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00009",
+            "Value": "",
+            "_description": "Federal government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00010",
+            "Value": "",
+            "_description": "Federal government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00011",
+            "Value": "",
+            "_description": "Regional government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00012",
+            "Value": "",
+            "_description": "Regional government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00013",
+            "Value": "",
+            "_description": "Regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00014",
+            "Value": "",
+            "_description": "Regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00015",
+            "Value": "",
+            "_description": "Regional government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00016",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00017",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00018",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00019",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00020",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00021",
+            "Value": "",
+            "_description": "All others_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00022",
+            "Value": "",
+            "_description": "All others_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00023",
+            "Value": "",
+            "_description": "All others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00024",
+            "Value": "",
+            "_description": "All others_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00025",
+            "Value": "",
+            "_description": "All others_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00026",
+            "Value": "",
+            "_description": "Federal government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00027",
+            "Value": "",
+            "_description": "Federal government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00028",
+            "Value": "",
+            "_description": "Federal government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00029",
+            "Value": "",
+            "_description": "Federal government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00030",
+            "Value": "",
+            "_description": "Federal government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00031",
+            "Value": "",
+            "_description": "Regional government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00032",
+            "Value": "",
+            "_description": "Regional government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00033",
+            "Value": "",
+            "_description": "Regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00034",
+            "Value": "",
+            "_description": "Regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00035",
+            "Value": "",
+            "_description": "Regional government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00036",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00037",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00038",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00039",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00040",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00041",
+            "Value": "",
+            "_description": "All other_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00042",
+            "Value": "",
+            "_description": "All other_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00043",
+            "Value": "",
+            "_description": "All other_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00044",
+            "Value": "",
+            "_description": "All other_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00045",
+            "Value": "",
+            "_description": "All other_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00046",
+            "Value": "",
+            "_description": "Federal government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00047",
+            "Value": "",
+            "_description": "Federal government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00048",
+            "Value": "",
+            "_description": "Federal government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00049",
+            "Value": "",
+            "_description": "Federal government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00050",
+            "Value": "",
+            "_description": "Federal government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00051",
+            "Value": "",
+            "_description": "Regional government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00052",
+            "Value": "",
+            "_description": "Regional government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00053",
+            "Value": "",
+            "_description": "Regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00054",
+            "Value": "",
+            "_description": "Regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00055",
+            "Value": "",
+            "_description": "Regional government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00056",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00057",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00058",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00059",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00060",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00061",
+            "Value": "",
+            "_description": "All others_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00062",
+            "Value": "",
+            "_description": "All others_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00063",
+            "Value": "",
+            "_description": "All others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00064",
+            "Value": "",
+            "_description": "All others_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00065",
+            "Value": "",
+            "_description": "All others_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00066",
+            "Value": "",
+            "_description": "Federal government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00067",
+            "Value": "",
+            "_description": "Federal government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00068",
+            "Value": "",
+            "_description": "Federal government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00069",
+            "Value": "",
+            "_description": "Federal government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00070",
+            "Value": "",
+            "_description": "Federal government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00071",
+            "Value": "",
+            "_description": "Regional government_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00072",
+            "Value": "",
+            "_description": "Regional government_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00073",
+            "Value": "",
+            "_description": "Regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00074",
+            "Value": "",
+            "_description": "Regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00075",
+            "Value": "",
+            "_description": "Regional government_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00076",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00077",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00078",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00079",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00080",
+            "Value": "",
+            "_description": "Bank (domestic/foreign)_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00081",
+            "Value": "",
+            "_description": "All others_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00082",
+            "Value": "",
+            "_description": "All others_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00083",
+            "Value": "",
+            "_description": "All others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00084",
+            "Value": "",
+            "_description": "All others_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00085",
+            "Value": "",
+            "_description": "All others_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00086",
+            "Value": "",
+            "_description": "Others**_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00087",
+            "Value": "",
+            "_description": "Others**_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00088",
+            "Value": "",
+            "_description": "Others**_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00089",
+            "Value": "",
+            "_description": "Others**_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00090",
+            "Value": "",
+            "_description": "Others**_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00091",
+            "Value": "",
+            "_description": "Total Risk weighted Off - BSA_Face Value",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00092",
+            "Value": "",
+            "_description": "Total Risk weighted Off - BSA_Credit Conv. Factor (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00093",
+            "Value": "",
+            "_description": "Total Risk weighted Off - BSA_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00094",
+            "Value": "",
+            "_description": "Total Risk weighted Off - BSA_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "12_00095",
+            "Value": "",
+            "_description": "Total Risk weighted Off - BSA_Credit Equ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

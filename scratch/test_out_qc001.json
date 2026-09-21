@@ -1,0 +1,101 @@
+{
+    "ReturnKey": "CAP_ADQ_CAP_QC001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "13_00001",
+            "Value": "0",
+            "_description": "TOTAL CAPITAL (17.1+17.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00002",
+            "Value": "0",
+            "_description": "Primary capital(sum 17.1.1-17.1.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00003",
+            "Value": "",
+            "_description": "Paid up capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00013",
+            "Value": "",
+            "_description": "Share Premium",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00004",
+            "Value": "",
+            "_description": "General reserves",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00005",
+            "Value": "",
+            "_description": "Legal reserves",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00006",
+            "Value": "",
+            "_description": "Supplementary capital (specify)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00007",
+            "Value": "0",
+            "_description": "Risk-weighted assets (RWA) (18.1+18.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00008",
+            "Value": "",
+            "_description": "On balance sheet (9)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00009",
+            "Value": "",
+            "_description": "Off balance sheet (16)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00010",
+            "Value": "",
+            "_description": "Ratios (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00011",
+            "Value": "",
+            "_description": "Primary capital to RWA  (17.1/18)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "13_00012",
+            "Value": "",
+            "_description": "Total capital to RWA (17/18)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

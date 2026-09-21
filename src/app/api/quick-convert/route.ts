@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import * as path from "path";
 import * as fs from "fs";
 import { writeFile, unlink } from "fs/promises";
+import { validateTemplate } from "@/utils/fileValidation";
 const ExcelJS = require("exceljs");
 
 // Import standalone converter engines from services
@@ -26,6 +27,9 @@ const { processEE002 } = require("@/utils/services/EE002/EE002");
 const { processSR002 } = require("@/utils/services/SR002/SR002");
 const { processTB001 } = require("@/utils/services/TB001/TB001");
 const { processTN001 } = require("@/utils/services/TN001/TN001");
+const { processQC001 } = require("@/utils/services/QC001/QC001");
+const { processQO001 } = require("@/utils/services/QO001/QO001");
+const { processQI001 } = require("@/utils/services/QI001/QI001");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -169,6 +173,18 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        const templateValidation = await validateTemplate(file, requestedType);
+        if (!templateValidation.isValid) {
+            return new Response(
+                JSON.stringify({
+                    error:
+                        templateValidation.errorMessage ||
+                        `Uploaded file does not match the selected template format (${requestedType}).`
+                }),
+                { status: 400, headers: { "Content-Type": "application/json" } }
+            );
+        }
+
         const timestamp = Date.now();
         const ext = path.extname(file.name) || ".xlsx";
         const tempExcelName = `temp_${timestamp}${ext}`;
@@ -235,6 +251,12 @@ export async function POST(request: NextRequest) {
             jsonPayload = processTB001 ? processTB001(worksheet) : null;
         } else if (requestedType.includes("TN001") || requestedType.includes("TOP_20_NPL")) {
             jsonPayload = processTN001 ? processTN001(worksheet) : null;
+        } else if (requestedType.includes("QC001") || requestedType.includes("CAP_ADQ_CAP")) {
+            jsonPayload = processQC001 ? processQC001(worksheet) : null;
+        } else if (requestedType.includes("QO001") || requestedType.includes("CAP_ADQ_OFB")) {
+            jsonPayload = processQO001 ? processQO001(worksheet) : null;
+        } else if (requestedType.includes("QI001") || requestedType.includes("CAP_ADQ_ITEM")) {
+            jsonPayload = processQI001 ? processQI001(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

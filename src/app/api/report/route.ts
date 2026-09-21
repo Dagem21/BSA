@@ -191,14 +191,29 @@ export async function POST(request: NextRequest) {
         const uploadFilePath = path.join(uploadDir, excelFile);
         await writeFile(uploadFilePath, buffer);
 
-        await fileProcessor(
-            "0000001",
-            reportIdStr,
-            uploadFilePath,
-            jsonFile,
-            filePath,
-            validatedReport
-        );
+        try {
+            await fileProcessor(
+                "0000001",
+                reportIdStr,
+                uploadFilePath,
+                jsonFile,
+                filePath,
+                validatedReport
+            );
+        } catch (procError: any) {
+            try {
+                if (fs.existsSync(uploadFilePath)) fs.unlinkSync(uploadFilePath);
+            } catch (_) {}
+            return new Response(
+                JSON.stringify({
+                    error: procError.message || "Failed to process template format."
+                }),
+                {
+                    status: 400,
+                    headers: { "Content-Type": "application/json" }
+                }
+            );
+        }
 
         const newReport: ReportDto = {
             file: excelFile,
@@ -247,8 +262,8 @@ export async function POST(request: NextRequest) {
             );
         }
         console.log(error.message);
-        return new Response(JSON.stringify({ error: "Server error." }), {
-            status: 500,
+        return new Response(JSON.stringify({ error: error.message || "Server error." }), {
+            status: 400,
             headers: { "Content-Type": "application/json" }
         });
     }
