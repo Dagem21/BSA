@@ -1,0 +1,38 @@
+=== Running MA001 Test ===
+ReturnKey: NBE_MAT_ANL_MA001
+InstCode: 0000001
+FinYear: 2026
+StartDate: 2026-04-01T00:00:00
+EndDate: 2026-06-30T00:00:00
+Total items generated: 336
+
+Sample Item 1 (20_00001): {
+    "Code": "20_00001",
+    "Value": "100.50",
+    "_description": "ASSETS_Amount",
+    "_dataType": "NUMERIC",
+    "_required": false
+}
+Sample Item 25 (20_00025): {
+    "Code": "20_00025",
+    "Value": "3001.50",
+    "_description": "Cash and balances due from NBE_Amount",
+    "_dataType": "NUMERIC",
+    "_required": false
+}
+Sample Item 193 (20_00193): {
+    "Code": "20_00193",
+    "Value": "1500.75",
+    "_description": "Deposits (demand, savings & time)_Amount",
+    "_dataType": "NUMERIC",
+    "_required": false
+}
+Sample Last Item (20_00336): {
+    "Code": "20_00336",
+    "Value": "",
+    "_description": "Cumulative Mismatch_Total",
+    "_dataType": "NUMERIC",
+    "_required": false
+}
+
+SUCCESS: MA001 JSON format generated all 336 expected return items!
