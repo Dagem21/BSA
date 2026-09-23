@@ -57,61 +57,18 @@ export const reportSchema = yup.object().shape({
             async (value, context) => {
                 const file = extractFile(value);
                 if (!file) return false;
-                const reportIdStr = context.parent.reportType || "";
+                const reportIdRaw = context.parent.reportType || "";
+                if (!reportIdRaw) return true;
 
-                let validationResult;
-                if (
-                    reportIdStr.toUpperCase().includes("NN001") ||
-                    reportIdStr.toUpperCase().includes("NACNN001") ||
-                    reportIdStr.toUpperCase().includes("OL001") ||
-                    reportIdStr.toUpperCase().includes("COL_ACQ_18M_OL001") ||
-                    reportIdStr.toUpperCase().includes("MA001") ||
-                    reportIdStr.toUpperCase().includes("NBE_MAT_ANL_MA001") ||
-                    reportIdStr.toUpperCase().includes("MK001") ||
-                    reportIdStr.toUpperCase().includes("MB001") ||
-                    reportIdStr.toUpperCase().includes("SRR") ||
-                    reportIdStr.toUpperCase().includes("RB001") ||
-                    reportIdStr.toUpperCase().includes("RESERVE BASE") ||
-                    reportIdStr.toUpperCase().includes("ZS001") ||
-                    reportIdStr.toUpperCase().includes("LSR") ||
-                    reportIdStr.toUpperCase().includes("KK001") ||
-                    reportIdStr.toUpperCase().includes("M_CC") ||
-                    reportIdStr.toUpperCase().includes("RL002") ||
-                    reportIdStr.toUpperCase().includes("REGRL002") ||
-                    reportIdStr.toUpperCase().includes("LOAN_RAN") ||
-                    reportIdStr.toUpperCase().includes("MD002") ||
-                    reportIdStr.toUpperCase().includes("CDBY") ||
-                    reportIdStr.toUpperCase().includes("SECTOR AND REG") ||
-                    reportIdStr.toUpperCase().includes("DPWADP001") ||
-                    reportIdStr.toUpperCase().includes("DPW") ||
-                    reportIdStr.toUpperCase().includes("MWAC001") ||
-                    reportIdStr.toUpperCase().includes("LCMWAC001") ||
-                    reportIdStr.toUpperCase().includes("WALIR") ||
-                    reportIdStr.toUpperCase().includes("BP001") ||
-                    reportIdStr.toUpperCase().includes("DP001") ||
-                    reportIdStr.toUpperCase().includes("INT_FRE_SP") ||
-                    reportIdStr.toUpperCase().includes("LB002") ||
-                    reportIdStr.toUpperCase().includes("BOR_TEN_PER_LB002") ||
-                    reportIdStr.toUpperCase().includes("13002") ||
-                    reportIdStr.toUpperCase().includes("BSD_LOAN_PART13002") ||
-                    reportIdStr.toUpperCase().includes("GS001") ||
-                    reportIdStr.toUpperCase().includes("DIGITAL SAVING") ||
-                    reportIdStr.toUpperCase().includes("DR002") ||
-                    reportIdStr.toUpperCase().includes("DEP_RAN") ||
-                    reportIdStr.toUpperCase().includes("DS003") ||
-                    reportIdStr.toUpperCase().includes("DEP_SEC") ||
-                    reportIdStr.toUpperCase().includes("ID002") ||
-                    reportIdStr.toUpperCase().includes("INT_FRE_RAN") ||
-                    reportIdStr.toUpperCase().includes("RI003") ||
-                    reportIdStr.toUpperCase().includes("INT_FRE_SEC")
-                ) {
-                    validationResult = await validateTemplate(
-                        file,
-                        reportIdStr
-                    );
-                } else {
-                    validationResult = { isValid: true } as any;
-                }
+                // Resolve Mongo ObjectId to actual reportId string if reportTypes array is provided in context
+                const reportTypes = (context.options as any)?.context?.reportTypes as any[] | undefined;
+                const matchedType = reportTypes?.find((t: any) => String(t._id) === String(reportIdRaw));
+                const reportIdStr = matchedType?.reportId || matchedType?.description || reportIdRaw;
+
+                const validationResult = await validateTemplate(
+                    file,
+                    reportIdStr
+                );
 
                 if (!validationResult.isValid) {
                     return context.createError({

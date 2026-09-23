@@ -154,6 +154,15 @@ export default function StandaloneConverterPage() {
                             <option value="TOP_20_NPLs_TN001">
                                 TOP_20_NPLs_TN001 — Quarterly Top Twenty (20) NPLs Report (TN001)
                             </option>
+                            <option value="CAP_ADQ_CAP_QC001">
+                                CAP_ADQ_CAP_QC001 — Capital Adequacy Report (QC001)
+                            </option>
+                            <option value="CAP_ADQ_OFB_QO001">
+                                CAP_ADQ_OFB_QO001 — Capital Adequacy Off-Balance Sheet (QO001)
+                            </option>
+                            <option value="CAP_ADQ_ITEM_QI001">
+                                CAP_ADQ_ITEM_QI001 — Capital Adequacy On-Balance Sheet (QI001)
+                            </option>
                         </select>
                     </div>
 

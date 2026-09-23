@@ -1,0 +1,514 @@
+{
+    "ReturnKey": "CAP_ADQ_ITEM_QI001",
+    "InstCode": "",
+    "FinYear": 2026,
+    "StartDate": "2026-04-01T00:00:00",
+    "EndDate": "2026-06-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "11_00001",
+            "Value": "",
+            "_description": "1-Cash on hand (local and  foreign currency)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00002",
+            "Value": "",
+            "_description": "1-Cash on hand (local and  foreign currency)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00003",
+            "Value": "",
+            "_description": "1-Cash on hand (local and  foreign currency)_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00004",
+            "Value": "",
+            "_description": "2-Claims on banks_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00005",
+            "Value": "",
+            "_description": "2-Claims on banks_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00006",
+            "Value": "",
+            "_description": "2-Claims on banks_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00007",
+            "Value": "",
+            "_description": "2,1-Claims on NBE_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00008",
+            "Value": "",
+            "_description": "2,1-Claims on NBE_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00009",
+            "Value": "",
+            "_description": "2,1-Claims on NBE_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00010",
+            "Value": "",
+            "_description": "2,2-Claims on other banks(Domestic & foreign)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00011",
+            "Value": "",
+            "_description": "2,2-Claims on other banks(Domestic & foreign)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00012",
+            "Value": "",
+            "_description": "2,2-Claims on other banks(Domestic & foreign)_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00013",
+            "Value": "",
+            "_description": "2.2.1-Less than 1 year maturity_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00014",
+            "Value": "",
+            "_description": "2.2.1-Less than 1 year maturity_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00015",
+            "Value": "",
+            "_description": "2.2.1-Less than 1 year maturity_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00016",
+            "Value": "",
+            "_description": "2.2.2-Over 1 year maturity_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00017",
+            "Value": "",
+            "_description": "2.2.2-Over 1 year maturity_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00018",
+            "Value": "",
+            "_description": "2.2.2-Over 1 year maturity_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00019",
+            "Value": "",
+            "_description": "3-Claims on government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00020",
+            "Value": "",
+            "_description": "3-Claims on government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00021",
+            "Value": "",
+            "_description": "3-Claims on government_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00022",
+            "Value": "",
+            "_description": "3,1-Central government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00023",
+            "Value": "",
+            "_description": "3,1-Central government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00024",
+            "Value": "",
+            "_description": "3,1-Central government_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00025",
+            "Value": "",
+            "_description": "3,2-Regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00026",
+            "Value": "",
+            "_description": "3,2-Regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00027",
+            "Value": "",
+            "_description": "3,2-Regional government_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00028",
+            "Value": "",
+            "_description": "4-Loans & advances (net)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00029",
+            "Value": "",
+            "_description": "4-Loans & advances (net)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00030",
+            "Value": "",
+            "_description": "4-Loans & advances (net)_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00031",
+            "Value": "",
+            "_description": "4,1-Secured by cash, central  government securities or guaranteed by central government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00032",
+            "Value": "",
+            "_description": "4,1-Secured by cash, central  government securities or guaranteed by central government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00033",
+            "Value": "",
+            "_description": "4,1-Secured by cash, central  government securities or guaranteed by central government_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00034",
+            "Value": "",
+            "_description": "4,2-Secured/guaranteed by regional government_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00035",
+            "Value": "",
+            "_description": "4,2-Secured/guaranteed by regional government_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00036",
+            "Value": "",
+            "_description": "4,2-Secured/guaranteed by regional government_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00037",
+            "Value": "",
+            "_description": "4,3-Residential mortgage loans_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00038",
+            "Value": "",
+            "_description": "4,3-Residential mortgage loans_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00039",
+            "Value": "",
+            "_description": "4,3-Residential mortgage loans_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00040",
+            "Value": "",
+            "_description": "4,4-Others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00041",
+            "Value": "",
+            "_description": "4,4-Others_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00042",
+            "Value": "",
+            "_description": "4,4-Others_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00043",
+            "Value": "",
+            "_description": "5-Securities (non-government)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00044",
+            "Value": "",
+            "_description": "5-Securities (non-government)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00045",
+            "Value": "",
+            "_description": "5-Securities (non-government)_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00046",
+            "Value": "",
+            "_description": "6-Investments_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00047",
+            "Value": "",
+            "_description": "6-Investments_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00048",
+            "Value": "",
+            "_description": "6-Investments_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00049",
+            "Value": "",
+            "_description": "7-Fixed assets (net)_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00050",
+            "Value": "",
+            "_description": "7-Fixed assets (net)_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00051",
+            "Value": "",
+            "_description": "7-Fixed assets (net)_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00052",
+            "Value": "",
+            "_description": "8-Other assets_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00053",
+            "Value": "",
+            "_description": "8-Other assets_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00054",
+            "Value": "",
+            "_description": "8-Other assets_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00055",
+            "Value": "",
+            "_description": "8,1-Accounts receivable_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00056",
+            "Value": "",
+            "_description": "8,1-Accounts receivable_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00057",
+            "Value": "",
+            "_description": "8,1-Accounts receivable_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00058",
+            "Value": "",
+            "_description": "8,2-Supplies stock a/c_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00059",
+            "Value": "",
+            "_description": "8,2-Supplies stock a/c_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00060",
+            "Value": "",
+            "_description": "8,2-Supplies stock a/c_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00061",
+            "Value": "",
+            "_description": "8,3-Customers’ liabilities for L/C_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00062",
+            "Value": "",
+            "_description": "8,3-Customers’ liabilities for L/C_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00063",
+            "Value": "",
+            "_description": "8,3-Customers’ liabilities for L/C_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00064",
+            "Value": "",
+            "_description": "8,4-Uncleared effect foreign_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00065",
+            "Value": "",
+            "_description": "8,4-Uncleared effect foreign_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00066",
+            "Value": "",
+            "_description": "8,4-Uncleared effect foreign_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00067",
+            "Value": "",
+            "_description": "8,5-Others_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00068",
+            "Value": "",
+            "_description": "8,5-Others_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00069",
+            "Value": "",
+            "_description": "8,5-Others_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00070",
+            "Value": "",
+            "_description": "9-Total RWBSA*_Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00071",
+            "Value": "",
+            "_description": "9-Total RWBSA*_Weight (%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "11_00072",
+            "Value": "",
+            "_description": "9-Total RWBSA*_Weighted Assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

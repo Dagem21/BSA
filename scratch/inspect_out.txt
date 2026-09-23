@@ -1,0 +1,228 @@
+=== Inspecting: ./templates/MA001.xlsx ===
+Worksheet count: 1
+Sheet 0: name=Sheet1, actualRowCount=39
+R1: C1:NBE_MAT_ANL_MA001
+R4: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R5: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R6: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R7: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R8: C1:Instiution code 
+R9: C1:Financial Year
+R10: C1:Start Date | C2:Start Date
+R11: C1:End Date | C2:End Date
+R14: C8:(In Millions of Birr) | C9:(In Millions of Birr) | C10:(In Millions of Birr) | C11:(In Millions of Birr) | C12:(In Millions of Birr) | C13:(In Millions of Birr) | C14:(In Millions of Birr)
+R15: C1:Code | C2:Time bands | C3:Amount | C4:1 day | C5:2-7 days | C6:8-14 days | C7:15 days to 1month | C8:1-3 months | C9:3-6 months | C10:6-12 months | C11:1-3 years  | C12:Over 3 years | C13:Non-maturity | C14:Total
+R16: C1:1 | C2:ASSETS
+R17: C1:1.1 | C2:On balance sheet | C3:{"formula":"SUM(C18:C24)"} | C4:{"formula":"SUM(D18:D24)","ref":"D17:M17","shareType":"shared"} | C5:{"sharedFormula":"D17"} | C6:{"sharedFormula":"D17"} | C7:{"sharedFormula":"D17"} | C8:{"sharedFormula":"D17"} | C9:{"sharedFormula":"D17"} | C10:{"sharedFormula":"D17"} | C11:{"sharedFormula":"D17"} | C12:{"sharedFormula":"D17"} | C13:{"sharedFormula":"D17"} | C14:{"formula":"SUM(D17:M17)"}
+R18: C1:1.1.1 | C2:Cash and balances due from NBE | C14:{"formula":"SUM(D18:M18)","ref":"N18:N42","shareType":"shared"}
+R19: C1:1.1.2 | C2:Balances due from banks and non-bank -local | C14:{"sharedFormula":"N18"}
+R20: C1:1.1.3 | C2:Balances due from banks -abroad | C14:{"sharedFormula":"N18"}
+R21: C1:1.1.4 | C2:Net investment | C14:{"sharedFormula":"N18"}
+R22: C1:1.1.5 | C2: Net loans and advances | C14:{"formula":"SUM(D22:M22)"}
+R23: C1:1.16 | C2:Net fixed assets | C14:{"sharedFormula":"N18"}
+R24: C1:1.16 | C2:Others | C14:{"sharedFormula":"N18"}
+R25: C1:1.2 | C2:Off balance sheet  | C3:{"formula":"SUM(C26:C28)"} | C4:{"formula":"SUM(D26:D28)","ref":"D25:M25","shareType":"shared"} | C5:{"sharedFormula":"D25"} | C6:{"sharedFormula":"D25"} | C7:{"sharedFormula":"D25"} | C8:{"sharedFormula":"D25"} | C9:{"sharedFormula":"D25"} | C10:{"sharedFormula":"D25"} | C11:{"sharedFormula":"D25"} | C12:{"sharedFormula":"D25"} | C13:{"sharedFormula":"D25"} | C14:{"formula":"SUM(D25:M25)"}
+R26: C1:1.2.1 | C2:Guarantee | C14:{"sharedFormula":"N18"}
+R27: C1:1.2.2 | C2: Letters of credit  | C14:{"sharedFormula":"N18"}
+R28: C1:1.2.3 | C2:Others | C14:{"sharedFormula":"N18"}
+R29: C1:1.3 | C2:TOTAL | C3:{"formula":"C17+C25"} | C4:{"formula":"D17+D25","ref":"D29:M29","shareType":"shared"} | C5:{"sharedFormula":"D29"} | C6:{"sharedFormula":"D29"} | C7:{"sharedFormula":"D29"} | C8:{"sharedFormula":"D29"} | C9:{"sharedFormula":"D29"} | C10:{"sharedFormula":"D29"} | C11:{"sharedFormula":"D29"} | C12:{"sharedFormula":"D29"} | C13:{"sharedFormula":"D29"} | C14:{"sharedFormula":"N18"}
+R30: C1:2 | C2:LIABILITIES  | C14:{"sharedFormula":"N18"}
+R31: C1:2.1 | C2:On balance sheet | C3:{"formula":"SUM(C32:C36)"} | C4:{"formula":"SUM(D32:D36)","ref":"D31:M31","shareType":"shared"} | C5:{"sharedFormula":"D31"} | C6:{"sharedFormula":"D31"} | C7:{"sharedFormula":"D31"} | C8:{"sharedFormula":"D31"} | C9:{"sharedFormula":"D31"} | C10:{"sharedFormula":"D31"} | C11:{"sharedFormula":"D31"} | C12:{"sharedFormula":"D31"} | C13:{"sharedFormula":"D31"} | C14:{"sharedFormula":"N18"}
+R32: C1:2.1.1 | C2:Deposits (demand, savings & time) | C14:{"sharedFormula":"N18"}
+R33: C1:2.1.2 | C2:Borrowing from the NBE | C14:{"sharedFormula":"N18"}
+R34: C1:2.1.3 | C2:Borrowing from other bank -local | C14:{"sharedFormula":"N18"}
+R35: C1:2.1.4 | C2:Borrowing from other bank-abroad | C14:{"sharedFormula":"N18"}
+R36: C1:2.1.5 | C2:Other liabilities | C14:{"sharedFormula":"N18"}
+R37: C1:2.2 | C2:Off balance sheet  | C3:{"formula":"SUM(C38:C40)"} | C4:{"formula":"SUM(D38:D40)","ref":"D37:M37","shareType":"shared"} | C5:{"sharedFormula":"D37"} | C6:{"sharedFormula":"D37"} | C7:{"sharedFormula":"D37"} | C8:{"sharedFormula":"D37"} | C9:{"sharedFormula":"D37"} | C10:{"sharedFormula":"D37"} | C11:{"sharedFormula":"D37"} | C12:{"sharedFormula":"D37"} | C13:{"sharedFormula":"D37"} | C14:{"sharedFormula":"N18"}
+R38: C1:2.2.1 | C2:Guarantee | C14:{"sharedFormula":"N18"}
+R39: C1:2.2.2 | C2:Letters of credit  | C14:{"sharedFormula":"N18"}
+R40: C1:2.2.3 | C2:Others | C14:{"sharedFormula":"N18"}
+R41: C1:2.3 | C2:TOTAL | C3:{"formula":"C31+C37"} | C4:{"formula":"D31+D37","ref":"D41:M41","shareType":"shared"} | C5:{"sharedFormula":"D41"} | C6:{"sharedFormula":"D41"} | C7:{"sharedFormula":"D41"} | C8:{"sharedFormula":"D41"} | C9:{"sharedFormula":"D41"} | C10:{"sharedFormula":"D41"} | C11:{"sharedFormula":"D41"} | C12:{"sharedFormula":"D41"} | C13:{"sharedFormula":"D41"} | C14:{"sharedFormula":"N18"}
+R42: C1:2.4 | C2:NET Mismatch (1.3 LESS 2.3) | C3:{"formula":"C29-C41"} | C4:{"formula":"D29-D41","ref":"D42:M42","shareType":"shared"} | C5:{"sharedFormula":"D42"} | C6:{"sharedFormula":"D42"} | C7:{"sharedFormula":"D42"} | C8:{"sharedFormula":"D42"} | C9:{"sharedFormula":"D42"} | C10:{"sharedFormula":"D42"} | C11:{"sharedFormula":"D42"} | C12:{"sharedFormula":"D42"} | C13:{"sharedFormula":"D42"} | C14:{"sharedFormula":"N18"}
+R43: C1:2.5 | C2:Cumulative Mismatch | C4:{"formula":"D42"} | C5:{"formula":"D43+E42"} | C6:{"formula":"E43+F42","ref":"F43:M43","shareType":"shared"} | C7:{"sharedFormula":"F43"} | C8:{"sharedFormula":"F43"} | C9:{"sharedFormula":"F43"} | C10:{"sharedFormula":"F43"} | C11:{"sharedFormula":"F43"} | C12:{"sharedFormula":"F43"} | C13:{"sharedFormula":"F43"} | C14:{"formula":"M43"}
+=== Inspecting: ./templates/MA001 (1).xlsx ===
+Worksheet count: 1
+Sheet 0: name=Sheet1, actualRowCount=39
+R1: C1:NBE_MAT_ANL_MA001
+R4: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R5: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R6: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R7: C1:Maturity of Assets & Liabilities 
+
+ | C2:Maturity of Assets & Liabilities 
+
+ | C3:Maturity of Assets & Liabilities 
+
+ | C4:Maturity of Assets & Liabilities 
+
+ | C5:Maturity of Assets & Liabilities 
+
+ | C6:Maturity of Assets & Liabilities 
+
+ | C7:Maturity of Assets & Liabilities 
+
+ | C8:Maturity of Assets & Liabilities 
+
+ | C9:Maturity of Assets & Liabilities 
+
+
+R8: C1:Instiution code 
+R9: C1:Financial Year
+R10: C1:Start Date | C2:Start Date
+R11: C1:End Date | C2:End Date
+R14: C8:(In Millions of Birr) | C9:(In Millions of Birr) | C10:(In Millions of Birr) | C11:(In Millions of Birr) | C12:(In Millions of Birr) | C13:(In Millions of Birr) | C14:(In Millions of Birr)
+R15: C1:Code | C2:Time bands | C3:Amount | C4:1 day | C5:2-7 days | C6:8-14 days | C7:15 days to 1month | C8:1-3 months | C9:3-6 months | C10:6-12 months | C11:1-3 years  | C12:Over 3 years | C13:Non-maturity | C14:Total
+R16: C1:1 | C2:ASSETS
+R17: C1:1.1 | C2:On balance sheet | C3:{"formula":"SUM(C18:C24)"} | C4:{"formula":"SUM(D18:D24)","ref":"D17:M17","shareType":"shared"} | C5:{"sharedFormula":"D17"} | C6:{"sharedFormula":"D17"} | C7:{"sharedFormula":"D17"} | C8:{"sharedFormula":"D17"} | C9:{"sharedFormula":"D17"} | C10:{"sharedFormula":"D17"} | C11:{"sharedFormula":"D17"} | C12:{"sharedFormula":"D17"} | C13:{"sharedFormula":"D17"} | C14:{"formula":"SUM(D17:M17)"}
+R18: C1:1.1.1 | C2:Cash and balances due from NBE | C14:{"formula":"SUM(D18:M18)","ref":"N18:N42","shareType":"shared"}
+R19: C1:1.1.2 | C2:Balances due from banks and non-bank -local | C14:{"sharedFormula":"N18"}
+R20: C1:1.1.3 | C2:Balances due from banks -abroad | C14:{"sharedFormula":"N18"}
+R21: C1:1.1.4 | C2:Net investment | C14:{"sharedFormula":"N18"}
+R22: C1:1.1.5 | C2: Net loans and advances | C14:{"formula":"SUM(D22:M22)"}
+R23: C1:1.16 | C2:Net fixed assets | C14:{"sharedFormula":"N18"}
+R24: C1:1.16 | C2:Others | C14:{"sharedFormula":"N18"}
+R25: C1:1.2 | C2:Off balance sheet  | C3:{"formula":"SUM(C26:C28)"} | C4:{"formula":"SUM(D26:D28)","ref":"D25:M25","shareType":"shared"} | C5:{"sharedFormula":"D25"} | C6:{"sharedFormula":"D25"} | C7:{"sharedFormula":"D25"} | C8:{"sharedFormula":"D25"} | C9:{"sharedFormula":"D25"} | C10:{"sharedFormula":"D25"} | C11:{"sharedFormula":"D25"} | C12:{"sharedFormula":"D25"} | C13:{"sharedFormula":"D25"} | C14:{"formula":"SUM(D25:M25)"}
+R26: C1:1.2.1 | C2:Guarantee | C14:{"sharedFormula":"N18"}
+R27: C1:1.2.2 | C2: Letters of credit  | C14:{"sharedFormula":"N18"}
+R28: C1:1.2.3 | C2:Others | C14:{"sharedFormula":"N18"}
+R29: C1:1.3 | C2:TOTAL | C3:{"formula":"C17+C25"} | C4:{"formula":"D17+D25","ref":"D29:M29","shareType":"shared"} | C5:{"sharedFormula":"D29"} | C6:{"sharedFormula":"D29"} | C7:{"sharedFormula":"D29"} | C8:{"sharedFormula":"D29"} | C9:{"sharedFormula":"D29"} | C10:{"sharedFormula":"D29"} | C11:{"sharedFormula":"D29"} | C12:{"sharedFormula":"D29"} | C13:{"sharedFormula":"D29"} | C14:{"sharedFormula":"N18"}
+R30: C1:2 | C2:LIABILITIES  | C14:{"sharedFormula":"N18"}
+R31: C1:2.1 | C2:On balance sheet | C3:{"formula":"SUM(C32:C36)"} | C4:{"formula":"SUM(D32:D36)","ref":"D31:M31","shareType":"shared"} | C5:{"sharedFormula":"D31"} | C6:{"sharedFormula":"D31"} | C7:{"sharedFormula":"D31"} | C8:{"sharedFormula":"D31"} | C9:{"sharedFormula":"D31"} | C10:{"sharedFormula":"D31"} | C11:{"sharedFormula":"D31"} | C12:{"sharedFormula":"D31"} | C13:{"sharedFormula":"D31"} | C14:{"sharedFormula":"N18"}
+R32: C1:2.1.1 | C2:Deposits (demand, savings & time) | C14:{"sharedFormula":"N18"}
+R33: C1:2.1.2 | C2:Borrowing from the NBE | C14:{"sharedFormula":"N18"}
+R34: C1:2.1.3 | C2:Borrowing from other bank -local | C14:{"sharedFormula":"N18"}
+R35: C1:2.1.4 | C2:Borrowing from other bank-abroad | C14:{"sharedFormula":"N18"}
+R36: C1:2.1.5 | C2:Other liabilities | C14:{"sharedFormula":"N18"}
+R37: C1:2.2 | C2:Off balance sheet  | C3:{"formula":"SUM(C38:C40)"} | C4:{"formula":"SUM(D38:D40)","ref":"D37:M37","shareType":"shared"} | C5:{"sharedFormula":"D37"} | C6:{"sharedFormula":"D37"} | C7:{"sharedFormula":"D37"} | C8:{"sharedFormula":"D37"} | C9:{"sharedFormula":"D37"} | C10:{"sharedFormula":"D37"} | C11:{"sharedFormula":"D37"} | C12:{"sharedFormula":"D37"} | C13:{"sharedFormula":"D37"} | C14:{"sharedFormula":"N18"}
+R38: C1:2.2.1 | C2:Guarantee | C14:{"sharedFormula":"N18"}
+R39: C1:2.2.2 | C2:Letters of credit  | C14:{"sharedFormula":"N18"}
+R40: C1:2.2.3 | C2:Others | C14:{"sharedFormula":"N18"}
+R41: C1:2.3 | C2:TOTAL | C3:{"formula":"C31+C37"} | C4:{"formula":"D31+D37","ref":"D41:M41","shareType":"shared"} | C5:{"sharedFormula":"D41"} | C6:{"sharedFormula":"D41"} | C7:{"sharedFormula":"D41"} | C8:{"sharedFormula":"D41"} | C9:{"sharedFormula":"D41"} | C10:{"sharedFormula":"D41"} | C11:{"sharedFormula":"D41"} | C12:{"sharedFormula":"D41"} | C13:{"sharedFormula":"D41"} | C14:{"sharedFormula":"N18"}
+R42: C1:2.4 | C2:NET Mismatch (1.3 LESS 2.3) | C3:{"formula":"C29-C41"} | C4:{"formula":"D29-D41","ref":"D42:M42","shareType":"shared"} | C5:{"sharedFormula":"D42"} | C6:{"sharedFormula":"D42"} | C7:{"sharedFormula":"D42"} | C8:{"sharedFormula":"D42"} | C9:{"sharedFormula":"D42"} | C10:{"sharedFormula":"D42"} | C11:{"sharedFormula":"D42"} | C12:{"sharedFormula":"D42"} | C13:{"sharedFormula":"D42"} | C14:{"sharedFormula":"N18"}
+R43: C1:2.5 | C2:Cumulative Mismatch | C4:{"formula":"D42"} | C5:{"formula":"D43+E42"} | C6:{"formula":"E43+F42","ref":"F43:M43","shareType":"shared"} | C7:{"sharedFormula":"F43"} | C8:{"sharedFormula":"F43"} | C9:{"sharedFormula":"F43"} | C10:{"sharedFormula":"F43"} | C11:{"sharedFormula":"F43"} | C12:{"sharedFormula":"F43"} | C13:{"sharedFormula":"F43"} | C14:{"formula":"M43"}

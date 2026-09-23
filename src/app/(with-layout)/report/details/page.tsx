@@ -42,6 +42,9 @@ import { MR001ExcelView } from "@/components/ReportViews/mr001-excel-view";
 import { XW002ExcelView } from "@/components/ReportViews/xw002-excel-view";
 import { BS001ExcelView } from "@/components/ReportViews/bs001-excel-view";
 import { PL001ExcelView } from "@/components/ReportViews/pl001-excel-view";
+import { QC001ExcelView } from "@/components/ReportViews/qc001-excel-view";
+import { QO001ExcelView } from "@/components/ReportViews/qo001-excel-view";
+import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -154,6 +157,13 @@ export default function Details() {
                 return <BS001ExcelView activeFileName={report.json} />;
             case "PRO&LOS_PL001":
                 return <PL001ExcelView activeFileName={report.json} />;
+            case "CAP_ADQ_CAP_QC001":
+            case "QC001":
+                return <QC001ExcelView activeFileName={report.json} />;
+            case "CAP_ADQ_OFB_QO001":
+                return <QO001ExcelView activeFileName={report.json} />;
+            case "CAP_ADQ_ITEM_QI001":
+                return <QI001ExcelView activeFileName={report.json} />;
             default:
                 return <></>;
         }

@@ -29,11 +29,31 @@ export interface StructuralValidationResult {
 }
 
 export async function validateTemplate(
-    file: File,
+    fileInput: File | Buffer | string,
     expectedReportId?: string
 ): Promise<StructuralValidationResult> {
     try {
-        const arrayBuffer = await file.arrayBuffer();
+        let arrayBuffer: ArrayBuffer | Uint8Array | Buffer;
+        if (typeof fileInput === "string") {
+            if (typeof window !== "undefined") {
+                return {
+                    isValid: false,
+                    errorMessage: "File path strings are not supported in browser environment."
+                };
+            }
+            // Dynamically load fs in Node environment to avoid client bundle issues
+            const fs = eval("require")("fs");
+            arrayBuffer = fs.readFileSync(fileInput);
+        } else if (Buffer.isBuffer(fileInput)) {
+            arrayBuffer = fileInput;
+        } else if (fileInput && typeof fileInput === "object" && "arrayBuffer" in fileInput) {
+            arrayBuffer = await fileInput.arrayBuffer();
+        } else {
+            return {
+                isValid: false,
+                errorMessage: "Invalid file input provided for template validation."
+            };
+        }
         const workbook: XLSX.WorkBook = XLSX.read(arrayBuffer, {
             type: "array"
         });
@@ -394,6 +414,72 @@ export async function validateTemplate(
                         isValid: false,
                         errorMessage:
                             "This is not the exact BP001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("QC001") || cleanId.includes("CAP_ADQ_CAP")) {
+                const isQC001 =
+                    codeA1.includes("QC001") ||
+                    codeA1.includes("CAP_ADQ_CAP") ||
+                    headerRow4.includes("capital components") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("QC001");
+                if (!isQC001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact QC001 (Capital Components) Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("QO001") || cleanId.includes("CAP_ADQ_OFB")) {
+                const isQO001 =
+                    codeA1.includes("QO001") ||
+                    codeA1.includes("CAP_ADQ_OFB") ||
+                    headerRow4.includes("off-balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("QO001");
+                if (!isQO001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact QO001 (Off-Balance Sheet) Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("QI001") || cleanId.includes("CAP_ADQ_ITEM")) {
+                const isQI001 =
+                    codeA1.includes("QI001") ||
+                    codeA1.includes("CAP_ADQ_ITEM") ||
+                    headerRow4.includes("on balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("QI001");
+                if (!isQI001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact QI001 (On-Balance Sheet) Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("TB001") || cleanId.includes("TOP_20_BOR")) {
+                const isTB001 =
+                    codeA1.includes("TB001") ||
+                    codeA1.includes("TOP_20_BOR") ||
+                    headerRow4.includes("borrowers") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("TB001");
+                if (!isTB001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact TB001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("TN001") || cleanId.includes("TOP_20_NPL")) {
+                const isTN001 =
+                    codeA1.includes("TN001") ||
+                    codeA1.includes("TOP_20_NPL") ||
+                    headerRow4.includes("non-performing") ||
+                    headerRow4.includes("npl") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("TN001");
+                if (!isTN001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact TN001 Excel template file."
                     };
                 }
             }

@@ -1,0 +1,32 @@
+Created templates/json/MA001.json
+Copied master Excel template to: C:\Users\mulukenwalle\Desktop\national_bank\BSA\reports\excel\MA001_sample.xlsx
+Updated sample Excel with test values
+Process Result: { success: true }
+Generated JSON Summary:
+ReturnKey: NBE_MAT_ANL_MA001
+InstCode: 0000001
+FinYear: 2026
+StartDate: 2026-04-01T00:00:00
+EndDate: 2026-06-30T00:00:00
+ReturnItemsList count: 336
+First Item (20_00001): {
+  Code: '20_00001',
+  Value: '',
+  _description: 'ASSETS_Amount',
+  _dataType: 'NUMERIC',
+  _required: false
+}
+Item 25 (20_00025): {
+  Code: '20_00025',
+  Value: '3001.5',
+  _description: 'Cash and balances due from NBE_Amount',
+  _dataType: 'NUMERIC',
+  _required: false
+}
+Item 193 (20_00193): {
+  Code: '20_00193',
+  Value: '1500.75',
+  _description: 'Deposits (demand, savings & time)_Amount',
+  _dataType: 'NUMERIC',
+  _required: false
+}

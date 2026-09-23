@@ -50,6 +50,9 @@ import { processTB001Report } from "./services/TB001/TB001";
 import { processTN001Report } from "./services/TN001/TN001";
 import { processBS001Report } from "./services/BS001/BS001";
 import { processPL001Report } from "./services/PL001/PL001";
+import { processQC001Report } from "./services/QC001/QC001";
+import { processQO001Report } from "./services/QO001/QO001";
+import { processQI001Report } from "./services/QI001/QI001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -71,32 +74,13 @@ export const fileProcessor = async (
         );
 
         // 1. Strict Template Verification
-        // let validationResult;
-        // if (
-        //     reportIdStr.toUpperCase().includes("NN001") ||
-        //     reportIdStr.toUpperCase().includes("NACNN001") ||
-        //     reportIdStr.toUpperCase().includes("OL001") ||
-        //     reportIdStr.toUpperCase().includes("COL_ACQ_18M_OL001") ||
-        //     reportIdStr.toUpperCase().includes("MA001") ||
-        //     reportIdStr.toUpperCase().includes("NBE_MAT_ANL_MA001")
-        // ) {
-        //     validationResult = await validateTemplate(file, reportIdStr);
-        // } else {
-        //     validationResult = { isValid: true } as any;
-        // }
-        // if (!validationResult.isValid) {
-        //     return new Response(
-        //         JSON.stringify({
-        //             error:
-        //                 validationResult.errorMessage ||
-        //                 "This is not the exact template file."
-        //         }),
-        //         {
-        //             status: 400,
-        //             headers: { "Content-Type": "application/json" }
-        //         }
-        //     );
-        // }
+        const validationResult = await validateTemplate(inputFile, reportIdStr);
+        if (!validationResult.isValid) {
+            throw new Error(
+                validationResult.errorMessage ||
+                    `Uploaded file does not match the selected template format (${reportIdStr}).`
+            );
+        }
 
         let procRes: any = { success: false };
         let processor: Function | null = null;
@@ -250,6 +234,14 @@ export const fileProcessor = async (
                 break;
             case "PRO&LOS_PL001":
                 processor = processPL001Report;
+            case "CAP_ADQ_CAP_QC001":
+                processor = processQC001Report;
+                break;
+            case "CAP_ADQ_OFB_QO001":
+                processor = processQO001Report;
+                break;
+            case "CAP_ADQ_ITEM_QI001":
+                processor = processQI001Report;
                 break;
             default:
                 break;
@@ -265,31 +257,16 @@ export const fileProcessor = async (
                 jsonFilePath
             );
             if (!procRes.success) {
-                return new Response(
-                    JSON.stringify({
-                        error:
-                            procRes.error ||
-                            `Failed to process ${reportIdStr} template file.`
-                    }),
-                    {
-                        status: 400,
-                        headers: { "Content-Type": "application/json" }
-                    }
+                throw new Error(
+                    procRes.error ||
+                        `Failed to process ${reportIdStr} template file.`
                 );
             }
         }
     } catch (procErr: any) {
         console.error("Error processing report template format:", procErr);
-        return new Response(
-            JSON.stringify({
-                error:
-                    procErr.message ||
-                    "Failed to process uploaded Excel template."
-            }),
-            {
-                status: 400,
-                headers: { "Content-Type": "application/json" }
-            }
+        throw new Error(
+            procErr.message || "Failed to process uploaded Excel template."
         );
     }
 };
