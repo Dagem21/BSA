@@ -1,0 +1,1067 @@
+{
+    "ReturnKey": "BAL_SHEET_BS001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "1_00001",
+            "Value": "",
+            "_description": "Financial Assets (Sum 2 -6)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00002",
+            "Value": "",
+            "_description": "CASH ON HAND (2.1+2.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00003",
+            "Value": "",
+            "_description": "Foreign currency",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00004",
+            "Value": "",
+            "_description": "Local currency",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00005",
+            "Value": "",
+            "_description": "DEPOSITS WITH BANKS (3.1+3.2+3.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00006",
+            "Value": "",
+            "_description": "Deposits with NBE(sum 3.1.1-3.1.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00007",
+            "Value": "",
+            "_description": "Reserve account",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00008",
+            "Value": "",
+            "_description": "Payment and settlement  account",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00009",
+            "Value": "",
+            "_description": "Cash issue account",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00010",
+            "Value": "",
+            "_description": "Other",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00011",
+            "Value": "",
+            "_description": "Domestic banks deposits (3.2.1+3.2.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00012",
+            "Value": "",
+            "_description": "Interest bearing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00013",
+            "Value": "",
+            "_description": "Non-interest bearing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00014",
+            "Value": "",
+            "_description": "Foreign banks deposits(3.3.1+3.3.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00015",
+            "Value": "",
+            "_description": "Interest bearing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00016",
+            "Value": "",
+            "_description": "Non-interest bearing",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00017",
+            "Value": "",
+            "_description": "INVESTMENTS (4.1+4.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00018",
+            "Value": "",
+            "_description": "Short-term Investments(sum 4.1.1-4.1.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00019",
+            "Value": "",
+            "_description": "Treasury bills",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00020",
+            "Value": "",
+            "_description": "Discount on short-term securities",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00021",
+            "Value": "",
+            "_description": "Other short-term securities",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00022",
+            "Value": "",
+            "_description": "Long-term Investments (4.2.1 + 4.2.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00023",
+            "Value": "",
+            "_description": "Securities (sum 4.2.1.1 - 4.2.1.5)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00024",
+            "Value": "",
+            "_description": "NBE bills",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00025",
+            "Value": "",
+            "_description": "DBE Bonds",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00026",
+            "Value": "",
+            "_description": "Bonds (sum 4.2.1.3.1-4.2.1.3.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00027",
+            "Value": "",
+            "_description": "Federal government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00028",
+            "Value": "",
+            "_description": "Regional government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00029",
+            "Value": "",
+            "_description": "Corporate Bonds",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00030",
+            "Value": "",
+            "_description": "Discount on other long-term securities",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00031",
+            "Value": "",
+            "_description": "Other long-term securities",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00032",
+            "Value": "",
+            "_description": "Equity participation (4.2.2.1 + 4.2.2.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00033",
+            "Value": "",
+            "_description": "Local (sum 4.2.2.1.1-4.2.2.1.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00034",
+            "Value": "",
+            "_description": "In Affiliated institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00035",
+            "Value": "",
+            "_description": "In banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00036",
+            "Value": "",
+            "_description": "In non bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00037",
+            "Value": "",
+            "_description": "In other sectors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00038",
+            "Value": "",
+            "_description": "Foreign",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00039",
+            "Value": "",
+            "_description": "LOANS AND ADVANCES (NET)  (5.1-5.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00040",
+            "Value": "",
+            "_description": "Total Loans & Advances (5.1.1+5.1.2+5.1.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00041",
+            "Value": "",
+            "_description": "Inter bank loans (5.1.1.1+5.1.1.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00042",
+            "Value": "",
+            "_description": "Commercial banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00043",
+            "Value": "",
+            "_description": "Development bank",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00044",
+            "Value": "",
+            "_description": "Non-inter bank loans (sum 5.1.2.1-5.1.2.8)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00045",
+            "Value": "",
+            "_description": "NBE",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00046",
+            "Value": "",
+            "_description": "Federal government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00047",
+            "Value": "",
+            "_description": "Regional government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00048",
+            "Value": "",
+            "_description": "Public entreprises",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00049",
+            "Value": "",
+            "_description": "Cooperatives",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00050",
+            "Value": "",
+            "_description": "Private sector",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00051",
+            "Value": "",
+            "_description": "Loans & advances in litigation",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00052",
+            "Value": "",
+            "_description": "Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00053",
+            "Value": "",
+            "_description": "Non bank Financial Institution",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00054",
+            "Value": "",
+            "_description": "Provisions for loans and advances (5.2.1+5.2.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00055",
+            "Value": "",
+            "_description": "Provisions for performing loans and advances",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00056",
+            "Value": "",
+            "_description": "Specific provisions for loan losses",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00057",
+            "Value": "",
+            "_description": "OTHER FINANCIAL ASSETS (Net)  [(sum 6.1-6.4) -(6.5)]",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00058",
+            "Value": "",
+            "_description": "Sundry debtors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00059",
+            "Value": "",
+            "_description": "Suspense accounts",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00060",
+            "Value": "",
+            "_description": "Un-cleared effects (6.3.1+6.3.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00061",
+            "Value": "",
+            "_description": "Foreign",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00062",
+            "Value": "",
+            "_description": "Local",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00063",
+            "Value": "",
+            "_description": "Other accounts(6.4.1+6.4.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00064",
+            "Value": "",
+            "_description": "Customers’ liabilities for L/C & acceptances as per    contra",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00065",
+            "Value": "",
+            "_description": "Other",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00066",
+            "Value": "",
+            "_description": "Provisions for other financial assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00067",
+            "Value": "",
+            "_description": "NON-FINANCIAL ASSETS (Sum 8-11)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00068",
+            "Value": "",
+            "_description": "FIXED ASSETS (Net)  (8.1– 8.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00069",
+            "Value": "",
+            "_description": "Gross fixed assets (sum 8.1.1- 8.1.5)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00070",
+            "Value": "",
+            "_description": "Premises",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00071",
+            "Value": "",
+            "_description": "Vehicles",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00072",
+            "Value": "",
+            "_description": "Furniture & fittings",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00073",
+            "Value": "",
+            "_description": "Office & other equipments",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00074",
+            "Value": "",
+            "_description": "Other properties",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00075",
+            "Value": "",
+            "_description": "Accumulated depreciation",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00076",
+            "Value": "",
+            "_description": "SUPPLIES STOCK ACCOUNT",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00077",
+            "Value": "",
+            "_description": "OTHER NON-FINANCIAL ASSETS",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00078",
+            "Value": "",
+            "_description": "INTANGIBLE  ASSET(Net) [(11.1+11.2)-(11.3)]",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00079",
+            "Value": "",
+            "_description": "Software",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00080",
+            "Value": "",
+            "_description": "Other",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00081",
+            "Value": "",
+            "_description": "Accumulated Amortization",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00082",
+            "Value": "",
+            "_description": "TOTAL ASSETS (1+7)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00083",
+            "Value": "",
+            "_description": "LIABILITIES & CAPITAL",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00084",
+            "Value": "",
+            "_description": "LIABILITIES (sum 14-19)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00085",
+            "Value": "",
+            "_description": "TOTAL DEPOSITS (sum 14.1-14.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00086",
+            "Value": "",
+            "_description": "Demand/current deposits (sum 14.1.1-14.1.14)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00087",
+            "Value": "",
+            "_description": "Federal  government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00088",
+            "Value": "",
+            "_description": "Regional government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00089",
+            "Value": "",
+            "_description": "Public enterprises",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00090",
+            "Value": "",
+            "_description": "Domestic banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00091",
+            "Value": "",
+            "_description": "Non-bank financial institutuions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00092",
+            "Value": "",
+            "_description": "Pension fund",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00093",
+            "Value": "",
+            "_description": "Cooperatives & associations",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00094",
+            "Value": "",
+            "_description": "Private   sector",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00095",
+            "Value": "",
+            "_description": "Foreign banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00096",
+            "Value": "",
+            "_description": "N/R - foreign currency account",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00097",
+            "Value": "",
+            "_description": "N/R - transferable birr account",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00098",
+            "Value": "",
+            "_description": "N/ R - non-transferable birr a/c",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00099",
+            "Value": "",
+            "_description": "Resident foreign currency  a/c",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00100",
+            "Value": "",
+            "_description": "FCY retention a/c \"A\" & \"B\"",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00101",
+            "Value": "",
+            "_description": "Savings deposits (sum 14.2.1-14.2.7)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00102",
+            "Value": "",
+            "_description": "Government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00103",
+            "Value": "",
+            "_description": "Public enterprises",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00104",
+            "Value": "",
+            "_description": "Domestic banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00105",
+            "Value": "",
+            "_description": "Non-bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00106",
+            "Value": "",
+            "_description": "Pension fund",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00107",
+            "Value": "",
+            "_description": "Cooperatives & associations",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00108",
+            "Value": "",
+            "_description": "Private sector",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00109",
+            "Value": "",
+            "_description": "Time/fixed deposits (sum 14.3.1-14.3.7)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00110",
+            "Value": "",
+            "_description": "Government",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00111",
+            "Value": "",
+            "_description": "Public enterprises",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00112",
+            "Value": "",
+            "_description": "Domestic banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00113",
+            "Value": "",
+            "_description": "Non-bank financial institutions",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00114",
+            "Value": "",
+            "_description": "Pension fund",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00115",
+            "Value": "",
+            "_description": "Cooperatives & associations",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00116",
+            "Value": "",
+            "_description": "Private  sector",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00117",
+            "Value": "",
+            "_description": "BORROWINGS (15.1+15.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00118",
+            "Value": "",
+            "_description": "Local borrowings (sum 15.1.1-15.1.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00119",
+            "Value": "",
+            "_description": "Short term (sum 15.1.1.1-15.1.1.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00120",
+            "Value": "",
+            "_description": "NBE",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00121",
+            "Value": "",
+            "_description": "Banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00122",
+            "Value": "",
+            "_description": "Non bank",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00123",
+            "Value": "",
+            "_description": "Medium term (sum 15.1.2.1-15.1.2.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00124",
+            "Value": "",
+            "_description": "NBE",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00125",
+            "Value": "",
+            "_description": "Banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00126",
+            "Value": "",
+            "_description": "Non bank",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00127",
+            "Value": "",
+            "_description": "Long term (sum 15.1.3.1-15.1.3.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00128",
+            "Value": "",
+            "_description": "NBE",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00129",
+            "Value": "",
+            "_description": "Banks",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00130",
+            "Value": "",
+            "_description": "Non bank",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00131",
+            "Value": "",
+            "_description": "Foreign borrowings(sum 15.2.1-15.2.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00132",
+            "Value": "",
+            "_description": "Short term",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00133",
+            "Value": "",
+            "_description": "Medium term",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00134",
+            "Value": "",
+            "_description": "Long term",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00135",
+            "Value": "",
+            "_description": "DEBT SECURITIES ISSUED",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00136",
+            "Value": "",
+            "_description": "SUNDRY CREDITORS",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00137",
+            "Value": "",
+            "_description": "Provision for taxation & other",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00138",
+            "Value": "",
+            "_description": "OTHER ACCOUNTS (sum 20.1-20.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00139",
+            "Value": "",
+            "_description": "L/C margin held",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00140",
+            "Value": "",
+            "_description": "Bank’s liabilities for L/C & acceptances as per  contra",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00141",
+            "Value": "",
+            "_description": "Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00142",
+            "Value": "",
+            "_description": "CAPITAL & RESER. A/C (sum 21.1-21.5)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00143",
+            "Value": "",
+            "_description": "Paid up capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00144",
+            "Value": "",
+            "_description": "Shares premium",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00145",
+            "Value": "",
+            "_description": "Legal reserves",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00146",
+            "Value": "",
+            "_description": "General reserves",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00147",
+            "Value": "",
+            "_description": "Retained Earnings",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00148",
+            "Value": "",
+            "_description": "Provisional profit/loss A/C",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00149",
+            "Value": "",
+            "_description": "Net Worth (21+21.6)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00150",
+            "Value": "",
+            "_description": "TOTAL LIABILITIES AND NET WORTH (=13+22)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "1_00151",
+            "Value": "",
+            "_description": "State dividend payable",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

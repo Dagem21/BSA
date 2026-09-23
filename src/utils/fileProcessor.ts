@@ -48,6 +48,8 @@ import { processEE002Report } from "./services/EE002/EE002";
 import { processSR002Report } from "./services/SR002/SR002";
 import { processTB001Report } from "./services/TB001/TB001";
 import { processTN001Report } from "./services/TN001/TN001";
+import { processBS001Report } from "./services/BS001/BS001";
+import { processPL001Report } from "./services/PL001/PL001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -242,6 +244,12 @@ export const fileProcessor = async (
                 break;
             case "TOP_20_NPLs_TN001":
                 processor = processTN001Report;
+                break;
+            case "BAL_SHEET_BS001":
+                processor = processBS001Report;
+                break;
+            case "PRO&LOS_PL001":
+                processor = processPL001Report;
                 break;
             default:
                 break;

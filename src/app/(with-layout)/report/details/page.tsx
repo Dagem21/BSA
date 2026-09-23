@@ -35,6 +35,13 @@ import { DR002ExcelView } from "@/components/ReportViews/dr002-excel-view";
 import { DS003ExcelView } from "@/components/ReportViews/ds003-excel-view";
 import { ID002ExcelView } from "@/components/ReportViews/id002-excel-view";
 import { RI003ExcelView } from "@/components/ReportViews/ri003-excel-view";
+import { RA002ExcelView } from "@/components/ReportViews/ra002-excel-view";
+import { SE002ExcelView } from "@/components/ReportViews/se002-excel-view";
+import { NE001ExcelView } from "@/components/ReportViews/ne001-excel-view";
+import { MR001ExcelView } from "@/components/ReportViews/mr001-excel-view";
+import { XW002ExcelView } from "@/components/ReportViews/xw002-excel-view";
+import { BS001ExcelView } from "@/components/ReportViews/bs001-excel-view";
+import { PL001ExcelView } from "@/components/ReportViews/pl001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -124,20 +131,29 @@ export default function Details() {
             case "LSR-Statutory ZS001":
                 return <ZS001ExcelView activeFileName={report.json} />;
             case "Digital SavingGS001":
-            case "GS001":
                 return <GS001ExcelView activeFileName={report.json} />;
             case "DEP_RAN&REG_DR002":
-            case "DR002":
                 return <DR002ExcelView activeFileName={report.json} />;
             case "DEP_SEC&REG_DS003":
-            case "DS003":
                 return <DS003ExcelView activeFileName={report.json} />;
             case "INT_FRE_RANID002":
-            case "ID002":
                 return <ID002ExcelView activeFileName={report.json} />;
             case "INT_FRE_SECRI003":
-            case "RI003":
                 return <RI003ExcelView activeFileName={report.json} />;
+            case "LOAN_RAN&REG_RA002":
+                return <RA002ExcelView activeFileName={report.json} />;
+            case "LOAN_SEC&REG_SE002":
+                return <SE002ExcelView activeFileName={report.json} />;
+            case "NPL_ECPOMNE001":
+                return <NE001ExcelView activeFileName={report.json} />;
+            case "NBE_20_DEP_MR001":
+                return <MR001ExcelView activeFileName={report.json} />;
+            case "BUIL_CONSTXW002":
+                return <XW002ExcelView activeFileName={report.json} />;
+            case "BAL_SHEET_BS001":
+                return <BS001ExcelView activeFileName={report.json} />;
+            case "PRO&LOS_PL001":
+                return <PL001ExcelView activeFileName={report.json} />;
             default:
                 return <></>;
         }

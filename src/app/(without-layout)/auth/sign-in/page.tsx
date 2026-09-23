@@ -20,7 +20,7 @@ export default function SignIn() {
             </div>
 
             <div className="hidden w-full p-6 xl:block xl:w-1/2">
-                <div className="custom-gradient-1 overflow-hidden rounded-2xl px-15 pt-12.5 dark:bg-dark-2! dark:bg-none">
+                <div className="overflow-hidden rounded-2xl bg-gray-100 px-15 pt-12.5 dark:bg-gray-800">
                     <Link className="mb-10" href="/">
                         <Image
                             className="block"

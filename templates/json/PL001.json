@@ -1,0 +1,220 @@
+{
+    "ReturnKey": "PRO&LOS_PL001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "3_00001",
+            "Value": "",
+            "_description": "Interest income",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00002",
+            "Value": "",
+            "_description": "Interest expense",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00003",
+            "Value": "",
+            "_description": "Net interest income (1-2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00004",
+            "Value": "",
+            "_description": "Non-interest income (Sum 4.1-4.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00005",
+            "Value": "",
+            "_description": "Service charge & commission(4.1.1+4.1.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00006",
+            "Value": "",
+            "_description": "Local",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00007",
+            "Value": "",
+            "_description": "Foreign",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00008",
+            "Value": "",
+            "_description": "Gains or losses on financial instruments",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00009",
+            "Value": "",
+            "_description": "Prorated earnings",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00010",
+            "Value": "",
+            "_description": "Other income",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00011",
+            "Value": "",
+            "_description": "Gross income (1+4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00012",
+            "Value": "",
+            "_description": "Non interest expenses ( 6.1+6.2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00013",
+            "Value": "",
+            "_description": "Employees salaries & benefits",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00014",
+            "Value": "",
+            "_description": "General expenses and adminstrative expenses",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00015",
+            "Value": "",
+            "_description": "Total Expenses (Sum 2+6)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00016",
+            "Value": "",
+            "_description": "Operating income before tax & provisions (5-7)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00017",
+            "Value": "",
+            "_description": "Provisions (Sum 9.1-9.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00018",
+            "Value": "",
+            "_description": "Provisions for performing loans & advances",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00019",
+            "Value": "",
+            "_description": "Specific provisions for loan losses",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00020",
+            "Value": "",
+            "_description": "Provisions for other financial assets",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00021",
+            "Value": "",
+            "_description": "Extraordinary expense",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00022",
+            "Value": "",
+            "_description": "Operating income after provisions and extraordinary expense[8-(9+10)]",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00023",
+            "Value": "",
+            "_description": "Non-taxable income (sum 12.1-12.4)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00024",
+            "Value": "",
+            "_description": "Income from Treasury Bills",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00025",
+            "Value": "",
+            "_description": "Income from NBE Bills",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00026",
+            "Value": "",
+            "_description": "Income from DBE-Bonds",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00027",
+            "Value": "",
+            "_description": "Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00028",
+            "Value": "",
+            "_description": "Taxable Income (11-12)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00029",
+            "Value": "",
+            "_description": "Business profit tax",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "3_00030",
+            "Value": "",
+            "_description": "Net income (11-14)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

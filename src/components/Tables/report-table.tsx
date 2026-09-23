@@ -237,7 +237,7 @@ export function ReportTable() {
                         <TableHead>End Date</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead>Last Update</TableHead>
-                        <TableHead className="text-right xl:pr-7.5">
+                        <TableHead className="text-right xl:pr-7.5" colSpan={2}>
                             Actions
                         </TableHead>
                     </TableRow>
