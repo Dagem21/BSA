@@ -30,6 +30,7 @@ const { processTN001 } = require("@/utils/services/TN001/TN001");
 const { processQC001 } = require("@/utils/services/QC001/QC001");
 const { processQO001 } = require("@/utils/services/QO001/QO001");
 const { processQI001 } = require("@/utils/services/QI001/QI001");
+const { processMD002 } = require("@/utils/services/MD002/MD002");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -219,6 +220,8 @@ export async function POST(request: NextRequest) {
             jsonPayload = processWAADIR001 ? processWAADIR001(worksheet) : null;
         } else if (requestedType.includes("CM002") || requestedType.includes("CDby Range")) {
             jsonPayload = processCM002 ? processCM002(worksheet) : null;
+        } else if (requestedType.includes("MD002") || requestedType.includes("CDby Sector")) {
+            jsonPayload = processMD002 ? processMD002(worksheet) : null;
         } else if (requestedType.includes("ZZ002") || requestedType.includes("IFB_LON_S")) {
             jsonPayload = processZZ002 ? processZZ002(worksheet) : null;
         } else if (requestedType.includes("RS002") || requestedType.includes("LOAN_SEC")) {

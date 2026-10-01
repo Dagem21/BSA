@@ -118,6 +118,9 @@ export default function StandaloneConverterPage() {
                             <option value="CDby Range and RegCM002">
                                 CDby Range and RegCM002 — Deposits by Range (CM002)
                             </option>
+                            <option value="CDby Sector and RegMD002">
+                                CDby Sector and RegMD002 — Conventional Deposits by Sector (MD002)
+                            </option>
                             <option value="DIFIF002">
                                 DIFIF002 — Interest Free Deposits by Sector (IF002)
                             </option>

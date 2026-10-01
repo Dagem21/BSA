@@ -136,6 +136,7 @@ export const fileProcessor = async (
             case "LOAN_RAN & REGRL002":
                 processor = processREGRL002Report;
                 break;
+            case "MD002":
             case "CDby Sector and RegMD002":
                 processor = processMD002Report;
                 break;
