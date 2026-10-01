@@ -26,7 +26,7 @@ export const RB001Format = (
     valuesMap: Record<string, string> = {}
 ) => {
     const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null && val !== "" ? val.toString() : "";
+        val !== undefined && val !== null && val !== "" ? val.toString() : "0";
 
     const returnItems: Array<{
         Code: string;
