@@ -482,6 +482,32 @@ export async function validateTemplate(
                             "This is not the exact TN001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("BA001") || cleanId.includes("BRE_INCO")) {
+                const isBA001 =
+                    codeA1.includes("BA001") ||
+                    codeA1.includes("BRE_INCO") ||
+                    headerRow4.includes("income") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("BA001");
+                if (!isBA001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact BA001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("BE001") || cleanId.includes("BRE_EXPE")) {
+                const isBE001 =
+                    codeA1.includes("BE001") ||
+                    codeA1.includes("BRE_EXPE") ||
+                    headerRow4.includes("expense") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("BE001");
+                if (!isBE001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact BE001 Excel template file."
+                    };
+                }
             }
         }
 
