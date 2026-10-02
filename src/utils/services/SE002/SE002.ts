@@ -111,8 +111,8 @@ export async function processSE002Report(
         // Optimization 1: Pre-cache column header information (Row 15 and 16)
         const columnHeaders = cols.map((col) => ({
             col,
-            type: getDirectCellValue(worksheet.getRow(15).getCell(col)).trim(),
-            code: getDirectCellValue(worksheet.getRow(16).getCell(col)).trim()
+            type: getDirectCellValue(worksheet.getRow(14).getCell(col)).trim(),
+            code: getDirectCellValue(worksheet.getRow(15).getCell(col)).trim()
         }));
 
         const itemMap = new Map();
@@ -232,8 +232,8 @@ async function toExcel(jsonFileName: string, outputExcelPath: string) {
 
         const columnHeaders = cols.map((col) => ({
             col,
-            type: getDirectCellValue(worksheet.getRow(15).getCell(col)).trim(),
-            code: getDirectCellValue(worksheet.getRow(16).getCell(col)).trim()
+            type: getDirectCellValue(worksheet.getRow(14).getCell(col)).trim(),
+            code: getDirectCellValue(worksheet.getRow(15).getCell(col)).trim()
         }));
 
         const itemMap = new Map();
@@ -268,7 +268,7 @@ async function toExcel(jsonFileName: string, outputExcelPath: string) {
                     continue;
                 } else reg = `${currReg}_`;
 
-                const idn = `${reg}${esec}_${header.type}_${header.code}`;
+                const idn = `${reg}_${esec}_${header.type}_${header.code}`;
 
                 const availableIndices = itemMap.get(idn);
                 if (availableIndices && availableIndices.length > 0) {

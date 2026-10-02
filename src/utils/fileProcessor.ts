@@ -235,6 +235,7 @@ export const fileProcessor = async (
                 break;
             case "PRO&LOS_PL001":
                 processor = processPL001Report;
+                break;
             case "CAP_ADQ_CAP_QC001":
                 processor = processQC001Report;
                 break;

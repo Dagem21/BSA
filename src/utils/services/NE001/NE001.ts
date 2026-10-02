@@ -102,14 +102,15 @@ export async function processNE001Report(
             }
         });
 
-        for (let i = 16; i < 32; i++) {
+        for (let i = 16; i < 40; i++) {
+            if (31 < i && i < 39) continue;
             const esec = getDirectCellValue(
                 worksheet.getRow(i).getCell("B")
             ).trim();
             if (!esec) continue;
 
             for (const header of columnHeaders) {
-                if (!header.code) continue;
+                if (!header.code && !header.type) continue;
 
                 const idn = `${esec}_${header.type}${header.code ? " " + header.code : ""}`;
                 const value = getDirectCellValue(
@@ -175,7 +176,7 @@ export async function processNE001Report(
 
         const colsDy = ["B", "C", "D", "E", "F", "G", "H", "I"];
 
-        for (let i = 33; i < 40; i++) {
+        for (let i = 33; i < 39; i++) {
             let j = 0;
             for (const col of colsDy) {
                 let value = getDirectCellValue(

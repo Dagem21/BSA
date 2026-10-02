@@ -158,7 +158,6 @@ export default function Details() {
             case "PRO&LOS_PL001":
                 return <PL001ExcelView activeFileName={report.json} />;
             case "CAP_ADQ_CAP_QC001":
-            case "QC001":
                 return <QC001ExcelView activeFileName={report.json} />;
             case "CAP_ADQ_OFB_QO001":
                 return <QO001ExcelView activeFileName={report.json} />;
