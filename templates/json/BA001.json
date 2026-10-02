@@ -1,0 +1,175 @@
+{
+    "ReturnKey": "BRE_INCO_BA001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "4_00001",
+            "Value": "",
+            "_description": "Interest income (1.1+1.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00002",
+            "Value": "",
+            "_description": "Domestic (sum 1.1.1-1.1.7)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00003",
+            "Value": "",
+            "_description": "Loans (sum1.1.1.1-1.1.1.3)",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00004", "Value": "", "_description": "Banks", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00005",
+            "Value": "",
+            "_description": "Non-bank financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00006", "Value": "", "_description": "Others", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00007",
+            "Value": "",
+            "_description": "Federal government bonds",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00008",
+            "Value": "",
+            "_description": "Treasury bills",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00009", "Value": "", "_description": "NBE bills", "_dataType": "NUMERIC" },
+        { "Code": "4_00010", "Value": "", "_description": "DBE-Bonds", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00011",
+            "Value": "",
+            "_description": "Corporate bonds",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00012", "Value": "", "_description": "Others", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00013",
+            "Value": "",
+            "_description": "Foreign (sum 1.2.1-1.2.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00014",
+            "Value": "",
+            "_description": "Income on correspondent accounts",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00015", "Value": "", "_description": "Securities", "_dataType": "NUMERIC" },
+        { "Code": "4_00016", "Value": "", "_description": "Call accounts", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00017",
+            "Value": "",
+            "_description": "Service charges and commissions (sum 2.1-2.8)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00018",
+            "Value": "",
+            "_description": "Commission income",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00019",
+            "Value": "",
+            "_description": "Letters of guarantee",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00020",
+            "Value": "",
+            "_description": "Letters of credit",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00021",
+            "Value": "",
+            "_description": "Documentary collection",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00022",
+            "Value": "",
+            "_description": "Foreign exchange transfers",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00023",
+            "Value": "",
+            "_description": "Local transfers",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00024",
+            "Value": "",
+            "_description": "Negotiation of cheques, CPOs",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00025", "Value": "", "_description": "Others", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00026",
+            "Value": "",
+            "_description": "Other income (sum 3.1-3.6)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00027",
+            "Value": "",
+            "_description": "Postage, telegram, telephone, telex, swift",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00028",
+            "Value": "",
+            "_description": "Foreign exchange trading  and  fluctuation gains (3.2.1+3.2.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00029",
+            "Value": "",
+            "_description": "Foreign exchange trading",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00030",
+            "Value": "",
+            "_description": "Foreign exchange  fluctuation gains",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00031",
+            "Value": "",
+            "_description": "Transfer from specific loan provisions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00032",
+            "Value": "",
+            "_description": "Extraordinary income",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "4_00033",
+            "Value": "",
+            "_description": "Bad debts collected",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "4_00034", "Value": "", "_description": "Others", "_dataType": "NUMERIC" },
+        {
+            "Code": "4_00035",
+            "Value": "",
+            "_description": "Total income earned (sum 1-3)",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}

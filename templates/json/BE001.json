@@ -1,0 +1,115 @@
+{
+    "ReturnKey": "BRE_EXPE_BE001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "5_00001",
+            "Value": "",
+            "_description": "1-Interest expense (sum 1.1-1.7)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00002",
+            "Value": "",
+            "_description": "1,1-Interest on savings deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00003",
+            "Value": "",
+            "_description": "1,2-Interest on demand deposit",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00004",
+            "Value": "",
+            "_description": "1,3-Interest on time deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00005",
+            "Value": "",
+            "_description": "1,4-Interest paid on local borrowings    (sum 1.4.1-1.4.3)",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "5_00006", "Value": "", "_description": "1.4.1-NBE", "_dataType": "NUMERIC" },
+        {
+            "Code": "5_00007",
+            "Value": "",
+            "_description": "1.4.2-Other banks",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "5_00008", "Value": "", "_description": "1.4.3- Others", "_dataType": "NUMERIC" },
+        {
+            "Code": "5_00009",
+            "Value": "",
+            "_description": "1,5- Interest paid on foreign borrowings",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00010",
+            "Value": "",
+            "_description": "1,6-Interest paid on NP special FCY accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00011",
+            "Value": "",
+            "_description": "1,7-Interest paid on correspondents’ accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00012",
+            "Value": "",
+            "_description": "2-General  and adminstrative expense (sum 2.1-2.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00013",
+            "Value": "",
+            "_description": "2,1-Depreciation and amortization",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00014",
+            "Value": "",
+            "_description": "2,2-Foreign exchange trading and fluctuation losses",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00015",
+            "Value": "",
+            "_description": "2,3-Other general expenses",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00016",
+            "Value": "",
+            "_description": "3-Employee Salaries and Benefits  (sum 3.1-3.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00017",
+            "Value": "",
+            "_description": "3,1-Employee Salaries",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "5_00018",
+            "Value": "",
+            "_description": "3,2-Employee  Benefits",
+            "_dataType": "NUMERIC"
+        },
+        { "Code": "5_00019", "Value": "", "_description": "3,3-other", "_dataType": "NUMERIC" },
+        {
+            "Code": "5_00020",
+            "Value": "",
+            "_description": "4-Total expense incurred(Sum 1-3)",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}

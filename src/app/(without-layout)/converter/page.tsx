@@ -166,6 +166,12 @@ export default function StandaloneConverterPage() {
                             <option value="CAP_ADQ_ITEM_QI001">
                                 CAP_ADQ_ITEM_QI001 — Capital Adequacy On-Balance Sheet (QI001)
                             </option>
+                            <option value="BRE_INCO_BA001">
+                                BRE_INCO_BA001 — Breakdown of Income Accounts (BA001)
+                            </option>
+                            <option value="BRE_EXPE_BE001">
+                                BRE_EXPE_BE001 — Breakdown of Expenses (BE001)
+                            </option>
                         </select>
                     </div>
 

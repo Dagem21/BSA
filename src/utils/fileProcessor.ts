@@ -53,6 +53,8 @@ import { processPL001Report } from "./services/PL001/PL001";
 import { processQC001Report } from "./services/QC001/QC001";
 import { processQO001Report } from "./services/QO001/QO001";
 import { processQI001Report } from "./services/QI001/QI001";
+import { processBA001Report } from "./services/BA001/BA001";
+import { processBE001Report } from "./services/BE001/BE001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -235,6 +237,7 @@ export const fileProcessor = async (
                 break;
             case "PRO&LOS_PL001":
                 processor = processPL001Report;
+                break;
             case "CAP_ADQ_CAP_QC001":
                 processor = processQC001Report;
                 break;
@@ -243,6 +246,14 @@ export const fileProcessor = async (
                 break;
             case "CAP_ADQ_ITEM_QI001":
                 processor = processQI001Report;
+                break;
+            case "BRE_INCO_BA001":
+            case "BA001":
+                processor = processBA001Report;
+                break;
+            case "BRE_EXPE_BE001":
+            case "BE001":
+                processor = processBE001Report;
                 break;
             default:
                 break;
