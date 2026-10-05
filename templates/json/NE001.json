@@ -130,6 +130,9 @@
             "Value": "",
             "_description": "Domestic Trade & Service_Total",
             "_dataType": "NUMERIC"
+            "_description": "Domestic Trade and Service_Total",
+            "_dataType": "NUMERIC",
+            "_required": false
         },
         {
             "Code": "92_00022",

@@ -82,10 +82,10 @@ export async function processPL001Report(
         json.StartDate = getDirectCellValue(worksheet.getRow(10).getCell("C"));
         json.EndDate = getDirectCellValue(worksheet.getRow(11).getCell("C"));
 
-        for (let i = 16; i < 45; i++) {
+        for (let i = 15; i < 45; i++) {
             const value = getDirectCellValue(worksheet.getRow(i).getCell("C"));
 
-            const code = `3_${(i - 15).toString().padStart(5, "0")}`;
+            const code = `3_${(i - 14).toString().padStart(5, "0")}`;
 
             const itemIndex = json?.ReturnItemsList?.findIndex((item: any) => {
                 const itemCode = item?.Code?.trim();
@@ -145,9 +145,9 @@ async function toExcel(jsonFileName: string, outputExcelPath: string) {
             134, 135, 139, 143, 147, 155, 159, 166, 167
         ];
 
-        for (let i = 16; i < 45; i++) {
+        for (let i = 15; i < 45; i++) {
             if (formulas.includes(i)) continue;
-            const code = `3_${(i - 15).toString().padStart(5, "0")}`;
+            const code = `3_${(i - 14).toString().padStart(5, "0")}`;
 
             const itemIndex = json?.ReturnItemsList?.findIndex((item: any) => {
                 const itemCode = item?.Code?.trim();

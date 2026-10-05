@@ -348,7 +348,7 @@ export function RA002ExcelView({
         });
     };
 
-    let codeCounter = 55742;
+    let codeCounter = 40622;
     const gridRows = RA002_ROW_DESCRIPTIONS.map((desc, rowIndex) => {
         const code = ROW_CODES[rowIndex] || "";
         const rowExcelNum = 17 + rowIndex;
