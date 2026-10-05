@@ -1,0 +1,122 @@
+File path: C:\Users\mulukenwalle\Desktop\national_bank\BSA\templates\FB001 (1).xlsx
+Worksheet name: Sheet1
+Row 1: A="INT_FRE_BS_FB001", B=null, C=null
+Row 4: A="Interest Free Banking Service Balance sheet", B="Interest Free Banking Service Balance sheet", C="Interest Free Banking Service Balance sheet"
+Row 5: A="Interest Free Banking Service Balance sheet", B="Interest Free Banking Service Balance sheet", C="Interest Free Banking Service Balance sheet"
+Row 6: A="Interest Free Banking Service Balance sheet", B="Interest Free Banking Service Balance sheet", C="Interest Free Banking Service Balance sheet"
+Row 7: A="Interest Free Banking Service Balance sheet", B="Interest Free Banking Service Balance sheet", C="Interest Free Banking Service Balance sheet"
+Row 8: A="Instiution Code ", B="Instiution Code ", C="0000001"
+Row 9: A="Financial Year", B="Financial Year", C="2026"
+Row 10: A="Start Date", B="Start Date", C="2026-07-01T00:00:00.000Z"
+Row 11: A="End Date", B="End Date", C="2026-08-31T00:00:00.000Z"
+Row 13: A=null, B=null, C="In Millions of Birr"
+Row 14: A="S.No.", B="Description", C=null
+Row 15: A=null, B="Assets ", C=null
+Row 16: A=1, B="Financial Assets (sum 2-6)", C={"formula":"C17+C20+C25+C44+C49","result":95546.93887625}
+Row 17: A=2, B="Cash on hand (2.1+2.2)", C={"formula":"C18+C19","result":2042.0877014499997}
+Row 18: A=2.1, B="Foreign currency", C=19.33887184
+Row 19: A=2.2, B="Local currency", C=2022.7488296099998
+Row 20: A=3, B="Deposits (sum 3.1-3.4)", C={"formula":"C21+C22+C23+C24"}
+Row 21: A=3.1, B="Deposits with NBE ", C=null
+Row 22: A=3.2, B="Deposits with domestic banks/other financial institutions", C=null
+Row 23: A=3.3, B="Deposit with foreign banks", C=null
+Row 24: A=3.4, B="Other deposits ", C=null
+Row 25: A=4, B="INVESTMENTS (4.1+4.2) ", C={"formula":"C26+C30"}
+Row 26: A=4.1, B="Short-term investments (sum 4.1.1-4.1.3) ", C={"formula":"SUM(C27:C29)"}
+Row 27: A="4.1.1", B="Treasury Bills", C=null
+Row 28: A="4.1.2", B="Discount on short-term securities", C=null
+Row 29: A="4.1.3", B={"richText":[{"text":"Other short term "},{"font":{"size":12,"color":{"theme":1},"name":"Times New Roman","family":1},"text":"securities"}]}, C=null
+Row 30: A=4.2, B="Long-term investments (4.2.1+4.2.2) ", C={"formula":"C31+C40"}
+Row 31: A="  4.2.1", B="Securities (sum 4.2.1.1 - 4.2.1.5) ", C={"formula":"C32+C33+C34+C38+C39"}
+Row 32: A="4.2.1.1", B="NBE bills", C=null
+Row 33: A="4.2.1.2", B="DBE Bonds", C=null
+Row 34: A="4.2.1.3 ", B="Bonds (sum 4.2.1.3.1-4.2.1.3.3)", C={"formula":"C35+C36+C37"}
+Row 35: A="4.2.1.3.1", B="Federal government", C=null
+Row 36: A="4.2.1.3.2", B="Regional government", C=null
+Row 37: A="4.2.1.3.3 ", B="Corporate", C=null
+Row 38: A="4.2.1.4", B="Discount on long-term securities ", C=null
+Row 39: A=" 4.2.1.5 ", B="Other long-term securities", C=null
+Row 40: A="4.2.2", B="Equity investment (sum 4.2.2.1-4.2.2.3)", C={"formula":"SUM(C41:C43)"}
+Row 41: A=" 4.2.2.1", B="Mudharabah", C=null
+Row 42: A=" 4.2.2.2 ", B="Musharakah", C=null
+Row 43: A=" 4.2.2 .3", B="Equity participation", C=null
+Row 44: A=5, B="Receivables (Sum 5.1-5.4)", C={"formula":"C45+C46+C47+C48","result":693.7755516899999}
+Row 45: A=5.1, B=" Accounts receivable", C=67.89858539999999
+Row 46: A=5.2, B=" Profit receivable from financing", C=null
+Row 47: A=5.3, B="Profit receivable from investment", C=null
+Row 48: A=5.4, B="Other receivable ", C=625.8769662899999
+Row 49: A=6, B="Net Loans and Advances [(sum 6.1-6.4)-(6.5)]", C={"formula":"(C50+C54+C57+C58)-(C59)","result":92811.07562311001}
+Row 50: A=6.1, B="Trade financing (Sum 6.1.1-6.1.3)", C={"formula":"SUM(C51:C53)","result":94158.41214063001}
+Row 51: A="6.1.1", B=" Murabaha financing", C=94158.41214063001
+Row 52: A="6.1.2", B=" Selam financing", C=null
+Row 53: A=" 6.1.3", B="Istina’a financing", C=null
+Row 54: A=6.2, B="Ijira (leasing) (6.2.1+6.2.2)", C={"formula":"SUM(C55:C56)"}
+Row 55: A="6.2.1", B=" Financial leasing", C=null
+Row 56: A="6.2.2  ", B="Operational leasing", C=null
+Row 57: A=6.3, B=" Qard (goodly loans)", C=null
+Row 58: A=6.4, B="Other loans", C=null
+Row 59: A="6.5 ", B="Less provisions ", C=1347.33651752
+Row 60: A=7, B="Inventories (sum 7.1-7.4)", C={"formula":"SUM(C61:C64)","result":50.610716599999996}
+Row 61: A=7.1, B="Inventories held for trade financing", C=50.6108426
+Row 62: A=7.2, B=" Inventories held for Ijira (leasing)", C=null
+Row 63: A=7.3, B=" Supplies stock", C=-0.000126
+Row 64: A=7.4, B="Other inventories", C=null
+Row 65: A=8, B={"richText":[{"text":"Net fixed assets "},{"font":{"size":12,"color":{"argb":"FF000000"},"name":"Times New Roman","family":1},"text":"(8.1- 8.7)"}]}, C={"formula":"C66-C72"}
+Row 66: A=8.1, B=" Gross fixed assets (sum 8.2-8.6)", C={"formula":"SUM(C67:C71)"}
+Row 67: A=8.2, B="Furniture & fittings", C=null
+Row 68: A=8.3, B=" Office & other equipment", C=null
+Row 69: A=8.4, B="Vehicles ", C=null
+Row 70: A=8.5, B="Acquired properties", C=null
+Row 71: A=8.6, B="Other properties ", C=null
+Row 72: A=8.7, B="Accumulated depreciation", C=null
+Row 73: A=9, B="Other assets (9.1+9.2)", C={"formula":"SUM(C74:C75)","result":257214.05691538}
+Row 74: A=9.1, B="Suspense accounts", C=null
+Row 75: A=9.2, B="Suspense inter branch accounts", C=257214.05691538
+Row 76: A=null, B="Total Assets (1+7+8+9)", C={"formula":"C16+C60+C65+C73","result":352811.60650823}
+Row 77: A=null, B="Liabilities and Owner's Equity", C=null
+Row 78: A=10, B="Liabilities ", C=null
+Row 79: A=11, B="Deposits (11.1+11.2)", C={"formula":"C80+C88+C106","result":324807.59044409747}
+Row 80: A=11.1, B="Current account (Amana Demand Deposit) (sum 11.1.1-11.1.5)", C={"formula":"C81+C82+C83+C84+C87","result":45428.78893561001}
+Row 81: A="11.1.1", B="Private sector", C=44148.23795253001
+Row 82: A="11.1.2", B="Cooperative and associations", C=891.6770241900001
+Row 83: A="11.1.3 ", B="Public enterprises", C=388.87395889
+Row 84: A="11.1.4 ", B="Banks/other financial institutions (11.1.4.1+11.1.4.2)", C={"formula":"SUM(C85:C86)"}
+Row 85: A="11.1.4.1 ", B="Local bank/ financial institutions", C=null
+Row 86: A="11.1.4.2 ", B="Foreign bank/financial institutions", C=null
+Row 87: A="11.1.5", B="Others (specify)", C=null
+Row 88: A=11.2, B="Saving accounts (Wadi’a Saving Deposit) (sum 11.2.1-11.2.5)", C={"formula":"C89+C90+C91+C95+C92","result":251834.29890862745}
+Row 89: A="11.2.1 ", B="Private sector", C=250438.27941126746
+Row 90: A="11.2.2", B="Cooperative and associations", C=1281.12437796
+Row 91: A="11.2.3", B="Public enterprises", C=114.89511940000001
+Row 92: A="11.2.4", B="Banks/other financial institutions (11.2.4.1+11.2.4.2)", C={"formula":"SUM(C93:C94)"}
+Row 93: A="11.2.4.1", B=" Local bank/ financial institutions", C=null
+Row 94: A="11.2.4.2 ", B="Foreign bank/financial institutions", C=null
+Row 95: A="11.2.5", B="Others (specify)", C=null
+Row 96: A=12, B="Payable (sum 12.1-12.6)", C={"formula":"C97+C98+C99+C100+C101+C105","result":440.23824401999934}
+Row 97: A=12.1, B="Accounts payable", C=199.35923352999998
+Row 98: A=12.2, B=" Profit tax payable", C=null
+Row 99: A=12.3, B=" Payable to charity organization for penalty collected", C=169.34858785
+Row 100: A=12.4, B="Hiba payable (if any)", C=null
+Row 101: A=12.5, B="Declared but undistributed profit (sum 12.5.1-12.5.3)", C={"formula":"SUM(C102:C104)"}
+Row 102: A="12.5.1. ", B="Accumulated profit share on trade", C=null
+Row 103: A="12.5.2 ", B="Accumulated profit share on Ijara", C=null
+Row 104: A="12.5.3", B=" Accumulated profit share on Qard", C=null
+Row 105: A=12.6, B="Other payables ", C=71.53042263999939
+Row 106: A=13, B="Investment account holders (13.1+13.2)", C={"formula":"C107+C110","result":27544.50259986}
+Row 107: A=13.1, B="Restricted investment deposit (13.1.1+13.1.2)", C={"formula":"SUM(C108:C109)"}
+Row 108: A="13.1.1", B=" Time bounded investment", C=null
+Row 109: A="13.1.2 ", B=" Non-time bounded investment", C=null
+Row 110: A=13.2, B="Unrestricted investment deposit (13.2.1+13.2.2)", C={"formula":"SUM(C111:C112)","result":27544.50259986}
+Row 111: A="13.2.1", B="Time bounded investment", C=2393.44404902
+Row 112: A="13.2.2", B=" Non time bounded investment", C=25151.05855084
+Row 113: A=14, B="Reserves (14.1+14.2)", C={"formula":"SUM(C114:C115)","result":19.24767575}
+Row 114: A=14.1, B=" Profit equalization reserve", C=null
+Row 115: A="14.2.", B=" Investment risk reserve", C=19.24767575
+Row 116: A=15, B="Other liabilities (15.1+15.2)", C={"formula":"SUM(C117:C118)"}
+Row 117: A=15.1, B="Suspense accounts", C=null
+Row 118: A=15.2, B="Suspense inter-branch accounts", C=null
+Row 119: A="16 ", B="Total liabilities (sum 11-15)", C={"formula":"C79+C96+C113+C116","result":325267.07636386744}
+Row 120: A=17, B="Owners’ Equity (17.1+17.2)", C={"formula":"C121+C122"}
+Row 121: A=17.1, B="Profit/loss account", C=null
+Row 122: A=17.2, B="Other", C=null
+Row 123: A=null, B="Liabilities and owners’ Equity (16+17)", C={"formula":"C119+C120","result":325267.07636386744}

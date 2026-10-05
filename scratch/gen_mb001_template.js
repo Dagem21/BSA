@@ -1,4 +1,7 @@
-export const MB001_DESCRIPTIONS: Array<{ code: string; desc: string }> = [
+const fs = require('fs');
+const path = require('path');
+
+const descriptions = [
     { code: "110_00001", desc: "Financial Assets (Sum 2 -6)" },
     { code: "110_00002", desc: "CASH ON HAND (2.1+2.2)" },
     { code: "110_00003", desc: "Foreign currency" },
@@ -152,86 +155,23 @@ export const MB001_DESCRIPTIONS: Array<{ code: string; desc: string }> = [
     { code: "110_00151", desc: "Shares premium" }
 ];
 
-export const MB001_ROW_CODE_MAP: string[] = [
-    // Rows 17..37 -> codes 110_00001 .. 110_00021
-    "110_00001", "110_00002", "110_00003", "110_00004", "110_00005", "110_00006", "110_00007", "110_00008", "110_00009", "110_00010",
-    "110_00011", "110_00012", "110_00013", "110_00014", "110_00015", "110_00016", "110_00017", "110_00018", "110_00019", "110_00020",
-    "110_00021",
-    // Row 38 (4.2 Long-term Investments)
-    "110_00149",
-    // Rows 39..105 -> codes 110_00022 .. 110_00088
-    "110_00022", "110_00023", "110_00024", "110_00025", "110_00026", "110_00027", "110_00028", "110_00029", "110_00030",
-    "110_00031", "110_00032", "110_00033", "110_00034", "110_00035", "110_00036", "110_00037", "110_00038", "110_00039", "110_00040",
-    "110_00041", "110_00042", "110_00043", "110_00044", "110_00045", "110_00046", "110_00047", "110_00048", "110_00049", "110_00050",
-    "110_00051", "110_00052", "110_00053", "110_00054", "110_00055", "110_00056", "110_00057", "110_00058", "110_00059", "110_00060",
-    "110_00061", "110_00062", "110_00063", "110_00064", "110_00065", "110_00066", "110_00067", "110_00068", "110_00069", "110_00070",
-    "110_00071", "110_00072", "110_00073", "110_00074", "110_00075", "110_00076", "110_00077", "110_00078", "110_00079", "110_00080",
-    "110_00081", "110_00082", "110_00083", "110_00084", "110_00085", "110_00086", "110_00087", "110_00088",
-    // Row 106 (14.1.4 Domestic banks)
-    "110_00150",
-    // Rows 107..160 -> codes 110_00089 .. 110_00142
-    "110_00089", "110_00090", "110_00091", "110_00092", "110_00093", "110_00094", "110_00095", "110_00096", "110_00097", "110_00098",
-    "110_00099", "110_00100", "110_00101", "110_00102", "110_00103", "110_00104", "110_00105", "110_00106", "110_00107", "110_00108",
-    "110_00109", "110_00110", "110_00111", "110_00112", "110_00113", "110_00114", "110_00115", "110_00116", "110_00117", "110_00118",
-    "110_00119", "110_00120", "110_00121", "110_00122", "110_00123", "110_00124", "110_00125", "110_00126", "110_00127", "110_00128",
-    "110_00129", "110_00130", "110_00131", "110_00132", "110_00133", "110_00134", "110_00135", "110_00136", "110_00137", "110_00138",
-    "110_00139", "110_00140", "110_00141", "110_00142",
-    // Row 161 (21.2 Shares premium)
-    "110_00151",
-    // Rows 162..167 -> codes 110_00143 .. 110_00148
-    "110_00143", "110_00144", "110_00145", "110_00146", "110_00147", "110_00148"
-];
+const returnItems = descriptions.map(item => ({
+    Code: item.code,
+    Value: "",
+    _description: item.desc,
+    _dataType: "NUMERIC"
+}));
 
-export const MB001_EXCEL_LAYOUT: Array<{ rowNum: number; code: string; desc: string }> = MB001_ROW_CODE_MAP.map((code, idx) => {
-    const descItem = MB001_DESCRIPTIONS.find((d) => d.code === code);
-    return {
-        rowNum: 17 + idx,
-        code,
-        desc: descItem ? descItem.desc : ""
-    };
-});
-
-export const MB001Format = (
-    returnKey: string = "MB001MB001",
-    instCode: string = "0000001",
-    finYear: number = 2026,
-    startDate: string,
-    endDate: string,
-    valuesMap: Record<string, string> = {}
-) => {
-    const fmt = (val: string | number | undefined | null) => {
-        if (val !== undefined && val !== null) {
-            const str = val.toString().trim().replace(/,/g, "");
-            if (
-                str !== "" &&
-                str !== "-" &&
-                str !== "—" &&
-                str !== "–" &&
-                str !== "--" &&
-                str.toLowerCase() !== "n/a" &&
-                str.toLowerCase() !== "nil"
-            ) {
-                return str;
-            }
-        }
-        return "0";
-    };
-
-    const returnItems = MB001_DESCRIPTIONS.map((item) => ({
-        Code: item.code,
-        Value: fmt(valuesMap[item.code]),
-        _description: item.desc,
-        _dataType: "NUMERIC"
-    }));
-
-    return {
-        ReturnKey: returnKey,
-        InstCode: instCode,
-        FinYear: finYear,
-        StartDate: startDate,
-        EndDate: endDate,
-        ReturnItemsList: returnItems,
-        DynamicItemsList: []
-    };
+const template = {
+    ReturnKey: "MB001MB001",
+    InstCode: "0000001",
+    FinYear: 2026,
+    StartDate: "2026-09-01T00:00:00",
+    EndDate: "2026-09-30T00:00:00",
+    ReturnItemsList: returnItems,
+    DynamicItemsList: []
 };
 
+const targetPath = path.join(__dirname, '..', 'templates', 'json', 'MB001.json');
+fs.writeFileSync(targetPath, JSON.stringify(template, null, 4), 'utf8');
+console.log("Successfully wrote templates/json/MB001.json. Item count:", returnItems.length);

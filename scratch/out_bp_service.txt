@@ -1,0 +1,17 @@
+Processing result: {
+  success: true,
+  jsonPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_bp.json',
+  excelPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_bp.xlsx'
+}
+ReturnKey: INT_FRE_SP_BP001
+StartDate: 2026-07-01T00:00:00
+EndDate: 2026-09-30T00:00:00
+Extracted ReturnItemsList count: 23
+Sample items:
+{"Code":"29_00001","Value":"0","_description":"Income_Amount","_dataType":"NUMERIC"}
+{"Code":"29_00002","Value":"1492.43338191","_description":"Income derived from trade financing_Amount","_dataType":"NUMERIC"}
+{"Code":"29_00003","Value":"0","_description":"Income derived from Ijara (leasing)_Amount","_dataType":"NUMERIC"}
+{"Code":"29_00004","Value":"0","_description":"Income derived from Mudarabah investment_Amount","_dataType":"NUMERIC"}
+{"Code":"29_00005","Value":"0","_description":"Income derived from Musharakah investment_Amount","_dataType":"NUMERIC"}
+Any item has _required property: false
+Total items with empty string Value: 0

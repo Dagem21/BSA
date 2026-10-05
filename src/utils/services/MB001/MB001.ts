@@ -45,6 +45,7 @@ function getDirectCellValue(cell: ExcelJS.Cell): string {
     } else if (cell.text !== undefined && cell.text !== null) {
         str = String(cell.text).trim();
     }
+    str = str.replace(/,/g, "");
     if (!str || str === "-" || str === "—" || str === "–" || str === "--" || str.toLowerCase() === "n/a" || str.toLowerCase() === "nil") {
         return "0";
     }
@@ -104,7 +105,8 @@ export async function processMB001Report(
         if (targetCode) {
             valuesMap[targetCode] = cellVal;
             if (cellVal && typeof cellC.value === "object") {
-                cellC.value = parseFloat(cellVal) || cellVal;
+                const num = parseFloat(cellVal);
+                cellC.value = !isNaN(num) ? num : cellVal;
             }
         }
     });

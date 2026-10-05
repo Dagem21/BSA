@@ -1,0 +1,23 @@
+Processing result: {
+  success: true,
+  jsonPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_fb.json',
+  excelPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_fb.xlsx'
+}
+ReturnKey: INT_FRE_BS_FB001
+StartDate: 2026-07-01T00:00:00
+EndDate: 2026-09-30T00:00:00
+Extracted ReturnItemsList count: 109
+Sample non-zero items:
+Total non-zero items: 39
+{"Code":"28_00002","Value":"95546.93887625","_description":"Financial Assets (sum 2-6)","_dataType":"NUMERIC"}
+{"Code":"28_00003","Value":"2042.0877014499997","_description":"Cash on hand (2.1+2.2)","_dataType":"NUMERIC"}
+{"Code":"28_00004","Value":"19.33887184","_description":"Foreign currency","_dataType":"NUMERIC"}
+{"Code":"28_00005","Value":"2022.7488296099998","_description":"Local currency","_dataType":"NUMERIC"}
+{"Code":"28_00030","Value":"693.7755516899999","_description":"Receivables (Sum 5.1-5.4)","_dataType":"NUMERIC"}
+{"Code":"28_00031","Value":"67.89858539999999","_description":"Accounts receivable","_dataType":"NUMERIC"}
+{"Code":"28_00034","Value":"625.8769662899999","_description":"Other receivable","_dataType":"NUMERIC"}
+{"Code":"28_00035","Value":"92811.07562311001","_description":"Net Loans and Advances [(sum 6.1-6.4)-(6.5)]","_dataType":"NUMERIC"}
+{"Code":"28_00036","Value":"94158.41214063001","_description":"Trade financing (Sum 6.1.1-6.1.3)","_dataType":"NUMERIC"}
+{"Code":"28_00037","Value":"94158.41214063001","_description":"Murabaha financing","_dataType":"NUMERIC"}
+Any item has _required property: false
+Total items with empty string Value: 0

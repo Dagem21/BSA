@@ -164,7 +164,7 @@ export async function processBP001Report(
         }
 
         if (matchedCode) {
-            valuesMap[matchedCode] = colC;
+            valuesMap[matchedCode] = colC.replace(/,/g, "").trim();
         }
     }
 

@@ -1,0 +1,664 @@
+{
+    "ReturnKey": "INT_FRE_BS_FB001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "28_00001",
+            "Value": "0",
+            "_description": "Assets",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00002",
+            "Value": "95546.93887625",
+            "_description": "Financial Assets (sum 2-6)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00003",
+            "Value": "2042.0877014499997",
+            "_description": "Cash on hand (2.1+2.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00004",
+            "Value": "19.33887184",
+            "_description": "Foreign currency",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00005",
+            "Value": "2022.7488296099998",
+            "_description": "Local currency",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00006",
+            "Value": "0",
+            "_description": "Deposits (sum 3.1-3.4)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00007",
+            "Value": "0",
+            "_description": "Deposits with NBE",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00008",
+            "Value": "0",
+            "_description": "Deposits with domestic banks/other financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00009",
+            "Value": "0",
+            "_description": "Deposit with foreign banks",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00010",
+            "Value": "0",
+            "_description": "Other deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00011",
+            "Value": "0",
+            "_description": "INVESTMENTS (4.1+4.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00012",
+            "Value": "0",
+            "_description": "Short-term investments (sum 4.1.1-4.1.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00013",
+            "Value": "0",
+            "_description": "Treasury Bills",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00014",
+            "Value": "0",
+            "_description": "Discount on short-term securities",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00015",
+            "Value": "0",
+            "_description": "Other short term securities",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00016",
+            "Value": "0",
+            "_description": "Long-term investments (4.2.1+4.2.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00017",
+            "Value": "0",
+            "_description": "Securities (sum 4.2.1.1 - 4.2.1.5)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00018",
+            "Value": "0",
+            "_description": "NBE bills",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00019",
+            "Value": "0",
+            "_description": "DBE Bonds",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00020",
+            "Value": "0",
+            "_description": "Bonds (sum 4.2.1.3.1-4.2.1.3.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00021",
+            "Value": "0",
+            "_description": "Federal government",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00022",
+            "Value": "0",
+            "_description": "Regional government",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00023",
+            "Value": "0",
+            "_description": "Corporate",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00024",
+            "Value": "0",
+            "_description": "Discount on long-term securities",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00025",
+            "Value": "0",
+            "_description": "Other long-term securities",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00026",
+            "Value": "0",
+            "_description": "Equity investment (sum 4.2.2.1-4.2.2.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00027",
+            "Value": "0",
+            "_description": "Mudharabah",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00028",
+            "Value": "0",
+            "_description": "Musharakah",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00029",
+            "Value": "0",
+            "_description": "Equity participation",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00030",
+            "Value": "693.7755516899999",
+            "_description": "Receivables (Sum 5.1-5.4)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00031",
+            "Value": "67.89858539999999",
+            "_description": "Accounts receivable",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00032",
+            "Value": "0",
+            "_description": "Profit receivable from financing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00033",
+            "Value": "0",
+            "_description": "Profit receivable from investment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00034",
+            "Value": "625.8769662899999",
+            "_description": "Other receivable",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00035",
+            "Value": "92811.07562311001",
+            "_description": "Net Loans and Advances [(sum 6.1-6.4)-(6.5)]",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00036",
+            "Value": "94158.41214063001",
+            "_description": "Trade financing (Sum 6.1.1-6.1.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00037",
+            "Value": "94158.41214063001",
+            "_description": "Murabaha financing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00038",
+            "Value": "0",
+            "_description": "Selam financing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00039",
+            "Value": "0",
+            "_description": "Istina’a financing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00040",
+            "Value": "0",
+            "_description": "Ijira (leasing) (6.2.1+6.2.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00041",
+            "Value": "0",
+            "_description": "Financial leasing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00042",
+            "Value": "0",
+            "_description": "Operational leasing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00043",
+            "Value": "0",
+            "_description": "Qard (goodly loans)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00044",
+            "Value": "0",
+            "_description": "Other loans",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00045",
+            "Value": "1347.33651752",
+            "_description": "Less provisions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00046",
+            "Value": "50.610716599999996",
+            "_description": "Inventories (sum 7.1-7.4)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00047",
+            "Value": "50.6108426",
+            "_description": "Inventories held for trade financing",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00048",
+            "Value": "0",
+            "_description": "Inventories held for Ijira (leasing)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00049",
+            "Value": "-0.000126",
+            "_description": "Supplies stock",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00050",
+            "Value": "0",
+            "_description": "Other inventories",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00051",
+            "Value": "0",
+            "_description": "Net fixed assets (8.1- 8.7)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00052",
+            "Value": "0",
+            "_description": "Gross fixed assets (sum 8.2-8.6)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00053",
+            "Value": "0",
+            "_description": "Furniture & fittings",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00054",
+            "Value": "0",
+            "_description": "Office & other equipment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00055",
+            "Value": "0",
+            "_description": "Vehicles",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00056",
+            "Value": "0",
+            "_description": "Acquired properties",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00057",
+            "Value": "0",
+            "_description": "Other properties",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00058",
+            "Value": "0",
+            "_description": "Accumulated depreciation",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00059",
+            "Value": "257214.05691538",
+            "_description": "Other assets (9.1+9.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00060",
+            "Value": "0",
+            "_description": "Suspense accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00061",
+            "Value": "257214.05691538",
+            "_description": "Suspense inter branch accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00062",
+            "Value": "352811.60650823",
+            "_description": "Total Assets (1+7+8+9)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00063",
+            "Value": "0",
+            "_description": "Liabilities and Owner's Equity",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00064",
+            "Value": "0",
+            "_description": "Liabilities",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00065",
+            "Value": "324807.59044409747",
+            "_description": "Deposits (11.1+11.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00066",
+            "Value": "45428.78893561001",
+            "_description": "Current account (Amana Demand Deposit) (sum 11.1.1-11.1.5)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00067",
+            "Value": "44148.23795253001",
+            "_description": "Private sector",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00068",
+            "Value": "891.6770241900001",
+            "_description": "Cooperative and associations",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00069",
+            "Value": "388.87395889",
+            "_description": "Public enterprises",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00070",
+            "Value": "0",
+            "_description": "Banks/other financial institutions (11.1.4.1+11.1.4.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00071",
+            "Value": "0",
+            "_description": "Local bank/ financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00072",
+            "Value": "0",
+            "_description": "Foreign bank/financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00073",
+            "Value": "0",
+            "_description": "Others (specify)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00074",
+            "Value": "251834.29890862745",
+            "_description": "Saving accounts (Wadi’a Saving Deposit) (sum 11.2.1-11.2.5)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00075",
+            "Value": "250438.27941126746",
+            "_description": "Private sector",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00076",
+            "Value": "1281.12437796",
+            "_description": "Cooperative and associations",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00077",
+            "Value": "114.89511940000001",
+            "_description": "Public enterprises",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00078",
+            "Value": "0",
+            "_description": "Banks/other financial institutions (11.2.4.1+11.2.4.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00079",
+            "Value": "0",
+            "_description": "Local bank/ financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00080",
+            "Value": "0",
+            "_description": "Foreign bank/financial institutions",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00081",
+            "Value": "0",
+            "_description": "Others (specify)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00082",
+            "Value": "440.23824401999934",
+            "_description": "Payable (sum 12.1-12.6)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00083",
+            "Value": "199.35923352999998",
+            "_description": "Accounts payable",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00084",
+            "Value": "0",
+            "_description": "Profit tax payable",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00085",
+            "Value": "169.34858785",
+            "_description": "Payable to charity organization for penalty collected",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00086",
+            "Value": "0",
+            "_description": "Hiba payable (if any)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00087",
+            "Value": "0",
+            "_description": "Declared but undistributed profit (sum 12.5.1-12.5.3)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00088",
+            "Value": "0",
+            "_description": "Accumulated profit share on trade",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00089",
+            "Value": "0",
+            "_description": "Accumulated profit share on Ijara",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00090",
+            "Value": "0",
+            "_description": "Accumulated profit share on Qard",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00091",
+            "Value": "71.53042263999939",
+            "_description": "Other payables",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00092",
+            "Value": "27544.50259986",
+            "_description": "Investment account holders (13.1+13.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00093",
+            "Value": "0",
+            "_description": "Restricted investment deposit (13.1.1+13.1.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00094",
+            "Value": "0",
+            "_description": "Time bounded investment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00095",
+            "Value": "0",
+            "_description": "Non-time bounded investment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00096",
+            "Value": "27544.50259986",
+            "_description": "Unrestricted investment deposit (13.2.1+13.2.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00097",
+            "Value": "2393.44404902",
+            "_description": "Time bounded investment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00098",
+            "Value": "25151.05855084",
+            "_description": "Non time bounded investment",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00099",
+            "Value": "19.24767575",
+            "_description": "Reserves (14.1+14.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00100",
+            "Value": "0",
+            "_description": "Profit equalization reserve",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00101",
+            "Value": "19.24767575",
+            "_description": "Investment risk reserve",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00102",
+            "Value": "0",
+            "_description": "Other liabilities (15.1+15.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00103",
+            "Value": "0",
+            "_description": "Suspense accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00104",
+            "Value": "257214.05691538",
+            "_description": "Suspense inter-branch accounts",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00105",
+            "Value": "325267.07636386744",
+            "_description": "Total liabilities (sum 11-15)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00106",
+            "Value": "0",
+            "_description": "Owners’ Equity (17.1+17.2)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00107",
+            "Value": "0",
+            "_description": "Profit/loss account",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00108",
+            "Value": "0",
+            "_description": "Other",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "28_00109",
+            "Value": "325267.07636386744",
+            "_description": "Liabilities and owners’ Equity (16+17)",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}
