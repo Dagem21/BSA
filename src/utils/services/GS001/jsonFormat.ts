@@ -35,7 +35,7 @@ export const GS001Format = (
     valuesMap: Record<string, string> = {}
 ) => {
     const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null ? val.toString() : "";
+        val !== undefined && val !== null && val !== "" ? val.toString() : "0";
 
     const returnItems = GS001_ITEM_DEFINITIONS.map((def) => {
         return {

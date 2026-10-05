@@ -68,25 +68,38 @@ export function processGS001(worksheet: ExcelJS.Worksheet, options?: { instCode?
     let endDate = options?.endDate || "2026-06-30T00:00:00";
 
     // Header metadata extraction
-    for (let r = 1; r <= 15; r++) {
+    const isLabel = (str: string) => {
+        const s = str.toLowerCase().trim();
+        return (
+            s.includes("institution code") ||
+            s.includes("financial year") ||
+            s.includes("start date") ||
+            s.includes("end date")
+        );
+    };
+
+    for (let r = 1; r <= 12; r++) {
         const row = worksheet.getRow(r);
         const colAText = getCellValue(row.getCell(1)).toLowerCase();
         const colBText = getCellValue(row.getCell(2)).toLowerCase();
-        const colCText = getCellValue(row.getCell(3)).toLowerCase();
-        const combined = `${colAText} ${colBText} ${colCText}`;
+        const combined = `${colAText} ${colBText}`;
+
+        const candidates = [
+            getCellValue(row.getCell(3)),
+            getCellValue(row.getCell(4)),
+            getCellValue(row.getCell(2))
+        ].filter((v) => v && !isLabel(v));
+
+        const val = candidates[0] || "";
 
         if (combined.includes("institution code") || combined.includes("instiution code")) {
-            const val = getCellValue(row.getCell(3)) || getCellValue(row.getCell(2)) || getCellValue(row.getCell(4));
             if (val) instCode = val;
         } else if (combined.includes("financial year")) {
-            const val = getCellValue(row.getCell(3)) || getCellValue(row.getCell(2)) || getCellValue(row.getCell(4));
             if (val && !isNaN(Number(val))) finYear = Number(val);
         } else if (combined.includes("start date")) {
-            const val = getCellValue(row.getCell(3)) || getCellValue(row.getCell(2)) || getCellValue(row.getCell(4));
-            if (val) startDate = formatIsoString(val);
+            if (val && options?.startDate === undefined) startDate = formatIsoString(val);
         } else if (combined.includes("end date")) {
-            const val = getCellValue(row.getCell(3)) || getCellValue(row.getCell(2)) || getCellValue(row.getCell(4));
-            if (val) endDate = formatIsoString(val);
+            if (val && options?.endDate === undefined) endDate = formatIsoString(val);
         }
     }
 
@@ -95,36 +108,49 @@ export function processGS001(worksheet: ExcelJS.Worksheet, options?: { instCode?
     const categories = ["demand", "saving", "time", "total"];
     const categoryRows: Record<string, number> = {};
 
-    let startColAmount = 3;
-    let startColAccounts = 4;
-    let startColDepositors = 5;
+    let headerRow = 0;
+    let startColAmount = 2;
+    let startColAccounts = 3;
+    let startColDepositors = 4;
 
-    // Detect column header row
+    // Detect column header row specifically
     for (let r = 1; r <= 20; r++) {
         const row = worksheet.getRow(r);
+        let foundAmt = false;
+        let foundPart = false;
         for (let c = 1; c <= 10; c++) {
             const text = getCellValue(row.getCell(c)).toLowerCase();
-            if (text.includes("deposit amount") || text.includes("amount")) {
-                startColAmount = c;
+            if (text.includes("particulars") || text.includes("deposit type")) {
+                foundPart = true;
             }
-            if (text.includes("accounts") || text.includes("number of depositors accounts") || text.includes("# of depositors accounts")) {
+            if (text.includes("amount")) {
+                startColAmount = c;
+                foundAmt = true;
+            }
+            if (text.includes("accounts")) {
                 startColAccounts = c;
             }
-            if (text.includes("# of depositors") && !text.includes("accounts")) {
+            if (text.includes("depositors") && !text.includes("accounts")) {
                 startColDepositors = c;
             }
         }
+        if (foundPart || foundAmt) {
+            headerRow = r;
+            break;
+        }
     }
 
-    for (let r = 1; r <= worksheet.rowCount; r++) {
+    const startSearchRow = headerRow > 0 ? headerRow + 1 : 1;
+    for (let r = startSearchRow; r <= worksheet.rowCount; r++) {
         const row = worksheet.getRow(r);
-        const col1 = getCellValue(row.getCell(1)).toLowerCase();
-        const col2 = getCellValue(row.getCell(2)).toLowerCase();
-        const combined = `${col1} ${col2}`;
+        const col1 = getCellValue(row.getCell(1)).toLowerCase().trim();
+        const col2 = getCellValue(row.getCell(2)).toLowerCase().trim();
 
         categories.forEach((cat) => {
-            if (!categoryRows[cat] && combined.includes(cat)) {
-                categoryRows[cat] = r;
+            if (!categoryRows[cat]) {
+                if (col1 === cat || col1.startsWith(cat) || col2 === cat || col2.startsWith(cat)) {
+                    categoryRows[cat] = r;
+                }
             }
         });
     }
@@ -147,19 +173,18 @@ export function processGS001(worksheet: ExcelJS.Worksheet, options?: { instCode?
             valuesMap[codes.accCode] = getCellValue(row.getCell(startColAccounts));
             valuesMap[codes.depCode] = getCellValue(row.getCell(startColDepositors));
         } else {
-            // Check standard item list or fallback
             valuesMap[codes.amtCode] = "";
             valuesMap[codes.accCode] = "";
             valuesMap[codes.depCode] = "";
         }
     });
 
-    // Also check if worksheet is a key-value or code-list format (Code, Description, Value)
+    // Check if worksheet has explicit code-list format (Code, Description, Value)
     for (let r = 1; r <= worksheet.rowCount; r++) {
         const row = worksheet.getRow(r);
         const codeVal = getCellValue(row.getCell(1));
         const itemVal = getCellValue(row.getCell(3)) || getCellValue(row.getCell(2));
-        if (codeVal && codeVal.startsWith("163_")) {
+        if (codeVal && codeVal.startsWith("163_") && itemVal) {
             valuesMap[codeVal] = itemVal;
         }
     }

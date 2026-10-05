@@ -1,0 +1,23 @@
+Processing result: {
+  success: true,
+  jsonPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_qi.json',
+  excelPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_qi.xlsx'
+}
+Extracted ReturnItemsList count: 72
+Sample items:
+Code: 11_00001, Value: "0", Desc: "1-Cash on hand (local and  foreign currency)_Amount"
+Code: 11_00002, Value: "0", Desc: "1-Cash on hand (local and  foreign currency)_Weight (%)"
+Code: 11_00003, Value: "0", Desc: "1-Cash on hand (local and  foreign currency)_Weighted Assets"
+Code: 11_00004, Value: "0", Desc: "2-Claims on banks_Amount"
+Code: 11_00005, Value: "0", Desc: "2-Claims on banks_Weight (%)"
+Code: 11_00006, Value: "0", Desc: "2-Claims on banks_Weighted Assets"
+Code: 11_00007, Value: "0", Desc: "2,1-Claims on NBE_Amount"
+Code: 11_00008, Value: "0", Desc: "2,1-Claims on NBE_Weight (%)"
+Code: 11_00009, Value: "0", Desc: "2,1-Claims on NBE_Weighted Assets"
+Code: 11_00010, Value: "0", Desc: "2,2-Claims on other banks(Domestic & foreign)_Amount"
+Code: 11_00011, Value: "0", Desc: "2,2-Claims on other banks(Domestic & foreign)_Weight (%)"
+Code: 11_00012, Value: "0", Desc: "2,2-Claims on other banks(Domestic & foreign)_Weighted Assets"
+Code: 11_00013, Value: "0", Desc: "2.2.1-Less than 1 year maturity_Amount"
+Code: 11_00014, Value: "0.2", Desc: "2.2.1-Less than 1 year maturity_Weight (%)"
+Code: 11_00015, Value: "0", Desc: "2.2.1-Less than 1 year maturity_Weighted Assets"
+Total items with empty string Value: 0

@@ -2,7 +2,7 @@ import ExcelJS from "exceljs";
 import fs from "fs";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
-import { QO001_DESCRIPTIONS, QO001JsonData } from "./jsonFormat";
+import { QO001_DESCRIPTIONS, QO001_ROWS_CONFIG, QO001JsonData } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
@@ -103,35 +103,110 @@ export function processQO001(
     const templateDir = path.join(process.cwd(), "templates", "json");
     const jsonTemplatePath = path.join(templateDir, "QO001.json");
 
-    let returnItems: any[] = [];
-
+    let baseReturnItems: any[] = [];
     try {
         if (fs.existsSync(jsonTemplatePath)) {
             const rawData = fs.readFileSync(jsonTemplatePath, "utf-8");
             const rawJson = JSON.parse(rawData);
-            returnItems = rawJson.ReturnItemsList.map((itemDef: any) => {
-                const match = QO001_DESCRIPTIONS.find((d) => d.code === itemDef.Code);
-                let val = "";
-                if (match) {
-                    val = getDirectCellValue(worksheet.getRow(match.excelRow).getCell(match.excelCol));
-                }
-                return {
-                    ...itemDef,
-                    Value: val
-                };
-            });
-        } else {
-            throw new Error("File not found");
+            baseReturnItems = rawJson.ReturnItemsList || [];
         }
-    } catch (_) {
+    } catch (_) {}
+
+    const valuesByCode: Record<string, string> = {};
+    let totalFaceVal = 0;
+    let totalAmount = 0;
+    let totalCreditEqu = 0;
+    let hasAnyInput = false;
+
+    let itemCounter = 1;
+
+    QO001_ROWS_CONFIG.forEach((r) => {
+        if (r.row === 38) {
+            return;
+        }
+
+        const rawC = getDirectCellValue(worksheet.getRow(r.row).getCell("C")).trim().replace(/,/g, "");
+        const rawD = getDirectCellValue(worksheet.getRow(r.row).getCell("D")).trim().replace(/,/g, "");
+        const rawE = getDirectCellValue(worksheet.getRow(r.row).getCell("E")).trim().replace(/,/g, "");
+        const rawF = getDirectCellValue(worksheet.getRow(r.row).getCell("F")).trim().replace(/,/g, "");
+        const rawG = getDirectCellValue(worksheet.getRow(r.row).getCell("G")).trim().replace(/,/g, "");
+
+        const valC = rawC;
+        const numC = valC !== "" ? parseFloat(valC) : NaN;
+        if (!isNaN(numC)) {
+            totalFaceVal += numC;
+            hasAnyInput = true;
+        }
+
+        let valD = rawD !== "" ? rawD : (r.defaultFactor !== "" ? r.defaultFactor : "");
+        let factorNum = valD !== "" ? parseFloat(valD.replace("%", "")) : NaN;
+        if (!isNaN(factorNum) && factorNum > 1) factorNum /= 100;
+
+        let valE = rawE;
+        if (valE === "" && !isNaN(numC) && numC > 0 && !isNaN(factorNum)) {
+            valE = String(numC * factorNum);
+        }
+        const numE = valE !== "" ? parseFloat(valE) : NaN;
+        if (!isNaN(numE) && !isNaN(numC) && numC > 0) {
+            totalAmount += numE;
+        }
+
+        let valF = rawF !== "" ? rawF : (r.defaultWeight !== "" ? r.defaultWeight : "");
+        let weightNum = valF !== "" ? parseFloat(valF.replace("%", "")) : NaN;
+        if (!isNaN(weightNum) && weightNum > 1) weightNum /= 100;
+
+        let valG = rawG;
+        if (valG === "" && !isNaN(numE) && !isNaN(weightNum)) {
+            valG = String(numE * weightNum);
+        }
+        const numG = valG !== "" ? parseFloat(valG) : NaN;
+        if (!isNaN(numG) && !isNaN(numC) && numC > 0) {
+            totalCreditEqu += numG;
+        }
+
+        const codeC = `12_${String(itemCounter++).padStart(5, "0")}`;
+        const codeD = `12_${String(itemCounter++).padStart(5, "0")}`;
+        const codeE = `12_${String(itemCounter++).padStart(5, "0")}`;
+        const codeF = `12_${String(itemCounter++).padStart(5, "0")}`;
+        const codeG = `12_${String(itemCounter++).padStart(5, "0")}`;
+
+        valuesByCode[codeC] = valC;
+        valuesByCode[codeD] = valD;
+        valuesByCode[codeE] = valE;
+        valuesByCode[codeF] = valF;
+        valuesByCode[codeG] = valG;
+    });
+
+    // Row 38 Total Row (items 12_00091 to 12_00095)
+    const rawC38 = getDirectCellValue(worksheet.getRow(38).getCell("C")).trim().replace(/,/g, "");
+    const rawE38 = getDirectCellValue(worksheet.getRow(38).getCell("E")).trim().replace(/,/g, "");
+    const rawG38 = getDirectCellValue(worksheet.getRow(38).getCell("G")).trim().replace(/,/g, "");
+
+    valuesByCode["12_00091"] = rawC38 !== "" ? rawC38 : (totalFaceVal > 0 ? String(totalFaceVal) : "");
+    valuesByCode["12_00092"] = "";
+    valuesByCode["12_00093"] = rawE38 !== "" ? rawE38 : (totalAmount > 0 ? String(totalAmount) : "");
+    valuesByCode["12_00094"] = "";
+    valuesByCode["12_00095"] = rawG38 !== "" ? rawG38 : (totalCreditEqu > 0 ? String(totalCreditEqu) : "");
+
+    let returnItems: any[] = [];
+    if (baseReturnItems.length > 0) {
+        returnItems = baseReturnItems.map((itemDef: any) => {
+            const rawVal = valuesByCode[itemDef.Code];
+            return {
+                Code: itemDef.Code,
+                Value: rawVal !== undefined && rawVal !== "" ? rawVal : "0",
+                _description: itemDef._description,
+                _dataType: itemDef._dataType || "NUMERIC"
+            };
+        });
+    } else {
         returnItems = QO001_DESCRIPTIONS.map((itemDef) => {
-            const cellVal = getDirectCellValue(worksheet.getRow(itemDef.excelRow).getCell(itemDef.excelCol));
+            const rawVal = valuesByCode[itemDef.code];
             return {
                 Code: itemDef.code,
-                Value: cellVal,
+                Value: rawVal !== undefined && rawVal !== "" ? rawVal : "0",
                 _description: itemDef.desc,
-                _dataType: "NUMERIC",
-                _required: false
+                _dataType: "NUMERIC"
             };
         });
     }
@@ -160,6 +235,7 @@ export async function jsonToExcelQO001(
 
     let worksheet =
         workbook.getWorksheet("CAP_ADQ_OFB_QO001") ||
+        workbook.worksheets.find((ws) => ws.name.toUpperCase().includes("QO001")) ||
         workbook.getWorksheet("Sheet1") ||
         workbook.worksheets[0];
 
@@ -188,10 +264,14 @@ export async function jsonToExcelQO001(
 
     QO001_DESCRIPTIONS.forEach((itemDef) => {
         const item = itemMap.get(itemDef.code);
-        if (item && item.Value !== undefined && item.Value !== "") {
+        if (item) {
             const cellRef = `${itemDef.excelCol}${itemDef.excelRow}`;
-            const numVal = parseFloat(item.Value);
-            worksheet.getCell(cellRef).value = isNaN(numVal) ? item.Value : numVal;
+            if (item.Value !== undefined && item.Value !== "") {
+                const numVal = parseFloat(item.Value);
+                worksheet.getCell(cellRef).value = isNaN(numVal) ? item.Value : numVal;
+            } else if (itemDef.excelCol === "C") {
+                worksheet.getCell(cellRef).value = null;
+            }
         }
     });
 
@@ -223,6 +303,7 @@ export async function processQO001Report(
 
         const worksheet =
             workbook.getWorksheet("CAP_ADQ_OFB_QO001") ||
+            workbook.worksheets.find((ws) => ws.name.toUpperCase().includes("QO001")) ||
             workbook.getWorksheet("Sheet1") ||
             workbook.worksheets[0];
 

@@ -49,7 +49,7 @@ export const DR002Format = (
     valuesMap: Record<string, string> = {}
 ) => {
     const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null ? val.toString() : "";
+        val !== undefined && val !== null && val !== "" ? val.toString() : "0";
 
     const returnItemsList: Array<{
         Code: string;

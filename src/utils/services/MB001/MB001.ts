@@ -5,22 +5,19 @@ import { MB001Format, MB001_DESCRIPTIONS, MB001_ROW_CODE_MAP } from "./jsonForma
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
+    let d: Date;
     if (dateVal instanceof Date) {
-        const yyyy = dateVal.getFullYear();
-        const mm = String(dateVal.getMonth() + 1).padStart(2, "0");
-        const dd = String(dateVal.getDate()).padStart(2, "0");
-        return `${yyyy}-${mm}-${dd}T00:00:00`;
+        d = dateVal;
+    } else {
+        d = new Date(String(dateVal).trim());
     }
-    const str = String(dateVal).trim();
-    if (str.includes("T")) return str;
-    const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();
         const mm = String(d.getMonth() + 1).padStart(2, "0");
         const dd = String(d.getDate()).padStart(2, "0");
         return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
-    return str;
+    return String(dateVal).trim().split(".")[0].replace(/Z$/, "");
 }
 
 function getDirectCellValue(cell: ExcelJS.Cell): string {

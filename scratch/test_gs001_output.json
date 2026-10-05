@@ -1,0 +1,94 @@
+{
+    "ReturnKey": "Digital SavingGS001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "163_00001",
+            "Value": "0",
+            "_description": "Demand_ Deposit Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00002",
+            "Value": "0",
+            "_description": "Demand_ # of depositors accounts",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00003",
+            "Value": "0",
+            "_description": "Demand_ # of depositors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00004",
+            "Value": "4534052.12",
+            "_description": "Saving_ Deposit Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00005",
+            "Value": "1110",
+            "_description": "Saving_ # of Depositors accounts",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00006",
+            "Value": "1110",
+            "_description": "Saving_ # of Depositors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00007",
+            "Value": "3663753",
+            "_description": "Time_ Deposit Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00008",
+            "Value": "333",
+            "_description": "Time_ # of Depositors accounts",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00009",
+            "Value": "333",
+            "_description": "Time_ # of Depositors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00010",
+            "Value": "8197805.12",
+            "_description": "Total_ Deposit Amount",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00011",
+            "Value": "1443",
+            "_description": "Total_ # of Depositors accounts",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "163_00012",
+            "Value": "1443",
+            "_description": "Total_ # of Depositors",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

@@ -109,15 +109,16 @@ export function processQI001(
         if (fs.existsSync(jsonTemplatePath)) {
             const rawData = fs.readFileSync(jsonTemplatePath, "utf-8");
             const rawJson = JSON.parse(rawData);
-            returnItems = rawJson.ReturnItemsList.map((itemDef: any) => {
+            returnItems = (rawJson.ReturnItemsList || []).map((itemDef: any) => {
                 const match = QI001_DESCRIPTIONS.find((d) => d.code === itemDef.Code);
                 let val = "";
                 if (match) {
-                    val = getDirectCellValue(worksheet.getRow(match.excelRow).getCell(match.excelCol));
+                    val = getDirectCellValue(worksheet.getRow(match.excelRow).getCell(match.excelCol)).replace(/,/g, "").trim();
                 }
+                const { _required, ...restItem } = itemDef;
                 return {
-                    ...itemDef,
-                    Value: val
+                    ...restItem,
+                    Value: val !== "" ? val : "0"
                 };
             });
         } else {
@@ -125,13 +126,12 @@ export function processQI001(
         }
     } catch (_) {
         returnItems = QI001_DESCRIPTIONS.map((itemDef) => {
-            const cellVal = getDirectCellValue(worksheet.getRow(itemDef.excelRow).getCell(itemDef.excelCol));
+            const cellVal = getDirectCellValue(worksheet.getRow(itemDef.excelRow).getCell(itemDef.excelCol)).replace(/,/g, "").trim();
             return {
                 Code: itemDef.code,
-                Value: cellVal,
+                Value: cellVal !== "" ? cellVal : "0",
                 _description: itemDef.desc,
-                _dataType: "NUMERIC",
-                _required: false
+                _dataType: "NUMERIC"
             };
         });
     }

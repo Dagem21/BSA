@@ -1,4 +1,5 @@
 import ExcelJS from "exceljs";
+import fs from "fs";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import { QC001_DESCRIPTIONS, QC001JsonData } from "./jsonFormat";
@@ -115,17 +116,41 @@ export function processQC001(
     const endDateRaw = getDirectCellValue(worksheet.getRow(11).getCell("C"));
     const endDate = endDateRaw ? formatIsoString(endDateRaw) : (options?.endDate || "2026-06-30T00:00:00");
 
-    const returnItems = QC001_DESCRIPTIONS.map((itemDef) => {
-        const rowNum = itemDef.excelRow;
-        const cellVal = getDirectCellValue(worksheet.getRow(rowNum).getCell("C"));
-        return {
-            Code: itemDef.code,
-            Value: cellVal,
-            _description: itemDef.desc,
-            _dataType: "NUMERIC",
-            _required: false
-        };
-    });
+    let returnItems: any[] = [];
+    const templateDir = path.join(process.cwd(), "templates", "json");
+    const jsonTemplatePath = path.join(templateDir, "QC001.json");
+
+    try {
+        if (fs.existsSync(jsonTemplatePath)) {
+            const rawData = fs.readFileSync(jsonTemplatePath, "utf-8");
+            const rawJson = JSON.parse(rawData);
+            returnItems = (rawJson.ReturnItemsList || []).map((itemDef: any) => {
+                const match = QC001_DESCRIPTIONS.find((d) => d.code === itemDef.Code);
+                let val = "";
+                if (match) {
+                    val = getDirectCellValue(worksheet.getRow(match.excelRow).getCell("C")).replace(/,/g, "").trim();
+                }
+                const { _required, ...restItem } = itemDef;
+                return {
+                    ...restItem,
+                    Value: val !== "" ? val : "0"
+                };
+            });
+        } else {
+            throw new Error("File not found");
+        }
+    } catch (_) {
+        returnItems = QC001_DESCRIPTIONS.map((itemDef) => {
+            const rowNum = itemDef.excelRow;
+            const cellVal = getDirectCellValue(worksheet.getRow(rowNum).getCell("C")).replace(/,/g, "").trim();
+            return {
+                Code: itemDef.code,
+                Value: cellVal !== "" ? cellVal : "0",
+                _description: itemDef.desc,
+                _dataType: "NUMERIC"
+            };
+        });
+    }
 
     return {
         ReturnKey: "CAP_ADQ_CAP_QC001",
