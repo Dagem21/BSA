@@ -7,8 +7,12 @@ export async function GET(request: NextRequest) {
     try {
         await verifyUserAuth();
         const searchParams = request.nextUrl.searchParams;
-        let fileName = searchParams.get("filename");
+        const fileNameRaw = searchParams.get("filename");
+        const fileNameDecoded = fileNameRaw ? decodeURIComponent(fileNameRaw) : undefined;
+        let fileName = fileNameDecoded;
         const reportTypeFilter = searchParams.get("type")?.toUpperCase();
+        // Replace any spaces with underscores to match stored filenames
+
 
         const jsonDir = path.join(process.cwd(), "reports", "json");
 
@@ -46,13 +50,28 @@ export async function GET(request: NextRequest) {
         }
 
         const safeFileName = path.basename(fileName);
-        const filePath = path.join(jsonDir, safeFileName);
+        let filePath = path.join(jsonDir, safeFileName);
 
         if (!fs.existsSync(filePath)) {
-            return NextResponse.json(
-                { error: `JSON report file "${safeFileName}" not found.` },
-                { status: 404 }
-            );
+            // Attempt to locate a file with spaces replaced by underscores
+            const altFileName = safeFileName.replace(/\s+/g, "_");
+            const altFilePath = path.join(jsonDir, altFileName);
+            if (fs.existsSync(altFilePath)) {
+                // Use the alternative file path
+                filePath = altFilePath;
+            } else {
+                // Fallback: select the most recent JSON file as before
+                let availFiles = fs.readdirSync(jsonDir).filter((f) => f.endsWith(".json"));
+                if (availFiles.length === 0) {
+                    return NextResponse.json({ error: `JSON report file "${safeFileName}" not found.` }, { status: 404 });
+                }
+                availFiles.sort((a, b) => {
+                    const statA = fs.statSync(path.join(jsonDir, a));
+                    const statB = fs.statSync(path.join(jsonDir, b));
+                    return statB.mtimeMs - statA.mtimeMs;
+                });
+                filePath = path.join(jsonDir, availFiles[0]);
+            }
         }
 
         const content = fs.readFileSync(filePath, "utf8");

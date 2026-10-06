@@ -94,6 +94,12 @@ export function NN001ExcelView({
         fetchData({ params: query });
     };
 
+  // Load list of JSON files on component mount
+  useEffect(() => {
+    // Initial fetch without filename to get available files and default data
+    fetchJsonData();
+  }, []);
+
     useEffect(() => {
         if (!initialData) {
             fetchJsonData(activeFileName);
@@ -117,26 +123,52 @@ export function NN001ExcelView({
 
     // Extract dynamic rows from Area 194
     const areaItems = reportData?.DynamicItemsList || [];
-    const borrowerRows = areaItems.map((area, idx) => {
-        const map: Record<string, string> = {};
-        area.DynamicItems?.forEach((di) => {
-            map[di.Code] = di.Value;
-        });
+    let borrowerRows: Array<{
+        sNo: number;
+        rowExcelNum: number;
+        counterpartyName: string;
+        loanType: string;
+        sector: string;
+        loanAmount: string;
+        recategorizationDate: string;
+        status: string;
+        collateralType: string;
+        collateralValue: string;
+        pctCapital: string;
+    }> = [];
 
-        return {
-            sNo: idx + 1,
-            rowExcelNum: 16 + idx,
-            counterpartyName: map["1.1"] || "",
-            loanType: map["1.2"] || "",
-            sector: map["1.3"] || "",
-            loanAmount: map["1.4"] || "0",
-            recategorizationDate: map["1.5"] || "",
-            status: map["1.6"] || "",
-            collateralType: map["1.7"] || "",
-            collateralValue: map["1.8"] || "0",
-            pctCapital: map["1.9"] || "0"
-        };
-    });
+    if (areaItems.length > 0) {
+        const flatItems = areaItems[0].DynamicItems || [];
+        if (flatItems.length > 0) {
+            const chunkSize = 9;
+            const totalRows = Math.ceil(flatItems.length / chunkSize);
+            for (let i = 0; i < totalRows; i++) {
+                const chunk = flatItems.slice(i * chunkSize, (i + 1) * chunkSize);
+                const map: Record<string, string> = {};
+                chunk.forEach((di) => {
+                    const colSub = di.Code.includes(".") ? di.Code.split(".")[1] : di.Code;
+                    map[colSub] = di.Value;
+                    map[di.Code] = di.Value;
+                });
+
+                const getVal = (sub: string) => map[sub] || map[`1.${sub}`] || map[`${i + 1}.${sub}`] || "";
+
+                borrowerRows.push({
+                    sNo: i + 1,
+                    rowExcelNum: 16 + i,
+                    counterpartyName: getVal("1"),
+                    loanType: getVal("2"),
+                    sector: getVal("3"),
+                    loanAmount: getVal("4") || "0",
+                    recategorizationDate: getVal("5"),
+                    status: getVal("6"),
+                    collateralType: getVal("7"),
+                    collateralValue: getVal("8") || "0",
+                    pctCapital: getVal("9") || "0"
+                });
+            }
+        }
+    }
 
     const filteredRows = borrowerRows.filter(
         (r) =>
@@ -151,6 +183,12 @@ export function NN001ExcelView({
     const totalLoanAmount = getReturnItemValue("151_00001");
     const totalCollateralValue = getReturnItemValue("151_00002");
     const totalPctCapital = getReturnItemValue("151_00003");
+
+    useEffect(() => {
+        if (viewTab === "json" && currentFileName) {
+            fetchJsonData(currentFileName);
+        }
+    }, [viewTab, currentFileName]);
 
     return (
         <div className="flex flex-col gap-6">

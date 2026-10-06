@@ -134,11 +134,23 @@ export async function processNN001Report(
         );
 
         // Ensure JSON output directory exists and save JSON
-        const jsonDir = path.dirname(outputPathJson);
-        if (!fs.existsSync(jsonDir)) {
-            fs.mkdirSync(jsonDir, { recursive: true });
+        if (outputPathJson) {
+            const jsonDir = path.dirname(outputPathJson);
+            if (!fs.existsSync(jsonDir)) {
+                fs.mkdirSync(jsonDir, { recursive: true });
+            }
+            fs.writeFileSync(outputPathJson, JSON.stringify(jsonPayload, null, 4), "utf8");
         }
-        fs.writeFileSync(outputPathJson, JSON.stringify(jsonPayload, null, 4), "utf8");
+
+        // Generate and save Excel output if requested
+        if (outputPathExcel) {
+            const excelDir = path.dirname(outputPathExcel);
+            if (!fs.existsSync(excelDir)) {
+                fs.mkdirSync(excelDir, { recursive: true });
+            }
+            const outWorkbook = await jsonToExcelNN001(jsonPayload);
+            await outWorkbook.xlsx.writeFile(outputPathExcel);
+        }
 
         // Insert into MySQL via Prisma DAL
         await createNN001Record({
@@ -177,4 +189,67 @@ export async function processNN001Report(
         console.error("Error processing NN001 report:", err);
         return { success: false, error: err.message || "Failed to process NN001 report." };
     }
+}
+
+export async function jsonToExcelNN001(jsonPayload: any): Promise<ExcelJS.Workbook> {
+    const templatePath = path.join(process.cwd(), "templates", "NN001.xlsx");
+    const workbook = new ExcelJS.Workbook();
+    
+    if (fs.existsSync(templatePath)) {
+        await workbook.xlsx.readFile(templatePath);
+    } else {
+        const sheet = workbook.addWorksheet("NBE");
+        sheet.getCell("A1").value = "Non-Accrual to Accrual Loans & Advances (NN001)";
+    }
+
+    const worksheet = workbook.getWorksheet("NBE") || workbook.worksheets[0];
+    if (worksheet) {
+        if (jsonPayload.InstCode) worksheet.getCell("C8").value = jsonPayload.InstCode;
+        if (jsonPayload.FinYear) worksheet.getCell("C9").value = jsonPayload.FinYear;
+        if (jsonPayload.StartDate) worksheet.getCell("C10").value = jsonPayload.StartDate;
+        if (jsonPayload.EndDate) worksheet.getCell("C11").value = jsonPayload.EndDate;
+
+        const returnItems = jsonPayload.ReturnItemsList || [];
+        const loanTotal = returnItems.find((i: any) => i.Code === "151_00001")?.Value;
+        const colTotal = returnItems.find((i: any) => i.Code === "151_00002")?.Value;
+        const pctTotal = returnItems.find((i: any) => i.Code === "151_00003")?.Value;
+
+        const dynamicItemsList = jsonPayload.DynamicItemsList || [];
+        const flatItems = (dynamicItemsList[0]?.DynamicItems && dynamicItemsList[0].DynamicItems.length > 0)
+            ? dynamicItemsList[0].DynamicItems
+            : [];
+
+        if (flatItems.length > 0) {
+            const chunkSize = 9;
+            const totalRows = Math.ceil(flatItems.length / chunkSize);
+            for (let rIdx = 0; rIdx < totalRows; rIdx++) {
+                const chunk = flatItems.slice(rIdx * chunkSize, (rIdx + 1) * chunkSize);
+                const currentRow = 16 + rIdx;
+                const itemMap: Record<string, any> = {};
+                chunk.forEach((di: any) => {
+                    const colSub = di.Code.includes(".") ? di.Code.split(".")[1] : di.Code;
+                    itemMap[colSub] = di.Value;
+                    itemMap[di.Code] = di.Value;
+                });
+
+                const getVal = (colIdx: string) => itemMap[colIdx] || itemMap[`1.${colIdx}`] || itemMap[`${rIdx + 1}.${colIdx}`] || "";
+
+                worksheet.getCell(`B${currentRow}`).value = getVal("1");
+                worksheet.getCell(`C${currentRow}`).value = getVal("2");
+                worksheet.getCell(`D${currentRow}`).value = getVal("3");
+                worksheet.getCell(`E${currentRow}`).value = getVal("4") ? parseFloat(getVal("4")) : "";
+                worksheet.getCell(`F${currentRow}`).value = getVal("5");
+                worksheet.getCell(`G${currentRow}`).value = getVal("6");
+                worksheet.getCell(`H${currentRow}`).value = getVal("7");
+                worksheet.getCell(`I${currentRow}`).value = getVal("8") ? parseFloat(getVal("8")) : "";
+                worksheet.getCell(`J${currentRow}`).value = getVal("9") ? parseFloat(getVal("9")) : "";
+            }
+        }
+
+        if (loanTotal !== undefined && loanTotal !== "") worksheet.getCell("E166").value = parseFloat(loanTotal) || 0;
+        if (colTotal !== undefined && colTotal !== "") worksheet.getCell("I166").value = parseFloat(colTotal) || 0;
+        if (pctTotal !== undefined && pctTotal !== "") worksheet.getCell("J166").value = parseFloat(pctTotal) || 0;
+    }
+
+    return workbook;
 }

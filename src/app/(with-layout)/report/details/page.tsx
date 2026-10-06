@@ -79,10 +79,38 @@ export default function Details() {
     }, [isLoading, errors]);
 
     const loadView = (report: any) => {
+        if (!report) return null;
+
+        const reportTypeId =
+            typeof report.reportType === "object"
+                ? report.reportType?._id || report.reportType?.id
+                : report.reportType;
+
         const reportType = dataReportTypes?.reportTypes?.find(
-            (rt: ReportTypeDto) => rt._id === report.reportType
+            (rt: any) =>
+                String(rt._id) === String(reportTypeId) ||
+                String(rt.id) === String(reportTypeId) ||
+                rt.reportId === reportTypeId
         );
-        const reportTypeName = reportType?.reportId;
+
+        const reportTypeName = (
+            reportType?.reportId ||
+            (typeof report.reportType === "object"
+                ? report.reportType?.reportId
+                : "") ||
+            (typeof report.reportType === "string" ? report.reportType : "")
+        ).toString().trim();
+
+        const upperName = (
+            reportTypeName ||
+            report.returnKey ||
+            report.json ||
+            ""
+        ).toUpperCase();
+
+        if (upperName.includes("NN001") || upperName.includes("NACNN001")) {
+            return <NN001ExcelView activeFileName={report.json} />;
+        }
 
         switch (reportTypeName) {
             case "BD_L&A_BD001":
@@ -114,6 +142,8 @@ export default function Details() {
             case "IFBLCMWAL001":
                 return <MWAL001ExcelView activeFileName={report.json} />;
             case "NACNN001":
+            case "NN001":
+            case "NAC NN001":
                 return <NN001ExcelView activeFileName={report.json} />;
             case "COL_ACQ_18M_OL001":
                 return <OL001ExcelView activeFileName={report.json} />;
@@ -164,18 +194,24 @@ export default function Details() {
             case "CAP_ADQ_ITEM_QI001":
                 return <QI001ExcelView activeFileName={report.json} />;
             default:
-                return <></>;
+                return (
+                    <div className="p-6 text-center text-red-500">
+                        Unknown report type view: "{reportTypeName || upperName}"
+                    </div>
+                );
         }
     };
 
     return (
         <div className="mx-auto max-w-7xl p-4 md:p-6 2xl:p-10">
             <Breadcrumb pageName="Report View" />
-            {!isLoading &&
-                !isLoadingReportTypes &&
-                dataReportTypes &&
-                data &&
-                loadView(data.content)}
+            {isLoading ? (
+                <div className="p-6 text-center text-gray-500">Loading report details...</div>
+            ) : data?.content ? (
+                loadView(data.content)
+            ) : (
+                <div className="p-6 text-center text-gray-500">No report content found.</div>
+            )}
         </div>
     );
 }
