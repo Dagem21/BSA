@@ -508,6 +508,19 @@ export async function validateTemplate(
                             "This is not the exact BE001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("ANARN001") || cleanId.includes("NON-ACCRUAL") || cleanId.includes("NON_ACCRUAL")) {
+                const isANARN001 =
+                    codeA1.includes("ANARN001") ||
+                    headerRow4.includes("re-categorized") ||
+                    headerRow4.includes("non-accrual") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("ANARN001");
+                if (!isANARN001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact ANARN001 Excel template file."
+                    };
+                }
             }
         }
 
