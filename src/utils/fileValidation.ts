@@ -271,6 +271,22 @@ export async function validateTemplate(
                             "This is not the exact MB001 Excel template file."
                     };
                 }
+            } else if (
+                cleanId.includes("LP001") ||
+                cleanId.includes("LOAN_CLA&PROV_LP001")
+            ) {
+                const isLP001 =
+                    codeA1.includes("LP001") ||
+                    codeA1.includes("LOAN_CLA&PROV_LP001") ||
+                    headerRow4.includes("loan classification") ||
+                    headerRow4.includes("provisioning");
+                if (!isLP001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact LP001 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("SRR")) {
                 const isSRR =
                     codeA1.includes("SRR") ||

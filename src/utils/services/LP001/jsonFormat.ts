@@ -326,15 +326,14 @@ export const LP001Format = (
     const fmt = (val: string | number | null | undefined): string => {
         if (val === null || val === undefined) return "0";
         const str = val.toString().trim();
-        return str === "" ? "0" : str;
+        return (str === "" || str === "[object Object]") ? "0" : str;
     };
 
     const returnItemsList = LP001_ITEM_DEFINITIONS.map((def) => ({
         Code: def.code,
         Value: fmt(itemValuesMap[def.code]),
         _description: def.description,
-        _dataType: def.dataType,
-        _required: def.required
+        _dataType: def.dataType
     }));
 
     return {
