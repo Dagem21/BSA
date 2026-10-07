@@ -45,6 +45,7 @@ import { PL001ExcelView } from "@/components/ReportViews/pl001-excel-view";
 import { QC001ExcelView } from "@/components/ReportViews/qc001-excel-view";
 import { QO001ExcelView } from "@/components/ReportViews/qo001-excel-view";
 import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
+import { LP001ExcelView } from "@/components/ReportViews/lp001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -129,6 +130,9 @@ export default function Details() {
                 return <LA001ExcelView activeFileName={report.json} />;
             case "BOR_TEN_PER_LB002":
                 return <LB002ExcelView activeFileName={report.json} />;
+            case "LOAN_CLA&PROV_LP001":
+            case "LP001":
+                return <LP001ExcelView activeFileName={report.json} />;
             case "NBE_MAT_ANL_MA001":
                 return <MA001ExcelView activeFileName={report.json} />;
             case "MB001MB001":

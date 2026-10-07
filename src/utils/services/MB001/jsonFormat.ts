@@ -221,7 +221,8 @@ export const MB001Format = (
         Code: item.code,
         Value: fmt(valuesMap[item.code]),
         _description: item.desc,
-        _dataType: "NUMERIC"
+        _dataType: "NUMERIC",
+        _required: false
     }));
 
     return {
