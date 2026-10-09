@@ -55,6 +55,7 @@ import { processQO001Report } from "./services/QO001/QO001";
 import { processQI001Report } from "./services/QI001/QI001";
 import { processBA001Report } from "./services/BA001/BA001";
 import { processBE001Report } from "./services/BE001/BE001";
+import { processFABS001Report } from "./services/FABS001/FABS001";
 import { processANARN001Report } from "./services/ANARN001/ANARN001";
 
 export const fileProcessor = async (
@@ -255,6 +256,10 @@ export const fileProcessor = async (
             case "BRE_EXPE_BE001":
             case "BE001":
                 processor = processBE001Report;
+                break;
+            case "FASDBSFABS001":
+            case "FABS001":
+                processor = processFABS001Report;
                 break;
             case "ANARN001":
                 processor = processANARN001Report;

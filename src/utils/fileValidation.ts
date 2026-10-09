@@ -524,6 +524,19 @@ export async function validateTemplate(
                             "This is not the exact BE001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("FABS001") || cleanId.includes("FASDBSFABS001")) {
+                const isFABS001 =
+                    codeA1.includes("FABS001") ||
+                    codeA1.includes("FASDBSFABS001") ||
+                    headerRow4.includes("balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("BSD USER");
+                if (!isFABS001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact FABS001 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("ANARN001") || cleanId.includes("NON-ACCRUAL") || cleanId.includes("NON_ACCRUAL")) {
                 const isANARN001 =
                     codeA1.includes("ANARN001") ||
