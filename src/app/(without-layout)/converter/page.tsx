@@ -172,6 +172,9 @@ export default function StandaloneConverterPage() {
                             <option value="BRE_EXPE_BE001">
                                 BRE_EXPE_BE001 — Breakdown of Expenses (BE001)
                             </option>
+                            <option value="FASDBSFABS001">
+                                FASDBSFABS001 — Monthly Balance Sheet (FABS001)
+                            </option>
                         </select>
                     </div>
 

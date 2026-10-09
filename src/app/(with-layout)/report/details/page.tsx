@@ -46,6 +46,7 @@ import { QC001ExcelView } from "@/components/ReportViews/qc001-excel-view";
 import { QO001ExcelView } from "@/components/ReportViews/qo001-excel-view";
 import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
 import { LP001ExcelView } from "@/components/ReportViews/lp001-excel-view";
+import { FABS001ExcelView } from "@/components/ReportViews/fabs001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -111,6 +112,10 @@ export default function Details() {
 
         if (upperName.includes("NN001") || upperName.includes("NACNN001")) {
             return <NN001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("FABS001") || upperName.includes("FASDBS")) {
+            return <FABS001ExcelView activeFileName={report.json} />;
         }
 
         switch (reportTypeName) {
@@ -197,6 +202,9 @@ export default function Details() {
                 return <QO001ExcelView activeFileName={report.json} />;
             case "CAP_ADQ_ITEM_QI001":
                 return <QI001ExcelView activeFileName={report.json} />;
+            case "FASDBSFABS001":
+            case "FABS001":
+                return <FABS001ExcelView activeFileName={report.json} />;
             default:
                 return (
                     <div className="p-6 text-center text-red-500">

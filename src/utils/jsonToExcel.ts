@@ -31,6 +31,7 @@ export async function generateExcelFromJson(
     else if (returnKey.includes("DS003")) sheetName = "DS003";
     else if (returnKey.includes("ID002") || returnKey.includes("INT_FRE_RAN")) sheetName = "ID002";
     else if (returnKey.includes("RI003") || returnKey.includes("INT_FRE_SEC")) sheetName = "RI003";
+    else if (returnKey.includes("FABS001") || returnKey.includes("FASDBSFABS001")) sheetName = "BSD User_template ";
     else sheetName = returnKey.slice(0, 31);
 
     const worksheet = workbook.addWorksheet(sheetName);
