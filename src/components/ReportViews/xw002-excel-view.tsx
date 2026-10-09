@@ -122,129 +122,137 @@ export function XW002ExcelView({
     const returnDynItemsMap: Record<number, RowItem> = {};
     if (reportData?.ReturnItemsList) {
         reportData.ReturnItemsList.forEach((item) => {
-            returnItemsMap[item.Code] = item.Value;
+            returnItemsMap[item._description] = item.Value;
         });
     }
     let lastRow = 0;
     if (reportData?.DynamicItemsList?.[0]?.DynamicItems) {
         reportData.DynamicItemsList[0].DynamicItems.forEach((item, index) => {
-            ++lastRow;
             const cols = ["A", "B", "C", "D", "E", "F", "G", "H"] as const;
             const row = parseInt(item.Code.split(".")?.[0]) - 1;
-            const col = parseInt(item.Code.split(".")?.[1]) - 1;
+            lastRow = row;
+            const col = parseInt(item.Code.split(".")?.[1]);
             const colCode = cols[col];
 
             if (!returnDynItemsMap[row]) returnDynItemsMap[row] = {};
             returnDynItemsMap[row][colCode] = item.Value || "";
         });
-        returnDynItemsMap[lastRow + 1] = {};
-        returnDynItemsMap[lastRow + 1]["A"] = "";
-        returnDynItemsMap[lastRow + 1]["B"] = "Sub Total";
-        returnDynItemsMap[lastRow + 1]["C"] = "";
-        returnDynItemsMap[lastRow + 1]["D"] =
+
+        ++lastRow;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Sub Total";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap["Real_Estate_Sub Total_Outstanding Balance"];
-        returnDynItemsMap[lastRow + 1]["E"] = "";
-        returnDynItemsMap[lastRow + 1]["F"] = "";
-        returnDynItemsMap[lastRow + 1]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Real_Estate_Sub Total_Collateral Value"];
-        returnDynItemsMap[lastRow + 1]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Real_Estate_Sub Total_Provision Held"];
         ++lastRow;
     }
+
     if (reportData?.DynamicItemsList?.[1]?.DynamicItems) {
         reportData.DynamicItemsList[1].DynamicItems.forEach((item, index) => {
-            ++lastRow;
+            const row = lastRow + (parseInt(item.Code.split(".")?.[0]) - 1);
             const cols = ["A", "B", "C", "D", "E", "F", "G", "H"] as const;
-            const row = parseInt(item.Code.split(".")?.[0]) - 1;
-            const col = parseInt(item.Code.split(".")?.[1]) - 1;
+            const col = parseInt(item.Code.split(".")?.[1]);
             const colCode = cols[col];
 
-            if (!returnDynItemsMap[row]) returnDynItemsMap[row] = {};
+            if (!returnDynItemsMap[row]) {
+                returnDynItemsMap[row] = {};
+            }
             returnDynItemsMap[row][colCode] = item.Value || "";
         });
 
-        returnDynItemsMap[lastRow + 1] = {};
-        returnDynItemsMap[lastRow + 1]["A"] = "";
-        returnDynItemsMap[lastRow + 1]["B"] = "Sub Total";
-        returnDynItemsMap[lastRow + 1]["C"] = "";
-        returnDynItemsMap[lastRow + 1]["D"] =
+        lastRow = Object.keys(returnDynItemsMap).length;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Sub Total";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap["Real_Estate_Sub Total_Outstanding Balance"];
-        returnDynItemsMap[lastRow + 1]["E"] = "";
-        returnDynItemsMap[lastRow + 1]["F"] = "";
-        returnDynItemsMap[lastRow + 1]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Real_Estate_Sub Total_Collateral Value"];
-        returnDynItemsMap[lastRow + 1]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Real_Estate_Sub Total_Provision Held"];
 
-        returnDynItemsMap[lastRow + 2] = {};
-        returnDynItemsMap[lastRow + 2]["A"] = "";
-        returnDynItemsMap[lastRow + 2]["B"] = "Residential building (total)";
-        returnDynItemsMap[lastRow + 2]["C"] = "";
-        returnDynItemsMap[lastRow + 2]["D"] =
+        lastRow++;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Residential building (total)";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap["Residential building(total)_Outstanding Balance"];
-        returnDynItemsMap[lastRow + 2]["E"] = "";
-        returnDynItemsMap[lastRow + 2]["F"] = "";
-        returnDynItemsMap[lastRow + 2]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Residential building(total)_Collateral Value"];
-        returnDynItemsMap[lastRow + 2]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Residential building(total)_Provision Held"];
 
-        returnDynItemsMap[lastRow + 3] = {};
-        returnDynItemsMap[lastRow + 3]["A"] = "";
-        returnDynItemsMap[lastRow + 3]["B"] = "Sub Grand total(1+2+3)";
-        returnDynItemsMap[lastRow + 3]["C"] = "";
-        returnDynItemsMap[lastRow + 3]["D"] =
+        lastRow++;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Sub Grand total(1+2+3)";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap["Sub Grand total(1+2+3)_Outstanding Balance"];
-        returnDynItemsMap[lastRow + 3]["E"] = "";
-        returnDynItemsMap[lastRow + 3]["F"] = "";
-        returnDynItemsMap[lastRow + 3]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Sub Grand total(1+2+3)_Collateral Value"];
-        returnDynItemsMap[lastRow + 3]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Sub Grand total(1+2+3)_Provision Held"];
 
-        returnDynItemsMap[lastRow + 4] = {};
-        returnDynItemsMap[lastRow + 4]["A"] = "";
-        returnDynItemsMap[lastRow + 4]["B"] =
-            "Other construction sector (total)";
-        returnDynItemsMap[lastRow + 4]["C"] = "";
-        returnDynItemsMap[lastRow + 4]["D"] =
+        lastRow++;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Other construction sector (total)";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap[
                 "Other construction sector(total)_Outstanding Balance"
             ];
-        returnDynItemsMap[lastRow + 4]["E"] = "";
-        returnDynItemsMap[lastRow + 4]["F"] = "";
-        returnDynItemsMap[lastRow + 4]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Other construction sector(total)_Collateral Value"];
-        returnDynItemsMap[lastRow + 4]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Other construction sector(total)_Provision Held"];
 
-        returnDynItemsMap[lastRow + 5] = {};
-        returnDynItemsMap[lastRow + 5]["A"] = "";
-        returnDynItemsMap[lastRow + 5]["B"] = "Total construction loans (4+5)";
-        returnDynItemsMap[lastRow + 5]["C"] = "";
-        returnDynItemsMap[lastRow + 5]["D"] =
+        lastRow++;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Total construction loans (4+5)";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap["Total construction loans(4+5)_Outstanding Balance"];
-        returnDynItemsMap[lastRow + 5]["E"] = "";
-        returnDynItemsMap[lastRow + 5]["F"] = "";
-        returnDynItemsMap[lastRow + 5]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Total construction loans(4+5)_Collateral Value"];
-        returnDynItemsMap[lastRow + 5]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Total construction loans(4+5)_Provision Held"];
 
-        returnDynItemsMap[lastRow + 6] = {};
-        returnDynItemsMap[lastRow + 6]["A"] = "";
-        returnDynItemsMap[lastRow + 6]["B"] =
-            "Total loans & advances and Bonds";
-        returnDynItemsMap[lastRow + 6]["C"] = "";
-        returnDynItemsMap[lastRow + 6]["D"] =
+        lastRow++;
+
+        returnDynItemsMap[lastRow] = {};
+        returnDynItemsMap[lastRow]["B"] = "Total loans & advances and Bonds";
+        returnDynItemsMap[lastRow]["C"] = "";
+        returnDynItemsMap[lastRow]["D"] =
             returnItemsMap[
                 "Total loans & advance and Bonds_Outstanding Balance"
             ];
-        returnDynItemsMap[lastRow + 6]["E"] = "";
-        returnDynItemsMap[lastRow + 6]["F"] = "";
-        returnDynItemsMap[lastRow + 6]["G"] =
+        returnDynItemsMap[lastRow]["E"] = "";
+        returnDynItemsMap[lastRow]["F"] = "";
+        returnDynItemsMap[lastRow]["G"] =
             returnItemsMap["Total loans & advance and Bonds_Collateral Value"];
-        returnDynItemsMap[lastRow + 6]["H"] =
+        returnDynItemsMap[lastRow]["H"] =
             returnItemsMap["Total loans & advance and Bonds_Provision Held"];
     }
 
@@ -270,7 +278,7 @@ export function XW002ExcelView({
             return {
                 itemCodeNum: 0,
                 codeStr: "",
-                colSuffix: XW002_COL_SUFFIXES[index],
+                colSuffix: XW002_COL_SUFFIXES[index + 1],
                 val: value,
                 colLetter: key,
                 cellRef: `${key}${rowExcelNum}`,
@@ -489,6 +497,8 @@ export function XW002ExcelView({
                                             <td className="border-r border-stroke bg-gray-50 p-2 text-center font-mono text-[11px] font-semibold text-gray-500 dark:border-dark-3 dark:bg-dark-2">
                                                 {row.rowExcelNum}
                                             </td>
+
+                                            <td className="border-r border-stroke bg-gray-50 p-2 text-center font-mono text-[11px] font-semibold text-gray-500 dark:border-dark-3 dark:bg-dark-2"></td>
 
                                             {row.rowItems.map((cell) => {
                                                 const isSelected =

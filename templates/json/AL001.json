@@ -1,0 +1,46 @@
+{
+    "ReturnKey": "ARLAL001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "150_00001",
+            "Value": "",
+            "_description": "Restructured Loans and Advance at the end of the previous quarter_Number* of Restructured of Loan and Advances",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "150_00002",
+            "Value": "",
+            "_description": "Restructured Loans and Advance at the end of the previous quarter_Amount of Restructured Loan and Advance",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "150_00003",
+            "Value": "",
+            "_description": "Restructured Loans and Advances during the quarter_Number* of Restructured of Loan and Advances",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "150_00004",
+            "Value": "",
+            "_description": "Restructured Loans and Advances during the quarter_Amount of Restructured Loan and Advance",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "150_00005",
+            "Value": "",
+            "_description": "Total Restructured Loans and Advances_Number* of Restructured of Loan and Advances",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "150_00006",
+            "Value": "",
+            "_description": "Total Restructured Loans and Advances_Amount of Restructured Loan and Advance",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}

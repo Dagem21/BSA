@@ -45,6 +45,7 @@ import { PL001ExcelView } from "@/components/ReportViews/pl001-excel-view";
 import { QC001ExcelView } from "@/components/ReportViews/qc001-excel-view";
 import { QO001ExcelView } from "@/components/ReportViews/qo001-excel-view";
 import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
+import { AL001ExcelView } from "@/components/ReportViews/al001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -163,8 +164,16 @@ export default function Details() {
                 return <QO001ExcelView activeFileName={report.json} />;
             case "CAP_ADQ_ITEM_QI001":
                 return <QI001ExcelView activeFileName={report.json} />;
+            case "ARLAL001":
+                return <AL001ExcelView activeFileName={report.json} />;
             default:
-                return <></>;
+                return (
+                    <>
+                        <p className="text-center">
+                            Report preview is not available for this item.
+                        </p>
+                    </>
+                );
         }
     };
 

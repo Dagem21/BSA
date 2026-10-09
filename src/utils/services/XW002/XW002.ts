@@ -137,6 +137,7 @@ export async function processXW002Report(
         let startIndex = 15;
         let prevInd = "";
 
+        let counter = 1;
         for (let i = 16; i < worksheet.rowCount + 1; i++) {
             const sno = getDirectCellValue(
                 worksheet.getRow(i).getCell("A")
@@ -149,6 +150,7 @@ export async function processXW002Report(
 
             if (!borrower) continue;
 
+            const code = counter++;
             if (ind === "1" || ind === "2") {
                 for (const col of cols) {
                     let value = getDirectCellValue(
@@ -166,7 +168,7 @@ export async function processXW002Report(
                               : "");
 
                     const dataItem = {
-                        Code: `${i - startIndex}.${j + 1}`,
+                        Code: `${code}.${j + 1}`,
                         Value: value,
                         ...dataType[j]
                     };
@@ -176,7 +178,7 @@ export async function processXW002Report(
                     );
                 }
             } else if (ind === "") {
-                startIndex = i;
+                counter = 1;
 
                 const loanType =
                     prevInd === "1"
@@ -186,8 +188,8 @@ export async function processXW002Report(
                           : "";
 
                 const outBal = `${loanType}_Sub Total_Outstanding Balance`;
-                const colVal = `${loanType}_Collateral Value`;
-                const proHel = `${loanType}_Provision Held`;
+                const colVal = `${loanType}_Sub Total_Collateral Value`;
+                const proHel = `${loanType}_Sub Total_Provision Held`;
 
                 const outBalVal = getDirectCellValue(
                     worksheet.getRow(i).getCell("D")
@@ -207,7 +209,7 @@ export async function processXW002Report(
                     const itemIndex = avInOutBal.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         outBalVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${outBal}' has no remaining unused entries in template.json row ${i}`
@@ -218,7 +220,7 @@ export async function processXW002Report(
                     const itemIndex = avInColVal.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         colValVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${colVal}' has no remaining unused entries in template.json row ${i}`
@@ -229,15 +231,13 @@ export async function processXW002Report(
                     const itemIndex = avInProHel.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         proHelVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${proHel}' has no remaining unused entries in template.json row ${i}`
                     );
                 }
             } else if (["3", "4", "5", "6", "7"].includes(ind)) {
-                startIndex = i;
-
                 let loanType = "";
                 switch (ind) {
                     case "3":
@@ -281,7 +281,7 @@ export async function processXW002Report(
                     const itemIndex = avInOutBal.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         outBalVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${outBal}' has no remaining unused entries in template.json row ${i}`
@@ -292,7 +292,7 @@ export async function processXW002Report(
                     const itemIndex = avInColVal.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         colValVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${outBal}' has no remaining unused entries in template.json row ${i}`
@@ -303,7 +303,7 @@ export async function processXW002Report(
                     const itemIndex = avInProHel.shift();
                     json.ReturnItemsList[itemIndex].Value = parseFloat(
                         proHelVal || "0"
-                    );
+                    ).toString();
                 } else {
                     console.warn(
                         `Warning: Key '${outBal}' has no remaining unused entries in template.json row ${i}`
