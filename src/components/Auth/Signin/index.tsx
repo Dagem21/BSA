@@ -69,7 +69,7 @@ export default function Signin() {
                         type="text"
                         label="CBE Email"
                         className="mb-4 [&_input]:py-3.75"
-                        placeholder="Enter your email"
+                        placeholder="CBE AD username | mail@cbe.com.et"
                         name="email"
                         onChange={handleChange}
                         value={data.email}
@@ -81,7 +81,7 @@ export default function Signin() {
                         type={viewPassword ? "text" : "password"}
                         label="Password"
                         className="mb-5 [&_input]:py-3.75"
-                        placeholder="Enter your password"
+                        placeholder="CBE AD password"
                         name="password"
                         onChange={handleChange}
                         value={data.password}

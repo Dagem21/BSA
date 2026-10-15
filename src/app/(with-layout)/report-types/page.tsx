@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { ReportTypeTable } from "@/components/Tables/report-type-table";
 
 export const metadata: Metadata = {
-    title: "Report"
+    title: "Report Types"
 };
 
 export default function FormElementsPage() {
@@ -14,7 +14,13 @@ export default function FormElementsPage() {
             <Breadcrumb pageName="Report Types" />
 
             <div className="space-y-10">
-                <Suspense fallback={<div className="p-4 text-center">Loading report types...</div>}>
+                <Suspense
+                    fallback={
+                        <div className="p-4 text-center">
+                            Loading report types...
+                        </div>
+                    }
+                >
                     <ReportTypeTable />
                 </Suspense>
             </div>

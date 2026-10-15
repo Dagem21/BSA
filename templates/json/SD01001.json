@@ -1,0 +1,226 @@
+{
+    "ReturnKey": "001SD01001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "SD01001_00001",
+            "Value": "",
+            "_description": "Total deposits_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00002",
+            "Value": "",
+            "_description": "Total deposits_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00003",
+            "Value": "",
+            "_description": "Total uninsured deposits (Sum 2.1 to 2.9):_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00004",
+            "Value": "",
+            "_description": "Total uninsured deposits (Sum 2.1 to 2.9):_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00005",
+            "Value": "",
+            "_description": "Deposits of financial institutions kept in the bank_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00006",
+            "Value": "",
+            "_description": "Deposits of financial institutions kept in the bank_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00007",
+            "Value": "",
+            "_description": "Deposits of Federal Government and its Agencies_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00008",
+            "Value": "",
+            "_description": "Deposits of Federal Government and its Agencies_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00009",
+            "Value": "",
+            "_description": "Deposits of the current external auditors (including its partners) of the bank_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00010",
+            "Value": "",
+            "_description": "Deposits of the current external auditors (including its partners) of the bank_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00011",
+            "Value": "",
+            "_description": "Deposits held as collateral by the bank for the loan granted to the depositors_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00012",
+            "Value": "",
+            "_description": "Deposits held as collateral by the bank for the loan granted to the depositors_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00013",
+            "Value": "",
+            "_description": "Deposits of Influential Shareholders, Directors, Chief Executive Officer, and Senior Executive Officers of the bank_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00014",
+            "Value": "",
+            "_description": "Deposits of Influential Shareholders, Directors, Chief Executive Officer, and Senior Executive Officers of the bank_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00015",
+            "Value": "",
+            "_description": "Deposits of family members of Influential Shareholders, Directors, Chief Executive Officer, and senior Executive Officers of the bank_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00016",
+            "Value": "",
+            "_description": "Deposits of family members of Influential Shareholders, Directors, Chief Executive Officer, and senior Executive Officers of the bank_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00017",
+            "Value": "",
+            "_description": "Deposits of legal entities owned by Influential Shareholders, Directors, Chief Executive Officer, and Senior Executive Officers of the bank_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00018",
+            "Value": "",
+            "_description": "Deposits of legal entities owned by Influential Shareholders, Directors, Chief Executive Officer, and Senior Executive Officers of the bank_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00019",
+            "Value": "",
+            "_description": "Deposits of legal entity owned by family members of Influential shareholders, Directors, Chief Executive Officer, and Senior Executive Officers_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00020",
+            "Value": "",
+            "_description": "Deposits of legal entity owned by family members of Influential shareholders, Directors, Chief Executive Officer, and Senior Executive Officers_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00021",
+            "Value": "",
+            "_description": "Deposits frozen by the court decision_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00022",
+            "Value": "",
+            "_description": "Deposits frozen by the court decision_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00023",
+            "Value": "",
+            "_description": "Total insured deposits (No.1 minus No.2)_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00024",
+            "Value": "",
+            "_description": "Total insured deposits (No.1 minus No.2)_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00025",
+            "Value": "",
+            "_description": "Total insured deposits having balances = Birr 100,000 (Sum 3.1.1 and 3.1.2)_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00026",
+            "Value": "",
+            "_description": "Total insured deposits having balances = Birr 100,000 (Sum 3.1.1 and 3.1.2)_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00027",
+            "Value": "",
+            "_description": "Total insured conventional deposits having balances = Birr 100,000_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00028",
+            "Value": "",
+            "_description": "Total insured conventional deposits having balances = Birr 100,000_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00029",
+            "Value": "",
+            "_description": "Total insured interest-free deposits having balances = Birr 100,000_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00030",
+            "Value": "",
+            "_description": "Total insured interest-free deposits having balances = Birr 100,000_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00031",
+            "Value": "",
+            "_description": "Total insured deposits having balances > Birr 100,000 (Sum 3.2.1 and 3.2.2)_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00032",
+            "Value": "",
+            "_description": "Total insured deposits having balances > Birr 100,000 (Sum 3.2.1 and 3.2.2)_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00033",
+            "Value": "",
+            "_description": "Total insured conventional deposits having balances > Birr 100,000_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00034",
+            "Value": "",
+            "_description": "Total insured conventional deposits having balances > Birr 100,000_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00035",
+            "Value": "",
+            "_description": "Total insured interest-free deposits having balances > Birr 100,000_Current Quarter\nNumber of Depositors",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "SD01001_00036",
+            "Value": "",
+            "_description": "Total insured interest-free deposits having balances > Birr 100,000_Current Quarter\nAmount of Deposits",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}

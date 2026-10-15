@@ -45,7 +45,7 @@ export default function SignIn() {
                     </h1>
 
                     <p className="w-full max-w-[375px] font-medium text-dark-4 dark:text-dark-6">
-                        Please sign in to your account by using your CBE AD
+                        Please sign in to your account using your CBE AD
                         credentials
                     </p>
 

@@ -20,7 +20,7 @@ export function ChevronUp(props: PropsType) {
     );
 }
 
-export function ReportIcon() {
+export function ReportIcon(props: PropsType) {
     return (
         <svg
             xmlns="http://w3.org"
@@ -29,6 +29,7 @@ export function ReportIcon() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
+            {...props}
         >
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
 

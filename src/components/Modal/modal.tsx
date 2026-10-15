@@ -29,14 +29,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             onClick={onClose}
             className="fixed inset-0 z-[99999] flex h-screen w-screen items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
         >
-            {/* Modal Card: Add onClick={(e) => e.stopPropagation()} to prevent inner clicks from triggering onClose */}
+            {/* Modal Card: Constrained to max-h-[90vh] and flex column so children can flex-1 */}
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative rounded-lg bg-white p-6 text-dark shadow-xl dark:bg-[#020d1a] dark:text-white"
-                style={{ width: "100%", maxWidth: "512px" }}
+                className="relative flex max-h-[80vh] w-full flex-col rounded-lg bg-white p-6 text-dark shadow-xl dark:bg-[#020d1a] dark:text-white"
+                style={{ maxWidth: "512px" }}
             >
-                {/* Header */}
-                <div className="dark:border-strokedark flex items-center justify-between border-b border-stroke pb-3">
+                {/* Header (Stays fixed at the top) */}
+                <div className="dark:border-strokedark flex flex-shrink-0 items-center justify-between border-b border-stroke pb-3">
                     <h3 className="text-xl font-semibold text-black dark:text-white">
                         {title || "Popup"}
                     </h3>
@@ -48,8 +48,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
                     </button>
                 </div>
 
-                {/* Content */}
-                <div className="mt-4 w-md break-words">{children}</div>
+                {/* Content: Scrollable when it overflows */}
+                <div className="mt-4 w-full flex-1 overflow-y-auto pr-1 break-words">
+                    {children}
+                </div>
             </div>
         </div>
     );

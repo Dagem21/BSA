@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Sign in"
+    title: "Unauthorized"
 };
 
 export default function unauthorized() {
     return (
         <div className="flex min-h-screen flex-wrap items-center justify-center">
             <div className="p-6">
-                <div className="custom-gradient-1 flex flex-col items-center overflow-hidden rounded-2xl p-12.5 px-15 dark:bg-dark-2! dark:bg-none">
+                <div className="flex flex-col items-center overflow-hidden rounded-2xl p-12.5 px-15">
                     <AlertErrorIcon width={100} height={100} />
 
                     <h1 className="mb-4 text-2xl font-bold text-dark sm:text-heading-3 dark:text-white">

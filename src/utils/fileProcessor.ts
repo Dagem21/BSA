@@ -58,6 +58,7 @@ import { processBE001Report } from "./services/BE001/BE001";
 import { processMP003Report } from "./services/MP003/MP003";
 import { processAL001Report } from "./services/AL001/AL001";
 import { processPE001Report } from "./services/PE001/PE001";
+import { processSD01001Report } from "./services/SD01001/SD01001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -141,7 +142,6 @@ export const fileProcessor = async (
             case "LOAN_RAN & REGRL002":
                 processor = processREGRL002Report;
                 break;
-            case "MD002":
             case "CDby Sector and RegMD002":
                 processor = processMD002Report;
                 break;
@@ -264,6 +264,9 @@ export const fileProcessor = async (
                 break;
             case "POBEPE001":
                 processor = processPE001Report;
+                break;
+            case "001SD01001":
+                processor = processSD01001Report;
                 break;
             default:
                 break;
