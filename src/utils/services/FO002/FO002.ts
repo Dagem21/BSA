@@ -164,8 +164,8 @@ export function processFO002(
             break;
         }
 
-        const category = col2Val;
-        const typeOfFraud = getDirectCellValue(row.getCell(3)).trim();
+        const rawCategory = col2Val;
+        const rawTypeOfFraud = getDirectCellValue(row.getCell(3)).trim();
 
         const prevNumRaw = getDirectCellValue(row.getCell(4)).replace(/,/g, "").trim();
         const prevAmtRaw = getDirectCellValue(row.getCell(5)).replace(/,/g, "").trim();
@@ -189,8 +189,8 @@ export function processFO002(
 
         // Check if row has any entered fraud data
         const hasData = Boolean(
-            category ||
-            typeOfFraud ||
+            rawCategory ||
+            rawTypeOfFraud ||
             (prevNumRaw && prevNumRaw !== "0") ||
             (prevAmtRaw && prevAmtRaw !== "0") ||
             (newNumRaw && newNumRaw !== "0") ||
@@ -205,6 +205,9 @@ export function processFO002(
             // Skip empty template row
             continue;
         }
+
+        const category = rawCategory || "Other";
+        const typeOfFraud = rawTypeOfFraud || "Other";
 
         const codeVal = col1Val || String(dynamicEntries.length + 1);
 
