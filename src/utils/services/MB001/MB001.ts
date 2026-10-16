@@ -15,9 +15,12 @@ function formatIsoString(dateVal: any): string {
         const yyyy = d.getFullYear();
         const mm = String(d.getMonth() + 1).padStart(2, "0");
         const dd = String(d.getDate()).padStart(2, "0");
-        return `${yyyy}-${mm}-${dd}T00:00:00`;
+        return `${yyyy}-${mm}-${dd}T00:00:00.000Z`;
     }
-    return String(dateVal).trim().split(".")[0].replace(/Z$/, "");
+    const str = String(dateVal).trim();
+    if (!str.includes("T")) return `${str}T00:00:00.000Z`;
+    if (!str.endsWith("Z")) return `${str}.000Z`;
+    return str;
 }
 
 function getDirectCellValue(cell: ExcelJS.Cell): string {

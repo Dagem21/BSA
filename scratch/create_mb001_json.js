@@ -6,19 +6,20 @@ const returnItems = MB001_DESCRIPTIONS.map(item => ({
     Code: item.code,
     Value: "",
     _description: item.desc,
-    _dataType: "NUMERIC"
+    _dataType: "NUMERIC",
+    _required: false
 }));
 
 const template = {
     ReturnKey: "MB001MB001",
     InstCode: "0000001",
     FinYear: 2026,
-    StartDate: "2026-09-01T00:00:00",
-    EndDate: "2026-09-30T00:00:00",
+    StartDate: "2026-09-01T00:00:00.000Z",
+    EndDate: "2026-09-30T00:00:00.000Z",
     ReturnItemsList: returnItems,
     DynamicItemsList: []
 };
 
 const jsonPath = path.resolve('templates/json/MB001.json');
 fs.writeFileSync(jsonPath, JSON.stringify(template, null, 4), 'utf-8');
-console.log('Successfully created templates/json/MB001.json. Items count:', returnItems.length);
+console.log('Successfully updated templates/json/MB001.json with _required: false and .000Z ISO dates. Items count:', returnItems.length);
