@@ -8,6 +8,12 @@ export async function generateExcelFromJson(
 ): Promise<Buffer> {
     const workbook = new ExcelJS.Workbook();
     const returnKey = (jsonData?.ReturnKey || "REPORT").toString();
+    if (returnKey.includes("FO002") || returnKey.includes("FRA_OUT")) {
+        const { jsonToExcelFO002 } = await import("./services/FO002/FO002");
+        const wb = await jsonToExcelFO002(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
     const instCode = (jsonData?.InstCode || "0000001").toString();
     const finYear = jsonData?.FinYear || new Date().getFullYear();
     const startDate = jsonData?.StartDate?.split("T")[0] || "";

@@ -34,6 +34,7 @@ const { processMD002 } = require("@/utils/services/MD002/MD002");
 const { processBA001, jsonToExcelBA001 } = require("@/utils/services/BA001/BA001");
 const { processBE001, jsonToExcelBE001 } = require("@/utils/services/BE001/BE001");
 const { processANARN001, jsonToExcelANARN001 } = require("@/utils/services/ANARN001/ANARN001");
+const { processFO002, jsonToExcelFO002 } = require("@/utils/services/FO002/FO002");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -269,6 +270,8 @@ export async function POST(request: NextRequest) {
             jsonPayload = processBE001 ? processBE001(worksheet) : null;
         } else if (requestedType.includes("ANARN001") || requestedType.includes("NON-ACCRUAL") || requestedType.includes("NON_ACCRUAL")) {
             jsonPayload = processANARN001 ? processANARN001(worksheet) : null;
+        } else if (requestedType.includes("FO002") || requestedType.includes("FRA_OUT")) {
+            jsonPayload = processFO002 ? processFO002(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

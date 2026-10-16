@@ -521,14 +521,34 @@ export async function validateTemplate(
                             "This is not the exact ANARN001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("FO002") || cleanId.includes("FRA_OUT")) {
+                const isFO002 =
+                    codeA1.includes("FO002") ||
+                    codeA1.includes("FRA_OUT") ||
+                    headerRow4.includes("fraud") ||
+                    headerRow4.includes("quarterly summary report on fraud") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("FO002") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("FRA_OUT");
+                if (!isFO002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact FO002 Excel template file."
+                    };
+                }
             }
         }
 
         // Check if file matches OP001 layout (B8: Instiution Code) or ZS001 layout (B9: Instiution code)
-        const isOP001 = getCellText("B8").toLowerCase().includes("instiution");
-        const isZS001 = getCellText("B9").toLowerCase().includes("instiution");
+        const isOP001 =
+            getCellText("B8").toLowerCase().includes("instiution") ||
+            getCellText("B8").toLowerCase().includes("institution");
+        const isZS001 =
+            getCellText("B9").toLowerCase().includes("instiution") ||
+            getCellText("B9").toLowerCase().includes("institution");
         const isNN001Header =
             getCellText("A8").toLowerCase().includes("instiution") ||
+            getCellText("A8").toLowerCase().includes("institution") ||
             codeA1.includes("NACNN001");
 
         if (!isOP001 && !isZS001 && !isNN001Header) {

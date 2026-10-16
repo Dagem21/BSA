@@ -175,6 +175,9 @@ export default function StandaloneConverterPage() {
                             <option value="ANARN001">
                                 ANARN001 — Re-Categorized from Non-Accrual To Accrual Status (ANARN001)
                             </option>
+                            <option value="FRA_OUT_FO002">
+                                FRA_OUT_FO002 — Quarterly Summary Report on Fraud Outstanding (FO002)
+                            </option>
                         </select>
                     </div>
 
