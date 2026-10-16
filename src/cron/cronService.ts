@@ -7,6 +7,7 @@ import { checkFirstDays } from "@/utils/checkDate";
 import { getService } from "./serviceMap";
 import { SystemLogDto } from "@/dto/systemLog";
 import { createSystemLog, updateSystemLog } from "@/dal/mongo/systemLogsdal";
+import cron from "node-cron";
 
 const startService = async () => {
     const log: SystemLogDto = {
@@ -49,9 +50,9 @@ const startService = async () => {
 };
 
 export const cronService = async () => {
-    // cron.schedule("* * * * *", async () => {
-    console.log("Cron started running at : ", new Date().toString());
-    await startService();
-    console.log("Cron finished at : ", new Date().toString());
-    // });
+    cron.schedule("0 6 * * *", async () => {
+        console.log("Cron started running at : ", new Date().toString());
+        await startService();
+        console.log("Cron finished at : ", new Date().toString());
+    });
 };

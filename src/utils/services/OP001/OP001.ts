@@ -29,7 +29,8 @@ const CURRENCY_MAP: Record<string, string> = {
 
 /** Excel template rows that store dynamic formulas (DO NOT OVERWRITE) */
 const FORMULA_ROWS: ReadonlySet<number> = new Set([
-    17, 24, 29, 31, 37, 44, 46, 47, 49, 50, 51, 52, 54, 55, 56, 58, 59
+    17, 24, 29, 30, 31, 37, 44, 45, 46, 47, 49, 50, 51, 52, 53, 54, 55, 56, 58,
+    59
 ]);
 
 export async function populateOpenPositionReport(
