@@ -21,7 +21,7 @@ export const service = async (reportTypeID: string, reportID: string) => {
         };
 
         const yesterday = new Date();
-        yesterday.setUTCDate(yesterday.getUTCDate() - 3);
+        yesterday.setUTCDate(yesterday.getUTCDate());
         yesterday.setUTCHours(0, 0, 0, 0);
 
         const filter: any = { BUSINESS_DATE: yesterday.toISOString() };
