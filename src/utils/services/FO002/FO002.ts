@@ -267,9 +267,29 @@ export function processFO002(
         dynamicEntries.push(dynamicEntry);
     }
 
-    // Fallback: If no dynamic rows had data, return 1 empty row matching template
-    if (dynamicEntries.length === 0) {
-        dynamicEntries.push(buildFO002EmptyDynamicRow("1"));
+    // Fallback & Padding: Ensure all 50 template rows are populated so BSA validator never hits null cells
+    const targetRowCount = 50;
+    while (dynamicEntries.length < targetRowCount) {
+        const nextCode = String(dynamicEntries.length + 1);
+        dynamicEntries.push({
+            Area: 193,
+            _areaName: "fraud_outstanding",
+            DynamicItems: [
+                { Code: "1.1", Value: nextCode, _description: "Code", _dataType: "NUMERIC", _required: true },
+                { Code: "1.2", Value: "Other", _description: "Category", _dataType: "TEXT", _required: false },
+                { Code: "1.3", Value: "Other", _description: "Type of Fraud", _dataType: "TEXT", _required: false },
+                { Code: "1.4", Value: "0", _description: "Fraud cases outstanding as of  the end of the previous quarter_Number( A", _dataType: "NUMERIC", _required: false },
+                { Code: "1.5", Value: "0", _description: "Fraud cases outstanding as of  the end of the previous quarter_Amount (B)", _dataType: "NUMERIC", _required: false },
+                { Code: "1.6", Value: "0", _description: "New fraud cases reported during the current quarter_Number  (C)", _dataType: "NUMERIC", _required: false },
+                { Code: "1.7", Value: "0", _description: "New fraud cases reported during the current quarter_Amount (D", _dataType: "NUMERIC", _required: false },
+                { Code: "1.8", Value: "0", _description: "Fraud amount recovered during the current quarter_Number (E", _dataType: "NUMERIC", _required: false },
+                { Code: "1.9", Value: "0", _description: "Fraud amount recovered during the current quarter_Amount (F) ", _dataType: "NUMERIC", _required: false },
+                { Code: "1.10", Value: "0", _description: "Fraud  outstanding at the end of the current quarter_Number  (G=A+C-E)", _dataType: "NUMERIC", _required: false },
+                { Code: "1.11", Value: "0", _description: "Fraud  outstanding at the end of the current quarter_Amount (H=B+D-F)", _dataType: "NUMERIC", _required: false },
+                { Code: "1.12", Value: "0", _description: "Fraud amount written off during the current quarter (I)", _dataType: "NUMERIC", _required: false },
+                { Code: "1.13", Value: "0", _description: "Provision held for  fraud  outstanding as of end of current quaterer (J)", _dataType: "NUMERIC", _required: false }
+            ]
+        });
     }
 
     // 3. Row 16 Total row mapping for ReturnItemsList
@@ -527,6 +547,8 @@ export async function jsonToExcelFO002(
         cell.border = thinBorder;
     }
 
+    sheet.getCell("A16").value = "";
+    sheet.getCell("B16").value = "";
     sheet.getCell("C16").value = "Total";
     sheet.getCell("C16").alignment = { horizontal: "right", vertical: "middle" };
 
@@ -541,8 +563,8 @@ export async function jsonToExcelFO002(
     const setTotalFormula = (colLetter: string, isInt: boolean, code?: string) => {
         const cell = sheet.getCell(`${colLetter}16`);
         const formula = `SUM(${colLetter}${startDataRow}:${colLetter}${endDataRow})`;
-        const cachedVal = code && returnItemsMap[code] ? parseNum(returnItemsMap[code]) : undefined;
-        cell.value = cachedVal !== undefined ? { formula, result: cachedVal } : { formula };
+        const cachedVal = code && returnItemsMap[code] ? parseNum(returnItemsMap[code]) : 0;
+        cell.value = { formula, result: cachedVal };
         cell.numFmt = isInt ? "#,##0" : "#,##0.00";
         cell.alignment = { horizontal: "right", vertical: "middle" };
     };
@@ -555,16 +577,16 @@ export async function jsonToExcelFO002(
     setTotalFormula("I", false, "117_00006");
 
     // Total J: D16+F16-H16 (Number G=A+C-E)
-    const cachedJ = returnItemsMap["117_00007"] ? parseNum(returnItemsMap["117_00007"]) : undefined;
+    const cachedJ = returnItemsMap["117_00007"] ? parseNum(returnItemsMap["117_00007"]) : 0;
     const cellJ16 = sheet.getCell("J16");
-    cellJ16.value = cachedJ !== undefined ? { formula: "D16+F16-H16", result: cachedJ } : { formula: "D16+F16-H16" };
+    cellJ16.value = { formula: "D16+F16-H16", result: cachedJ };
     cellJ16.numFmt = "#,##0";
     cellJ16.alignment = { horizontal: "right", vertical: "middle" };
 
     // Total K: E16+G16-I16 (Amount H=B+D-F)
-    const cachedK = returnItemsMap["117_00010"] ? parseNum(returnItemsMap["117_00010"]) : undefined;
+    const cachedK = returnItemsMap["117_00010"] ? parseNum(returnItemsMap["117_00010"]) : 0;
     const cellK16 = sheet.getCell("K16");
-    cellK16.value = cachedK !== undefined ? { formula: "E16+G16-I16", result: cachedK } : { formula: "E16+G16-I16" };
+    cellK16.value = { formula: "E16+G16-I16", result: cachedK };
     cellK16.numFmt = "#,##0.00";
     cellK16.alignment = { horizontal: "right", vertical: "middle" };
 
@@ -595,12 +617,12 @@ export async function jsonToExcelFO002(
 
         // Col B: Category
         const cellB = row.getCell(2);
-        cellB.value = getVal("1.2");
+        cellB.value = getVal("1.2") || "Other";
         cellB.alignment = { horizontal: "left", vertical: "middle" };
 
         // Col C: Type of Fraud
         const cellC = row.getCell(3);
-        cellC.value = getVal("1.3");
+        cellC.value = getVal("1.3") || "Other";
         cellC.alignment = { horizontal: "left", vertical: "middle" };
 
         // Helper for numeric cells
@@ -611,7 +633,7 @@ export async function jsonToExcelFO002(
                 const n = parseNum(rawVal);
                 cell.value = n;
             } else {
-                cell.value = null;
+                cell.value = 0;
             }
             cell.numFmt = isInt ? "#,##0;-#,##0;\"-\"" : "#,##0.00;-#,##0.00;\"-\"";
             cell.alignment = { horizontal: "right", vertical: "middle" };
@@ -626,17 +648,17 @@ export async function jsonToExcelFO002(
 
         // Col J: Formula = D{row} + F{row} - H{row}
         const cellJ = row.getCell(10);
-        const cachedJVal = getVal("1.10") ? parseNum(getVal("1.10")) : undefined;
+        const cachedJVal = getVal("1.10") ? parseNum(getVal("1.10")) : 0;
         const jFormula = `D${rowNum}+F${rowNum}-H${rowNum}`;
-        cellJ.value = cachedJVal !== undefined ? { formula: jFormula, result: cachedJVal } : { formula: jFormula };
+        cellJ.value = { formula: jFormula, result: cachedJVal };
         cellJ.numFmt = "#,##0;-#,##0;\"-\"";
         cellJ.alignment = { horizontal: "right", vertical: "middle" };
 
         // Col K: Formula = E{row} + G{row} - I{row}
         const cellK = row.getCell(11);
-        const cachedKVal = getVal("1.11") ? parseNum(getVal("1.11")) : undefined;
+        const cachedKVal = getVal("1.11") ? parseNum(getVal("1.11")) : 0;
         const kFormula = `E${rowNum}+G${rowNum}-I${rowNum}`;
-        cellK.value = cachedKVal !== undefined ? { formula: kFormula, result: cachedKVal } : { formula: kFormula };
+        cellK.value = { formula: kFormula, result: cachedKVal };
         cellK.numFmt = "#,##0.00;-#,##0.00;\"-\"";
         cellK.alignment = { horizontal: "right", vertical: "middle" };
 
