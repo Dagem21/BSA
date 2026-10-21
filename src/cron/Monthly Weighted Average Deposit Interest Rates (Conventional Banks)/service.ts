@@ -9,23 +9,25 @@ import {
     deleteWAADIR001s,
     findWAADIR001s
 } from "@/dal/sql/WAADIR001";
-import { populateWAADIR001Report } from "@/utils/services/WAADIR001/WAADIR001";
 import { Decimal } from "@/generated/prisma/runtime/client";
+import { populateWAADIR001Report } from "@/utils/services/Auto/WAADIR001/WAADIR001";
 
-export const service = async (reportTypeID: string, reportID: string) => {
+export const service = async (
+    reportTypeID: string,
+    reportID: string,
+    reportDate?: Date
+) => {
+    const log: SystemLogDto = {
+        reportID: reportTypeID,
+        startedAt: new Date().toISOString(),
+        status: "Running"
+    };
     try {
-        const log: SystemLogDto = {
-            reportID: reportTypeID,
-            startedAt: new Date().toISOString(),
-            status: "Running"
-        };
-
-        const yesterday = new Date();
-        yesterday.setUTCDate(yesterday.getUTCDate() - 21);
+        const yesterday = reportDate || new Date();
+        yesterday.setUTCDate(yesterday.getUTCDate() - 1);
         yesterday.setUTCHours(0, 0, 0, 0);
 
         const filter: any = { BUSINESS_DATE: yesterday.toISOString() };
-        console.log(filter);
 
         const pendingReport = await findReports({
             reportType: reportTypeID,
@@ -68,7 +70,14 @@ export const service = async (reportTypeID: string, reportID: string) => {
 
         if (batch.length > 0) {
             await deleteWAADIR001s(filter);
-            await createWAADIR001s(batch);
+            const { created, error } = await createWAADIR001s(batch);
+            if (!created || error) {
+                log.status = "Failed";
+                log.finishedAt = new Date().toISOString();
+                log.description = error || "Failed to save to local database.";
+                await createSystemLog(log);
+                return;
+            }
         } else {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
@@ -134,6 +143,9 @@ export const service = async (reportTypeID: string, reportID: string) => {
             return true;
         }
     } catch (error: any) {
-        console.log(error.message);
+        log.status = "Failed";
+        log.finishedAt = new Date().toISOString();
+        log.description = error.message || "Unknown error.";
+        await createSystemLog(log);
     }
 };

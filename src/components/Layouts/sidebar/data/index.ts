@@ -33,6 +33,12 @@ export const NAV_DATA = [
                 url: "/profile",
                 icon: Icons.User,
                 items: []
+            },
+            {
+                title: "Service Log",
+                url: "/logs",
+                icon: Icons.User,
+                items: []
             }
         ]
     }
@@ -63,6 +69,12 @@ export const NAV_DATA_CHECKER = [
             {
                 title: "Profile",
                 url: "/profile",
+                icon: Icons.User,
+                items: []
+            },
+            {
+                title: "Service Log",
+                url: "/logs",
                 icon: Icons.User,
                 items: []
             }
@@ -101,6 +113,12 @@ export const NAV_DATA_ADMIN = [
             {
                 title: "Profile",
                 url: "/profile",
+                icon: Icons.User,
+                items: []
+            },
+            {
+                title: "Service Log",
+                url: "/logs",
                 icon: Icons.User,
                 items: []
             }

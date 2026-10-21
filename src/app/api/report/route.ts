@@ -202,11 +202,14 @@ export async function POST(request: NextRequest) {
             );
         } catch (procError: any) {
             try {
-                if (fs.existsSync(uploadFilePath)) fs.unlinkSync(uploadFilePath);
+                if (fs.existsSync(uploadFilePath))
+                    fs.unlinkSync(uploadFilePath);
             } catch (_) {}
             return new Response(
                 JSON.stringify({
-                    error: procError.message || "Failed to process template format."
+                    error:
+                        procError.message ||
+                        "Failed to process template format."
                 }),
                 {
                     status: 400,
@@ -262,10 +265,13 @@ export async function POST(request: NextRequest) {
             );
         }
         console.log(error.message);
-        return new Response(JSON.stringify({ error: error.message || "Server error." }), {
-            status: 400,
-            headers: { "Content-Type": "application/json" }
-        });
+        return new Response(
+            JSON.stringify({ error: error.message || "Server error." }),
+            {
+                status: 400,
+                headers: { "Content-Type": "application/json" }
+            }
+        );
     }
 }
 
@@ -365,7 +371,7 @@ export async function PUT(request: NextRequest) {
             }
             return new Response(
                 JSON.stringify({
-                    error: "Report updated."
+                    message: "Report updated."
                 }),
                 {
                     status: 200,

@@ -10,9 +10,10 @@ import {
 } from "@/components/ui/table";
 import useApiFetch from "@/hooks/useAPIFetch";
 import DatePickerOne from "../FormElements/DatePicker/DatePickerOne";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RefreshIcon, SearchIcon } from "@/assets/icons";
 import { ServiceTypes } from "@/types/types";
+import { toast } from "sonner";
 
 export function ReportTypeServiceTable() {
     const [reportingDate, setReportingDate] = useState(new Date());
@@ -21,15 +22,48 @@ export function ReportTypeServiceTable() {
         method: "GET"
     });
 
+    const {
+        data: dataRerun,
+        fetchData: fetchDataRerun,
+        isLoading: isLoadingRerun,
+        errors: errorRerun
+    } = useApiFetch(
+        {
+            url: "/api/reporttype/rerun",
+            method: "POST"
+        },
+        false
+    );
+
     const reportTypesList: any[] = Array.isArray(data?.reportTypes)
         ? data.reportTypes
         : Array.isArray(data)
-        ? data
-        : [];
+          ? data
+          : [];
+
+    useEffect(() => {
+        if (!isLoadingRerun && dataRerun) {
+            toast.success("Service restarted.");
+            fetchData({
+                params: { reportingDate: reportingDate?.toISOString() || "" }
+            });
+        } else if (!isLoadingRerun && errorRerun?.details) {
+            toast.error(errorRerun.details?.response?.data?.error);
+        }
+    }, [dataRerun, isLoadingRerun, errorRerun]);
 
     const handleSearch = () => {
         fetchData({
             params: { reportingDate: reportingDate.toISOString() }
+        });
+    };
+
+    const handleRerun = (reportTypeID: string) => {
+        fetchDataRerun({
+            params: {
+                reportingDate: reportingDate.toISOString(),
+                reportID: reportTypeID
+            }
         });
     };
 
@@ -112,7 +146,13 @@ export function ReportTypeServiceTable() {
                                             "Approved",
                                             "Pending"
                                         ].includes(item?.report?.status) && (
-                                            <button className="hover:text-primary">
+                                            <button
+                                                className="hover:text-primary"
+                                                onClick={() =>
+                                                    handleRerun(item?._id)
+                                                }
+                                                disabled={isLoadingRerun}
+                                            >
                                                 <span className="sr-only">
                                                     Run Service
                                                 </span>

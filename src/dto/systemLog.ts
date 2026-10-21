@@ -5,4 +5,5 @@ export interface SystemLogDto {
     finishedAt?: string;
     status?: string;
     description?: string;
+    createdAt?: any;
 }

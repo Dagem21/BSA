@@ -1,30 +1,30 @@
-// import { findOpenPositions } from "@/dal/other/fcyOpenPositions";
-
 import { createReport, findReports } from "@/dal/mongo/reportdal";
 import { findOpenPositions as findOpenPositionsDW } from "@/dal/warehouse/fcyOpenPositions";
 import {
     createOpenPositions,
+    deleteOpenPositions,
     findOpenPositions
 } from "@/dal/sql/fcyOpenPositions";
 import { ReportDto } from "@/dto/report";
 import { OpenPosition } from "@/generated/prisma";
-import { populateOpenPositionReport } from "@/utils/services/OP001/OP001";
+import { populateOpenPositionReport } from "@/utils/services/Auto/OP001/OP001";
 import { SystemLogDto } from "@/dto/systemLog";
 import { createSystemLog } from "@/dal/mongo/systemLogsdal";
 
-export const service = async (reportTypeID: string, reportID: string) => {
+export const service = async (
+    reportTypeID: string,
+    reportID: string,
+    reportDate?: Date
+) => {
+    const log: SystemLogDto = {
+        reportID: reportTypeID,
+        startedAt: new Date().toISOString(),
+        status: "Running"
+    };
     try {
-        const log: SystemLogDto = {
-            reportID: reportTypeID,
-            startedAt: new Date().toISOString(),
-            status: "Running"
-        };
-
-        const yesterday = new Date();
+        const yesterday = reportDate || new Date();
         yesterday.setUTCDate(yesterday.getUTCDate() - 1);
         yesterday.setUTCHours(0, 0, 0, 0);
-
-        console.log(yesterday);
 
         const filter: any = { BUSINESS_DATE: yesterday.toISOString() };
 
@@ -50,7 +50,8 @@ export const service = async (reportTypeID: string, reportID: string) => {
         if (!resultSet) {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
-            log.description = "Data fetch failed form data warehouse.";
+            log.description =
+                "Data fetch failed form data warehouse. No rows returned.";
             await createSystemLog(log);
             return;
         }
@@ -66,11 +67,20 @@ export const service = async (reportTypeID: string, reportID: string) => {
         });
 
         if (batch.length > 0) {
-            await createOpenPositions(batch);
+            await deleteOpenPositions(filter);
+            const { error } = await createOpenPositions(batch);
+            if (error) {
+                log.status = "Failed";
+                log.finishedAt = new Date().toISOString();
+                log.description = error || "Failed to save to local database.";
+                await createSystemLog(log);
+                return;
+            }
         } else {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
-            log.description = "Data fetch failed form data warehouse.";
+            log.description =
+                "Data fetch failed form data warehouse. Result set empty.";
             await createSystemLog(log);
             return;
         }
@@ -81,7 +91,7 @@ export const service = async (reportTypeID: string, reportID: string) => {
         if (openPositions?.length === 0) {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
-            log.description = "Data fetch failed form database.";
+            log.description = "Data fetch failed form local database.";
             await createSystemLog(log);
             return;
         }
@@ -126,6 +136,9 @@ export const service = async (reportTypeID: string, reportID: string) => {
             return true;
         }
     } catch (error: any) {
-        console.log(error.message);
+        log.status = "Failed";
+        log.finishedAt = new Date().toISOString();
+        log.description = error.message || "Unknown error.";
+        await createSystemLog(log);
     }
 };

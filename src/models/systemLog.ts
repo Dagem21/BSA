@@ -4,7 +4,7 @@ const systemLogSchema = new mongoose.Schema(
     {
         reportID: {
             type: String,
-            ref: "reports"
+            ref: "reporttypes"
         },
         startedAt: {
             type: Date,

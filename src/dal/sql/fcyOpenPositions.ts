@@ -19,9 +19,20 @@ export const createOpenPositions = async (openPositions: any) => {
                 skipDuplicates: true
             });
         });
+        console.log(result);
         return { created: result };
     } catch (e: any) {
-        console.log(e.message);
-        return { created: false };
+        return { created: false, error: e.message };
+    }
+};
+
+export const deleteOpenPositions = async (query?: Object) => {
+    try {
+        const result = await prisma.openPosition.deleteMany({
+            where: query
+        });
+        return result;
+    } catch (e) {
+        return null;
     }
 };

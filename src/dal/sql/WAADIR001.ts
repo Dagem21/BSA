@@ -21,8 +21,7 @@ export const createWAADIR001s = async (depositRates: any) => {
         });
         return { created: result };
     } catch (e: any) {
-        console.log(e.message);
-        return { created: false };
+        return { created: false, error: e.message };
     }
 };
 

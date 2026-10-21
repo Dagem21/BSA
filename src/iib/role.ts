@@ -8,5 +8,6 @@ export const ROLE_ROUTES: Record<string, RoleTypes[]> = {
     "/history": [RoleTypes.Admin, RoleTypes.Checker, RoleTypes.Maker],
     "/report-types": [RoleTypes.Admin],
     "/report": [RoleTypes.Maker],
-    "/user": [RoleTypes.Admin]
+    "/user": [RoleTypes.Admin],
+    "/logs": [RoleTypes.Admin, RoleTypes.Checker, RoleTypes.Maker]
 };

@@ -1,15 +1,88 @@
 // @ts-nocheck
 
+import ExcelJS from "exceljs";
+import * as path from "path";
+import * as fs from "fs";
+
+const STANDARD_ROWS = [
+    { depType: "Saving Deposit ", depCat: "1.1 Government" },
+    { depType: "Saving Deposit ", depCat: "1.2 Public Agencies & Enterprises" },
+    { depType: "Saving Deposit ", depCat: "1.3 Private Sector" },
+    { depType: "Saving Deposit ", depCat: "1.3.1 o/w Households" },
+    {
+        depType: "Saving Deposit ",
+        depCat: "1.4 FCY Linked Deposit (can be withdrawn in FCY)"
+    },
+    {
+        depType: "Saving Deposit ",
+        depCat: "1.5 FCY Linked Deposit (can be withdrawn in LCY)"
+    },
+    {
+        depType: "Saving Deposit ",
+        depCat: "1.6 Others (not included elsewhere)"
+    },
+    { depType: "Demand Deposit ", depCat: "1.1 Government" },
+    { depType: "Demand Deposit ", depCat: "1.2 Public Agencies & Enterprises" },
+    { depType: "Demand Deposit ", depCat: "1.3 Private Sector" },
+    { depType: "Demand Deposit ", depCat: "1.3.1 o/w Households" },
+    {
+        depType: "Demand Deposit ",
+        depCat: "1.4 FCY Linked Deposit (can be withdrawn in FCY)"
+    },
+    {
+        depType: "Demand Deposit ",
+        depCat: "1.5 FCY Linked Deposit (can be withdrawn in LCY)"
+    },
+    {
+        depType: "Demand Deposit ",
+        depCat: "1.6 Others (not included elsewhere)"
+    },
+    { depType: "Time Deposit ", depCat: "3.1 Government" },
+    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
+    { depType: "Time Deposit ", depCat: "1-2 Years" },
+    { depType: "Time Deposit ", depCat: "Above 2 Years" },
+    { depType: "Time Deposit ", depCat: "3.3.1 o/w Households" },
+    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
+    { depType: "Time Deposit ", depCat: "1-2 Years" },
+    { depType: "Time Deposit ", depCat: "Above 2 Years" },
+    {
+        depType: "Time Deposit ",
+        depCat: "3.4 FCY Linked Deposit (can be withdrawn in FCY)"
+    },
+    {
+        depType: "Time Deposit ",
+        depCat: "3.5 FCY Linked Deposit (can be withdrawn in LCY)"
+    },
+    { depType: "Time Deposit ", depCat: "3.6 Others (not included elsewhere)" },
+    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
+    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
+    { depType: "Time Deposit ", depCat: "1-2 Years" },
+    { depType: "Time Deposit ", depCat: "Above 2 Years" },
+    { depType: "Time Deposit ", depCat: "1-2 Years" },
+    { depType: "Time Deposit ", depCat: "Above 2 Years" },
+    { depType: "Time Deposit ", depCat: "3.2 Public Agencies & Enterprises" },
+    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
+    { depType: "Time Deposit ", depCat: "1-2 Years" },
+    { depType: "Time Deposit ", depCat: "Above 2 Years" },
+    { depType: "Time Deposit ", depCat: "3.3 Private Sector" }
+];
+
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
     let val = cell;
-    if (cell && typeof cell === "object" && "value" in cell && ("type" in cell || "address" in cell || "worksheet" in cell)) {
+    if (
+        cell &&
+        typeof cell === "object" &&
+        "value" in cell &&
+        ("type" in cell || "address" in cell || "worksheet" in cell)
+    ) {
         val = cell.value;
     }
     if (val === null || val === undefined) {
         if (cell && typeof cell === "object") {
             if (cell.result !== undefined && cell.result !== null) {
-                if (typeof cell.result === "object" && "error" in cell.result) return "";
+                if (typeof cell.result === "object" && "error" in cell.result)
+                    return "";
                 return String(cell.result).trim();
             }
             if (cell.text !== undefined && cell.text !== null) {
@@ -25,15 +98,23 @@ function getDirectCellValue(cell: any): string {
         return trimmed;
     }
     if (Array.isArray(val)) {
-        return val.map((item: any) => {
-            if (!item) return "";
-            if (typeof item === "string") return item;
-            if (typeof item === "object") {
-                if ("text" in item && item.text) return item.text;
-                if ("result" in item && item.result !== undefined && item.result !== null) return String(item.result);
-            }
-            return "";
-        }).join("").trim();
+        return val
+            .map((item: any) => {
+                if (!item) return "";
+                if (typeof item === "string") return item;
+                if (typeof item === "object") {
+                    if ("text" in item && item.text) return item.text;
+                    if (
+                        "result" in item &&
+                        item.result !== undefined &&
+                        item.result !== null
+                    )
+                        return String(item.result);
+                }
+                return "";
+            })
+            .join("")
+            .trim();
     }
     if (val instanceof Date) {
         if (isNaN(val.getTime())) return "";
@@ -41,15 +122,31 @@ function getDirectCellValue(cell: any): string {
         return `${val.getFullYear()}-${pad(val.getMonth() + 1)}-${pad(val.getDate())}`;
     }
     if (typeof val === "object") {
-        if ("result" in val && val.result !== undefined && val.result !== null) {
-            if (typeof val.result === "object" && val.result !== null && "error" in val.result) return "";
+        if (
+            "result" in val &&
+            val.result !== undefined &&
+            val.result !== null
+        ) {
+            if (
+                typeof val.result === "object" &&
+                val.result !== null &&
+                "error" in val.result
+            )
+                return "";
             if (typeof val.result === "number") return String(val.result);
             if (typeof val.result === "string") {
                 const s = val.result.trim();
                 return s === "[object Object]" ? "" : s;
             }
             if (Array.isArray(val.result)) {
-                return val.result.map((item: any) => (item && typeof item === "object" && "text" in item ? item.text : String(item))).join("").trim();
+                return val.result
+                    .map((item: any) =>
+                        item && typeof item === "object" && "text" in item
+                            ? item.text
+                            : String(item)
+                    )
+                    .join("")
+                    .trim();
             }
             if (val.result instanceof Date) {
                 if (isNaN(val.result.getTime())) return "";
@@ -59,61 +156,23 @@ function getDirectCellValue(cell: any): string {
             return String(val.result).trim();
         }
         if ("richText" in val && Array.isArray(val.richText)) {
-            return val.richText.map((t: any) => (t && t.text ? t.text : "")).join("").trim();
+            return val.richText
+                .map((t: any) => (t && t.text ? t.text : ""))
+                .join("")
+                .trim();
         }
         if ("text" in val && val.text) return String(val.text).trim();
         if (cell && cell.result !== undefined && cell.result !== null) {
-            if (typeof cell.result === "object" && "error" in cell.result) return "";
+            if (typeof cell.result === "object" && "error" in cell.result)
+                return "";
             return String(cell.result).trim();
         }
-        if (cell && cell.text !== undefined && cell.text !== null) return String(cell.text).trim();
+        if (cell && cell.text !== undefined && cell.text !== null)
+            return String(cell.text).trim();
         return "";
     }
     return "";
 }
-
-import ExcelJS from "exceljs";
-import * as path from "path";
-import * as fs from "fs";
-
-const STANDARD_ROWS = [
-    { depType: "Saving Deposit ", depCat: "1.1 Government" },
-    { depType: "Saving Deposit ", depCat: "1.2 Public Agencies & Enterprises" },
-    { depType: "Saving Deposit ", depCat: "1.3 Private Sector" },
-    { depType: "Saving Deposit ", depCat: "1.3.1 o/w Households" },
-    { depType: "Saving Deposit ", depCat: "1.4 FCY Linked Deposit (can be withdrawn in FCY)" },
-    { depType: "Saving Deposit ", depCat: "1.5 FCY Linked Deposit (can be withdrawn in LCY)" },
-    { depType: "Saving Deposit ", depCat: "1.6 Others (not included elsewhere)" },
-    { depType: "Demand Deposit ", depCat: "1.1 Government" },
-    { depType: "Demand Deposit ", depCat: "1.2 Public Agencies & Enterprises" },
-    { depType: "Demand Deposit ", depCat: "1.3 Private Sector" },
-    { depType: "Demand Deposit ", depCat: "1.3.1 o/w Households" },
-    { depType: "Demand Deposit ", depCat: "1.4 FCY Linked Deposit (can be withdrawn in FCY)" },
-    { depType: "Demand Deposit ", depCat: "1.5 FCY Linked Deposit (can be withdrawn in LCY)" },
-    { depType: "Demand Deposit ", depCat: "1.6 Others (not included elsewhere)" },
-    { depType: "Time Deposit ", depCat: "3.1 Government" },
-    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
-    { depType: "Time Deposit ", depCat: "1-2 Years" },
-    { depType: "Time Deposit ", depCat: "Above 2 Years" },
-    { depType: "Time Deposit ", depCat: "3.3.1 o/w Households" },
-    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
-    { depType: "Time Deposit ", depCat: "1-2 Years" },
-    { depType: "Time Deposit ", depCat: "Above 2 Years" },
-    { depType: "Time Deposit ", depCat: "3.4 FCY Linked Deposit (can be withdrawn in FCY)" },
-    { depType: "Time Deposit ", depCat: "3.5 FCY Linked Deposit (can be withdrawn in LCY)" },
-    { depType: "Time Deposit ", depCat: "3.6 Others (not included elsewhere)" },
-    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
-    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
-    { depType: "Time Deposit ", depCat: "1-2 Years" },
-    { depType: "Time Deposit ", depCat: "Above 2 Years" },
-    { depType: "Time Deposit ", depCat: "1-2 Years" },
-    { depType: "Time Deposit ", depCat: "Above 2 Years" },
-    { depType: "Time Deposit ", depCat: "3.2 Public Agencies & Enterprises" },
-    { depType: "Time Deposit ", depCat: "Up to 1 Year" },
-    { depType: "Time Deposit ", depCat: "1-2 Years" },
-    { depType: "Time Deposit ", depCat: "Above 2 Years" },
-    { depType: "Time Deposit ", depCat: "3.3 Private Sector" }
-];
 
 function isDateLike(val) {
     if (!val) return false;
@@ -160,9 +219,12 @@ export function processWAADIR001(worksheet, instCode, startDate, endDate) {
         const label = formatCellVal(row.getCell(1).value).toLowerCase();
         const c2 = row.getCell(2).value;
         const c3 = row.getCell(3).value;
-        const rawVal = (c2 !== null && c2 !== undefined && c2 !== "") ? c2 : c3;
+        const rawVal = c2 !== null && c2 !== undefined && c2 !== "" ? c2 : c3;
 
-        if (label.includes("inst") && (label.includes("code") || label.includes("tion"))) {
+        if (
+            label.includes("inst") &&
+            (label.includes("code") || label.includes("tion"))
+        ) {
             const sVal = formatCellVal(rawVal);
             if (!isDateLike(rawVal) && sVal) parsedInst = sVal;
         } else if (label.includes("year") || label.includes("financial")) {
@@ -177,14 +239,20 @@ export function processWAADIR001(worksheet, instCode, startDate, endDate) {
 
     const finalInstCode = parsedInst || instCode || "0000001";
     const finalFinYear = parsedYear ? parseInt(parsedYear, 10) : 2026;
-    const finalStartDate = cleanDateStr(parsedStart || startDate, "2026-08-01") + "T00:00:00";
-    const finalEndDate = cleanDateStr(parsedEnd || endDate, "2026-08-31") + "T00:00:00";
+    const finalStartDate =
+        cleanDateStr(parsedStart || startDate, "2026-08-01") + "T00:00:00";
+    const finalEndDate =
+        cleanDateStr(parsedEnd || endDate, "2026-08-31") + "T00:00:00";
 
     // Detect starting row for data (default 11)
     let startRow = 11;
     for (let r = 1; r <= 15; r++) {
-        const c1 = formatCellVal(worksheet.getRow(r).getCell(1).value).toLowerCase();
-        const c2 = formatCellVal(worksheet.getRow(r).getCell(2).value).toLowerCase();
+        const c1 = formatCellVal(
+            worksheet.getRow(r).getCell(1).value
+        ).toLowerCase();
+        const c2 = formatCellVal(
+            worksheet.getRow(r).getCell(2).value
+        ).toLowerCase();
         if (c1.includes("saving") || c2.includes("1.1")) {
             startRow = r;
             break;
@@ -196,7 +264,7 @@ export function processWAADIR001(worksheet, instCode, startDate, endDate) {
     // Fields without values are filled with "0" as explicitly requested
     const toZeroOrVal = (cellVal) => {
         const v = formatCellVal(cellVal);
-        return (v === "" || v === null || v === undefined) ? "0" : v;
+        return v === "" || v === null || v === undefined ? "0" : v;
     };
 
     for (let r = startRow; r <= startRow + 35; r++) {
@@ -205,7 +273,11 @@ export function processWAADIR001(worksheet, instCode, startDate, endDate) {
         const depCat = formatCellVal(row.getCell(2).value);
 
         if (!depType && !depCat) continue;
-        if (depType.toLowerCase() === "total" || depCat.toLowerCase() === "total") break;
+        if (
+            depType.toLowerCase() === "total" ||
+            depCat.toLowerCase() === "total"
+        )
+            break;
 
         const colC = toZeroOrVal(row.getCell(3).value);
         const colD = toZeroOrVal(row.getCell(4).value);
@@ -216,16 +288,69 @@ export function processWAADIR001(worksheet, instCode, startDate, endDate) {
 
         dynamicItemsList.push({
             Area: 215,
-            _areaName: "Monthly Weighted Average Deposit Interest Rates (Conventional Banks)",
+            _areaName:
+                "Monthly Weighted Average Deposit Interest Rates (Conventional Banks)",
             DynamicItems: [
-                { Code: "1.1", Value: depType, _description: "Deposit Type ", _dataType: "TEXT", _required: true },
-                { Code: "1.2", Value: depCat, _description: "Deposit Category ", _dataType: "TEXT", _required: true },
-                { Code: "1.3", Value: colC, _description: "Total Deposit Amount  ( in\nMn Birr)", _dataType: "NUMERIC", _required: true },
-                { Code: "1.4", Value: colD, _description: "No. of Deposit \nAccounts by \nCategory ", _dataType: "NUMERIC", _required: true },
-                { Code: "1.5", Value: colE, _description: "Lending Interest Rates (% per annum)_ Minimum Rate \nby Deposit \ncategory", _dataType: "NUMERIC", _required: true },
-                { Code: "1.6", Value: colF, _description: "Lending Interest Rates (% per annum)_ Maximum Rate \nby Deposit \ncategory", _dataType: "NUMERIC", _required: true },
-                { Code: "1.7", Value: colG, _description: "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby Deposit \ncategory ", _dataType: "NUMERIC", _required: true },
-                { Code: "1.8", Value: colH, _description: "Lending Interest Rates (% per annum) _Weighted Average Rate \nby Deposit Type", _dataType: "NUMERIC", _required: true }
+                {
+                    Code: "1.1",
+                    Value: depType,
+                    _description: "Deposit Type ",
+                    _dataType: "TEXT",
+                    _required: true
+                },
+                {
+                    Code: "1.2",
+                    Value: depCat,
+                    _description: "Deposit Category ",
+                    _dataType: "TEXT",
+                    _required: true
+                },
+                {
+                    Code: "1.3",
+                    Value: colC,
+                    _description: "Total Deposit Amount  ( in\nMn Birr)",
+                    _dataType: "NUMERIC",
+                    _required: true
+                },
+                {
+                    Code: "1.4",
+                    Value: colD,
+                    _description: "No. of Deposit \nAccounts by \nCategory ",
+                    _dataType: "NUMERIC",
+                    _required: true
+                },
+                {
+                    Code: "1.5",
+                    Value: colE,
+                    _description:
+                        "Lending Interest Rates (% per annum)_ Minimum Rate \nby Deposit \ncategory",
+                    _dataType: "NUMERIC",
+                    _required: true
+                },
+                {
+                    Code: "1.6",
+                    Value: colF,
+                    _description:
+                        "Lending Interest Rates (% per annum)_ Maximum Rate \nby Deposit \ncategory",
+                    _dataType: "NUMERIC",
+                    _required: true
+                },
+                {
+                    Code: "1.7",
+                    Value: colG,
+                    _description:
+                        "Lending Interest Rates (% per annum)_ Weighted \nAverage Rate \nby Deposit \ncategory ",
+                    _dataType: "NUMERIC",
+                    _required: true
+                },
+                {
+                    Code: "1.8",
+                    Value: colH,
+                    _description:
+                        "Lending Interest Rates (% per annum) _Weighted Average Rate \nby Deposit Type",
+                    _dataType: "NUMERIC",
+                    _required: true
+                }
             ]
         });
     }
@@ -253,7 +378,7 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
         { key: "colC", width: 18.86 },
         { key: "colD", width: 12.57 },
         { key: "colE", width: 15.57 },
-        { key: "colF", width: 16.00 },
+        { key: "colF", width: 16.0 },
         { key: "colG", width: 14.71 },
         { key: "colH", width: 13.29 }
     ];
@@ -266,10 +391,22 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
     sheet.getCell("A1").font = { name: "Calibri", size: 11 };
 
     const redColor = { argb: "FFFF0000" };
-    const pinkFill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFF2DCDB" } };
-    const lavenderFill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFD9D2E9" } };
-    const peachFill = { type: "pattern", pattern: "solid", fgColor: { argb: "FFFDE9D9" } };
-    
+    const pinkFill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFF2DCDB" }
+    };
+    const lavenderFill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFD9D2E9" }
+    };
+    const peachFill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFFDE9D9" }
+    };
+
     const thinBlack = { style: "thin", color: { argb: "FF000000" } };
     const mediumBlack = { style: "medium", color: { argb: "FF000000" } };
     const thickRed = { style: "thick", color: redColor };
@@ -278,7 +415,8 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
     // Row 4: Title Banner
     sheet.mergeCells("A4:H4");
     const titleCell = sheet.getCell("A4");
-    titleCell.value = " Monthly Weighted Average Deposit Interest Rates (Conventional Banks)";
+    titleCell.value =
+        " Monthly Weighted Average Deposit Interest Rates (Conventional Banks)";
     titleCell.font = { name: "Calibri", size: 18, bold: true, color: redColor };
     titleCell.alignment = { vertical: "middle", horizontal: "center" };
     titleCell.fill = pinkFill;
@@ -298,8 +436,16 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
     const eDate = cleanDateStr(jsonPayload.EndDate, "2026-08-31");
 
     const metaEntries = [
-        { label: "Instiution Code ", val: jsonPayload.InstCode || "0000001", numFmt: undefined },
-        { label: "Financial Year", val: jsonPayload.FinYear || 2026, numFmt: undefined },
+        {
+            label: "Instiution Code ",
+            val: jsonPayload.InstCode || "0000001",
+            numFmt: undefined
+        },
+        {
+            label: "Financial Year",
+            val: jsonPayload.FinYear || 2026,
+            numFmt: undefined
+        },
         { label: "Start Date", val: sDate, numFmt: "yyyy-mm-dd" },
         { label: "End Date", val: eDate, numFmt: "yyyy-mm-dd" }
     ];
@@ -314,7 +460,12 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
         cellA.font = { name: "Calibri", size: 11 };
         cellA.alignment = { vertical: "middle", horizontal: "left" };
         cellA.fill = lavenderFill;
-        cellA.border = { top: thinBlack, bottom: thinBlack, left: thinBlack, right: thinBlack };
+        cellA.border = {
+            top: thinBlack,
+            bottom: thinBlack,
+            left: thinBlack,
+            right: thinBlack
+        };
 
         const cellB = sheet.getCell(r, 2);
         cellB.value = entry.val;
@@ -322,7 +473,12 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
         cellB.alignment = { vertical: "middle", horizontal: "left" };
         cellB.fill = peachFill;
         if (entry.numFmt) cellB.numFmt = entry.numFmt;
-        cellB.border = { top: thinBlack, bottom: thinBlack, left: thinBlack, right: thinBlack };
+        cellB.border = {
+            top: thinBlack,
+            bottom: thinBlack,
+            left: thinBlack,
+            right: thinBlack
+        };
     });
 
     // Rows 9 & 10: Table Headers
@@ -333,25 +489,41 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
     const cellType = sheet.getCell("A9");
     cellType.value = "Deposit Type ";
     cellType.font = { name: "Calibri", size: 11, bold: true };
-    cellType.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+    cellType.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+        wrapText: true
+    };
 
     sheet.mergeCells("B9:B10");
     const cellCat = sheet.getCell("B9");
     cellCat.value = "Deposit Category ";
     cellCat.font = { name: "Calibri", size: 11, bold: true };
-    cellCat.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+    cellCat.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+        wrapText: true
+    };
 
     sheet.mergeCells("C9:C10");
     const cellAmt = sheet.getCell("C9");
     cellAmt.value = "Total Deposit Amount  ( in\nMn Birr)";
     cellAmt.font = { name: "Calibri", size: 11, bold: true };
-    cellAmt.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+    cellAmt.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+        wrapText: true
+    };
 
     sheet.mergeCells("D9:D10");
     const cellAcc = sheet.getCell("D9");
     cellAcc.value = "No. of Deposit \nAccounts by \nCategory ";
     cellAcc.font = { name: "Calibri", size: 11, bold: true };
-    cellAcc.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+    cellAcc.alignment = {
+        vertical: "middle",
+        horizontal: "center",
+        wrapText: true
+    };
 
     sheet.mergeCells("E9:H9");
     const cellRateBanner = sheet.getCell("E9");
@@ -366,11 +538,15 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
         { col: 8, label: "Weighted Average Rate \nby Deposit Type" }
     ];
 
-    subHeaders.forEach(sub => {
+    subHeaders.forEach((sub) => {
         const c = sheet.getCell(10, sub.col);
         c.value = sub.label;
         c.font = { name: "Calibri", size: 11, bold: true };
-        c.alignment = { vertical: "middle", horizontal: "center", wrapText: true };
+        c.alignment = {
+            vertical: "middle",
+            horizontal: "center",
+            wrapText: true
+        };
     });
 
     for (let c = 1; c <= 8; c++) {
@@ -378,13 +554,13 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
             top: thickRed,
             left: c === 1 ? thickRed : thinBlack,
             right: c === 8 ? thickRed : thinBlack,
-            bottom: (c >= 5 && c <= 8) ? mediumBlack : undefined
+            bottom: c >= 5 && c <= 8 ? mediumBlack : undefined
         };
         sheet.getCell(10, c).border = {
             bottom: undefined,
             left: c === 1 ? thickRed : thinBlack,
             right: c === 8 ? thickRed : thinBlack,
-            top: (c >= 5 && c <= 8) ? mediumBlack : undefined
+            top: c >= 5 && c <= 8 ? mediumBlack : undefined
         };
     }
 
@@ -396,11 +572,14 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
 
     // Prepare data list from DynamicItemsList
     const dataList = [];
-    if (jsonPayload.DynamicItemsList && Array.isArray(jsonPayload.DynamicItemsList)) {
+    if (
+        jsonPayload.DynamicItemsList &&
+        Array.isArray(jsonPayload.DynamicItemsList)
+    ) {
         jsonPayload.DynamicItemsList.forEach((group) => {
             const itemObj = {};
             if (group.DynamicItems && Array.isArray(group.DynamicItems)) {
-                group.DynamicItems.forEach(item => {
+                group.DynamicItems.forEach((item) => {
                     itemObj[item.Code] = item.Value;
                 });
             }
@@ -443,12 +622,13 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
         // Determine if row has active data (deposit amount or accounts > 0)
         const cVal = dataItem.colC;
         const dVal = dataItem.colD;
-        const isActive = (cVal !== null && cVal !== undefined && cVal > 0) ||
-                         (dVal !== null && dVal !== undefined && dVal > 0);
+        const isActive =
+            (cVal !== null && cVal !== undefined && cVal > 0) ||
+            (dVal !== null && dVal !== undefined && dVal > 0);
 
         if (isActive) {
-            row.getCell(3).value = (cVal !== null && cVal > 0) ? cVal : null;
-            row.getCell(4).value = (dVal !== null && dVal > 0) ? dVal : null;
+            row.getCell(3).value = cVal !== null && cVal > 0 ? cVal : null;
+            row.getCell(4).value = dVal !== null && dVal > 0 ? dVal : null;
             row.getCell(5).value = dataItem.colE !== null ? dataItem.colE : 0;
             row.getCell(6).value = dataItem.colF !== null ? dataItem.colF : 0;
             row.getCell(7).value = dataItem.colG !== null ? dataItem.colG : 0;
@@ -467,12 +647,15 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
 
         for (let c = 4; c <= 8; c++) {
             row.getCell(c).font = { name: "Calibri", size: 11 };
-            row.getCell(c).alignment = { vertical: "middle", horizontal: "left" };
+            row.getCell(c).alignment = {
+                vertical: "middle",
+                horizontal: "left"
+            };
         }
 
         // Cell borders
-        const isFirstDataRow = (idx === 0);
-        const isLastDataRow = (idx === totalRowsCount - 1);
+        const isFirstDataRow = idx === 0;
+        const isLastDataRow = idx === totalRowsCount - 1;
 
         for (let c = 1; c <= 8; c++) {
             const cell = row.getCell(c);
@@ -488,9 +671,6 @@ export async function jsonToExcelWAADIR001(jsonPayload) {
     return workbook;
 }
 
-
-
-
 function sanitizeJsonPayload(payload: any): any {
     if (!payload) return payload;
     if (Array.isArray(payload.ReturnItemsList)) {
@@ -500,7 +680,8 @@ function sanitizeJsonPayload(payload: any): any {
             if (val && typeof val === "object") {
                 val = getDirectCellValue(val);
             }
-            const strVal = (val === null || val === undefined) ? "" : String(val).trim();
+            const strVal =
+                val === null || val === undefined ? "" : String(val).trim();
             const isZero = strVal === "" || strVal === "[object Object]";
             return {
                 ...item,
@@ -509,46 +690,65 @@ function sanitizeJsonPayload(payload: any): any {
         });
     }
     if (Array.isArray(payload.DynamicItemsList)) {
-        payload.DynamicItemsList = payload.DynamicItemsList.map((entry: any) => {
-            if (!entry) return entry;
-            if (Array.isArray(entry.DynamicItems)) {
-                entry.DynamicItems = entry.DynamicItems.map((subItem: any) => {
-                    if (!subItem) return subItem;
-                    let val = subItem.Value;
-                    if (val && typeof val === "object") {
-                        val = getDirectCellValue(val);
-                    }
-                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
-                    const isNumeric = subItem._dataType === "NUMERIC" ||
-                        (subItem.Code && !["1.1", "1.2", "1.4", "1.6"].includes(subItem.Code) && !subItem.Code.endsWith(".name"));
-                    const isZero = strVal === "" || strVal === "[object Object]";
-                    return {
-                        ...subItem,
-                        Value: (isNumeric && isZero) ? "0" : (isZero && !isNumeric ? "" : strVal)
-                    };
-                });
-            } else if (typeof entry === "object") {
-                Object.keys(entry).forEach((k) => {
-                    if (k.startsWith("_")) return;
-                    let val = entry[k];
-                    if (val && typeof val === "object") {
-                        val = getDirectCellValue(val);
-                    }
-                    const strVal = (val === null || val === undefined) ? "" : String(val).trim();
-                    if (strVal === "" || strVal === "[object Object]") {
-                        entry[k] = "0";
-                    } else {
-                        entry[k] = strVal;
-                    }
-                });
+        payload.DynamicItemsList = payload.DynamicItemsList.map(
+            (entry: any) => {
+                if (!entry) return entry;
+                if (Array.isArray(entry.DynamicItems)) {
+                    entry.DynamicItems = entry.DynamicItems.map(
+                        (subItem: any) => {
+                            if (!subItem) return subItem;
+                            let val = subItem.Value;
+                            if (val && typeof val === "object") {
+                                val = getDirectCellValue(val);
+                            }
+                            const strVal =
+                                val === null || val === undefined
+                                    ? ""
+                                    : String(val).trim();
+                            const isNumeric =
+                                subItem._dataType === "NUMERIC" ||
+                                (subItem.Code &&
+                                    !["1.1", "1.2", "1.4", "1.6"].includes(
+                                        subItem.Code
+                                    ) &&
+                                    !subItem.Code.endsWith(".name"));
+                            const isZero =
+                                strVal === "" || strVal === "[object Object]";
+                            return {
+                                ...subItem,
+                                Value:
+                                    isNumeric && isZero
+                                        ? "0"
+                                        : isZero && !isNumeric
+                                          ? ""
+                                          : strVal
+                            };
+                        }
+                    );
+                } else if (typeof entry === "object") {
+                    Object.keys(entry).forEach((k) => {
+                        if (k.startsWith("_")) return;
+                        let val = entry[k];
+                        if (val && typeof val === "object") {
+                            val = getDirectCellValue(val);
+                        }
+                        const strVal =
+                            val === null || val === undefined
+                                ? ""
+                                : String(val).trim();
+                        if (strVal === "" || strVal === "[object Object]") {
+                            entry[k] = "0";
+                        } else {
+                            entry[k] = strVal;
+                        }
+                    });
+                }
+                return entry;
             }
-            return entry;
-        });
+        );
     }
     return payload;
 }
-
-
 
 export async function processWAADIR001Report(
     instCode: string = "0000001",
@@ -557,7 +757,12 @@ export async function processWAADIR001Report(
     endDateStr: string,
     outputExcelPath: string,
     outputPathJson: string
-): Promise<{ success: boolean; error?: string; jsonPath?: string; excelPath?: string }> {
+): Promise<{
+    success: boolean;
+    error?: string;
+    jsonPath?: string;
+    excelPath?: string;
+}> {
     try {
         if (!inputFilePath || !fs.existsSync(inputFilePath)) {
             return {
@@ -576,14 +781,23 @@ export async function processWAADIR001Report(
             };
         }
 
-        const rawJson = processWAADIR001(worksheet, instCode, startDateStr, endDateStr);
+        const rawJson = processWAADIR001(
+            worksheet,
+            instCode,
+            startDateStr,
+            endDateStr
+        );
         const jsonPayload = sanitizeJsonPayload(rawJson);
 
         const jsonDir = path.dirname(outputPathJson);
         if (!fs.existsSync(jsonDir)) {
             fs.mkdirSync(jsonDir, { recursive: true });
         }
-        fs.writeFileSync(outputPathJson, JSON.stringify(jsonPayload, null, 4), "utf8");
+        fs.writeFileSync(
+            outputPathJson,
+            JSON.stringify(jsonPayload, null, 4),
+            "utf8"
+        );
 
         if (outputExcelPath) {
             const excelDir = path.dirname(outputExcelPath);
@@ -608,11 +822,6 @@ export async function processWAADIR001Report(
     }
 }
 
-export const processADIR001Report = processWAADIR001Report;
-export const processADIR001 = processWAADIR001;
-export const jsonToExcelADIR001 = jsonToExcelWAADIR001;
-
-
 export async function populateWAADIR001Report(
     intCode: string,
     rowsData: any[],
@@ -626,8 +835,9 @@ export async function populateWAADIR001Report(
         const fileNameJson = `${fileName}.json`;
         const outputDirJson = path.join(rootDir, "reports", "json");
         const outputPathJson = path.join(outputDirJson, fileNameJson);
-        if (!fs.existsSync(outputDirJson)) fs.mkdirSync(outputDirJson, { recursive: true });
-        
+        if (!fs.existsSync(outputDirJson))
+            fs.mkdirSync(outputDirJson, { recursive: true });
+
         const payload = {
             ReturnKey: "WAADIR001",
             InstCode: intCode,
@@ -637,11 +847,14 @@ export async function populateWAADIR001Report(
             ReturnItemsList: [],
             DynamicItemsList: rowsData || []
         };
-        fs.writeFileSync(outputPathJson, JSON.stringify(sanitizeJsonPayload(payload), null, 4), "utf8");
+        fs.writeFileSync(
+            outputPathJson,
+            JSON.stringify(sanitizeJsonPayload(payload), null, 4),
+            "utf8"
+        );
         return { created: true, fileNameJson };
     } catch (e) {
         console.error("populateWAADIR001Report error:", e);
         return { created: false };
     }
 }
-
