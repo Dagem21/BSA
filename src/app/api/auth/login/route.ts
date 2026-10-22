@@ -7,7 +7,7 @@ import { findUser } from "@/lib/activeDir";
 import { createToken } from "@/utils/token";
 import { writeToLog } from "@/utils/log";
 import { NextRequest } from "next/server";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 const ActiveDirectory = require("activedirectory2");
 
@@ -23,6 +23,8 @@ const ad = new ActiveDirectory(adConfig);
 
 export async function POST(request: NextRequest) {
     try {
+        const headersList = await headers();
+        const clientIP = headersList.get("x-forwarded-for");
         const body = await request.json();
         if (!body) {
             return new Response(
@@ -71,7 +73,8 @@ export async function POST(request: NextRequest) {
                         id: userDB?.id,
                         email: userPrincipalName,
                         role: userDB?.role,
-                        allowedReports: userDB?.allowedReports
+                        allowedReports: userDB?.allowedReports,
+                        clientIP
                     };
                     const token = createToken(key);
 

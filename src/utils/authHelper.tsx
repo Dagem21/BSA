@@ -1,9 +1,12 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { createToken, decryptToken } from "./token";
 
 export async function verifyUserAuth() {
     const cookieStore = await cookies();
     const sessionToken = cookieStore.get("session_token");
+
+    const headersList = await headers();
+    const clientIP = headersList.get("x-forwarded-for");
 
     if (!sessionToken || !sessionToken.value) {
         throw new Error("Unauthorized");
@@ -11,6 +14,11 @@ export async function verifyUserAuth() {
 
     try {
         const decoded = decryptToken(sessionToken.value);
+
+        if (!decoded.clientIP || clientIP !== decoded.clientIP) {
+            throw new Error("Unauthorized");
+        }
+
         delete decoded.exp;
         delete decoded.iat;
 
