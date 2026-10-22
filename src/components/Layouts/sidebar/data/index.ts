@@ -37,7 +37,7 @@ export const NAV_DATA = [
             {
                 title: "Service Log",
                 url: "/logs",
-                icon: Icons.User,
+                icon: Icons.ServiceLogIcon,
                 items: []
             }
         ]
@@ -75,7 +75,7 @@ export const NAV_DATA_CHECKER = [
             {
                 title: "Service Log",
                 url: "/logs",
-                icon: Icons.User,
+                icon: Icons.ServiceLogIcon,
                 items: []
             }
         ]
@@ -119,7 +119,7 @@ export const NAV_DATA_ADMIN = [
             {
                 title: "Service Log",
                 url: "/logs",
-                icon: Icons.User,
+                icon: Icons.ServiceLogIcon,
                 items: []
             }
         ]

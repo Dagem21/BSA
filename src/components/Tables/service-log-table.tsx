@@ -68,16 +68,12 @@ export function ServiceLogTable() {
                 <DatePickerOne
                     label=""
                     placeholder="Log Date"
-                    value={
-                        filter?.createdAt
-                            ? new Date(filter?.createdAt)
-                            : undefined
-                    }
+                    value={filter?.createdAt}
                     onChange={(e) => {
                         const val = e.target.value;
                         setFilter((prev) => ({
                             ...prev,
-                            reportingDate: val || ""
+                            createdAt: val || ""
                         }));
                     }}
                 />

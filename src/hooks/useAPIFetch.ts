@@ -2,6 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import axios from "./axios";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { PUBLIC_PATHS } from "@/proxy";
 
 interface requestConfigParamType {
     url?: string;
@@ -54,6 +55,15 @@ const useApiFetch = (
                     message: "Unauthorized",
                     details: error
                 });
+
+                if (!PUBLIC_PATHS.includes(pathname)) {
+                    const searchString = searchParams.toString();
+                    const callbackUrl = searchString
+                        ? `${pathname}?${searchString}`
+                        : pathname;
+                    const targetUrl = `/auth/sign-in?callbackUrl=${encodeURIComponent(callbackUrl)}`;
+                    router.replace(targetUrl);
+                }
             } else if (error?.response?.status === 404) {
                 setErrors({
                     isError: true,

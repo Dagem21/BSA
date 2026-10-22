@@ -3,7 +3,7 @@ import { ReportTypeDto } from "@/dto/reportType";
 import { verifyUserAuth } from "@/utils/authHelper";
 import { writeToLog } from "@/utils/log";
 import { after, NextRequest, NextResponse } from "next/server";
-import { FrequncyTypes, ServiceTypes } from "@/types/types";
+import { FrequncyTypes, RoleTypes, ServiceTypes } from "@/types/types";
 import { checkFirstDays } from "@/utils/checkDate";
 import { getService } from "@/cron/serviceMap";
 
@@ -36,7 +36,10 @@ export async function POST(request: NextRequest) {
             frequencies.push(FrequncyTypes.Quarterly);
         if (firstDays.isFirstDayOfYear) frequencies.push(FrequncyTypes.Yearly);
 
-        if (!decodedToken?.allowedReports?.includes(reportID)) {
+        if (
+            !decodedToken?.allowedReports?.includes(reportID) &&
+            decodedToken?.role !== RoleTypes.Admin
+        ) {
             return NextResponse.json(
                 { error: "You do not have permission for this report!" },
                 { status: 403 }
