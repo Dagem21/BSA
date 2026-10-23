@@ -59,6 +59,7 @@ import { processMP003Report } from "./services/MP003/MP003";
 import { processAL001Report } from "./services/AL001/AL001";
 import { processPE001Report } from "./services/PE001/PE001";
 import { processSD01001Report } from "./services/SD01001/SD01001";
+import { processOP001Report } from "./services/OP001/OP001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -91,6 +92,9 @@ export const fileProcessor = async (
         let procRes: any = { success: false };
         let processor: Function | null = null;
         switch (reportIdStr) {
+            case "SINGLE CURRENCYOP001":
+                processor = processOP001Report;
+                break;
             case "NACNN001":
                 processor = processNN001Report;
                 break;

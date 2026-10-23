@@ -141,15 +141,12 @@ export function ReportForm() {
                 <div>
                     <Select
                         label="Report Type"
-                        items={data?.reportTypes
-                            ?.filter(
-                                (item: ReportTypeDto) =>
-                                    item.service === ServiceTypes.None
-                            )
-                            ?.map((item: ReportTypeDto) => ({
+                        items={data?.reportTypes?.map(
+                            (item: ReportTypeDto) => ({
                                 label: `${item.reportId} ${item.description} (${item.service})`,
                                 value: item._id
-                            }))}
+                            })
+                        )}
                         placeholder="Choose report type"
                         {...register("reportType")}
                     />
