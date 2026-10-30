@@ -178,7 +178,7 @@ export async function processSE002Report(
     }
 }
 
-async function toExcel(jsonFileName: string, outputExcelPath: string) {
+export async function toExcel(jsonFileName: string, outputExcelPath: string) {
     try {
         if (!jsonFileName) {
             return {

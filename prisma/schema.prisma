@@ -35,6 +35,7 @@ model OpenPosition {
 
   curr            Int      @default(0)
 
+  @@index([BUSINESS_DATE])
   @@map("OPEN_POSITION")
 }
 
@@ -175,8 +176,10 @@ model WAADIR001 {
   WEIGHED_AVERAGE  Decimal? @default(0.00) @map("WEIGHED_AVERAGE") @db.Decimal(20, 2)
   WEIGHT_BY_TYPE   Decimal? @default(0.00) @map("WEIGHT_BY_TYPE") @db.Decimal(20, 2)
 
+  @@index([BUSINESS_DATE])
   @@map("WAADIR001")
 }
+
 model NN001 {
   id                        String             @id @default(uuid()) @db.VarChar(36)
   RETURN_KEY                String             @default("NACNN001") @map("RETURN_KEY") @db.VarChar(100)
@@ -238,3 +241,19 @@ model NN001DynamicRow {
   @@map("NN001_DYNAMIC_ROW")
 }
 
+model SE002 {
+  id                String              @id @default(uuid()) @db.VarChar(36)
+  BUSINESS_DATE     DateTime            @map("BUSINESS_DATE") @db.Date
+
+  CODE              String?             @map("CODE") @db.VarChar(100)
+  REGION            String?             @map("REGION") @db.VarChar(100)
+  LOAN_TYPE         String?             @map("LOAN_TYPE") @db.VarChar(100)
+  OWNERSHIP         String?             @map("OWNERSHIP") @db.VarChar(100)
+  AMOUNT            Decimal?            @default(0.00) @map("AMOUNT") @db.Decimal(20, 2)
+  NO_BORROWER       Int?                @map("NO_BORROWER")
+  NO_ACCOUNT        Int?                @map("NO_ACCOUNT")
+  LOAD_TIMESTAMP    DateTime            @map("LOAD_TIMESTAMP") @db.Date
+
+  @@index([BUSINESS_DATE])
+  @@map("SE002")
+}

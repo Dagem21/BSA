@@ -1,6 +1,6 @@
 "use client";
 
-import { PlusIcon } from "@/assets/icons";
+import { FilterIcon, PlusIcon } from "@/assets/icons";
 import {
     Table,
     TableBody,
@@ -28,10 +28,19 @@ import { toast } from "sonner";
 import { Select } from "../FormElements/select";
 import { FrequncyTypes, ServiceTypes } from "@/types/types";
 
+export interface FilterType {
+    show: boolean;
+    reportType: ReportTypeDto;
+}
+
 export function ReportTypeTable() {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isPopupOpenView, setIsPopupOpenView] = useState(false);
     const [isPopupOpenUpdate, setIsPopupOpenUpdate] = useState(false);
+    const [filter, setFilter] = useState<FilterType>({
+        show: false,
+        reportType: {}
+    });
 
     const [selectedItem, setSelectedItem] = useState<ReportTypeDto | null>(
         null
@@ -45,8 +54,8 @@ export function ReportTypeTable() {
     const reportTypesList: ReportTypeDto[] = Array.isArray(data?.reportTypes)
         ? data.reportTypes
         : Array.isArray(data)
-        ? data
-        : [];
+          ? data
+          : [];
 
     const {
         data: dataCreate,
@@ -156,15 +165,95 @@ export function ReportTypeTable() {
 
     return (
         <div className="rounded-[10px] border border-stroke bg-white p-4 shadow-1 sm:p-7.5 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
-            <Button
-                className="mb-2"
-                onClick={() => setIsPopupOpen(true)}
-                label="New Report Type"
-                variant="primary"
-                shape="rounded"
-                size="small"
-                icon={<PlusIcon />}
-            />
+            <div className="flex justify-between">
+                <Button
+                    className="mb-2"
+                    onClick={() => setIsPopupOpen(true)}
+                    label="New Report Type"
+                    variant="primary"
+                    shape="rounded"
+                    size="small"
+                    icon={<PlusIcon />}
+                />
+
+                <Button
+                    className="mb-2"
+                    onClick={() =>
+                        setFilter((prev) => ({ ...prev, show: !prev.show }))
+                    }
+                    label="Filter"
+                    shape="rounded"
+                    size="small"
+                    icon={<FilterIcon />}
+                />
+            </div>
+
+            {filter.show && (
+                <div className="mb-3 flex content-center justify-center gap-3">
+                    <InputGroup
+                        label=""
+                        type="text"
+                        value={filter.reportType.reportId ?? ""}
+                        onChange={(e) => {
+                            setFilter((prev) => ({
+                                ...prev,
+                                reportType: {
+                                    ...prev.reportType,
+                                    reportId: e.target.value
+                                }
+                            }));
+                        }}
+                        placeholder="Report ID"
+                    />
+
+                    <Select
+                        className="w-50"
+                        label=""
+                        items={[
+                            { label: "Frequency", value: "" },
+                            ...Object.values(FrequncyTypes).map(
+                                (frequency) => ({
+                                    label: frequency,
+                                    value: frequency
+                                })
+                            )
+                        ]}
+                        placeholder="Frequency"
+                        onChange={(e) => {
+                            setFilter((prev) => ({
+                                ...prev,
+                                reportType: {
+                                    ...prev.reportType,
+                                    frequency: e.target.value
+                                }
+                            }));
+                        }}
+                    />
+
+                    <Select
+                        className="w-50"
+                        label=""
+                        items={[
+                            { label: "Service", value: "" },
+                            ...Object.values(ServiceTypes).map((service) => ({
+                                label: service,
+                                value: service
+                            }))
+                        ]}
+                        placeholder="Service"
+                        onChange={(e) => {
+                            setFilter((prev) => ({
+                                ...prev,
+                                reportType: {
+                                    ...prev.reportType,
+                                    service: e.target.value
+                                }
+                            }));
+                        }}
+                    />
+                </div>
+            )}
+
             <Table>
                 <TableHeader>
                     <TableRow className="border-none bg-[#F7F9FC] dark:bg-dark-2 [&>th]:py-4 [&>th]:text-base [&>th]:text-dark [&>th]:dark:text-white">
@@ -181,8 +270,32 @@ export function ReportTypeTable() {
                 </TableHeader>
 
                 <TableBody>
-                    {reportTypesList.map(
-                        (item: ReportTypeDto, index: number) => (
+                    {reportTypesList
+                        .filter((item) => {
+                            if (
+                                filter.reportType.reportId &&
+                                !item.reportId
+                                    ?.toLocaleLowerCase()
+                                    ?.includes(
+                                        filter.reportType.reportId.toLocaleLowerCase()
+                                    )
+                            )
+                                return false;
+
+                            if (
+                                filter.reportType.frequency &&
+                                item.frequency != filter.reportType.frequency
+                            )
+                                return false;
+
+                            if (
+                                filter.reportType.service &&
+                                item.service != filter.reportType.service
+                            )
+                                return false;
+                            return true;
+                        })
+                        .map((item: ReportTypeDto, index: number) => (
                             <TableRow
                                 key={index}
                                 className="border-[#eee] dark:border-dark-3"
@@ -249,8 +362,7 @@ export function ReportTypeTable() {
                                     </div>
                                 </TableCell>
                             </TableRow>
-                        )
-                    )}
+                        ))}
                 </TableBody>
             </Table>
             {data?.reportTypes?.length === 0 && (

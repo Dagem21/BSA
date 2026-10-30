@@ -1,0 +1,241 @@
+{
+    "ReturnKey": "CS8S001",
+    "InstCode": "",
+    "FinYear": "",
+    "StartDate": "",
+    "EndDate": "",
+    "ReturnItemsList": [
+        {
+            "Code": "174_00001",
+            "Value": "",
+            "_description": "Common Equity Tier 1 Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00002",
+            "Value": "",
+            "_description": "Additional Tier 1 Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00003",
+            "Value": "",
+            "_description": "Total Tier 1 Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00004",
+            "Value": "",
+            "_description": "Total Tier 2 Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00005",
+            "Value": "",
+            "_description": "Total Eligible Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00006",
+            "Value": "",
+            "_description": "Total Required for Credit Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00007",
+            "Value": "",
+            "_description": "Total Required for Credit Risk_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00008",
+            "Value": "",
+            "_description": "On balance Credit Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00009",
+            "Value": "",
+            "_description": "On balance Credit Risk_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00010",
+            "Value": "",
+            "_description": "Off balance Credit Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00011",
+            "Value": "",
+            "_description": "Off balance Credit Risk_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00012",
+            "Value": "",
+            "_description": "Total Capital Required for Operational Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00013",
+            "Value": "",
+            "_description": "Total Capital Required for Operational Risk_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00014",
+            "Value": "",
+            "_description": "Interest Rate Risk  (SF = 1.30)_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00015",
+            "Value": "",
+            "_description": "Interest Rate Risk  (SF = 1.30)_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00016",
+            "Value": "",
+            "_description": "Specific IR Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00017",
+            "Value": "",
+            "_description": "General IR Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00018",
+            "Value": "",
+            "_description": "Equity Position Risk (SF = 3.50)_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00019",
+            "Value": "",
+            "_description": "Equity Position Risk (SF = 3.50)_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00020",
+            "Value": "",
+            "_description": "Specific Equity Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00021",
+            "Value": "",
+            "_description": "General Equity Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00022",
+            "Value": "",
+            "_description": "Foreign Exchange Risks (SF = 1.20)_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00023",
+            "Value": "",
+            "_description": "Foreign Exchange Risks (SF = 1.20)_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00024",
+            "Value": "",
+            "_description": "Commodities Risks (SF = 1.90)_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00025",
+            "Value": "",
+            "_description": "Commodities Risks (SF = 1.90)_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00026",
+            "Value": "",
+            "_description": "Directional Commodity Risk_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00027",
+            "Value": "",
+            "_description": "Other Commodity Risks_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00028",
+            "Value": "",
+            "_description": "Total Market Risk adjusted risk-weighted assets_Capital",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00029",
+            "Value": "",
+            "_description": "Total Market Risk adjusted risk-weighted assets_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00030",
+            "Value": "",
+            "_description": "Total Risk Weighted Asset_RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00031",
+            "Value": "",
+            "_description": "Total Eligible Capital to Risk Weighted Asset Ratio",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00032",
+            "Value": "",
+            "_description": "Common Equity Tier 1 to Risk Weighted Asset",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "174_00033",
+            "Value": "",
+            "_description": "Total Tier 1 Capital to Risk Weighted Asset",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

@@ -60,6 +60,9 @@ import { processAL001Report } from "./services/AL001/AL001";
 import { processPE001Report } from "./services/PE001/PE001";
 import { processSD01001Report } from "./services/SD01001/SD01001";
 import { processOP001Report } from "./services/OP001/OP001";
+import { process3O001Report } from "./services/3O001/3O001";
+import { process8E001Report } from "./services/8E001/8E001";
+import { process8S001Report } from "./services/8S001/8S001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -271,6 +274,15 @@ export const fileProcessor = async (
                 break;
             case "001SD01001":
                 processor = processSD01001Report;
+                break;
+            case "ORR3O001":
+                processor = process3O001Report;
+                break;
+            case "CRMER8E001":
+                processor = process8E001Report;
+                break;
+            case "CS8S001":
+                processor = process8S001Report;
                 break;
             default:
                 break;

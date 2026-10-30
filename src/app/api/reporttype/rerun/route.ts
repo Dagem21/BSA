@@ -67,7 +67,8 @@ export async function POST(request: NextRequest) {
                 if (service)
                     await service(
                         reportType._id?.toString(),
-                        reportType.reportId
+                        reportType.reportId,
+                        reportDate
                     );
             } catch (error) {
                 writeToLog(

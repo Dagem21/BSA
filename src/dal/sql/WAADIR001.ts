@@ -1,3 +1,4 @@
+import { Prisma } from "@/generated/prisma";
 import prisma from "@/lib/prisma";
 
 export const findWAADIR001s = async (query?: Object) => {
@@ -11,16 +12,18 @@ export const findWAADIR001s = async (query?: Object) => {
     }
 };
 
-export const createWAADIR001s = async (depositRates: any) => {
+export const createWAADIR001s = async (
+    depositRates: Prisma.WAADIR001CreateManyInput[]
+) => {
     try {
-        const result = await prisma.$transaction(async (tx) => {
-            await tx.wAADIR001.createMany({
-                data: depositRates,
-                skipDuplicates: true
-            });
+        const result = await prisma.wAADIR001.createMany({
+            data: depositRates,
+            skipDuplicates: true
         });
-        return { created: result };
+
+        return { created: true, data: result };
     } catch (e: any) {
+        console.error(e.message);
         return { created: false, error: e.message };
     }
 };

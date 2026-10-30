@@ -80,7 +80,7 @@ const DatePickerOne = ({
                     ref={inputRef}
                     type="text"
                     placeholder="YYYY-MM-DD"
-                    className="form-datepicker w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal transition outline-none focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary"
+                    className="form-datepicker w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-2.5 font-normal transition outline-none focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary"
                     value={newValue}
                     onChange={onChange}
                     {...props}

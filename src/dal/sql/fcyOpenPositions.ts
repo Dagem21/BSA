@@ -1,3 +1,4 @@
+import { Prisma } from "@/generated/prisma";
 import prisma from "@/lib/prisma";
 
 export const findOpenPositions = async (query?: Object) => {
@@ -11,17 +12,18 @@ export const findOpenPositions = async (query?: Object) => {
     }
 };
 
-export const createOpenPositions = async (openPositions: any) => {
+export const createOpenPositions = async (
+    openPositions: Prisma.OpenPositionCreateManyInput[]
+) => {
     try {
-        const result = await prisma.$transaction(async (tx) => {
-            await tx.openPosition.createMany({
-                data: openPositions,
-                skipDuplicates: true
-            });
+        const result = await prisma.openPosition.createMany({
+            data: openPositions,
+            skipDuplicates: true
         });
-        console.log(result);
-        return { created: result };
+
+        return { created: true, data: result };
     } catch (e: any) {
+        console.error(e.message);
         return { created: false, error: e.message };
     }
 };

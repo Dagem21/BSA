@@ -1,15 +1,12 @@
 import { createReport, findReports } from "@/dal/mongo/reportdal";
-import { findOpenPositions as findOpenPositionsDW } from "@/dal/warehouse/fcyOpenPositions";
-import {
-    createOpenPositions,
-    deleteOpenPositions,
-    findOpenPositions
-} from "@/dal/sql/fcyOpenPositions";
 import { ReportDto } from "@/dto/report";
-import { OpenPosition } from "@/generated/prisma";
-import { populateOpenPositionReport } from "@/utils/services/Auto/OP001/OP001";
+import { SE002 } from "@/generated/prisma";
 import { SystemLogDto } from "@/dto/systemLog";
 import { createSystemLog } from "@/dal/mongo/systemLogsdal";
+import { Decimal } from "@/generated/prisma/runtime/client";
+import { findSE002DW } from "@/dal/warehouse/SE002";
+import { createSE002s, deleteSE002s, findSE002s } from "@/dal/sql/SE002";
+import { populateSE002Report } from "@/utils/services/Auto/SE002/SE002";
 
 export const service = async (
     reportTypeID: string,
@@ -42,10 +39,10 @@ export const service = async (
             return;
         }
 
-        const openPositionsDW = await findOpenPositionsDW(filter);
+        const se002DW = await findSE002DW(filter);
         let batch: any[] = [];
 
-        const resultSet = openPositionsDW?.rows;
+        const resultSet = se002DW?.rows;
 
         if (!resultSet) {
             log.status = "Failed";
@@ -57,19 +54,19 @@ export const service = async (
         }
 
         resultSet.forEach((row) => {
-            const opData: any = row;
-            const date = new Date(opData.BUSINESS_DATE);
+            const drData: any = row;
+            const date = new Date(drData.BUSINESS_DATE);
             const businessDate = new Date(
                 Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
             );
-            opData.BUSINESS_DATE = businessDate;
-            batch.push(opData);
+            drData.BUSINESS_DATE = businessDate;
+            batch.push(drData);
         });
 
         if (batch.length > 0) {
-            await deleteOpenPositions(filter);
-            const { error } = await createOpenPositions(batch);
-            if (error) {
+            await deleteSE002s(filter);
+            const { created, error } = await createSE002s(batch);
+            if (!created || error) {
                 log.status = "Failed";
                 log.finishedAt = new Date().toISOString();
                 log.description = error || "Failed to save to local database.";
@@ -85,10 +82,9 @@ export const service = async (
             return;
         }
 
-        const openPositions: OpenPosition[] =
-            (await findOpenPositions(filter)) || [];
+        const se002s: SE002[] = (await findSE002s(filter)) || [];
 
-        if (openPositions?.length === 0) {
+        if (se002s?.length === 0) {
             log.status = "Failed";
             log.finishedAt = new Date().toISOString();
             log.description = "Data fetch failed form local database.";
@@ -96,10 +92,17 @@ export const service = async (
             return;
         }
 
+        const se002sFormatted: SE002[] = se002s.map((row) => {
+            row.AMOUNT = row?.AMOUNT
+                ? Decimal(parseFloat(row.AMOUNT.toString()) / 1000000)
+                : row.AMOUNT;
+            return row;
+        });
+
         const { created, fileNameExcel, fileNameJson } =
-            await populateOpenPositionReport(
+            await populateSE002Report(
                 "0000001",
-                openPositions,
+                se002sFormatted,
                 yesterday,
                 yesterday,
                 reportID
