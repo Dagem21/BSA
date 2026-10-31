@@ -51,8 +51,11 @@ export const ID002Format = (
     endDate: string = "2026-06-30T00:00:00",
     valuesMap: Record<string, string> = {}
 ) => {
-    const fmt = (val: string | number | undefined | null) =>
-        val !== undefined && val !== null ? val.toString() : "";
+    const fmt = (val: string | number | undefined | null) => {
+        if (val === undefined || val === null) return "0";
+        const str = val.toString().trim();
+        return str === "" ? "0" : str;
+    };
 
     const returnItemsList: Array<{
         Code: string;

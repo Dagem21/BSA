@@ -271,6 +271,22 @@ export async function validateTemplate(
                             "This is not the exact MB001 Excel template file."
                     };
                 }
+            } else if (
+                cleanId.includes("LP001") ||
+                cleanId.includes("LOAN_CLA&PROV_LP001")
+            ) {
+                const isLP001 =
+                    codeA1.includes("LP001") ||
+                    codeA1.includes("LOAN_CLA&PROV_LP001") ||
+                    headerRow4.includes("loan classification") ||
+                    headerRow4.includes("provisioning");
+                if (!isLP001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact LP001 Excel template file."
+                    };
+                }
             } else if (cleanId.includes("SRR")) {
                 const isSRR =
                     codeA1.includes("SRR") ||
@@ -508,14 +524,60 @@ export async function validateTemplate(
                             "This is not the exact BE001 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("FABS001") || cleanId.includes("FASDBSFABS001")) {
+                const isFABS001 =
+                    codeA1.includes("FABS001") ||
+                    codeA1.includes("FASDBSFABS001") ||
+                    headerRow4.includes("balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("BSD USER");
+                if (!isFABS001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact FABS001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("ANARN001") || cleanId.includes("NON-ACCRUAL") || cleanId.includes("NON_ACCRUAL")) {
+                const isANARN001 =
+                    codeA1.includes("ANARN001") ||
+                    headerRow4.includes("re-categorized") ||
+                    headerRow4.includes("non-accrual") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("ANARN001");
+                if (!isANARN001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact ANARN001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("FO002") || cleanId.includes("FRA_OUT")) {
+                const isFO002 =
+                    codeA1.includes("FO002") ||
+                    codeA1.includes("FRA_OUT") ||
+                    headerRow4.includes("fraud") ||
+                    headerRow4.includes("quarterly summary report on fraud") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("FO002") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("FRA_OUT");
+                if (!isFO002) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact FO002 Excel template file."
+                    };
+                }
             }
         }
 
         // Check if file matches OP001 layout (B8: Instiution Code) or ZS001 layout (B9: Instiution code)
-        const isOP001 = getCellText("B8").toLowerCase().includes("instiution");
-        const isZS001 = getCellText("B9").toLowerCase().includes("instiution");
+        const isOP001 =
+            getCellText("B8").toLowerCase().includes("instiution") ||
+            getCellText("B8").toLowerCase().includes("institution");
+        const isZS001 =
+            getCellText("B9").toLowerCase().includes("instiution") ||
+            getCellText("B9").toLowerCase().includes("institution");
         const isNN001Header =
             getCellText("A8").toLowerCase().includes("instiution") ||
+            getCellText("A8").toLowerCase().includes("institution") ||
             codeA1.includes("NACNN001");
 
         if (!isOP001 && !isZS001 && !isNN001Header) {

@@ -13,7 +13,12 @@ function formatIsoString(dateVal: any, fallback: string = ""): string {
         return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
     const str = String(dateVal).trim();
-    if (str.includes("T")) return str.split(".")[0];
+    if (str.includes("T")) {
+        const datePart = str.split("T")[0];
+        if (datePart.length === 10) {
+            return `${datePart}T00:00:00`;
+        }
+    }
     const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();

@@ -12,7 +12,12 @@ function formatIsoString(dateVal: any): string {
         return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
     const str = String(dateVal).trim();
-    if (str.includes("T")) return str;
+    if (str.includes("T")) {
+        const datePart = str.split("T")[0];
+        if (datePart.length === 10) {
+            return `${datePart}T00:00:00`;
+        }
+    }
     const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();
@@ -95,15 +100,8 @@ export function processDS003(worksheet: ExcelJS.Worksheet, options?: { instCode?
         }
     }
 
-    let startCol = 3;
-    const firstDataRow = worksheet.getRow(startRowOffset);
-    for (let c = 1; c <= 5; c++) {
-        const val = getDirectCellValue(firstDataRow.getCell(c));
-        if (val && !isNaN(Number(val))) {
-            startCol = c;
-            break;
-        }
-    }
+    // The data value columns in DS003 table start at Column C (Col 3)
+    const startCol = 3;
 
     const grid: string[][] = [];
     for (let regIndex = 0; regIndex < 14; regIndex++) {
@@ -194,7 +192,7 @@ export function processDS003(worksheet: ExcelJS.Worksheet, options?: { instCode?
         const row = worksheet.getRow(r);
         const codeVal = getDirectCellValue(row.getCell(1));
         const itemVal = getDirectCellValue(row.getCell(3)) || getDirectCellValue(row.getCell(2));
-        if (codeVal && codeVal.startsWith("DS003_")) {
+        if (codeVal && codeVal.startsWith("DS003_") && itemVal) {
             valuesMap[codeVal] = itemVal;
         }
     }

@@ -172,6 +172,15 @@ export default function StandaloneConverterPage() {
                             <option value="BRE_EXPE_BE001">
                                 BRE_EXPE_BE001 — Breakdown of Expenses (BE001)
                             </option>
+                            <option value="FASDBSFABS001">
+                                FASDBSFABS001 — Monthly Balance Sheet (FABS001)
+                            </option>
+                            <option value="ANARN001">
+                                ANARN001 — Re-Categorized from Non-Accrual To Accrual Status (ANARN001)
+                            </option>
+                            <option value="FRA_OUT_FO002">
+                                FRA_OUT_FO002 — Quarterly Summary Report on Fraud Outstanding (FO002)
+                            </option>
                         </select>
                     </div>
 

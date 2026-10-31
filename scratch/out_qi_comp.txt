@@ -1,0 +1,3 @@
+Template items count: 72
+QI001_DESCRIPTIONS count: 72
+Total diff count: 0

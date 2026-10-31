@@ -12,7 +12,12 @@ function formatIsoString(dateVal: any): string {
         return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
     const str = String(dateVal).trim();
-    if (str.includes("T")) return str;
+    if (str.includes("T")) {
+        const datePart = str.split("T")[0];
+        if (datePart.length === 10) {
+            return `${datePart}T00:00:00`;
+        }
+    }
     const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();
@@ -97,7 +102,7 @@ export function processID002(worksheet: ExcelJS.Worksheet, options?: { instCode?
 
     let startCol = 3;
     const firstDataRow = worksheet.getRow(startRowOffset);
-    for (let c = 1; c <= 5; c++) {
+    for (let c = 3; c <= 5; c++) {
         const val = getDirectCellValue(firstDataRow.getCell(c));
         if (val && !isNaN(Number(val))) {
             startCol = c;
@@ -186,55 +191,59 @@ export function processID002(worksheet: ExcelJS.Worksheet, options?: { instCode?
     return ID002Format("INT_FRE_RANID002", instCode, finYear, startDate, endDate, valuesMap);
 }
 
-export async function processID002Report(filePath: string, instCode?: string) {
-    const workbook = new ExcelJS.Workbook();
-    await workbook.xlsx.readFile(filePath);
+export async function processID002Report(
+    instCode: string,
+    inputFilePath: string,
+    startDate: string,
+    endDate: string,
+    outputExcelPath: string,
+    outputJsonPath: string
+) {
+    try {
+        const workbook = new ExcelJS.Workbook();
+        await workbook.xlsx.readFile(inputFilePath);
 
-    let worksheet = workbook.getWorksheet("ID002") || workbook.worksheets[0];
-    if (!worksheet) {
-        throw new Error("No worksheet found in workbook");
+        const worksheet =
+            workbook.getWorksheet("INT_FRE_RANID002") ||
+            workbook.getWorksheet("ID002") ||
+            workbook.getWorksheet("Interest free deposit by range and region") ||
+            workbook.worksheets[0];
+
+        if (!worksheet) {
+            return {
+                success: false,
+                error: "Invalid ID002 Excel structure: No worksheet found."
+            };
+        }
+
+        const jsonOutput = processID002(worksheet, {
+            instCode,
+            startDate,
+            endDate
+        });
+
+        const jsonDir = path.dirname(outputJsonPath);
+        if (!fs.existsSync(jsonDir)) {
+            fs.mkdirSync(jsonDir, { recursive: true });
+        }
+        fs.writeFileSync(outputJsonPath, JSON.stringify(jsonOutput, null, 4));
+
+        const excelDir = path.dirname(outputExcelPath);
+        if (!fs.existsSync(excelDir)) {
+            fs.mkdirSync(excelDir, { recursive: true });
+        }
+        await workbook.xlsx.writeFile(outputExcelPath);
+
+        return {
+            success: true,
+            jsonPath: outputJsonPath,
+            excelPath: outputExcelPath,
+            itemCount: jsonOutput.ReturnItemsList.length
+        };
+    } catch (error: any) {
+        return {
+            success: false,
+            error: error.message || "Failed to process ID002 report"
+        };
     }
-
-    const jsonData = processID002(worksheet, { instCode });
-
-    const reportsDir = path.join(process.cwd(), "reports");
-    const jsonDir = path.join(reportsDir, "json");
-    const excelDir = path.join(reportsDir, "excel");
-
-    if (!fs.existsSync(jsonDir)) fs.mkdirSync(jsonDir, { recursive: true });
-    if (!fs.existsSync(excelDir)) fs.mkdirSync(excelDir, { recursive: true });
-
-    const baseName = path.basename(filePath, path.extname(filePath));
-    const jsonFileName = `${baseName}.json`;
-    const excelFileName = `${baseName}.xlsx`;
-
-    const jsonPath = path.join(jsonDir, jsonFileName);
-    fs.writeFileSync(jsonPath, JSON.stringify(jsonData, null, 4), "utf-8");
-
-    const outWorkbook = new ExcelJS.Workbook();
-    const outWs = outWorkbook.addWorksheet("ID002");
-    outWs.views = [{ showGridLines: true }];
-
-    outWs.addRow(["ReturnKey", jsonData.ReturnKey]);
-    outWs.addRow(["InstCode", jsonData.InstCode]);
-    outWs.addRow(["FinYear", jsonData.FinYear]);
-    outWs.addRow(["StartDate", jsonData.StartDate]);
-    outWs.addRow(["EndDate", jsonData.EndDate]);
-    outWs.addRow([]);
-
-    const headerRow = ["Item Code", "Description", "Value"];
-    outWs.addRow(headerRow);
-
-    jsonData.ReturnItemsList.forEach((item) => {
-        outWs.addRow([item.Code, item._description, item.Value]);
-    });
-
-    const excelPath = path.join(excelDir, excelFileName);
-    await outWorkbook.xlsx.writeFile(excelPath);
-
-    return {
-        jsonData,
-        jsonPath: `/reports/json/${jsonFileName}`,
-        excelPath: `/reports/excel/${excelFileName}`
-    };
 }

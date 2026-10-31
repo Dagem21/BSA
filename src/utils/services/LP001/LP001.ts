@@ -412,19 +412,43 @@ export function processLP001(worksheet, instCode, startDate, endDate) {
         return fallback;
     };
 
-    const parsedInstCode = formatCellVal(worksheet.getCell("C4").value) || formatCellVal(worksheet.getCell("B4").value) || instCode || "0000001";
-    const finYearStr = formatCellVal(worksheet.getCell("C5").value);
-    const sDateRaw = worksheet.getCell("C6").value;
-    const eDateRaw = worksheet.getCell("C7").value;
+    const isInvalidHeaderVal = (v: string): boolean => {
+        if (!v) return true;
+        const lower = v.toLowerCase().trim();
+        return lower.includes("loan classification") || lower.includes("institution code") || lower.includes("instiution code") || lower.includes("financial year") || lower.includes("start date") || lower.includes("end date") || lower === "[object object]";
+    };
 
-    const formattedStartDate = formatDateNoShift(startDate || sDateRaw, "2026-04-01T00:00:00");
-    const formattedEndDate = formatDateNoShift(endDate || eDateRaw, "2026-06-30T00:00:00");
-    const finYear = finYearStr ? parseInt(finYearStr, 10) : 2026;
+    let rawInstCode = formatCellVal(worksheet.getCell("C8").value) || formatCellVal(worksheet.getCell("B8").value) || formatCellVal(worksheet.getCell("C4").value) || formatCellVal(worksheet.getCell("B4").value);
+    if (isInvalidHeaderVal(rawInstCode)) {
+        rawInstCode = "";
+    }
+    const parsedInstCode = rawInstCode || instCode || "0000001";
+
+    let rawFinYear = formatCellVal(worksheet.getCell("C9").value) || formatCellVal(worksheet.getCell("B9").value) || formatCellVal(worksheet.getCell("C5").value) || formatCellVal(worksheet.getCell("B5").value);
+    if (isInvalidHeaderVal(rawFinYear)) {
+        rawFinYear = "";
+    }
+    let finYear: number = 2026;
+    if (rawFinYear) {
+        const parsed = parseInt(rawFinYear, 10);
+        if (!isNaN(parsed) && parsed > 1900 && parsed < 2100) {
+            finYear = parsed;
+        }
+    }
+
+    let sDateRaw = worksheet.getCell("C10").value || worksheet.getCell("C6").value || worksheet.getCell("B10").value || worksheet.getCell("B6").value;
+    if (typeof sDateRaw === "string" && isInvalidHeaderVal(sDateRaw)) sDateRaw = null;
+
+    let eDateRaw = worksheet.getCell("C11").value || worksheet.getCell("C7").value || worksheet.getCell("B11").value || worksheet.getCell("B7").value;
+    if (typeof eDateRaw === "string" && isInvalidHeaderVal(eDateRaw)) eDateRaw = null;
+
+    const formattedStartDate = formatDateNoShift(startDate || sDateRaw, "2026-07-01T00:00:00");
+    const formattedEndDate = formatDateNoShift(endDate || eDateRaw, "2026-09-30T00:00:00");
 
     const itemValuesMap = {};
     let itemIndex = 0;
 
-    for (let r = 16; r <= 49; r++) {
+    for (let r = 17; r <= 50; r++) {
         const row = worksheet.getRow(r);
         for (let c = 3; c <= 11; c++) {
             if (itemIndex < LP001_ITEM_DEFINITIONS.length - 1) {
@@ -435,9 +459,10 @@ export function processLP001(worksheet, instCode, startDate, endDate) {
         }
     }
 
-    const summaryCellVal = formatCellVal(worksheet.getCell("J50").value) ||
-                           formatCellVal(worksheet.getCell("I50").value) ||
-                           formatCellVal(worksheet.getCell("H50").value);
+    const summaryCellVal = formatCellVal(worksheet.getCell("J51").value) ||
+                           formatCellVal(worksheet.getCell("J50").value) ||
+                           formatCellVal(worksheet.getCell("I51").value) ||
+                           formatCellVal(worksheet.getCell("H51").value);
 
     itemValuesMap["21_00307"] = summaryCellVal;
 
@@ -445,8 +470,7 @@ export function processLP001(worksheet, instCode, startDate, endDate) {
         Code: def.code,
         Value: itemValuesMap[def.code] !== undefined ? itemValuesMap[def.code] : "",
         _description: def.description,
-        _dataType: def.dataType,
-        _required: def.required
+        _dataType: def.dataType
     }));
 
     return {
@@ -462,20 +486,20 @@ export function processLP001(worksheet, instCode, startDate, endDate) {
 
 export async function jsonToExcelLP001(jsonPayload) {
     const workbook = new ExcelJS.Workbook();
-    const sheet = workbook.addWorksheet("Loan Class & Prov");
+    const sheet = workbook.addWorksheet("LOAN_CLA&PROV_LP001");
 
     // Header metadata
-    sheet.getCell("A4").value = "Instituion code";
-    sheet.getCell("C4").value = jsonPayload.InstCode || "0000001";
+    sheet.getCell("A8").value = "Instiution Code";
+    sheet.getCell("C8").value = jsonPayload.InstCode || "0000001";
 
-    sheet.getCell("A5").value = "Financial Year";
-    sheet.getCell("C5").value = jsonPayload.FinYear || 2026;
+    sheet.getCell("A9").value = "Financial Year";
+    sheet.getCell("C9").value = jsonPayload.FinYear || 2026;
 
-    sheet.getCell("A6").value = "Start Date";
-    sheet.getCell("C6").value = jsonPayload.StartDate || "2026-04-01T00:00:00";
+    sheet.getCell("A10").value = "Start Date";
+    sheet.getCell("C10").value = jsonPayload.StartDate || "2026-07-01T00:00:00";
 
-    sheet.getCell("A7").value = "End Date";
-    sheet.getCell("C7").value = jsonPayload.EndDate || "2026-06-30T00:00:00";
+    sheet.getCell("A11").value = "End Date";
+    sheet.getCell("C11").value = jsonPayload.EndDate || "2026-09-30T00:00:00";
 
     // Map ReturnItemsList by Code
     const itemsMap = {};
@@ -485,9 +509,9 @@ export async function jsonToExcelLP001(jsonPayload) {
         });
     }
 
-    // Populate Data Grid (Rows 16 to 49, Columns C=3 to K=11)
+    // Populate Data Grid (Rows 17 to 50, Columns C=3 to K=11)
     let itemIndex = 0;
-    for (let r = 16; r <= 49; r++) {
+    for (let r = 17; r <= 50; r++) {
         const row = sheet.getRow(r);
         for (let c = 3; c <= 11; c++) {
             if (itemIndex < LP001_ITEM_DEFINITIONS.length - 1) {
@@ -500,9 +524,9 @@ export async function jsonToExcelLP001(jsonPayload) {
         }
     }
 
-    // Summary item 21_00307 in J50
+    // Summary item 21_00307 in J51
     const summaryVal = itemsMap["21_00307"];
-    sheet.getCell("J50").value = (summaryVal !== "" && summaryVal !== undefined && !isNaN(parseFloat(summaryVal))) ? parseFloat(summaryVal) : (summaryVal || "");
+    sheet.getCell("J51").value = (summaryVal !== "" && summaryVal !== undefined && !isNaN(parseFloat(summaryVal))) ? parseFloat(summaryVal) : (summaryVal || "");
 
     return workbook;
 }
@@ -521,8 +545,9 @@ function sanitizeJsonPayload(payload: any): any {
             }
             const strVal = (val === null || val === undefined) ? "" : String(val).trim();
             const isZero = strVal === "" || strVal === "[object Object]";
+            const { _required, ...rest } = item;
             return {
-                ...item,
+                ...rest,
                 Value: isZero ? "0" : strVal
             };
         });

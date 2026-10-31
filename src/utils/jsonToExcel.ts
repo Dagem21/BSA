@@ -8,6 +8,12 @@ export async function generateExcelFromJson(
 ): Promise<Buffer> {
     const workbook = new ExcelJS.Workbook();
     const returnKey = (jsonData?.ReturnKey || "REPORT").toString();
+    if (returnKey.includes("FO002") || returnKey.includes("FRA_OUT")) {
+        const { jsonToExcelFO002 } = await import("./services/FO002/FO002");
+        const wb = await jsonToExcelFO002(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
     const instCode = (jsonData?.InstCode || "0000001").toString();
     const finYear = jsonData?.FinYear || new Date().getFullYear();
     const startDate = jsonData?.StartDate?.split("T")[0] || "";
@@ -31,6 +37,7 @@ export async function generateExcelFromJson(
     else if (returnKey.includes("DS003")) sheetName = "DS003";
     else if (returnKey.includes("ID002") || returnKey.includes("INT_FRE_RAN")) sheetName = "ID002";
     else if (returnKey.includes("RI003") || returnKey.includes("INT_FRE_SEC")) sheetName = "RI003";
+    else if (returnKey.includes("FABS001") || returnKey.includes("FASDBSFABS001")) sheetName = "BSD User_template ";
     else sheetName = returnKey.slice(0, 31);
 
     const worksheet = workbook.addWorksheet(sheetName);

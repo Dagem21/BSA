@@ -1,0 +1,66 @@
+Processing result: {
+  success: true,
+  jsonPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated.json',
+  excelPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated.xlsx'
+}
+Extracted ReturnItemsList count: 95
+Item 12_00002 (CCF row 16): {
+  Code: '12_00002',
+  Value: '1',
+  _description: 'Commitments to purchase  and/or sell FCY_Credit Conv. Factor (%)',
+  _dataType: 'NUMERIC'
+}
+Item 12_00004 (Weight row 16): {
+  Code: '12_00004',
+  Value: '1',
+  _description: 'Commitments to purchase  and/or sell FCY_Weight (%)',
+  _dataType: 'NUMERIC'
+}
+Item 12_00026 (Face Val row 23): {
+  Code: '12_00026',
+  Value: '7065.27383917',
+  _description: 'Federal government_Face Value',
+  _dataType: 'NUMERIC'
+}
+Item 12_00027 (CCF row 23): {
+  Code: '12_00027',
+  Value: '0.5',
+  _description: 'Federal government_Credit Conv. Factor (%)',
+  _dataType: 'NUMERIC'
+}
+Item 12_00028 (Amount row 23): {
+  Code: '12_00028',
+  Value: '3532.636919585',
+  _description: 'Federal government_Amount',
+  _dataType: 'NUMERIC'
+}
+Item 12_00029 (Weight row 23): {
+  Code: '12_00029',
+  Value: '0',
+  _description: 'Federal government_Weight (%)',
+  _dataType: 'NUMERIC'
+}
+Item 12_00030 (Credit Equ row 23): {
+  Code: '12_00030',
+  Value: '0',
+  _description: 'Federal government_Credit Equ',
+  _dataType: 'NUMERIC'
+}
+Item 12_00091 (Total Face Val): {
+  Code: '12_00091',
+  Value: '272399.83789615997',
+  _description: 'Total Risk weighted Off - BSA_Face Value',
+  _dataType: 'NUMERIC'
+}
+Item 12_00093 (Total Amount): {
+  Code: '12_00093',
+  Value: '90050.65046567499',
+  _description: 'Total Risk weighted Off - BSA_Amount',
+  _dataType: 'NUMERIC'
+}
+Item 12_00095 (Total Credit Equ): {
+  Code: '12_00095',
+  Value: '86518.01354608999',
+  _description: 'Total Risk weighted Off - BSA_Credit Equ',
+  _dataType: 'NUMERIC'
+}

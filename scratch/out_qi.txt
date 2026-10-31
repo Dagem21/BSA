@@ -1,0 +1,26 @@
+File path: C:\Users\mulukenwalle\Desktop\national_bank\BSA\templates\QI001.xlsx
+Worksheet name: CAP_ADQ_ITEM_QI001
+Row 16: C=null, D=0, E={"formula":"C16*D16"}
+Row 17: C={"formula":"C18+C19"}, D=null, E=null
+Row 18: C=null, D=0, E={"formula":"C18*D18","ref":"E18:E38","shareType":"shared"}
+Row 19: C={"formula":"C20+C21"}, D=null, E=null
+Row 20: C=null, D=0.2, E={"sharedFormula":"E18"}
+Row 21: C=null, D=1, E={"sharedFormula":"E18"}
+Row 22: C={"formula":"C23+C24"}, D=null, E=null
+Row 23: C=null, D=0, E={"sharedFormula":"E18"}
+Row 24: C=null, D=0.2, E={"sharedFormula":"E18"}
+Row 25: C={"formula":"C26+C27+C28+C29"}, D=null, E=null
+Row 26: C=null, D=0, E={"sharedFormula":"E18"}
+Row 27: C=null, D=0.2, E={"sharedFormula":"E18"}
+Row 28: C=null, D=0.5, E={"sharedFormula":"E18"}
+Row 29: C=null, D=1, E={"sharedFormula":"E18"}
+Row 30: C=null, D=1, E={"sharedFormula":"E18"}
+Row 31: C=null, D=1, E={"sharedFormula":"E18"}
+Row 32: C=null, D=1, E={"sharedFormula":"E18"}
+Row 33: C={"formula":"C34+C35+C36+C37+C38"}, D=null, E=null
+Row 34: C=null, D=1, E={"sharedFormula":"E18"}
+Row 35: C=null, D=1, E={"sharedFormula":"E18"}
+Row 36: C=null, D=0, E={"sharedFormula":"E18"}
+Row 37: C=null, D=1, E={"sharedFormula":"E18"}
+Row 38: C=null, D=1, E={"sharedFormula":"E18"}
+Row 39: C={"formula":"SUM(C16+C17+C22+C25+C30+C31+C32+C33)"}, D=null, E={"formula":"SUM(E16:E38)"}

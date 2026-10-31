@@ -201,7 +201,7 @@ export const MB001Format = (
 ) => {
     const fmt = (val: string | number | undefined | null) => {
         if (val !== undefined && val !== null) {
-            const str = val.toString().trim();
+            const str = val.toString().trim().replace(/,/g, "");
             if (
                 str !== "" &&
                 str !== "-" &&

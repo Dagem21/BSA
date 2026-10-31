@@ -1,0 +1,18 @@
+Processing result: {
+  success: true,
+  jsonPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_mb.json',
+  excelPath: 'C:\\Users\\mulukenwalle\\Desktop\\national_bank\\BSA\\scratch\\out_generated_mb.xlsx',
+  itemCount: 151
+}
+ReturnKey: MB001MB001
+StartDate: 2026-09-01T00:00:00
+EndDate: 2026-09-30T00:00:00
+Extracted ReturnItemsList count: 151
+Sample items:
+{"Code":"110_00001","Value":"0","_description":"Financial Assets (Sum 2 -6)","_dataType":"NUMERIC"}
+{"Code":"110_00002","Value":"0","_description":"CASH ON HAND (2.1+2.2)","_dataType":"NUMERIC"}
+{"Code":"110_00003","Value":"0","_description":"Foreign currency","_dataType":"NUMERIC"}
+{"Code":"110_00004","Value":"0","_description":"Local currency","_dataType":"NUMERIC"}
+{"Code":"110_00005","Value":"0","_description":"DEPOSITS WITH BANKS (3.1+3.2+3.3)","_dataType":"NUMERIC"}
+Any item has _required property: false
+Total items with empty string Value: 0

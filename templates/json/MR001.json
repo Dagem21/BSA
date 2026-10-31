@@ -9,57 +9,49 @@
             "Code": "17_00001",
             "Value": "",
             "_description": "Sub total top ten (10)_Demand/Current",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00002",
             "Value": "",
             "_description": "Sub total top ten (10)_Time/Fixed",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00003",
             "Value": "",
             "_description": "Grand total top twenty (20)_Time/Fixed",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00004",
             "Value": "",
             "_description": "Grand total top twenty (20)_Saving",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00005",
             "Value": "",
             "_description": "Grand total top twenty (20)_Demand/Current",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00006",
             "Value": "",
             "_description": "Sub total top ten (10)_Total per depositor ",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00007",
             "Value": "",
             "_description": "Sub total top ten (10)_Saving",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         },
         {
             "Code": "17_00008",
             "Value": "",
             "_description": "Grand total top twenty (20)_Total per depositor",
-            "_dataType": "NUMERIC",
-            "_required": false
+            "_dataType": "NUMERIC"
         }
     ],
     "DynamicItemsList": [

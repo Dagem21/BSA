@@ -48,6 +48,8 @@ import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
 import { AL001ExcelView } from "@/components/ReportViews/al001-excel-view";
 import { SD01001ExcelView } from "@/components/ReportViews/sd01001-excel-view";
 import { MP003ExcelView } from "@/components/ReportViews/mp003-excel-view";
+import { LP001ExcelView } from "@/components/ReportViews/lp001-excel-view";
+import { FABS001ExcelView } from "@/components/ReportViews/fabs001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -82,10 +84,44 @@ export default function Details() {
     }, [isLoading, errors]);
 
     const loadView = (report: any) => {
+        if (!report) return null;
+
+        const reportTypeId =
+            typeof report.reportType === "object"
+                ? report.reportType?._id || report.reportType?.id
+                : report.reportType;
+
         const reportType = dataReportTypes?.reportTypes?.find(
-            (rt: ReportTypeDto) => rt._id === report.reportType
+            (rt: any) =>
+                String(rt._id) === String(reportTypeId) ||
+                String(rt.id) === String(reportTypeId) ||
+                rt.reportId === reportTypeId
         );
-        const reportTypeName = reportType?.reportId;
+
+        const reportTypeName = (
+            reportType?.reportId ||
+            (typeof report.reportType === "object"
+                ? report.reportType?.reportId
+                : "") ||
+            (typeof report.reportType === "string" ? report.reportType : "")
+        )
+            .toString()
+            .trim();
+
+        const upperName = (
+            reportTypeName ||
+            report.returnKey ||
+            report.json ||
+            ""
+        ).toUpperCase();
+
+        if (upperName.includes("NN001") || upperName.includes("NACNN001")) {
+            return <NN001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("FABS001") || upperName.includes("FASDBS")) {
+            return <FABS001ExcelView activeFileName={report.json} />;
+        }
 
         switch (reportTypeName) {
             case "BD_L&A_BD001":
@@ -104,6 +140,9 @@ export default function Details() {
                 return <LA001ExcelView activeFileName={report.json} />;
             case "BOR_TEN_PER_LB002":
                 return <LB002ExcelView activeFileName={report.json} />;
+            case "LOAN_CLA&PROV_LP001":
+            case "LP001":
+                return <LP001ExcelView activeFileName={report.json} />;
             case "NBE_MAT_ANL_MA001":
                 return <MA001ExcelView activeFileName={report.json} />;
             case "MB001MB001":
@@ -117,6 +156,8 @@ export default function Details() {
             case "IFBLCMWAL001":
                 return <MWAL001ExcelView activeFileName={report.json} />;
             case "NACNN001":
+            case "NN001":
+            case "NAC NN001":
                 return <NN001ExcelView activeFileName={report.json} />;
             case "COL_ACQ_18M_OL001":
                 return <OL001ExcelView activeFileName={report.json} />;
@@ -172,6 +213,8 @@ export default function Details() {
                 return <AL001ExcelView activeFileName={report.json} />;
             case "001SD01001":
                 return <SD01001ExcelView activeFileName={report.json} />;
+            case "FASDBSFABS001":
+                return <FABS001ExcelView activeFileName={report.json} />;
             default:
                 return (
                     <>
@@ -186,11 +229,17 @@ export default function Details() {
     return (
         <div className="mx-auto max-w-7xl p-4 md:p-6 2xl:p-10">
             <Breadcrumb pageName="Report View" />
-            {!isLoading &&
-                !isLoadingReportTypes &&
-                dataReportTypes &&
-                data &&
-                loadView(data.content)}
+            {isLoading ? (
+                <div className="p-6 text-center text-gray-500">
+                    Loading report details...
+                </div>
+            ) : data?.content ? (
+                loadView(data.content)
+            ) : (
+                <div className="p-6 text-center text-gray-500">
+                    No report content found.
+                </div>
+            )}
         </div>
     );
 }

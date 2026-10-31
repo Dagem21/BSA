@@ -1,0 +1,70 @@
+{
+    "ReturnKey": "LOAN_CLA&PROV_LP001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "21_00001",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Amount (A)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00002",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Deductible collateral_Cash/cash substitute_(B)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00003",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Deductible collateral_Net recoverable value_(C)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00004",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Deductible collateral_Total _(D=B+C)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00005",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Deductible collateral_Net loans and advances_(E=A-D)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00006",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Provisioning rate_(F)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00007",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Required provision_(G=ExF)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00008",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Accumulated provision held_(H)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00009",
+            "Value": "",
+            "_description": "Pass (Sum 1.1-1.4)_Excess/shortfall in provisions_(I=H-G)",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "21_00010",
+            "Value": "",
+            "_description": "1.1 Term loan_Amount (A)",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": []
+}

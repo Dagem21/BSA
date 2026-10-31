@@ -1,0 +1,89 @@
+{
+    "ReturnKey": "NACNN001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "151_00001",
+            "Value": "",
+            "_description": "Amount of Loans and Advance",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "151_00002",
+            "Value": "",
+            "_description": "Collateral_Value",
+            "_dataType": "NUMERIC"
+        },
+        {
+            "Code": "151_00003",
+            "Value": "",
+            "_description": "Loan and Advance as a percentage of Bank's Total Capital",
+            "_dataType": "NUMERIC"
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 194,
+            "_areaName": "Non-Accrual to Accrual",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "Name of the Counterparty/Borrower*",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Type of Loan and Advance",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Sector to which the Loan and Advance is provided",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Amount of Loans and Advance",
+                    "_dataType": "NUMERIC"
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Date of Re-categorization",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "Classification/Status of Loans and Advance",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Collateral_Type",
+                    "_dataType": "TEXT"
+                },
+                {
+                    "Code": "1.8",
+                    "Value": "",
+                    "_description": "Collateral_Value",
+                    "_dataType": "NUMERIC"
+                },
+                {
+                    "Code": "1.9",
+                    "Value": "",
+                    "_description": "Loan and Advance as a percentage of Bank's Total Capital",
+                    "_dataType": "NUMERIC"
+                }
+            ]
+        }
+    ]
+}

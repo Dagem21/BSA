@@ -5,22 +5,19 @@ import { FB001Format, FB001ValuesMap } from "./jsonFormat";
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
+    let d: Date;
     if (dateVal instanceof Date) {
-        const yyyy = dateVal.getFullYear();
-        const mm = String(dateVal.getMonth() + 1).padStart(2, "0");
-        const dd = String(dateVal.getDate()).padStart(2, "0");
-        return `${yyyy}-${mm}-${dd}T00:00:00`;
+        d = dateVal;
+    } else {
+        d = new Date(String(dateVal).trim());
     }
-    const str = String(dateVal).trim();
-    if (str.includes("T")) return str;
-    const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();
         const mm = String(d.getMonth() + 1).padStart(2, "0");
         const dd = String(d.getDate()).padStart(2, "0");
         return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
-    return str;
+    return String(dateVal).trim().split(".")[0].replace(/Z$/, "");
 }
 
 function getDirectCellValue(cell: ExcelJS.Cell): string {
@@ -84,38 +81,47 @@ export async function processFB001Report(
 
     const valuesMap: FB001ValuesMap = {};
     
-    // Get the expected items to build a mapping from normalized description to Code
+    // Direct row mapping: 109 items starting at row 15 (row 15 = 28_00001, row 16 = 28_00002...)
+    for (let i = 1; i <= 109; i++) {
+        const code = `28_${String(i).padStart(5, "0")}`;
+        const rowNum = 14 + i;
+        const cellVal = getDirectCellValue(worksheet.getRow(rowNum).getCell("C")).replace(/,/g, "").trim();
+        if (cellVal !== "") {
+            valuesMap[code] = cellVal;
+        }
+    }
+
+    // Helper to robustly normalize descriptions for fallback matching
     const emptyFormat = FB001Format("temp", "temp", 2026, "", "");
     const descToCode = new Map<string, string>();
-    
-    // Helper to robustly normalize descriptions
     const normalizeDesc = (str: string) => {
         return str
             .toLowerCase()
-            .replace(/_amount$/i, "")       // Remove _Amount suffix (for JSON codes)
-            .replace(/\([^)]*\)/g, "")      // Remove anything inside (...) e.g. formulas
-            .replace(/\[[^\]]*\]/g, "")     // Remove anything inside [...] e.g. formulas
-            .replace(/&/g, "and")           // Standardize & to and
-            .replace(/[^a-z0-9]/g, "");     // Remove all non-alphanumeric
+            .replace(/_amount$/i, "")       // Remove _Amount suffix
+            .replace(/\([^)]*\)/g, "")      // Remove (...)
+            .replace(/\[[^\]]*\]/g, "")     // Remove [...]
+            .replace(/&/g, "and")           // Standardize &
+            .replace(/[^a-z0-9]/g, "");     // Remove non-alphanumeric
     };
     
     for (const item of emptyFormat.ReturnItemsList) {
         descToCode.set(normalizeDesc(item._description), item.Code);
     }
 
-    // Scan a wide range of rows to find matching descriptions in Column B
+    // Fallback description scanning if any values were not mapped directly
     for (let r = 10; r <= 200; r++) {
         const row = worksheet.getRow(r);
         const descCell = getDirectCellValue(row.getCell(2)); // Column B (Description)
-        
         if (!descCell) continue;
-        
         const normDesc = normalizeDesc(descCell);
-        
         if (descToCode.has(normDesc)) {
             const code = descToCode.get(normDesc)!;
-            const valCell = getDirectCellValue(row.getCell(3)); // Column C (Value)
-            valuesMap[code] = valCell;
+            if (!valuesMap[code] || valuesMap[code] === "0") {
+                const valCell = getDirectCellValue(row.getCell(3)).replace(/,/g, "").trim();
+                if (valCell !== "") {
+                    valuesMap[code] = valCell;
+                }
+            }
         }
     }
 
