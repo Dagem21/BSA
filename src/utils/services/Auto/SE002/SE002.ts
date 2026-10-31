@@ -34,7 +34,7 @@ export async function populateSE002Report(
             fs.mkdirSync(outputDirJson, { recursive: true });
         }
 
-        generateJson(
+        await generateJson(
             intCode,
             startDate.getFullYear(),
             startDate.toISOString(),
@@ -52,15 +52,15 @@ export async function populateSE002Report(
     }
 }
 
-function generateJson(
+async function generateJson(
     instCode: string,
     finYear: number,
     startDate: string,
     endDate: string,
     rowsData: SE002[],
     outputPathJson: string
-): boolean {
-    const jsonPayload = jsonFormat(
+): Promise<boolean> {
+    const jsonPayload = await jsonFormat(
         "LOAN_SEC&REG_SE002",
         instCode,
         finYear,
@@ -68,17 +68,18 @@ function generateJson(
         endDate,
         rowsData
     );
+    console.log(jsonPayload);
     const fs = require("fs");
 
-    // const jsonString = JSON.stringify(jsonPayload, null, 2);
+    const jsonString = JSON.stringify(jsonPayload, null, 2);
 
-    // fs.writeFile(outputPathJson, jsonString, "utf8", (err: any) => {
-    //     if (err) {
-    //         console.error("Error writing file:", err);
-    //         return;
-    //     }
-    //     console.log("JSON file written successfully!");
-    // });
+    fs.writeFile(outputPathJson, jsonString, "utf8", (err: any) => {
+        if (err) {
+            console.error("Error writing file:", err);
+            return;
+        }
+        console.log("JSON file written successfully!");
+    });
 
     return true;
 }
