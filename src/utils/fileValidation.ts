@@ -79,6 +79,16 @@ export async function validateTemplate(
                     );
                 });
                 if (found) EXPECTED_SHEET_NAME = found;
+            } else if (clean.includes("MB001")) {
+                const found = workbook.SheetNames.find((s) => {
+                    const sl = s.toLowerCase();
+                    return (
+                        sl.includes("mb001") ||
+                        sl.includes("nbe") ||
+                        sl.includes("balance sheet")
+                    );
+                });
+                if (found) EXPECTED_SHEET_NAME = found;
             }
         }
 
@@ -327,12 +337,14 @@ export async function validateTemplate(
                     };
                 }
             } else if (
-                cleanId.includes("MB001") ||
-                cleanId.includes("MB001MB001")
+                cleanId.includes("MB001")
             ) {
                 const isMB001 =
                     codeA1.includes("MB001") ||
-                    headerRow4.includes("monthly balance sheet");
+                    headerRow4.includes("monthly balance sheet") ||
+                    headerRow4.includes("monthy balance sheet") ||
+                    headerRow4.includes("balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("MB001");
                 if (!isMB001) {
                     return {
                         isValid: false,

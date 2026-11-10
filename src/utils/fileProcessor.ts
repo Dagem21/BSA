@@ -129,6 +129,7 @@ export const fileProcessor = async (
             case "Key Balance SheetMK001":
                 processor = processMK001Report;
                 break;
+            case "MB001":
             case "MB001MB001":
                 processor = processMB001Report;
                 break;

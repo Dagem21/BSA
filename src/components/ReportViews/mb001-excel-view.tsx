@@ -57,17 +57,27 @@ export function MB001ExcelView({
         value: "0"
     });
 
-    const { fetchData, data, isLoading, errors } = useApiFetch({
-        url: "/api/report/json-view",
-        method: "GET"
-    });
+    const { fetchData, data, isLoading, errors } = useApiFetch(
+        {
+            url: "/api/report/json-view",
+            method: "GET"
+        },
+        false
+    );
 
     useEffect(() => {
         if (!isLoading && data) {
             setReportData(data.data);
 
             if (data.fileName) setCurrentFileName(data.fileName);
-            if (data.availableFiles) setAvailableFiles(data.availableFiles);
+            if (data.availableFiles) {
+                const mb001Files = data.availableFiles.filter((f: string) =>
+                    f.toUpperCase().includes("MB001")
+                );
+                setAvailableFiles(
+                    mb001Files.length > 0 ? mb001Files : data.availableFiles
+                );
+            }
         } else if (!isLoading && errors.details) {
             toast.error(
                 errors.details?.response?.data?.error ||
@@ -78,7 +88,7 @@ export function MB001ExcelView({
 
     const fetchJsonData = async (fileName?: string) => {
         const query = fileName
-            ? { filename: encodeURIComponent(fileName) }
+            ? { filename: fileName }
             : { type: "MB001" };
         fetchData({ params: query });
     };

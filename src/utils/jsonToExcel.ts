@@ -32,6 +32,12 @@ export async function generateExcelFromJson(
         const buf = await wb.xlsx.writeBuffer();
         return Buffer.from(buf);
     }
+    if (returnKey.includes("MB001")) {
+        const { jsonToExcelMB001 } = await import("./services/MB001/MB001");
+        const wb = await jsonToExcelMB001(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
     const instCode = (jsonData?.InstCode || "0000001").toString();
     const finYear = jsonData?.FinYear || new Date().getFullYear();
     const startDate = jsonData?.StartDate?.split("T")[0] || "";

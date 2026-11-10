@@ -133,6 +133,10 @@ export default function Details() {
             return <C5001ExcelView activeFileName={report.json} />;
         }
 
+        if (upperName.includes("MB001")) {
+            return <MB001ExcelView activeFileName={report.json} />;
+        }
+
         switch (reportTypeName) {
             case "BD_L&A_BD001":
                 return <BD001ExcelView activeFileName={report.json} />;
@@ -155,6 +159,7 @@ export default function Details() {
                 return <LP001ExcelView activeFileName={report.json} />;
             case "NBE_MAT_ANL_MA001":
                 return <MA001ExcelView activeFileName={report.json} />;
+            case "MB001":
             case "MB001MB001":
                 return <MB001ExcelView activeFileName={report.json} />;
             case "CDby Sector and RegMD002":
