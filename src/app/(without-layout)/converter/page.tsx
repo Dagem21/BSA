@@ -181,6 +181,15 @@ export default function StandaloneConverterPage() {
                             <option value="FRA_OUT_FO002">
                                 FRA_OUT_FO002 — Quarterly Summary Report on Fraud Outstanding (FO002)
                             </option>
+                            <option value="QCR2C001">
+                                QCR2C001 — Capital Requirement for Credit Risk (2C001)
+                            </option>
+                            <option value="MFER6F001">
+                                MFER6F001 — Capital Requirement for Market Foreign Exchange Risk (6F001 / DF001)
+                            </option>
+                            <option value="MCR5C001">
+                                MCR5C001 — Capital Requirement for Market Commodity Risk (5C001)
+                            </option>
                         </select>
                     </div>
 

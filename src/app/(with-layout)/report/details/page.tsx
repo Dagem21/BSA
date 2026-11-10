@@ -47,6 +47,9 @@ import { QO001ExcelView } from "@/components/ReportViews/qo001-excel-view";
 import { QI001ExcelView } from "@/components/ReportViews/qi001-excel-view";
 import { LP001ExcelView } from "@/components/ReportViews/lp001-excel-view";
 import { FABS001ExcelView } from "@/components/ReportViews/fabs001-excel-view";
+import { C2001ExcelView } from "@/components/ReportViews/c2001-excel-view";
+import { DF001ExcelView } from "@/components/ReportViews/df001-excel-view";
+import { C5001ExcelView } from "@/components/ReportViews/c5001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -116,6 +119,18 @@ export default function Details() {
 
         if (upperName.includes("FABS001") || upperName.includes("FASDBS")) {
             return <FABS001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("2C001") || upperName.includes("QCR2C001") || upperName.includes("C2001")) {
+            return <C2001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("6F001") || upperName.includes("DF001") || upperName.includes("MFER6F001")) {
+            return <DF001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("5C001") || upperName.includes("MCR5C001") || upperName.includes("COMMODIT")) {
+            return <C5001ExcelView activeFileName={report.json} />;
         }
 
         switch (reportTypeName) {
@@ -205,6 +220,18 @@ export default function Details() {
             case "FASDBSFABS001":
             case "FABS001":
                 return <FABS001ExcelView activeFileName={report.json} />;
+            case "QCR2C001":
+            case "2C001":
+            case "C2001":
+            case "CAP_REQ_CREDIT_2C001":
+                return <C2001ExcelView activeFileName={report.json} />;
+            case "MFER6F001":
+            case "6F001":
+            case "DF001":
+                return <DF001ExcelView activeFileName={report.json} />;
+            case "MCR5C001":
+            case "5C001":
+                return <C5001ExcelView activeFileName={report.json} />;
             default:
                 return (
                     <div className="p-6 text-center text-red-500">

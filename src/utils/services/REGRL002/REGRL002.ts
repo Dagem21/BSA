@@ -214,19 +214,18 @@ export async function processREGRL002Report(
 
                 for (let colIndex = 0; colIndex < 24; colIndex++) {
                     const excelColIndex = 3 + colIndex;
-                    const valStr = grid[gridRowIdx][colIndex];
+                    const rawVal = grid[gridRowIdx][colIndex];
+                    const valStr = rawVal && rawVal.trim() !== "" ? rawVal.trim() : "0";
                     const codeStr = `RL002_${codeCounter}`;
                     valuesMap[codeStr] = valStr;
                     codeCounter++;
 
-                    if (valStr) {
-                        const cell = worksheet.getRow(excelRowIndex).getCell(excelColIndex);
-                        const numVal = parseFloat(valStr);
-                        if (typeof cell.value === "object" && cell.value !== null) {
-                            (cell.value as any).result = isNaN(numVal) ? valStr : numVal;
-                        } else {
-                            cell.value = isNaN(numVal) ? valStr : numVal;
-                        }
+                    const cell = worksheet.getRow(excelRowIndex).getCell(excelColIndex);
+                    const numVal = parseFloat(valStr);
+                    if (typeof cell.value === "object" && cell.value !== null) {
+                        (cell.value as any).result = isNaN(numVal) ? 0 : numVal;
+                    } else {
+                        cell.value = isNaN(numVal) ? 0 : numVal;
                     }
                 }
             }
@@ -235,19 +234,18 @@ export async function processREGRL002Report(
         // Write Total Amount Row (Row 101)
         for (let colIndex = 0; colIndex < 24; colIndex++) {
             const excelColIndex = 3 + colIndex;
-            const valStr = grid[84][colIndex];
+            const rawVal = grid[84][colIndex];
+            const valStr = rawVal && rawVal.trim() !== "" ? rawVal.trim() : "0";
             const codeStr = `RL002_${codeCounter}`;
             valuesMap[codeStr] = valStr;
             codeCounter++;
 
-            if (valStr) {
-                const cell = totalRow.getCell(excelColIndex);
-                const numVal = parseFloat(valStr);
-                if (typeof cell.value === "object" && cell.value !== null) {
-                    (cell.value as any).result = isNaN(numVal) ? valStr : numVal;
-                } else {
-                    cell.value = isNaN(numVal) ? valStr : numVal;
-                }
+            const cell = totalRow.getCell(excelColIndex);
+            const numVal = parseFloat(valStr);
+            if (typeof cell.value === "object" && cell.value !== null) {
+                (cell.value as any).result = isNaN(numVal) ? 0 : numVal;
+            } else {
+                cell.value = isNaN(numVal) ? 0 : numVal;
             }
         }
 

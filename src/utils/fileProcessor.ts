@@ -58,6 +58,9 @@ import { processBE001Report } from "./services/BE001/BE001";
 import { processFABS001Report } from "./services/FABS001/FABS001";
 import { processANARN001Report } from "./services/ANARN001/ANARN001";
 import { processFO002Report } from "./services/FO002/FO002";
+import { process2C001Report } from "./services/2C001/2C001";
+import { process6F001Report } from "./services/6F001/6F001";
+import { process5C001Report } from "./services/5C001/5C001";
 
 export const fileProcessor = async (
     instCode: string,
@@ -268,6 +271,19 @@ export const fileProcessor = async (
             case "FRA_OUT_FO002":
             case "FO002":
                 processor = processFO002Report;
+                break;
+            case "QCR2C001":
+            case "2C001":
+                processor = process2C001Report;
+                break;
+            case "MFER6F001":
+            case "6F001":
+            case "DF001":
+                processor = process6F001Report;
+                break;
+            case "MCR5C001":
+            case "5C001":
+                processor = process5C001Report;
                 break;
             default:
                 break;
