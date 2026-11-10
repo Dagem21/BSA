@@ -14,6 +14,30 @@ export async function generateExcelFromJson(
         const buf = await wb.xlsx.writeBuffer();
         return Buffer.from(buf);
     }
+    if (returnKey.includes("2C001") || returnKey.includes("QCR2C001")) {
+        const { jsonToExcel2C001 } = await import("./services/2C001/2C001");
+        const wb = await jsonToExcel2C001(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
+    if (returnKey.includes("6F001") || returnKey.includes("DF001") || returnKey.includes("MFER6F001")) {
+        const { jsonToExcel6F001 } = await import("./services/6F001/6F001");
+        const wb = await jsonToExcel6F001(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
+    if (returnKey.includes("5C001") || returnKey.includes("MCR5C001")) {
+        const { jsonToExcel5C001 } = await import("./services/5C001/5C001");
+        const wb = await jsonToExcel5C001(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
+    if (returnKey.includes("MB001")) {
+        const { jsonToExcelMB001 } = await import("./services/MB001/MB001");
+        const wb = await jsonToExcelMB001(jsonData, outputExcelPath);
+        const buf = await wb.xlsx.writeBuffer();
+        return Buffer.from(buf);
+    }
     const instCode = (jsonData?.InstCode || "0000001").toString();
     const finYear = jsonData?.FinYear || new Date().getFullYear();
     const startDate = jsonData?.StartDate?.split("T")[0] || "";

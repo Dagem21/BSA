@@ -36,6 +36,9 @@ const { processBE001, jsonToExcelBE001 } = require("@/utils/services/BE001/BE001
 const { processFABS001 } = require("@/utils/services/FABS001/FABS001");
 const { processANARN001, jsonToExcelANARN001 } = require("@/utils/services/ANARN001/ANARN001");
 const { processFO002, jsonToExcelFO002 } = require("@/utils/services/FO002/FO002");
+const { process2C001, jsonToExcel2C001 } = require("@/utils/services/2C001/2C001");
+const { process6F001, jsonToExcel6F001 } = require("@/utils/services/6F001/6F001");
+const { process5C001, jsonToExcel5C001 } = require("@/utils/services/5C001/5C001");
 
 function getDirectCellValue(cell: any): string {
     if (!cell || cell === null || cell === undefined) return "";
@@ -275,6 +278,12 @@ export async function POST(request: NextRequest) {
             jsonPayload = processANARN001 ? processANARN001(worksheet) : null;
         } else if (requestedType.includes("FO002") || requestedType.includes("FRA_OUT")) {
             jsonPayload = processFO002 ? processFO002(worksheet) : null;
+        } else if (requestedType.includes("2C001") || requestedType.includes("QCR2C001") || requestedType.includes("Credit Risk")) {
+            jsonPayload = process2C001 ? process2C001(worksheet) : null;
+        } else if (requestedType.includes("6F001") || requestedType.includes("DF001") || requestedType.includes("MFER6F001") || requestedType.includes("Market Risk")) {
+            jsonPayload = process6F001 ? process6F001(worksheet) : null;
+        } else if (requestedType.includes("5C001") || requestedType.includes("MCR5C001") || requestedType.includes("Commodit")) {
+            jsonPayload = process5C001 ? process5C001(worksheet) : null;
         } else {
             jsonPayload = processLP001 ? processLP001(worksheet) : null;
         }

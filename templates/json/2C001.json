@@ -1,0 +1,5203 @@
+{
+    "ReturnKey": "QCR2C001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "168_00001",
+            "Value": "",
+            "_description": "Cash Items (=1.1+1.2+1.3)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00002",
+            "Value": "",
+            "_description": "Cash Items (=1.1+1.2+1.3)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00003",
+            "Value": "",
+            "_description": "Cash Items (=1.1+1.2+1.3)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00004",
+            "Value": "",
+            "_description": "Cash Items (=1.1+1.2+1.3)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00005",
+            "Value": "",
+            "_description": "Cash Items (=1.1+1.2+1.3)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00006",
+            "Value": "",
+            "_description": "Cash on Hand (Local and Foreign Currency)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00007",
+            "Value": "",
+            "_description": "Cash on Hand (Local and Foreign Currency)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00008",
+            "Value": "",
+            "_description": "Cash on Hand (Local and Foreign Currency)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00009",
+            "Value": "",
+            "_description": "Cash on Hand (Local and Foreign Currency)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00010",
+            "Value": "",
+            "_description": "Cash on Hand (Local and Foreign Currency)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00011",
+            "Value": "",
+            "_description": "Gold Bullion - In Vault_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00012",
+            "Value": "",
+            "_description": "Gold Bullion - In Vault_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00013",
+            "Value": "",
+            "_description": "Gold Bullion - In Vault_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00014",
+            "Value": "",
+            "_description": "Gold Bullion - In Vault_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00015",
+            "Value": "",
+            "_description": "Gold Bullion - In Vault_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00016",
+            "Value": "",
+            "_description": "Cash items in the process of collection_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00017",
+            "Value": "",
+            "_description": "Cash items in the process of collection_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00018",
+            "Value": "",
+            "_description": "Cash items in the process of collection_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00019",
+            "Value": "",
+            "_description": "Cash items in the process of collection_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00020",
+            "Value": "",
+            "_description": "Cash items in the process of collection_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00021",
+            "Value": "",
+            "_description": "Exposures to Sovereigns (=2.1+2.2+2.3+2.4)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00022",
+            "Value": "",
+            "_description": "Exposures to Sovereigns (=2.1+2.2+2.3+2.4)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00023",
+            "Value": "",
+            "_description": "Exposures to Sovereigns (=2.1+2.2+2.3+2.4)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00024",
+            "Value": "",
+            "_description": "Exposures to Sovereigns (=2.1+2.2+2.3+2.4)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00025",
+            "Value": "",
+            "_description": "Exposures to Sovereigns (=2.1+2.2+2.3+2.4)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00026",
+            "Value": "",
+            "_description": "Deposit at NBE, T-Bills, bonds issued by FDRE Gov. and other exposures FDRE Gov. & NBE denominated & funded in Birr_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00027",
+            "Value": "",
+            "_description": "Deposit at NBE, T-Bills, bonds issued by FDRE Gov. and other exposures FDRE Gov. & NBE denominated & funded in Birr_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00028",
+            "Value": "",
+            "_description": "Deposit at NBE, T-Bills, bonds issued by FDRE Gov. and other exposures FDRE Gov. & NBE denominated & funded in Birr_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00029",
+            "Value": "",
+            "_description": "Deposit at NBE, T-Bills, bonds issued by FDRE Gov. and other exposures FDRE Gov. & NBE denominated & funded in Birr_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00030",
+            "Value": "",
+            "_description": "Deposit at NBE, T-Bills, bonds issued by FDRE Gov. and other exposures FDRE Gov. & NBE denominated & funded in Birr_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00031",
+            "Value": "",
+            "_description": "Claims on Regional Governments and Chartered City Administration, denominated and funded in Birr_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00032",
+            "Value": "",
+            "_description": "Claims on Regional Governments and Chartered City Administration, denominated and funded in Birr_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00033",
+            "Value": "",
+            "_description": "Claims on Regional Governments and Chartered City Administration, denominated and funded in Birr_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00034",
+            "Value": "",
+            "_description": "Claims on Regional Governments and Chartered City Administration, denominated and funded in Birr_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00035",
+            "Value": "",
+            "_description": "Claims on Regional Governments and Chartered City Administration, denominated and funded in Birr_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00036",
+            "Value": "",
+            "_description": "Claims on or exposure to BIS, ECB, EC and IMF_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00037",
+            "Value": "",
+            "_description": "Claims on or exposure to BIS, ECB, EC and IMF_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00038",
+            "Value": "",
+            "_description": "Claims on or exposure to BIS, ECB, EC and IMF_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00039",
+            "Value": "",
+            "_description": "Claims on or exposure to BIS, ECB, EC and IMF_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00040",
+            "Value": "",
+            "_description": "Claims on or exposure to BIS, ECB, EC and IMF_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00041",
+            "Value": "",
+            "_description": "Other Sovereign exposures (FDRE, NBE, Regional Governments and Chartered City Administrations)denominated and funded in FCY(=2.4.1+2.4.2+2.4.3+2.4.4+2.4.5+2.4.6)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00042",
+            "Value": "",
+            "_description": "Other Sovereign exposures (FDRE, NBE, Regional Governments and Chartered City Administrations)denominated and funded in FCY(=2.4.1+2.4.2+2.4.3+2.4.4+2.4.5+2.4.6)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00043",
+            "Value": "",
+            "_description": "Other Sovereign exposures (FDRE, NBE, Regional Governments and Chartered City Administrations)denominated and funded in FCY(=2.4.1+2.4.2+2.4.3+2.4.4+2.4.5+2.4.6)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00044",
+            "Value": "",
+            "_description": "Other Sovereign exposures (FDRE, NBE, Regional Governments and Chartered City Administrations)denominated and funded in FCY(=2.4.1+2.4.2+2.4.3+2.4.4+2.4.5+2.4.6)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00045",
+            "Value": "",
+            "_description": "Other Sovereign exposures (FDRE, NBE, Regional Governments and Chartered City Administrations)denominated and funded in FCY(=2.4.1+2.4.2+2.4.3+2.4.4+2.4.5+2.4.6)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00046",
+            "Value": "",
+            "_description": "Credit Risk Assessment of Ethiopia_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00047",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00048",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00049",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00050",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00051",
+            "Value": "",
+            "_description": "Other Sovereign exposures_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00052",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00053",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00054",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00055",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00056",
+            "Value": "",
+            "_description": "Other Sovereign exposures_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00057",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00058",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00059",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00060",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00061",
+            "Value": "",
+            "_description": "Other Sovereign exposures_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00062",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00063",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00064",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00065",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00066",
+            "Value": "",
+            "_description": "Other Sovereign exposures_Below B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00067",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00068",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00069",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00070",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00071",
+            "Value": "",
+            "_description": "Other Sovereign exposures_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00072",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00073",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00074",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00075",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00076",
+            "Value": "",
+            "_description": "Exposures to State Owned Enterprises (=3.1+3.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00077",
+            "Value": "",
+            "_description": "Exposures to State Owned Enterprises (=3.1+3.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00078",
+            "Value": "",
+            "_description": "Exposures to State Owned Enterprises (=3.1+3.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00079",
+            "Value": "",
+            "_description": "Exposures to State Owned Enterprises (=3.1+3.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00080",
+            "Value": "",
+            "_description": "Exposures to State Owned Enterprises (=3.1+3.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00081",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominated and funded in Birr_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00082",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominated and funded in Birr_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00083",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominated and funded in Birr_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00084",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominated and funded in Birr_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00085",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominated and funded in Birr_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00086",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominatedand funded in FCY (=3.2.1+3.2.2+3.2.3+3.2.4+3.2.5+3.2.6)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00087",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominatedand funded in FCY (=3.2.1+3.2.2+3.2.3+3.2.4+3.2.5+3.2.6)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00088",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominatedand funded in FCY (=3.2.1+3.2.2+3.2.3+3.2.4+3.2.5+3.2.6)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00089",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominatedand funded in FCY (=3.2.1+3.2.2+3.2.3+3.2.4+3.2.5+3.2.6)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00090",
+            "Value": "",
+            "_description": "Exposures to State-Owned Enterprises (SOEs) denominatedand funded in FCY (=3.2.1+3.2.2+3.2.3+3.2.4+3.2.5+3.2.6)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00091",
+            "Value": "",
+            "_description": "Credit Risk Assessment of Ethiopia_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00092",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00093",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00094",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00095",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00096",
+            "Value": "",
+            "_description": "Other State-Owned Enterprises (SOEs)_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00097",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00098",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00099",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00100",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00101",
+            "Value": "",
+            "_description": "Other State-Owned Enterprises (SOEs)_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00102",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00103",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00104",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00105",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00106",
+            "Value": "",
+            "_description": "Other State-Owned Enterprises (SOEs)_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00107",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00108",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00109",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00110",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00111",
+            "Value": "",
+            "_description": "Other State-Owned Enterprises (SOEs)_Below B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00112",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00113",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00114",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00115",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00116",
+            "Value": "",
+            "_description": "Other State-Owned Enterprises (SOEs)_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00117",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00118",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00119",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00120",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00121",
+            "Value": "",
+            "_description": "Exposures to Multilateral Development Banks (=4.1+4.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00122",
+            "Value": "",
+            "_description": "Exposures to Multilateral Development Banks (=4.1+4.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00123",
+            "Value": "",
+            "_description": "Exposures to Multilateral Development Banks (=4.1+4.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00124",
+            "Value": "",
+            "_description": "Exposures to Multilateral Development Banks (=4.1+4.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00125",
+            "Value": "",
+            "_description": "Exposures to Multilateral Development Banks (=4.1+4.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00126",
+            "Value": "",
+            "_description": "Exposure to MDBs eligible for 0 percent risk weight._Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00127",
+            "Value": "",
+            "_description": "Exposure to MDBs eligible for 0 percent risk weight._Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00128",
+            "Value": "",
+            "_description": "Exposure to MDBs eligible for 0 percent risk weight._Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00129",
+            "Value": "",
+            "_description": "Exposure to MDBs eligible for 0 percent risk weight._Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00130",
+            "Value": "",
+            "_description": "Exposure to MDBs eligible for 0 percent risk weight._Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00131",
+            "Value": "",
+            "_description": "Other MDBs (=4.2.1+4.2.2+4.2.3+4.2.4+4.2.5+4.2.6)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00132",
+            "Value": "",
+            "_description": "Other MDBs (=4.2.1+4.2.2+4.2.3+4.2.4+4.2.5+4.2.6)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00133",
+            "Value": "",
+            "_description": "Other MDBs (=4.2.1+4.2.2+4.2.3+4.2.4+4.2.5+4.2.6)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00134",
+            "Value": "",
+            "_description": "Other MDBs (=4.2.1+4.2.2+4.2.3+4.2.4+4.2.5+4.2.6)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00135",
+            "Value": "",
+            "_description": "Other MDBs (=4.2.1+4.2.2+4.2.3+4.2.4+4.2.5+4.2.6)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00136",
+            "Value": "",
+            "_description": "RW of MDBs_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00137",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00138",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00139",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00140",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00141",
+            "Value": "",
+            "_description": "Other RW of MDBs_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00142",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00143",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00144",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00145",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00146",
+            "Value": "",
+            "_description": "Other RW of MDBs_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00147",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00148",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00149",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00150",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00151",
+            "Value": "",
+            "_description": "Other RW of MDBs_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00152",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00153",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00154",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00155",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00156",
+            "Value": "",
+            "_description": "Other RW of MDBs_Below B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00157",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00158",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00159",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00160",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00161",
+            "Value": "",
+            "_description": "Other RW of MDBs_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00162",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00163",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00164",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00165",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00166",
+            "Value": "",
+            "_description": "Exposures to Banks, Securities firms and other financial institutions (=5.1+5.2+5.3)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00167",
+            "Value": "",
+            "_description": "Exposures to Banks, Securities firms and other financial institutions (=5.1+5.2+5.3)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00168",
+            "Value": "",
+            "_description": "Exposures to Banks, Securities firms and other financial institutions (=5.1+5.2+5.3)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00169",
+            "Value": "",
+            "_description": "Exposures to Banks, Securities firms and other financial institutions (=5.1+5.2+5.3)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00170",
+            "Value": "",
+            "_description": "Exposures to Banks, Securities firms and other financial institutions (=5.1+5.2+5.3)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00171",
+            "Value": "",
+            "_description": "Exposures with original maturity of more than three months (=5.1.1+5.1.2+5.1.3+5.1.4+5.1.5+5.1.6)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00172",
+            "Value": "",
+            "_description": "Exposures with original maturity of more than three months (=5.1.1+5.1.2+5.1.3+5.1.4+5.1.5+5.1.6)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00173",
+            "Value": "",
+            "_description": "Exposures with original maturity of more than three months (=5.1.1+5.1.2+5.1.3+5.1.4+5.1.5+5.1.6)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00174",
+            "Value": "",
+            "_description": "Exposures with original maturity of more than three months (=5.1.1+5.1.2+5.1.3+5.1.4+5.1.5+5.1.6)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00175",
+            "Value": "",
+            "_description": "Exposures with original maturity of more than three months (=5.1.1+5.1.2+5.1.3+5.1.4+5.1.5+5.1.6)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00176",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00177",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00178",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00179",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00180",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00181",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00182",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00183",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00184",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00185",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00186",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00187",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00188",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00189",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00190",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00191",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00192",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00193",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00194",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00195",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00196",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_Below B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00197",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00198",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00199",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00200",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00201",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00202",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00203",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00204",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00205",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00206",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less (=5.2.1+5.2.2+5.2.3+5.2.4+5.2.5+5.2.6)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00207",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less (=5.2.1+5.2.2+5.2.3+5.2.4+5.2.5+5.2.6)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00208",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less (=5.2.1+5.2.2+5.2.3+5.2.4+5.2.5+5.2.6)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00209",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less (=5.2.1+5.2.2+5.2.3+5.2.4+5.2.5+5.2.6)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00210",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less (=5.2.1+5.2.2+5.2.3+5.2.4+5.2.5+5.2.6)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00211",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00212",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00213",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00214",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00215",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00216",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00217",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00218",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00219",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00220",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00221",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00222",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00223",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00224",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00225",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00226",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00227",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00228",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00229",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00230",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00231",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_Below B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00232",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00233",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00234",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00235",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00236",
+            "Value": "",
+            "_description": "Credit assessment of Bank, Securities firms and other financial institutions_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00237",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00238",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00239",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00240",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00241",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less denominated and funded in Birr_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00242",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less denominated and funded in Birr_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00243",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less denominated and funded in Birr_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00244",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less denominated and funded in Birr_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00245",
+            "Value": "",
+            "_description": "Exposures with original maturity of three months or less denominated and funded in Birr_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00246",
+            "Value": "",
+            "_description": "Exposures to Covered Bonds (=6.1+6.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00247",
+            "Value": "",
+            "_description": "Exposures to Covered Bonds (=6.1+6.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00248",
+            "Value": "",
+            "_description": "Exposures to Covered Bonds (=6.1+6.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00249",
+            "Value": "",
+            "_description": "Exposures to Covered Bonds (=6.1+6.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00250",
+            "Value": "",
+            "_description": "Exposures to Covered Bonds (=6.1+6.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00251",
+            "Value": "",
+            "_description": "Covered bonds that meet criteria to be risk-weighted based on the issue-specific rating or the issuer’s RW (=6.1.1+6.1.2+6.1.3+6.1.4+6.1.5)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00252",
+            "Value": "",
+            "_description": "Covered bonds that meet criteria to be risk-weighted based on the issue-specific rating or the issuer’s RW (=6.1.1+6.1.2+6.1.3+6.1.4+6.1.5)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00253",
+            "Value": "",
+            "_description": "Covered bonds that meet criteria to be risk-weighted based on the issue-specific rating or the issuer’s RW (=6.1.1+6.1.2+6.1.3+6.1.4+6.1.5)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00254",
+            "Value": "",
+            "_description": "Covered bonds that meet criteria to be risk-weighted based on the issue-specific rating or the issuer’s RW (=6.1.1+6.1.2+6.1.3+6.1.4+6.1.5)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00255",
+            "Value": "",
+            "_description": "Covered bonds that meet criteria to be risk-weighted based on the issue-specific rating or the issuer’s RW (=6.1.1+6.1.2+6.1.3+6.1.4+6.1.5)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00256",
+            "Value": "",
+            "_description": "Credit Assessment of the issue-specific or the issuer’s_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00257",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00258",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00259",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00260",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00261",
+            "Value": "",
+            "_description": "Credit Assessment of the issue-specific or the issuer’s_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00262",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00263",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00264",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00265",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00266",
+            "Value": "",
+            "_description": "Credit Assessment of the issue-specific or the issuer’s_BBB+ to BBB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00267",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00268",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00269",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00270",
+            "Value": "",
+            "_description": "BBB+ to BBB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00271",
+            "Value": "",
+            "_description": "Credit Assessment of the issue-specific or the issuer’s_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00272",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00273",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00274",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00275",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00276",
+            "Value": "",
+            "_description": "Credit Assessment of the issue-specific or the issuer’s_Below B-",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00277",
+            "Value": "",
+            "_description": "Below B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00278",
+            "Value": "",
+            "_description": "Below B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00279",
+            "Value": "",
+            "_description": "Below B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00280",
+            "Value": "",
+            "_description": "Below B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00281",
+            "Value": "",
+            "_description": "For unrated covered bonds (=6.2.1+6.2.2+6.2.3+6.2.4)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00282",
+            "Value": "",
+            "_description": "For unrated covered bonds (=6.2.1+6.2.2+6.2.3+6.2.4)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00283",
+            "Value": "",
+            "_description": "For unrated covered bonds (=6.2.1+6.2.2+6.2.3+6.2.4)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00284",
+            "Value": "",
+            "_description": "For unrated covered bonds (=6.2.1+6.2.2+6.2.3+6.2.4)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00285",
+            "Value": "",
+            "_description": "For unrated covered bonds (=6.2.1+6.2.2+6.2.3+6.2.4)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00286",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_20%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00287",
+            "Value": "",
+            "_description": "0.2_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00288",
+            "Value": "",
+            "_description": "0.2_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00289",
+            "Value": "",
+            "_description": "0.2_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00290",
+            "Value": "",
+            "_description": "0.2_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00291",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_50%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00292",
+            "Value": "",
+            "_description": "0.5_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00293",
+            "Value": "",
+            "_description": "0.5_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00294",
+            "Value": "",
+            "_description": "0.5_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00295",
+            "Value": "",
+            "_description": "0.5_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00296",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00297",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Credit Risk Grade_(A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00298",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00299",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00300",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00301",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_100%_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00302",
+            "Value": "",
+            "_description": "Based on the RW of the Issuing bank_150%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00303",
+            "Value": "",
+            "_description": "1.5_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00304",
+            "Value": "",
+            "_description": "1.5_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00305",
+            "Value": "",
+            "_description": "1.5_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00306",
+            "Value": "",
+            "_description": "1.5_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00307",
+            "Value": "",
+            "_description": "Exposures to Corporates (=7.1+7.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00308",
+            "Value": "",
+            "_description": "Exposures to Corporates (=7.1+7.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00309",
+            "Value": "",
+            "_description": "Exposures to Corporates (=7.1+7.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00310",
+            "Value": "",
+            "_description": "Exposures to Corporates (=7.1+7.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00311",
+            "Value": "",
+            "_description": "Exposures to Corporates (=7.1+7.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00312",
+            "Value": "",
+            "_description": "Exposure to General Corporates (=7.1.1+7.1.2+7.1.3+7.1.4+7.1.5+7.1.6+7.1.7)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00313",
+            "Value": "",
+            "_description": "Exposure to General Corporates (=7.1.1+7.1.2+7.1.3+7.1.4+7.1.5+7.1.6+7.1.7)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00314",
+            "Value": "",
+            "_description": "Exposure to General Corporates (=7.1.1+7.1.2+7.1.3+7.1.4+7.1.5+7.1.6+7.1.7)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00315",
+            "Value": "",
+            "_description": "Exposure to General Corporates (=7.1.1+7.1.2+7.1.3+7.1.4+7.1.5+7.1.6+7.1.7)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00316",
+            "Value": "",
+            "_description": "Exposure to General Corporates (=7.1.1+7.1.2+7.1.3+7.1.4+7.1.5+7.1.6+7.1.7)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00317",
+            "Value": "",
+            "_description": "External credit rating of corporate_AAA to AA-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00318",
+            "Value": "",
+            "_description": "AAA to AA-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00319",
+            "Value": "",
+            "_description": "AAA to AA-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00320",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00321",
+            "Value": "",
+            "_description": "AAA to AA-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00322",
+            "Value": "",
+            "_description": "External credit rating of corporate_A+ to A-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00323",
+            "Value": "",
+            "_description": "A+ to A-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00324",
+            "Value": "",
+            "_description": "A+ to A-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00325",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00326",
+            "Value": "",
+            "_description": "A+ to A-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00327",
+            "Value": "",
+            "_description": "External credit rating of corporate_BBB+ to BB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00328",
+            "Value": "",
+            "_description": "BBB+ to BB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00329",
+            "Value": "",
+            "_description": "BBB+ to BB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00330",
+            "Value": "",
+            "_description": "BBB+ to BB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00331",
+            "Value": "",
+            "_description": "BBB+ to BB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00332",
+            "Value": "",
+            "_description": "External credit rating of corporate_BB+ to B-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00333",
+            "Value": "",
+            "_description": "BB+ to B-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00334",
+            "Value": "",
+            "_description": "BB+ to B-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00335",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00336",
+            "Value": "",
+            "_description": "BB+ to B-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00337",
+            "Value": "",
+            "_description": "External credit rating of corporate_Below BB-_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00338",
+            "Value": "",
+            "_description": "Below BB-_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00339",
+            "Value": "",
+            "_description": "Below BB-_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00340",
+            "Value": "",
+            "_description": "Below BB-_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00341",
+            "Value": "",
+            "_description": "Below BB-_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00342",
+            "Value": "",
+            "_description": "External credit rating of corporate_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00343",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00344",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00345",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00346",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00347",
+            "Value": "",
+            "_description": "Exposure to Corporate SMEs_Unrated_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00348",
+            "Value": "",
+            "_description": "Unrated_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00349",
+            "Value": "",
+            "_description": "Unrated_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00350",
+            "Value": "",
+            "_description": "Unrated_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00351",
+            "Value": "",
+            "_description": "Unrated_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00352",
+            "Value": "",
+            "_description": "Specialized lending_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00353",
+            "Value": "",
+            "_description": "Specialized lending_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00354",
+            "Value": "",
+            "_description": "Specialized lending_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00355",
+            "Value": "",
+            "_description": "Specialized lending_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00356",
+            "Value": "",
+            "_description": "Specialized lending_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00357",
+            "Value": "",
+            "_description": "Project finance pre-operational phase_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00358",
+            "Value": "",
+            "_description": "Project finance pre-operational phase_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00359",
+            "Value": "",
+            "_description": "Project finance pre-operational phase_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00360",
+            "Value": "",
+            "_description": "Project finance pre-operational phase_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00361",
+            "Value": "",
+            "_description": "Project finance pre-operational phase_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00362",
+            "Value": "",
+            "_description": "Project finance operational phase_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00363",
+            "Value": "",
+            "_description": "Project finance operational phase_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00364",
+            "Value": "",
+            "_description": "Project finance operational phase_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00365",
+            "Value": "",
+            "_description": "Project finance operational phase_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00366",
+            "Value": "",
+            "_description": "Project finance operational phase_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00367",
+            "Value": "",
+            "_description": "Project finance operational phase (high quality)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00368",
+            "Value": "",
+            "_description": "Project finance operational phase (high quality)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00369",
+            "Value": "",
+            "_description": "Project finance operational phase (high quality)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00370",
+            "Value": "",
+            "_description": "Project finance operational phase (high quality)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00371",
+            "Value": "",
+            "_description": "Project finance operational phase (high quality)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00372",
+            "Value": "",
+            "_description": "Object finance and commodity finance_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00373",
+            "Value": "",
+            "_description": "Object finance and commodity finance_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00374",
+            "Value": "",
+            "_description": "Object finance and commodity finance_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00375",
+            "Value": "",
+            "_description": "Object finance and commodity finance_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00376",
+            "Value": "",
+            "_description": "Object finance and commodity finance_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00377",
+            "Value": "",
+            "_description": "Retail Exposures (individuals or small business) (=8.1+8.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00378",
+            "Value": "",
+            "_description": "Retail Exposures (individuals or small business) (=8.1+8.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00379",
+            "Value": "",
+            "_description": "Retail Exposures (individuals or small business) (=8.1+8.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00380",
+            "Value": "",
+            "_description": "Retail Exposures (individuals or small business) (=8.1+8.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00381",
+            "Value": "",
+            "_description": "Retail Exposures (individuals or small business) (=8.1+8.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00382",
+            "Value": "",
+            "_description": "Exposures that meet the criteria for inclusion in the Regulatory Retail Portfolio (=8.1.1+8.1.2+8.1.3)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00383",
+            "Value": "",
+            "_description": "Exposures that meet the criteria for inclusion in the Regulatory Retail Portfolio (=8.1.1+8.1.2+8.1.3)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00384",
+            "Value": "",
+            "_description": "Exposures that meet the criteria for inclusion in the Regulatory Retail Portfolio (=8.1.1+8.1.2+8.1.3)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00385",
+            "Value": "",
+            "_description": "Exposures that meet the criteria for inclusion in the Regulatory Retail Portfolio (=8.1.1+8.1.2+8.1.3)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00386",
+            "Value": "",
+            "_description": "Exposures that meet the criteria for inclusion in the Regulatory Retail Portfolio (=8.1.1+8.1.2+8.1.3)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00387",
+            "Value": "",
+            "_description": "Revolving credits & lines of credit (including credit cards and overdrafts)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00388",
+            "Value": "",
+            "_description": "Revolving credits & lines of credit (including credit cards and overdrafts)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00389",
+            "Value": "",
+            "_description": "Revolving credits & lines of credit (including credit cards and overdrafts)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00390",
+            "Value": "",
+            "_description": "Revolving credits & lines of credit (including credit cards and overdrafts)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00391",
+            "Value": "",
+            "_description": "Revolving credits & lines of credit (including credit cards and overdrafts)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00392",
+            "Value": "",
+            "_description": "Personal term loans and leases_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00393",
+            "Value": "",
+            "_description": "Personal term loans and leases_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00394",
+            "Value": "",
+            "_description": "Personal term loans and leases_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00395",
+            "Value": "",
+            "_description": "Personal term loans and leases_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00396",
+            "Value": "",
+            "_description": "Personal term loans and leases_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00397",
+            "Value": "",
+            "_description": "Small business facilities and commitments_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00398",
+            "Value": "",
+            "_description": "Small business facilities and commitments_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00399",
+            "Value": "",
+            "_description": "Small business facilities and commitments_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00400",
+            "Value": "",
+            "_description": "Small business facilities and commitments_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00401",
+            "Value": "",
+            "_description": "Small business facilities and commitments_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00402",
+            "Value": "",
+            "_description": "Other Retail exposures that do not meet criteria for Inclusion Regulatory Retail Portfolio_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00403",
+            "Value": "",
+            "_description": "Other Retail exposures that do not meet criteria for Inclusion Regulatory Retail Portfolio_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00404",
+            "Value": "",
+            "_description": "Other Retail exposures that do not meet criteria for Inclusion Regulatory Retail Portfolio_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00405",
+            "Value": "",
+            "_description": "Other Retail exposures that do not meet criteria for Inclusion Regulatory Retail Portfolio_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00406",
+            "Value": "",
+            "_description": "Other Retail exposures that do not meet criteria for Inclusion Regulatory Retail Portfolio_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00407",
+            "Value": "",
+            "_description": "Real estate exposures (performing) (=9.1+9.2)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00408",
+            "Value": "",
+            "_description": "Real estate exposures (performing) (=9.1+9.2)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00409",
+            "Value": "",
+            "_description": "Real estate exposures (performing) (=9.1+9.2)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00410",
+            "Value": "",
+            "_description": "Real estate exposures (performing) (=9.1+9.2)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00411",
+            "Value": "",
+            "_description": "Real estate exposures (performing) (=9.1+9.2)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00412",
+            "Value": "",
+            "_description": "Exposure to Residential Real estate occupied by the owner or rented not past due_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00413",
+            "Value": "",
+            "_description": "Exposure to Residential Real estate occupied by the owner or rented not past due_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00414",
+            "Value": "",
+            "_description": "Exposure to Residential Real estate occupied by the owner or rented not past due_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00415",
+            "Value": "",
+            "_description": "Exposure to Residential Real estate occupied by the owner or rented not past due_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00416",
+            "Value": "",
+            "_description": "Exposure to Residential Real estate occupied by the owner or rented not past due_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00417",
+            "Value": "",
+            "_description": "Exposure to Commercial real estates_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00418",
+            "Value": "",
+            "_description": "Exposure to Commercial real estates_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00419",
+            "Value": "",
+            "_description": "Exposure to Commercial real estates_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00420",
+            "Value": "",
+            "_description": "Exposure to Commercial real estates_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00421",
+            "Value": "",
+            "_description": "Exposure to Commercial real estates_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00422",
+            "Value": "",
+            "_description": "Defaulted Exposure (=10.1+10.2+10.3)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00423",
+            "Value": "",
+            "_description": "Defaulted Exposure (=10.1+10.2+10.3)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00424",
+            "Value": "",
+            "_description": "Defaulted Exposure (=10.1+10.2+10.3)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00425",
+            "Value": "",
+            "_description": "Defaulted Exposure (=10.1+10.2+10.3)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00426",
+            "Value": "",
+            "_description": "Defaulted Exposure (=10.1+10.2+10.3)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00427",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions => 20%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00428",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions => 20%_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00429",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions => 20%_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00430",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions => 20%_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00431",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions => 20%_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00432",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions < 20%_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00433",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions < 20%_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00434",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions < 20%_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00435",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions < 20%_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00436",
+            "Value": "",
+            "_description": "Unsecured portion, where specific provisions < 20%_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00437",
+            "Value": "",
+            "_description": "Residential real estate exposures_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00438",
+            "Value": "",
+            "_description": "Residential real estate exposures_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00439",
+            "Value": "",
+            "_description": "Residential real estate exposures_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00440",
+            "Value": "",
+            "_description": "Residential real estate exposures_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00441",
+            "Value": "",
+            "_description": "Residential real estate exposures_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00442",
+            "Value": "",
+            "_description": "Other exposures (=11.1+11.2+11.3)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00443",
+            "Value": "",
+            "_description": "Other exposures (=11.1+11.2+11.3)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00444",
+            "Value": "",
+            "_description": "Other exposures (=11.1+11.2+11.3)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00445",
+            "Value": "",
+            "_description": "Other exposures (=11.1+11.2+11.3)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00446",
+            "Value": "",
+            "_description": "Other exposures (=11.1+11.2+11.3)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00447",
+            "Value": "",
+            "_description": "Fixed Assets_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00448",
+            "Value": "",
+            "_description": "Fixed Assets_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00449",
+            "Value": "",
+            "_description": "Fixed Assets_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00450",
+            "Value": "",
+            "_description": "Fixed Assets_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00451",
+            "Value": "",
+            "_description": "Fixed Assets_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00452",
+            "Value": "",
+            "_description": "Investment that are not deducted from Capital_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00453",
+            "Value": "",
+            "_description": "Investment that are not deducted from Capital_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00454",
+            "Value": "",
+            "_description": "Investment that are not deducted from Capital_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00455",
+            "Value": "",
+            "_description": "Investment that are not deducted from Capital_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00456",
+            "Value": "",
+            "_description": "Investment that are not deducted from Capital_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00457",
+            "Value": "",
+            "_description": "Others_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00458",
+            "Value": "",
+            "_description": "Others_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00459",
+            "Value": "",
+            "_description": "Others_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00460",
+            "Value": "",
+            "_description": "Others_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00461",
+            "Value": "",
+            "_description": "Others_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00462",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk RWA (= Sum of 1 up to 11)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00463",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk RWA (= Sum of 1 up to 11)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00464",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk RWA (= Sum of 1 up to 11)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00465",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk RWA (= Sum of 1 up to 11)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00466",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk RWA (= Sum of 1 up to 11)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00467",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk Capital (=12*11%)_Total Exposure",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00468",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk Capital (=12*11%)_Exposure without Credit Risk Mitigation (CRM)*_(B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00469",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk Capital (=12*11%)_Exposures with CRM coverage**_(C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00470",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk Capital (=12*11%)_Risk Weight_(D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00471",
+            "Value": "",
+            "_description": "Total On Balance Sheet Credit Risk Capital (=12*11%)_Risk Weighted Assets_E=(B+C)* D/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00472",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00473",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00474",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00475",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00476",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00477",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00478",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00479",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00480",
+            "Value": "",
+            "_description": "Interest Rate Related Contracts (=1.1+1.2+1.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00481",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00482",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00483",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00484",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00485",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00486",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00487",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00488",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00489",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00490",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00491",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00492",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00493",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00494",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00495",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00496",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00497",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00498",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00499",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00500",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00501",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00502",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00503",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00504",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00505",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00506",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00507",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00508",
+            "Value": "",
+            "_description": "Foreign Exchange & Gold Contracts (=2.1+2.2+2.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00509",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00510",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00511",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00512",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00513",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00514",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00515",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00516",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00517",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00518",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00519",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00520",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00521",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00522",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00523",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00524",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00525",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00526",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00527",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00528",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00529",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00530",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00531",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00532",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00533",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00534",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00535",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00536",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00537",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00538",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00539",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00540",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00541",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00542",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00543",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00544",
+            "Value": "",
+            "_description": "Equity Contracts (=3.1+3.2+3.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00545",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00546",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00547",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00548",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00549",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00550",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00551",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00552",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00553",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00554",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00555",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00556",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00557",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00558",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00559",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00560",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00561",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00562",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00563",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00564",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00565",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00566",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00567",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00568",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00569",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00570",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00571",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00572",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00573",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00574",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00575",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00576",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00577",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00578",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00579",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00580",
+            "Value": "",
+            "_description": "Precious Metal Contracts (Other Than Gold) (=4.1+4.2+4.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00581",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00582",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00583",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00584",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00585",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00586",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00587",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00588",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00589",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00590",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00591",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00592",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00593",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00594",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00595",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00596",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00597",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00598",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00599",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00600",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00601",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00602",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00603",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00604",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00605",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00606",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00607",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00608",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00609",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00610",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00611",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00612",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00613",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00614",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00615",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00616",
+            "Value": "",
+            "_description": "Other Commodities Contracts (Other Than Precious Metals) (=5.1+5.2+5.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00617",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00618",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00619",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00620",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00621",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00622",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00623",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00624",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00625",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00626",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00627",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00628",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00629",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00630",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00631",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00632",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00633",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00634",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00635",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00636",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00637",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00638",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00639",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00640",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00641",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00642",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00643",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00644",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00645",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00646",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00647",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00648",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00649",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00650",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00651",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00652",
+            "Value": "",
+            "_description": "Other Market Related Contracts (=6.1+6.2+6.3)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00653",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00654",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00655",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00656",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00657",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00658",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00659",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00660",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00661",
+            "Value": "",
+            "_description": "Residual maturity 1 year or less_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00662",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00663",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00664",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00665",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00666",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00667",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00668",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00669",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00670",
+            "Value": "",
+            "_description": "Residual maturity > 1 year to 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00671",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00672",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00673",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00674",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00675",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00676",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00677",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00678",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00679",
+            "Value": "",
+            "_description": "Residual maturity > 5 years_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00680",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00681",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00682",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00683",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00684",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00685",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00686",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00687",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00688",
+            "Value": "",
+            "_description": "Total Off Balance Sheet OTC Derivatives Credit Risk Weighted Assets (= Sum of 1 up to 6)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00689",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Add-On (A)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00690",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Exposures without CRM_Replacement cost of contracts (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00691",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Exposures without CRM_Notional Principal amounts (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00692",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Credit equivalent exposure D=B+(C*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00693",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Replacement cost of contracts (E)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00694",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Notional Principal amounts (F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00695",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_Credit equivalent exposure pre-CRM G=E+(F*A)/100",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00696",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_RW of Counterparty or Guarantee (H)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00697",
+            "Value": "",
+            "_description": "Total Required Capital For Off-balance sheet (Derivative) assets (=7*11%)_RWA             I=(D+G)*H",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00698",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk RWA (Sum SFT 1 up to SFT 11…)_C = Collateral (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00699",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk RWA (Sum SFT 1 up to SFT 11…)_HFX = 0.08, if C and E in different currencies, else 0 (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00700",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk RWA (Sum SFT 1 up to SFT 11…)_RW of the counterparty (D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00701",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk RWA (Sum SFT 1 up to SFT 11…)_RWA E=Max {0;1.15*A –(0.85 -C)*B}*D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00702",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk Capital (=1*11%)_C = Collateral (B)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00703",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk Capital (=1*11%)_HFX = 0.08, if C and E in different currencies, else 0 (C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00704",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk Capital (=1*11%)_RW of the counterparty (D)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00705",
+            "Value": "",
+            "_description": "Total Off Balance Sheet SFT Credit Risk Capital (=1*11%)_RWA E=Max {0;1.15*A –(0.85 -C)*B}*D",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00706",
+            "Value": "",
+            "_description": "Total Risk Weighted Assets for Credit Risk (=B+C)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00707",
+            "Value": "",
+            "_description": "TOTAL On-balance Sheet Credit Risk RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00708",
+            "Value": "",
+            "_description": "TOTAL Off-balance Sheet Credit Risk RWA (=C.1+C.2+C.3)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00709",
+            "Value": "",
+            "_description": "Total Off-balance Sheet (Non-Derivatives and SFT)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00710",
+            "Value": "",
+            "_description": "Total Off-balance Sheet OTC Derivatives Credit RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00711",
+            "Value": "",
+            "_description": "Total Off-balance Sheet SFT Credit Risk RWA",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00712",
+            "Value": "",
+            "_description": "Total Capital For Credit Risk (=E+F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00713",
+            "Value": "",
+            "_description": "Total On-balance Sheet Credit Risk Capital (=B*11%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00714",
+            "Value": "",
+            "_description": "Total Off-balance Sheet Credit Risk Capital (=C*11%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00715",
+            "Value": "",
+            "_description": "Commitments that are unconditionally cancellable at any time by the bank without prior notice, or that effectively provide for automatic cancellation due to deterioration in a borrower’s creditworthiness (e.g. loan commitment) shall be applied CCF of 10% (=Sum of 1.1 up to 1.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00716",
+            "Value": "",
+            "_description": "Applies to both the issuing and confirming banks of short-term self-liquidating trade letters of credit arising from the movement of goods (e.g. documentary credits collateralized by the underlying shipment, letter of credit, except standby letter of credit) shall be applied CCF of 20% (=Sum of 2.1 up to 2.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00717",
+            "Value": "",
+            "_description": "Commitments, regardless of the maturity of the underlying facility, unless they qualify for a lower CCF, shall be applied CCF of 40% (=Sum of 3.1 up to 3.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00718",
+            "Value": "",
+            "_description": "Certain transaction-related contingent items including performance bonds, bid bonds, warranties and standby letters of credit related to particular transactions, shall be applied CCF of 50%. (=Sum of 4.1 up to 4.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00719",
+            "Value": "",
+            "_description": "Note issuance facilities (NIFs) and revolving underwriting facilities (RUFs) regardless of the maturity of the underlying facility, shall be applied CCF of 50 %. ( =Sum of 5.1 up to 5.10).",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00720",
+            "Value": "",
+            "_description": "Direct credit substitutes, e.g. general guarantees of indebtedness (including standby letters of credit serving as financial guarantees for loans and securities) and acceptances (including endorsements with the character of acceptances), shall be applied CCF of 100% (=Sum of 6.1 up to 6.10).",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00721",
+            "Value": "",
+            "_description": "Sale and repurchase agreements and asset sales with recourse where the credit risk remains with the bank, shall be applied CCF of 100% (=Sum of 7.1 up to 7.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00722",
+            "Value": "",
+            "_description": "Lending of banks’ securities or the posting of securities as collateral by banks, including instances where these arise out of repo-style transactions (i.e. repurchase/reverse repurchase and securities lending/securities borrowing transactions), shall be applied CCF of 100% (=Sum of 8.1 up to 8.10)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00723",
+            "Value": "",
+            "_description": "Forward asset purchases, forward deposits and partly paid shares and securities which represent commitments with certain drawdown and shall be weighted according to the type of asset and not accordingly to the type of counterparty with whom the transaction has been entered into, shall be applied CCF of 100% (=Sum of 9.1 up to 9.10).",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00724",
+            "Value": "",
+            "_description": "Off-balance sheet items that are credit substitutes not explicitly included in any other category, shall be applied CCF of 100% (=Sum of 10.1 up to 10.10).",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00725",
+            "Value": "",
+            "_description": "Total Off-Balance Sheet (Non-Derivatives and SFT) Credit RWA (=Sum of 1 up to 10 )",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "168_00726",
+            "Value": "",
+            "_description": "Total Off-Balance Sheet (Non-Market) Credit Risk CAPITAL (=11*11%)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 200,
+            "_areaName": "1_Off-Balance Sheet Risk Weighted Assets",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "Off-balance sheet items (non-market)",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Total off- balance sheet exposure (Face Value)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "RW of the counterparty_(A)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Exposures Without CRM_Off-bal. sheet Exposure before CCF_(B)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Exposures Without CRM_Credit Equivalent Exposure_C=B*CCF",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "CRM Exposure Coverage (D)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "Credit Equivalent Exposure with_CRM E=D*CCF",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.8",
+                    "Value": "",
+                    "_description": "RWA F=(C+E)*A/100",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                }
+            ]
+        },
+        {
+            "Area": 201,
+            "_areaName": "Risk Weighted Assets for Security Financing Transactions (SFT)",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "SFT",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "E = Current value of exposure (A)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "C = Collateral (B)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "HFX = 0.08, if C and E in different currencies, else 0 (C)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "RW of the counterparty (D)",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "RWA E=Max {0;1.15*A –(0.85 -C)*B}*D",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                }
+            ]
+        }
+    ]
+}

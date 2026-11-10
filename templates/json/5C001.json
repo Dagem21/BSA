@@ -1,0 +1,136 @@
+{
+    "ReturnKey": "MCR5C001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "171_00001",
+            "Value": "",
+            "_description": "Total Commodity Instruments_Gross Commodity Position",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00002",
+            "Value": "",
+            "_description": "Total Commodity Instruments_Positive Net Open Position",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00003",
+            "Value": "",
+            "_description": "Total Commodity Instruments_15% of Net Open Position ",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00004",
+            "Value": "",
+            "_description": "Total Commodity Instruments_3% of Gross Open Position",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00005",
+            "Value": "",
+            "_description": "Capital Required Against Directional Risks (Sum of F)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00006",
+            "Value": "",
+            "_description": "Capital Required Against Basis, Interest Rate & Forward Gap Risks (Sum of G)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00007",
+            "Value": "",
+            "_description": "Total Capital Requirement Against Commodity Position Risk (Sum of Row 1 + Row 2)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00008",
+            "Value": "",
+            "_description": "Commodity Position Risk Equivalent Assets (Total Capital Requirement (Row 3) * 9.1)",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00009",
+            "Value": "",
+            "_description": "Total Commodity Instruments_Gross Long",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "171_00010",
+            "Value": "",
+            "_description": "Total Commodity Instruments_Gross Short",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": [
+        {
+            "Area": 202,
+            "_areaName": "Commodity Instruments",
+            "DynamicItems": [
+                {
+                    "Code": "1.1",
+                    "Value": "",
+                    "_description": "Commodity Instruments",
+                    "_dataType": "TEXT",
+                    "_required": true
+                },
+                {
+                    "Code": "1.2",
+                    "Value": "",
+                    "_description": "Gross Long",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.3",
+                    "Value": "",
+                    "_description": "Gross Short",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.4",
+                    "Value": "",
+                    "_description": "Gross Commodity Position",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.5",
+                    "Value": "",
+                    "_description": "Positive Net Open Position",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.6",
+                    "Value": "",
+                    "_description": "15% of Net Open Position ",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                },
+                {
+                    "Code": "1.7",
+                    "Value": "",
+                    "_description": "3% of Gross Open Position",
+                    "_dataType": "NUMERIC",
+                    "_required": false
+                }
+            ]
+        }
+    ]
+}

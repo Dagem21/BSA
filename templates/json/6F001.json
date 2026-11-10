@@ -1,0 +1,1011 @@
+{
+    "ReturnKey": "MFER6F001",
+    "InstCode": "0000001",
+    "FinYear": 2026,
+    "StartDate": "2026-07-01T00:00:00",
+    "EndDate": "2026-09-30T00:00:00",
+    "ReturnItemsList": [
+        {
+            "Code": "172_00001",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00002",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00003",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00004",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 1.1.1 to 1.1.6)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00005",
+            "Value": "",
+            "_description": "Currency on hand_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00006",
+            "Value": "",
+            "_description": "Currency on hand_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00007",
+            "Value": "",
+            "_description": "Currency on hand_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00008",
+            "Value": "",
+            "_description": "Currency on hand_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00009",
+            "Value": "",
+            "_description": "Due from banks_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00010",
+            "Value": "",
+            "_description": "Due from banks_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00011",
+            "Value": "",
+            "_description": "Due from banks_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00012",
+            "Value": "",
+            "_description": "Due from banks_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00013",
+            "Value": "",
+            "_description": "Cheques and items in transit_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00014",
+            "Value": "",
+            "_description": "Cheques and items in transit_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00015",
+            "Value": "",
+            "_description": "Cheques and items in transit_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00016",
+            "Value": "",
+            "_description": "Cheques and items in transit_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00017",
+            "Value": "",
+            "_description": "Loans & advances_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00018",
+            "Value": "",
+            "_description": "Loans & advances_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00019",
+            "Value": "",
+            "_description": "Loans & advances_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00020",
+            "Value": "",
+            "_description": "Loans & advances_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00021",
+            "Value": "",
+            "_description": "Accrued inte_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00022",
+            "Value": "",
+            "_description": "Accrued inte_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00023",
+            "Value": "",
+            "_description": "Accrued inte_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00024",
+            "Value": "",
+            "_description": "Accrued inte_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00025",
+            "Value": "",
+            "_description": "Other Assets_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00026",
+            "Value": "",
+            "_description": "Other Assets_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00027",
+            "Value": "",
+            "_description": "Other Assets_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00028",
+            "Value": "",
+            "_description": "Other Assets_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00029",
+            "Value": "",
+            "_description": "Off-balance sheet Items (Sum of 1.2 to 1.2.4)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00030",
+            "Value": "",
+            "_description": "Off-balance sheet Items (Sum of 1.2 to 1.2.4)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00031",
+            "Value": "",
+            "_description": "Off-balance sheet Items (Sum of 1.2 to 1.2.4)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00032",
+            "Value": "",
+            "_description": "Off-balance sheet Items (Sum of 1.2 to 1.2.4)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00033",
+            "Value": "",
+            "_description": "Undelivered spot purchase_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00034",
+            "Value": "",
+            "_description": "Undelivered spot purchase_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00035",
+            "Value": "",
+            "_description": "Undelivered spot purchase_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00036",
+            "Value": "",
+            "_description": "Undelivered spot purchase_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00037",
+            "Value": "",
+            "_description": "Forward purchase_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00038",
+            "Value": "",
+            "_description": "Forward purchase_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00039",
+            "Value": "",
+            "_description": "Forward purchase_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00040",
+            "Value": "",
+            "_description": "Forward purchase_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00041",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00042",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00043",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00044",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00045",
+            "Value": "",
+            "_description": "Other assets_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00046",
+            "Value": "",
+            "_description": "Other assets_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00047",
+            "Value": "",
+            "_description": "Other assets_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00048",
+            "Value": "",
+            "_description": "Other assets_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00049",
+            "Value": "",
+            "_description": "Total Foreign Currency Assets (Sum of 1.1 & 1.2)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00050",
+            "Value": "",
+            "_description": "Total Foreign Currency Assets (Sum of 1.1 & 1.2)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00051",
+            "Value": "",
+            "_description": "Total Foreign Currency Assets (Sum of 1.1 & 1.2)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00052",
+            "Value": "",
+            "_description": "Total Foreign Currency Assets (Sum of 1.1 & 1.2)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00053",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00054",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00055",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00056",
+            "Value": "",
+            "_description": "On-balance Sheet Items (Sum of 2.1.1 to 2.1.5)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00057",
+            "Value": "",
+            "_description": "Due to banks abroad_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00058",
+            "Value": "",
+            "_description": "Due to banks abroad_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00059",
+            "Value": "",
+            "_description": "Due to banks abroad_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00060",
+            "Value": "",
+            "_description": "Due to banks abroad_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00061",
+            "Value": "",
+            "_description": "Foreign currency deposits_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00062",
+            "Value": "",
+            "_description": "Foreign currency deposits_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00063",
+            "Value": "",
+            "_description": "Foreign currency deposits_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00064",
+            "Value": "",
+            "_description": "Foreign currency deposits_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00065",
+            "Value": "",
+            "_description": "Accrued interest payable_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00066",
+            "Value": "",
+            "_description": "Accrued interest payable_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00067",
+            "Value": "",
+            "_description": "Accrued interest payable_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00068",
+            "Value": "",
+            "_description": "Accrued interest payable_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00069",
+            "Value": "",
+            "_description": "Other liabilities_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00070",
+            "Value": "",
+            "_description": "Other liabilities_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00071",
+            "Value": "",
+            "_description": "Other liabilities_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00072",
+            "Value": "",
+            "_description": "Other liabilities_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00073",
+            "Value": "",
+            "_description": "Off-balance Sheet Items (Sum of 2.2.1 to 2.2.6)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00074",
+            "Value": "",
+            "_description": "Off-balance Sheet Items (Sum of 2.2.1 to 2.2.6)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00075",
+            "Value": "",
+            "_description": "Off-balance Sheet Items (Sum of 2.2.1 to 2.2.6)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00076",
+            "Value": "",
+            "_description": "Off-balance Sheet Items (Sum of 2.2.1 to 2.2.6)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00077",
+            "Value": "",
+            "_description": "Undelivered spot sales_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00078",
+            "Value": "",
+            "_description": "Undelivered spot sales_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00079",
+            "Value": "",
+            "_description": "Undelivered spot sales_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00080",
+            "Value": "",
+            "_description": "Undelivered spot sales_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00081",
+            "Value": "",
+            "_description": "Forward sales_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00082",
+            "Value": "",
+            "_description": "Forward sales_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00083",
+            "Value": "",
+            "_description": "Forward sales_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00084",
+            "Value": "",
+            "_description": "Forward sales_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00085",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00086",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00087",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00088",
+            "Value": "",
+            "_description": "Option, Swaps, Derivatives_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00089",
+            "Value": "",
+            "_description": "Letter of credit_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00090",
+            "Value": "",
+            "_description": "Letter of credit_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00091",
+            "Value": "",
+            "_description": "Letter of credit_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00092",
+            "Value": "",
+            "_description": "Letter of credit_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00093",
+            "Value": "",
+            "_description": "Guarantees_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00094",
+            "Value": "",
+            "_description": "Guarantees_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00095",
+            "Value": "",
+            "_description": "Guarantees_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00096",
+            "Value": "",
+            "_description": "Guarantees_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00097",
+            "Value": "",
+            "_description": "Other liabilities_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00098",
+            "Value": "",
+            "_description": "Other liabilities_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00099",
+            "Value": "",
+            "_description": "Other liabilities_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00100",
+            "Value": "",
+            "_description": "Other liabilities_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00101",
+            "Value": "",
+            "_description": "Total Foreign Currency Liabilities (Sum of 2.1 & 2.2)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00102",
+            "Value": "",
+            "_description": "Total Foreign Currency Liabilities (Sum of 2.1 & 2.2)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00103",
+            "Value": "",
+            "_description": "Total Foreign Currency Liabilities (Sum of 2.1 & 2.2)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00104",
+            "Value": "",
+            "_description": "Total Foreign Currency Liabilities (Sum of 2.1 & 2.2)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00105",
+            "Value": "",
+            "_description": "Net long position (where assets less liabilities is +)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00106",
+            "Value": "",
+            "_description": "Net long position (where assets less liabilities is +)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00107",
+            "Value": "",
+            "_description": "Net long position (where assets less liabilities is +)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00108",
+            "Value": "",
+            "_description": "Net long position (where assets less liabilities is +)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00109",
+            "Value": "",
+            "_description": "Net short position (where assests less liabilities is -)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00110",
+            "Value": "",
+            "_description": "Net short position (where assests less liabilities is -)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00111",
+            "Value": "",
+            "_description": "Net short position (where assests less liabilities is -)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00112",
+            "Value": "",
+            "_description": "Net short position (where assests less liabilities is -)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00113",
+            "Value": "",
+            "_description": "Mid Exchange Rate_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00114",
+            "Value": "",
+            "_description": "Mid Exchange Rate_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00115",
+            "Value": "",
+            "_description": "Mid Exchange Rate_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00116",
+            "Value": "",
+            "_description": "Mid Exchange Rate_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00117",
+            "Value": "",
+            "_description": "Net long position in Birr (3.1*4)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00118",
+            "Value": "",
+            "_description": "Net long position in Birr (3.1*4)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00119",
+            "Value": "",
+            "_description": "Net long position in Birr (3.1*4)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00120",
+            "Value": "",
+            "_description": "Net long position in Birr (3.1*4)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00121",
+            "Value": "",
+            "_description": "Net short position in Birr (3.2*4)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00122",
+            "Value": "",
+            "_description": "Net short position in Birr (3.2*4)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00123",
+            "Value": "",
+            "_description": "Net short position in Birr (3.2*4)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00124",
+            "Value": "",
+            "_description": "Net short position in Birr (3.2*4)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00125",
+            "Value": "",
+            "_description": "Net open position (Greater of 5 or 6)_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00126",
+            "Value": "",
+            "_description": "Net open position (Greater of 5 or 6)_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00127",
+            "Value": "",
+            "_description": "Net open position (Greater of 5 or 6)_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00128",
+            "Value": "",
+            "_description": "Net open position (Greater of 5 or 6)_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00129",
+            "Value": "",
+            "_description": "Overall Foreign Exchange Position_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00130",
+            "Value": "",
+            "_description": "Overall Foreign Exchange Position_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00131",
+            "Value": "",
+            "_description": "Overall Foreign Exchange Position_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00132",
+            "Value": "",
+            "_description": "Overall Foreign Exchange Position_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00133",
+            "Value": "",
+            "_description": "Total long Positions in FX (Sum of row 5)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00134",
+            "Value": "",
+            "_description": "Total Short Positions in FX (Sum of 6)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00135",
+            "Value": "",
+            "_description": "Max (Total Long Positions; Total Short Positions)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00136",
+            "Value": "",
+            "_description": "Gold Position (absolute value)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00137",
+            "Value": "",
+            "_description": "Net Global Open Position (Rows 9 + 10)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00138",
+            "Value": "",
+            "_description": "Total Capital Charge for FX Risk (Row 11*11%)_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00139",
+            "Value": "",
+            "_description": "TOTAL RWA for FX = Row 12 * 9.1_Gold",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00140",
+            "Value": "",
+            "_description": "Borrowings_USD",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00141",
+            "Value": "",
+            "_description": "Borrowings_Euros",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00142",
+            "Value": "",
+            "_description": "Borrowings_GBP",
+            "_dataType": "NUMERIC",
+            "_required": false
+        },
+        {
+            "Code": "172_00143",
+            "Value": "",
+            "_description": "Borrowings_Others",
+            "_dataType": "NUMERIC",
+            "_required": false
+        }
+    ],
+    "DynamicItemsList": []
+}

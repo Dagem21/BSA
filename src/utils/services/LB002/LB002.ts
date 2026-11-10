@@ -102,6 +102,7 @@ export async function processLB002Report(
     await workbook.xlsx.readFile(inputFilePath);
 
     const worksheet =
+        workbook.getWorksheet("Single Borrower") ||
         workbook.getWorksheet("LB002") ||
         workbook.getWorksheet("BOR_TEN_PER_LB002") ||
         workbook.getWorksheet("Sheet1") ||
@@ -237,10 +238,10 @@ export async function processLB002Report(
     }
 
     // Update Header Metadata cells in template after row scanning
-    worksheet.getCell("B2").value = instCode;
-    worksheet.getCell("B3").value = finYear;
-    worksheet.getCell("B4").value = formattedStartDate;
-    worksheet.getCell("B5").value = formattedEndDate;
+    worksheet.getCell("C5").value = instCode;
+    worksheet.getCell("C6").value = finYear;
+    worksheet.getCell("C7").value = formattedStartDate;
+    worksheet.getCell("C8").value = formattedEndDate;
 
     const jsonOutput = LB002Format(
         "BOR_TEN_PER_LB002",

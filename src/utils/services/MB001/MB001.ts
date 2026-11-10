@@ -5,21 +5,25 @@ import { MB001Format, MB001_DESCRIPTIONS, MB001_ROW_CODE_MAP } from "./jsonForma
 
 function formatIsoString(dateVal: any): string {
     if (!dateVal) return "";
-    let d: Date;
     if (dateVal instanceof Date) {
-        d = dateVal;
-    } else {
-        d = new Date(String(dateVal).trim());
+        if (isNaN(dateVal.getTime())) return "";
+        const yyyy = dateVal.getFullYear();
+        const mm = String(dateVal.getMonth() + 1).padStart(2, "0");
+        const dd = String(dateVal.getDate()).padStart(2, "0");
+        return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
+    const str = String(dateVal).trim();
+    if (str.includes("T")) {
+        const parts = str.split("T");
+        return `${parts[0]}T00:00:00`;
+    }
+    const d = new Date(str);
     if (!isNaN(d.getTime())) {
         const yyyy = d.getFullYear();
         const mm = String(d.getMonth() + 1).padStart(2, "0");
         const dd = String(d.getDate()).padStart(2, "0");
-        return `${yyyy}-${mm}-${dd}T00:00:00.000Z`;
+        return `${yyyy}-${mm}-${dd}T00:00:00`;
     }
-    const str = String(dateVal).trim();
-    if (!str.includes("T")) return `${str}T00:00:00.000Z`;
-    if (!str.endsWith("Z")) return `${str}.000Z`;
     return str;
 }
 
@@ -67,6 +71,8 @@ export async function processMB001Report(
     await workbook.xlsx.readFile(inputFilePath);
 
     const worksheet =
+        workbook.getWorksheet("MB001MB001") ||
+        workbook.getWorksheet("MB001") ||
         workbook.getWorksheet("NBE") ||
         workbook.getWorksheet("BSD Monthly  Balance Sheet") ||
         workbook.getWorksheet("Sheet1") ||
@@ -76,11 +82,11 @@ export async function processMB001Report(
     const formattedStartDate = formatIsoString(startDate);
     const formattedEndDate = formatIsoString(endDate);
 
-    // Update Header Metadata cells
-    worksheet.getCell("B8").value = instCode;
-    worksheet.getCell("B9").value = finYear;
-    worksheet.getCell("B10").value = formattedStartDate;
-    worksheet.getCell("B11").value = formattedEndDate;
+    // Update Header Metadata cells (Column C holds the values)
+    worksheet.getCell("C8").value = instCode;
+    worksheet.getCell("C9").value = finYear;
+    worksheet.getCell("C10").value = formattedStartDate;
+    worksheet.getCell("C11").value = formattedEndDate;
 
     // Explicit section code overrides in Excel Column A
     const EXCEL_CODE_OVERRIDE_MAP: Record<string, string> = {
@@ -141,4 +147,92 @@ export async function processMB001Report(
         excelPath: outputExcelPath,
         itemCount: MB001_DESCRIPTIONS.length
     };
+}
+
+export async function jsonToExcelMB001(
+    jsonData: any,
+    outputExcelPath?: string
+): Promise<ExcelJS.Workbook> {
+    const templatePath1 = path.join(process.cwd(), "templates", "MB001MB001.xlsx");
+    const templatePath2 = path.join(process.cwd(), "templates", "MB001.xlsx");
+    const templatePath = fs.existsSync(templatePath1) ? templatePath1 : templatePath2;
+
+    const workbook = new ExcelJS.Workbook();
+    if (fs.existsSync(templatePath)) {
+        await workbook.xlsx.readFile(templatePath);
+    } else {
+        workbook.addWorksheet("MB001MB001");
+    }
+
+    let worksheet =
+        workbook.getWorksheet("MB001MB001") ||
+        workbook.getWorksheet("MB001") ||
+        workbook.getWorksheet("NBE") ||
+        workbook.getWorksheet("BSD Monthly  Balance Sheet") ||
+        workbook.worksheets[0];
+
+    if (!worksheet) {
+        worksheet = workbook.addWorksheet("MB001MB001");
+    }
+
+    // Set Header Metadata (C8..C11)
+    if (jsonData.ReturnKey) worksheet.getCell("A1").value = jsonData.ReturnKey;
+    if (jsonData.InstCode) worksheet.getCell("C8").value = jsonData.InstCode;
+    if (jsonData.FinYear) worksheet.getCell("C9").value = Number(jsonData.FinYear);
+    if (jsonData.StartDate) worksheet.getCell("C10").value = formatIsoString(jsonData.StartDate);
+    if (jsonData.EndDate) worksheet.getCell("C11").value = formatIsoString(jsonData.EndDate);
+
+    const safeSet = (cell: ExcelJS.Cell, rawVal: any) => {
+        if (rawVal === undefined || rawVal === null || rawVal === "") return;
+        if (
+            cell.type === ExcelJS.ValueType.Formula ||
+            (cell.value && typeof cell.value === "object" && ("formula" in cell.value || "sharedFormula" in cell.value))
+        ) {
+            return;
+        }
+        const num = parseFloat(rawVal);
+        cell.value = isNaN(num) ? rawVal : num;
+    };
+
+    const EXCEL_CODE_OVERRIDE_MAP: Record<string, string> = {
+        "4.2": "110_00149",
+        "14.1.4": "110_00150",
+        "21.2": "110_00151",
+    };
+
+    const itemsMap = new Map<string, string>();
+    if (Array.isArray(jsonData.ReturnItemsList)) {
+        for (const item of jsonData.ReturnItemsList) {
+            if (item && item.Code) {
+                itemsMap.set(item.Code, item.Value);
+            }
+        }
+    }
+
+    worksheet.eachRow((row, rowNumber) => {
+        if (rowNumber < 17 || rowNumber > 167) return;
+
+        const colA = getDirectCellValue(row.getCell(1));
+        let targetCode: string | null = null;
+        if (colA && EXCEL_CODE_OVERRIDE_MAP[colA]) {
+            targetCode = EXCEL_CODE_OVERRIDE_MAP[colA];
+        } else if (rowNumber >= 17 && rowNumber <= 167) {
+            targetCode = MB001_ROW_CODE_MAP[rowNumber - 17];
+        }
+
+        if (targetCode && itemsMap.has(targetCode)) {
+            const val = itemsMap.get(targetCode);
+            safeSet(row.getCell(3), val);
+        }
+    });
+
+    if (outputExcelPath) {
+        const outDir = path.dirname(outputExcelPath);
+        if (!fs.existsSync(outDir)) {
+            fs.mkdirSync(outDir, { recursive: true });
+        }
+        await workbook.xlsx.writeFile(outputExcelPath);
+    }
+
+    return workbook;
 }

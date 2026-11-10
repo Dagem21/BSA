@@ -50,6 +50,9 @@ import { SD01001ExcelView } from "@/components/ReportViews/sd01001-excel-view";
 import { MP003ExcelView } from "@/components/ReportViews/mp003-excel-view";
 import { LP001ExcelView } from "@/components/ReportViews/lp001-excel-view";
 import { FABS001ExcelView } from "@/components/ReportViews/fabs001-excel-view";
+import { C2001ExcelView } from "@/components/ReportViews/c2001-excel-view";
+import { DF001ExcelView } from "@/components/ReportViews/df001-excel-view";
+import { C5001ExcelView } from "@/components/ReportViews/c5001-excel-view";
 
 export default function Details() {
     const searchParams = useSearchParams();
@@ -123,6 +126,22 @@ export default function Details() {
             return <FABS001ExcelView activeFileName={report.json} />;
         }
 
+        if (upperName.includes("2C001") || upperName.includes("QCR2C001") || upperName.includes("C2001")) {
+            return <C2001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("6F001") || upperName.includes("DF001") || upperName.includes("MFER6F001")) {
+            return <DF001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("5C001") || upperName.includes("MCR5C001") || upperName.includes("COMMODIT")) {
+            return <C5001ExcelView activeFileName={report.json} />;
+        }
+
+        if (upperName.includes("MB001")) {
+            return <MB001ExcelView activeFileName={report.json} />;
+        }
+
         switch (reportTypeName) {
             case "BD_L&A_BD001":
                 return <BD001ExcelView activeFileName={report.json} />;
@@ -145,6 +164,7 @@ export default function Details() {
                 return <LP001ExcelView activeFileName={report.json} />;
             case "NBE_MAT_ANL_MA001":
                 return <MA001ExcelView activeFileName={report.json} />;
+            case "MB001":
             case "MB001MB001":
                 return <MB001ExcelView activeFileName={report.json} />;
             case "CDby Sector and RegMD002":
@@ -215,6 +235,18 @@ export default function Details() {
                 return <SD01001ExcelView activeFileName={report.json} />;
             case "FASDBSFABS001":
                 return <FABS001ExcelView activeFileName={report.json} />;
+            case "QCR2C001":
+            case "2C001":
+            case "C2001":
+            case "CAP_REQ_CREDIT_2C001":
+                return <C2001ExcelView activeFileName={report.json} />;
+            case "MFER6F001":
+            case "6F001":
+            case "DF001":
+                return <DF001ExcelView activeFileName={report.json} />;
+            case "MCR5C001":
+            case "5C001":
+                return <C5001ExcelView activeFileName={report.json} />;
             default:
                 return (
                     <>

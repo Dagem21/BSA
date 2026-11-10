@@ -6,6 +6,7 @@ const REQUIRED_CELL_CHECKS: Array<{
     exactMatch?: boolean;
 }> = [
     { cell: "B8", expected: "Instiution Code" },
+    { cell: "B5", expected: "Instiution Code" },
     { cell: "B9", expected: "Financial Year" },
     { cell: "B10", expected: "Start Date" },
     { cell: "B11", expected: "End Date" },
@@ -65,7 +66,31 @@ export async function validateTemplate(
             };
         }
 
-        const EXPECTED_SHEET_NAME = workbook.SheetNames[0];
+        let EXPECTED_SHEET_NAME = workbook.SheetNames[0];
+        if (expectedReportId) {
+            const clean = expectedReportId.toUpperCase();
+            if (clean.includes("LB002") || clean.includes("BOR_TEN_PER")) {
+                const found = workbook.SheetNames.find((s) => {
+                    const sl = s.toLowerCase();
+                    return (
+                        sl.includes("single borrower") ||
+                        sl.includes("lb002") ||
+                        sl.includes("bor_ten_per")
+                    );
+                });
+                if (found) EXPECTED_SHEET_NAME = found;
+            } else if (clean.includes("MB001")) {
+                const found = workbook.SheetNames.find((s) => {
+                    const sl = s.toLowerCase();
+                    return (
+                        sl.includes("mb001") ||
+                        sl.includes("nbe") ||
+                        sl.includes("balance sheet")
+                    );
+                });
+                if (found) EXPECTED_SHEET_NAME = found;
+            }
+        }
 
         const worksheet: XLSX.WorkSheet = workbook.Sheets[EXPECTED_SHEET_NAME];
         if (!worksheet) {
@@ -245,11 +270,65 @@ export async function validateTemplate(
                 cleanId.includes("LB002") ||
                 cleanId.includes("BOR_TEN_PER_LB002")
             ) {
+                const checkSheetForLB002 = (ws: XLSX.WorkSheet, sheetName: string) => {
+                    const sLower = sheetName.toLowerCase().trim();
+                    if (
+                        sLower.includes("single borrower") ||
+                        sLower.includes("lb002") ||
+                        sLower.includes("bor_ten_per") ||
+                        sLower.includes("large exposure")
+                    ) {
+                        return true;
+                    }
+                    const cols = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
+                    let hasCounterparty = false;
+                    let hasExposureOrLimit = false;
+
+                    for (let r = 1; r <= 20; r++) {
+                        for (const col of cols) {
+                            const cell = ws[`${col}${r}`];
+                            if (cell && cell.v !== undefined) {
+                                const txt = String(cell.v).toLowerCase().trim();
+                                if (
+                                    txt.includes("lb002") ||
+                                    txt.includes("bor_ten_per") ||
+                                    txt.includes("large exposure") ||
+                                    txt.includes("large exposures") ||
+                                    txt.includes("exceed ten percent") ||
+                                    txt.includes("exceeding ten percent") ||
+                                    txt.includes("single borrower")
+                                ) {
+                                    return true;
+                                }
+                                if (txt.includes("counterparty")) {
+                                    hasCounterparty = true;
+                                }
+                                if (
+                                    txt.includes("approved limit") ||
+                                    txt.includes("type of exposure") ||
+                                    txt.includes("sector of exposure") ||
+                                    txt.includes("total capital") ||
+                                    txt.includes("percent of total capital") ||
+                                    txt.includes("outstanding balance")
+                                ) {
+                                    hasExposureOrLimit = true;
+                                }
+                            }
+                        }
+                    }
+                    return hasCounterparty && hasExposureOrLimit;
+                };
+
                 const isLB002 =
                     codeA1.includes("LB002") ||
                     codeA1.includes("BOR_TEN_PER_LB002") ||
                     headerRow4.includes("large exposures") ||
-                    headerRow4.includes("exceed ten percent");
+                    headerRow4.includes("exceed ten percent") ||
+                    workbook.SheetNames.some((sName) => {
+                        const ws = workbook.Sheets[sName];
+                        return ws ? checkSheetForLB002(ws, sName) : false;
+                    });
+
                 if (!isLB002) {
                     return {
                         isValid: false,
@@ -258,12 +337,14 @@ export async function validateTemplate(
                     };
                 }
             } else if (
-                cleanId.includes("MB001") ||
-                cleanId.includes("MB001MB001")
+                cleanId.includes("MB001")
             ) {
                 const isMB001 =
                     codeA1.includes("MB001") ||
-                    headerRow4.includes("monthly balance sheet");
+                    headerRow4.includes("monthly balance sheet") ||
+                    headerRow4.includes("monthy balance sheet") ||
+                    headerRow4.includes("balance sheet") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("MB001");
                 if (!isMB001) {
                     return {
                         isValid: false,
@@ -565,6 +646,54 @@ export async function validateTemplate(
                             "This is not the exact FO002 Excel template file."
                     };
                 }
+            } else if (cleanId.includes("2C001") || cleanId.includes("QCR2C001") || cleanId.includes("CREDIT RISK")) {
+                const is2C001 =
+                    codeA1.includes("2C001") ||
+                    codeA1.includes("QCR2C001") ||
+                    headerRow4.includes("credit risk") ||
+                    headerRow4.includes("capital requirement for credit") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("CREDIT RISK") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("2C001");
+                if (!is2C001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact 2C001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("6F001") || cleanId.includes("DF001") || cleanId.includes("MFER6F001") || cleanId.includes("MARKET RISK")) {
+                const is6F001 =
+                    codeA1.includes("6F001") ||
+                    codeA1.includes("DF001") ||
+                    codeA1.includes("MFER6F001") ||
+                    headerRow4.includes("foreign exchange risk") ||
+                    headerRow4.includes("market foreign exchange") ||
+                    headerRow4.includes("capital requirement for market") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("MARKET RISK") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("6F001");
+                if (!is6F001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact 6F001 / DF001 Excel template file."
+                    };
+                }
+            } else if (cleanId.includes("5C001") || cleanId.includes("MCR5C001") || cleanId.includes("COMMODIT")) {
+                const is5C001 =
+                    codeA1.includes("5C001") ||
+                    codeA1.includes("MCR5C001") ||
+                    headerRow4.includes("commodity risk") ||
+                    headerRow4.includes("commodity position") ||
+                    headerRow4.includes("capital requirement for market commodity") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("COMMODIT") ||
+                    EXPECTED_SHEET_NAME.toUpperCase().includes("5C001");
+                if (!is5C001) {
+                    return {
+                        isValid: false,
+                        errorMessage:
+                            "This is not the exact 5C001 Excel template file."
+                    };
+                }
             }
         }
 
@@ -579,8 +708,14 @@ export async function validateTemplate(
             getCellText("A8").toLowerCase().includes("instiution") ||
             getCellText("A8").toLowerCase().includes("institution") ||
             codeA1.includes("NACNN001");
+        const isLB002Header =
+            (expectedReportId &&
+                (expectedReportId.toUpperCase().includes("LB002") ||
+                    expectedReportId.toUpperCase().includes("BOR_TEN_PER"))) ||
+            getCellText("B5").toLowerCase().includes("instiution") ||
+            getCellText("B5").toLowerCase().includes("institution");
 
-        if (!isOP001 && !isZS001 && !isNN001Header) {
+        if (!isOP001 && !isZS001 && !isNN001Header && !isLB002Header) {
             // Flexible check: ensure at least one institution code label exists
             const hasHeader = REQUIRED_CELL_CHECKS.some((check) =>
                 getCellText(check.cell).toLowerCase().includes("instiution")
